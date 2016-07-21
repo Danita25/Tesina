@@ -15,7 +15,7 @@
   <loans book="//@books.0"
       member="//@members.2"/>
   <loans book="//@books.0"
-      member="//@members.2"/>
+      member="//@members.0"/>
   <members name="m1"/>
   <members name="m2"/>
   <members name="m3"/>
