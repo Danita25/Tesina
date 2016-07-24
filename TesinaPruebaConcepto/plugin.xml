@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.ui.IEditorInput"
+            id="TesinaPruebaConcepto.contribution1"
+            nameFilter="*.ocl">
+         <menu
+               label="Traducir"
+               path="additions"
+               id="TesinaPruebaConcepto.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="Tranducir OCL a LN"
+               class="tesinapruebaconcepto.popup.actions.Traducir"
+               menubarPath="TesinaPruebaConcepto.menu1/group1"
+               enablesFor="1"
+               id="TesinaPruebaConcepto.newAction">
+         </action>
+      </objectContribution>
+    </extension>
+
+</plugin>
