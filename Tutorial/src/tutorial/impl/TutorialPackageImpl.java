@@ -395,8 +395,8 @@ public class TutorialPackageImpl extends EPackageImpl implements TutorialPackage
 		initEReference(getLibrary_Members(), this.getMember(), this.getMember_Library(), "members", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(bookEClass, Book.class, "Book", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBook_Name(), ecorePackage.getEString(), "name", null, 0, 1, Book.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBook_Copies(), ecorePackage.getEBigInteger(), "copies", null, 0, 1, Book.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBook_Name(), ecorePackage.getEString(), "name", null, 1, 1, Book.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBook_Copies(), ecorePackage.getEBigInteger(), "copies", null, 1, 1, Book.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBook_Library(), this.getLibrary(), this.getLibrary_Books(), "library", null, 0, 1, Book.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBook_Loans(), this.getLoan(), null, "loans", null, 0, -1, Book.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
@@ -488,19 +488,7 @@ public class TutorialPackageImpl extends EPackageImpl implements TutorialPackage
 			 "nullFree", "false"
 		   });	
 		addAnnotation
-		  (getLibrary_Loans(), 
-		   source, 
-		   new String[] {
-			 "nullFree", "false"
-		   });	
-		addAnnotation
 		  (getLibrary_Members(), 
-		   source, 
-		   new String[] {
-			 "nullFree", "false"
-		   });	
-		addAnnotation
-		  (getBook_Loans(), 
 		   source, 
 		   new String[] {
 			 "nullFree", "false"
@@ -531,7 +519,7 @@ public class TutorialPackageImpl extends EPackageImpl implements TutorialPackage
 		  (bookEClass, 
 		   source, 
 		   new String[] {
-			 "SufficientCopies", "\n      library.loans->select(book=self)->size() <= copies"
+			 "SufficientCopies", "\n      library?.loans->select(book=self)->size() <= copies"
 		   });	
 		addAnnotation
 		  (getBook__IsAvailable(), 
@@ -543,26 +531,26 @@ public class TutorialPackageImpl extends EPackageImpl implements TutorialPackage
 		  (getBook_Loans(), 
 		   source, 
 		   new String[] {
-			 "derivation", "library.loans->select(book=self)"
+			 "derivation", "library?.loans->select(book=self)"
 		   });	
 		addAnnotation
 		  (memberEClass, 
 		   source, 
 		   new String[] {
 			 "AtMostTwoLoans", "\n      loans->size() <= 2",
-			 "UniqueLoans", "\n      loans->isUnique(book)"
+			 "UniqueLoans", "\n      loans?->isUnique(book)"
 		   });	
 		addAnnotation
 		  (getMember_Loans(), 
 		   source, 
 		   new String[] {
-			 "derivation", "library.loans->select(member=self)"
+			 "derivation", "library?.loans->select(member=self)"
 		   });	
 		addAnnotation
 		  (getMember_Books(), 
 		   source, 
 		   new String[] {
-			 "derivation", "loans->collect(book)"
+			 "derivation", "loans?->collect(book)"
 		   });
 	}
 

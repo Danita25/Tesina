@@ -83,7 +83,6 @@ public interface Library extends EObject {
 	 * @return the value of the '<em>Loans</em>' containment reference list.
 	 * @see tutorial.TutorialPackage#getLibrary_Loans()
 	 * @model containment="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */
 	EList<Loan> getLoans();

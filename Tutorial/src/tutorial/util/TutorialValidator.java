@@ -134,7 +134,7 @@ public class TutorialValidator extends EObjectValidator {
 	 * @generated
 	 */
 	protected static final String BOOK__SUFFICIENT_COPIES__EEXPRESSION = "\n" +
-		"      library.loans->select(book=self)->size() <= copies";
+		"      library?.loans->select(book=self)->size() <= copies";
 
 	/**
 	 * Validates the SufficientCopies constraint of '<em>Book</em>'.
@@ -214,7 +214,7 @@ public class TutorialValidator extends EObjectValidator {
 	 * @generated
 	 */
 	protected static final String MEMBER__UNIQUE_LOANS__EEXPRESSION = "\n" +
-		"      loans->isUnique(book)";
+		"      loans?->isUnique(book)";
 
 	/**
 	 * Validates the UniqueLoans constraint of '<em>Member</em>'.

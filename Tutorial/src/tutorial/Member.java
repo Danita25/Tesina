@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see tutorial.TutorialPackage#getMember()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='AtMostTwoLoans UniqueLoans'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot AtMostTwoLoans='\n      loans->size() <= 2' UniqueLoans='\n      loans->isUnique(book)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot AtMostTwoLoans='\n      loans->size() <= 2' UniqueLoans='\n      loans?->isUnique(book)'"
  * @generated
  */
 public interface Member extends EObject {
@@ -93,7 +93,7 @@ public interface Member extends EObject {
 	 * @return the value of the '<em>Loans</em>' reference list.
 	 * @see tutorial.TutorialPackage#getMember_Loans()
 	 * @model volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='library.loans->select(member=self)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='library?.loans->select(member=self)'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */
@@ -111,7 +111,7 @@ public interface Member extends EObject {
 	 * @return the value of the '<em>Books</em>' reference list.
 	 * @see tutorial.TutorialPackage#getMember_Books()
 	 * @model volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='loans->collect(book)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='loans?->collect(book)'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */

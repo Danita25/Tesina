@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see tutorial.TutorialPackage#getBook()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SufficientCopies'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot SufficientCopies='\n      library.loans->select(book=self)->size() <= copies'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot SufficientCopies='\n      library?.loans->select(book=self)->size() <= copies'"
  * @generated
  */
 public interface Book extends EObject {
@@ -40,7 +40,7 @@ public interface Book extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see tutorial.TutorialPackage#getBook_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -66,7 +66,7 @@ public interface Book extends EObject {
 	 * @return the value of the '<em>Copies</em>' attribute.
 	 * @see #setCopies(BigInteger)
 	 * @see tutorial.TutorialPackage#getBook_Copies()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	BigInteger getCopies();
@@ -121,8 +121,7 @@ public interface Book extends EObject {
 	 * @return the value of the '<em>Loans</em>' reference list.
 	 * @see tutorial.TutorialPackage#getBook_Loans()
 	 * @model volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='library.loans->select(book=self)'"
-	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='library?.loans->select(book=self)'"
 	 * @generated
 	 */
 	EList<Loan> getLoans();
