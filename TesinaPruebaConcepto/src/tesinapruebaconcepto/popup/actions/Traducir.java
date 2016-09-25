@@ -2,44 +2,43 @@ package tesinapruebaconcepto.popup.actions;
 
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageRegistryImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
+import org.eclipse.ocl.xtext.base.cs2as.CS2AS;
+
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.OCLInput;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
-import org.eclipse.ocl.ecore.EcoreEnvironment;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
-import org.eclipse.ocl.examples.interpreter.console.OCLResource;
-//import org.eclipse.ocl.examples.xtext.completeocl.utilities.CompleteOCLCSResource
-//import org.eclipse.ocl.xtext.completeocl.utilities.CompleteOCLCSResource;
 import org.eclipse.ocl.expressions.OCLExpression;
+import org.eclipse.ocl.helper.OCLHelper;
+import org.eclipse.ocl.utilities.ExpressionInOCL;
+import org.eclipse.ocl.utilities.Visitor;
+import org.eclipse.ocl.xtext.completeocl.utilities.CompleteOCLCSResource;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IEditorInput;
@@ -79,13 +78,13 @@ public class Traducir implements IObjectActionDelegate {
 		
 		//Source File info
 		//String sourceFileName = sourceFile.getName().replace("."+sourceFile.getFileExtension(), "");
-		System.out.println(sourceFile.getName());
 		String ecoreFileName = sourceFile.getLocation().removeLastSegments(1).append(sourceFile.getName().replace("."+sourceFile.getFileExtension(), ".ecore")).toString();
-/*		System.out.println("Source File Name: "+sourceFileName);
-		System.out.println("Source File Location: "+sourceFile.getLocation());*/
 		System.out.println("eCore File Name: "+ecoreFileName);
-		loadOcl(sourceFile.getLocation().toString());
-
+		
+		
+	/*CompleteOCLCSResource completeOCLFile = loadOcl(sourceFile.getLocation().toString());
+		CS2AS cs2as = completeOCLFile.getCS2AS();
+*/
 		
 		//Get Active Project
 		IProject myProject = sourceFile.getProject();
@@ -149,16 +148,58 @@ public class Traducir implements IObjectActionDelegate {
 		    List<Constraint> constraints = ocl.parse(document);
 		    for (Constraint next : constraints) {
 		        constraintMap.put(next.getName(), next);
-		        
+		     //   System.out.println(next.getSpecification().getContextVariable());
 		        OCLExpression<EClassifier> body = next.getSpecification().getBodyExpression();
-		        System.out.printf("%s: %s%n", next.getName(), body);
-		    }
+		    //    System.out.printf("%s: %s%n", next.getName(), body);
+		            }
 		} finally {
 		    in.close();
 		}
+		/*
+		//Trying to process model
+		for (EClassifier c : ePackage.getEClassifiers())
+		{
+			System.out.println(c.getName());
+			System.out.println(c.getClass().toString());
+		}
+		TreeIterator itr = ePackage.eAllContents();
+		while (itr.hasNext()){
+			System.out.println(itr.next().toString());
+		}
+		*/
+//		InputStream in = null;
+		try {
+			in = file.getContents();
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		OCLInput document = new OCLInput(in);
+		 List<Constraint>  constraints =  ocl.parse(document);
+		 
+
+		for (Constraint c : constraints)
+		{ 
+			Visitor v = new StringTraducirVisitor();
+			System.out.println("Spec es " + c.getSpecification().accept(v));
+/*			ExpressionInOCL<EClassifier, EParameter> expr = c.getSpecification();
+			System.out.println("Context => "+expr.getContextVariable());
+			System.out.println("Body => "+expr.getBodyExpression());
+			System.out.println("Result => "+expr.getResultVariable());
+			System.out.println("Generted Type => "+expr.getGeneratedType());
+			System.out.println("Parameter => "+expr.getParameterVariable());
+			System.out.println("Body Expression Type => "+expr.getBodyExpression().getType());
+			System.out.println(c.eClass()); //Constraint
+			ExpressionInOCL e = (ExpressionInOCL) c; //Expression in OCL
+			e.getBodyExpression(); //OclExpression
+*/		}
+/*        //Creando un helper
+        OCLHelper helper = ocl.createOCLHelper();
+        ocl.*/
 	}
 
-	private void loadOcl(String oclFileName) {
+	private CompleteOCLCSResource loadOcl(String oclFileName) {
 		// Create a resource set. 
 		ResourceSet resourceSet = new ResourceSetImpl(); 
 
@@ -171,9 +212,9 @@ public class Traducir implements IObjectActionDelegate {
 
 		// Demand load the resource for this file. 
 		Resource resource = resourceSet.getResource(fileURI, true); 
- 
+        
 		// Print the contents of the resource to System.out. 
-		//return (CompleteOCLCSResource) resource;
+		return (CompleteOCLCSResource) resource;
 	}
 	
 	private EPackage loadPackage(String ecoreFileName) {
