@@ -1,0 +1,45 @@
+import '../model/Biblioteca.ecore'
+
+package Biblioteca
+
+context Libro 
+	inv tieneTitulo: 
+		titulo <> ''
+
+	inv tieneAutor:
+		 autor <> null	
+	
+	inv alMenosUnaCopia: 
+		copias->notEmpty() --at least 1 copy
+	
+
+context Prestamo 
+	inv invariant_1 : 
+		fechaFin > fechaInicio
+
+	inv invariant_2 : 
+		fechaDeDevolucion > fechaInicio
+
+	inv soloCopiasEnBuenEstado :
+		ejemplar.estado = 'Bueno'  --Ver si se lo puede hacer andar con un Enumerativo
+
+context Multa
+	inv fechasValidas: fechaFin > fechaInicio
+
+	inv: fechaInicio > prestamo.fechaFin and prestamo.fechaDeDevolucion > prestamo.fechaFin --Tips recomiendan dividir este inv en dos. 
+
+context Socio
+	inv mayor18: edad > 18
+	
+
+context Socio::solicitarEjemplar(numeroDeCopia:Integer):Prestamo
+	pre pre1: multas->isEmpty()
+	pre pre2: prestamos->size() < 3
+	post: prestamos->size() > prestamos->size()@pre  --solo un ejemplo del uso del @pre no se si lo vamos a implementar
+	
+--Date representada como Integer investigar como pasar EDates y usarlos
+context Socio::devolverEjemplar(numeroDeCopia:Integer, fechaActual:Integer):Prestamo 
+	pre: prestamos->notEmpty()
+	body: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia and p.fechaFin < fechaActual).fechaDeDevolucion = fechaActual
+	post: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia).fechaDeDevolucion = fechaActual
+endpackage
