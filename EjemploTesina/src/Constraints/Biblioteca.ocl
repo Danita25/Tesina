@@ -4,21 +4,21 @@ package Biblioteca
 
 context Libro 
 	inv tieneTitulo: self.titulo <> ''
-	inv tieneEditorial: self.editorial<>''
-	inv tieneAnioDeEdicion: self.anioDeEdicion <> ''
+--	inv tieneEditorial: self.editorial<>''
+--	inv tieneAnioDeEdicion: self.anioDeEdicion <> ''
 	inv tieneTipo: self.tipo <> null	
 	inv tieneAutor: self.autor <> null	
 	inv alMenosUnaCopia : copias->notEmpty() --at least 1 copy
 	
 context Copia 
-	inv numeroCopiaValida: self.numeroDeCopia>0
-	inv tieneEstado: self.estado <> null
+	inv numeroCopiaValida: self.numeroDeCopia > 0
+--	inv tieneEstado: self.estado <> null    --Ver si le podes agregar un estado por default ('Bueno') asi no es necesario preguntar por <> null
 
 context Prestamo 
 	inv tieneFechaInicio : self.fechaInicio<>null
-	inv tieneFechaFin : self.fechaFin<>null
-	inv tieneEjemplar : self.ejemplar<>null
-	inv tieneSolicitante : self.solicitante<>null
+--	inv tieneFechaFin : self.fechaFin<>null
+--	inv tieneEjemplar : self.ejemplar<>null
+	inv tieneSolicitante : self.solicitante<>null   --Cuando la propiedad es una coleccion podes preguntar notEmpty()
 	inv fechasSolicitudValidas : 
 		self.fechaFin.isAfter(fechaInicio)
 
@@ -26,43 +26,44 @@ context Prestamo
 		self.fechaDeDevolucion.isAfter(fechaInicio) and self.fechaDeDevolucion.isBefore(fechaFin) --habria que ver que pasa cuando todavia no hay fecha de devolucion
 
 	inv soloCopiasEnBuenEstado :
-		ejemplar.estado = 'Bueno'  --Ver si se lo puede hacer andar con un Enumerativo
+		ejemplar.estado = 'Bueno'  --Fijate si podes generar EstadoDeLaCopia como un enumerativo y usarlo en vez de tener Strings, lo mismo para TipoDeLibro. Hay ejemplos de esto en los pdf o busca online porque yo vi algunos.
 
 context Multa
 	inv fechasValidas: self.fechaFin.isAfter(fechaInicio)
-
-	--cambio la comparacion primera. Tambien lo abro en dos solo porque lo proponias.
-	--inv: fechaInicio > prestamo.fechaFin and prestamo.fechaDeDevolucion > prestamo.fechaFin --Tips recomiendan dividir este inv en dos. 
-	inv: self.fechaInicio.isBefore(fechaFin)--Tips recomiendan dividir este inv en dos. 
-	inv prestamosVencidos:prestamo.fechaDeDevolucion.isAfter (fechaFin) 
+	inv: self.fechaInicio.isBefore(fechaFin)
+--	inv prestamosVencidos:prestamo.fechaDeDevolucion.isAfter (fechaFin) -- no se que paso con el Git pero no me muestra los cambios, me muestra como que cambiaste todo 
+--el archivo asi que no puedo ver quien agrego este invariante pero esta mal o no lo entiendo. Prestamo es solo un objeto asociado con esta multa y si la multa existe 
+--es porque el prestamos esta vencido asi que este invariante es siempre true. 
 
 context Socio	
-	inv tieneNumeroSocio: self.numeroDeSocio<>''
-	inv tieneDireccion: self.direccion<>''
-	inv tieneEdad: self.edad<>''
+	inv tieneNumeroSocio: self.numeroDeSocio<>''  -- Porque para numero de socio lo hiciste <> '' y para numero de copia lo hiciste > 0? Numero de socio es un Int.
+--	inv tieneDireccion: self.direccion<>''
+--	inv tieneEdad: self.edad<>''                     --Para edad con preguntar que sea > 0 alcanza. De nuevo es un Int no un String asi que no podes preguntar <> ''.
 	inv tieneFechaDeNacimiento:self.fechaDeNacimiento<>null
 	inv tieneNombreCompleto: self.nombreCompleto<>''
-	inv mayorEdad: edad > 18
+	inv mayorEdad: edad > 18   -- Si tenes un invariante que fuerza a que edad sea > 18 el invariante anterior edad <> '' no tiene sentido ya que estas cubierta 
+	--con este invariante.  Usa uno o el otro no los 2.
+	
 	
 
 context Socio::solicitarEjemplar(numeroDeCopia:Integer):Prestamo
 	pre pre1: multas->isEmpty()
 	pre pre2: prestamos->size() < 3
-	--Lo comente porque me rompia
-	--post: prestamos->size() > prestamos->size()@pre  --solo un ejemplo del uso del @pre no se si lo vamos a implementar 
+	post: prestamos->size() > prestamos->size()@pre  --solo un ejemplo del uso del @pre no se si lo vamos a implementar 
 	
 --Date representada como Integer investigar como pasar EDates y usarlos
-context Socio::devolverEjemplar(numeroDeCopia:Integer, fechaActual : Date):Prestamo 
+context Socio::devolverEjemplar(numeroDeCopia:Integer, fechaActual :Date):Prestamo 
 	pre: prestamos->notEmpty()
 	body: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia and p.fechaFin.isBefore(fechaActual)).fechaDeDevolucion = fechaActual
 	post: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia).fechaDeDevolucion = fechaActual
 
 context Autor
 	inv tieneNombre: self.nombre<>''
-	inv tieneNacionalidad: self.nacionalidad<>''
-	inv tieneFechaNacimiento: self.fechaDeNacimiento<>''
+--	inv tieneNacionalidad: self.nacionalidad<>''
+--	inv tieneFechaNacimiento: self.fechaDeNacimiento<>''
 	inv poseeObras: obras->notEmpty()
-	
+
+--Convertir los dos de abajo a enumerativos en cuyo caso no necesitamos los invariantes.	
 context TipoDeLibro
 	inv tieneTipo: self.tipo<>''
 	
