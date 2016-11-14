@@ -132,8 +132,4 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="month" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Tipo">
-    <eLiterals name="femenino"/>
-    <eLiterals name="masculino" value="1"/>
-  </eClassifiers>
 </ecore:EPackage>
