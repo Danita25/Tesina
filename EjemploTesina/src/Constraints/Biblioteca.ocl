@@ -45,7 +45,7 @@ context Socio
 	inv tieneNumeroSocio: self.numeroDeSocio>0
 	inv tieneFechaDeNacimiento:self.fechaDeNacimiento<>null
 	inv tieneNombreCompleto: self.nombreCompleto<>''
-	--inv mayorEdad: edad > 18  
+	inv mayorEdad: edad > 18  
 	
 	--prestamos sin devolver. Aca podriamos pensar algo mas copado tipo que ya esten vencidos no? habria que ver de comparar con la fecha actual
 	inv devolucionesPendientes: self.prestamos->select(fechaDeDevolucion=null) ->notEmpty()
