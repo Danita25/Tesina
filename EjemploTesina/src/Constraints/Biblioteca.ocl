@@ -14,9 +14,13 @@ context Libro
 	inv tieneTipo: self.tipo <> null	
 	inv tieneAutor: self.autor <> null	
 	inv alMenosUnaCopia : copias->notEmpty()
-	inv opcionesLibro: Libro.allInstances()->forAll(l1,l2|l1<>l2 and l1.autor<>l2.autor implies l1.titulo<>l2.titulo)
+	inv opcionesLibro: Libro.allInstances()->forAll(l1,l2|l1<>l2 and l1.autor<>l2.autor implies l1.titulo<>l2.titulo) --esta es media pedorra no? la podemos sacar
 	--los prestamos que contienen el libro
-	def: prestamo : Prestamo = Prestamo.allInstances()->any(ejemplar->includes(self))
+	def: historialPrestamosLibro : Prestamo = Prestamo.allInstances()->any(ejemplar->includes(self))
+	
+	inv suficientesCopias: (Prestamo.allInstances()->select(p1| p1.fechaDeDevolucion=null and p1.ejemplar=self))->size()<= copias->size() 
+	
+	
 
 context Copia 
 	inv numeroCopiaValida: self.numeroDeCopia > 0
@@ -50,7 +54,7 @@ context Socio
 	--prestamos sin devolver. Aca podriamos pensar algo mas copado tipo que ya esten vencidos no? habria que ver de comparar con la fecha actual
 	inv devolucionesPendientes: self.prestamos->select(fechaDeDevolucion=null) ->notEmpty()
 
-	inv prestamosActivos: let prestamos:Boolean = (self.prestamos->forAll(p1| p1.fechaDeDevolucion=null))->size()<3 in
+	inv prestamosActivos: let prestamos:Boolean = (self.prestamos->select(p1| p1.fechaDeDevolucion=null))->size()<3 in
 	if prestamos then 
 		true
 	 else false
@@ -60,6 +64,9 @@ context Socio::devolverEjemplar(numeroDeCopia:Integer, fechaActual :Date):Presta
 	body: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia and p.fechaFin.isBefore(fechaActual)).fechaDeDevolucion = fechaActual
 	post: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia).fechaDeDevolucion = fechaActual
 	
+
+--context Socio::existeSocio(nombreSocio:String):Boolean
+--	inv existeSocio: Socio.allInstances()->exists(nombreCompleto=nombreSocio)esta mal es solo para recordar que podemos usar exists,
 
 --para asegurar id de socio unico
 context Socio::numeroDeSocio : String init:
@@ -71,8 +78,8 @@ context Autor
 	inv poseeObras: obras->notEmpty()
 
 context Socio::solicitarEjemplar(numeroDeCopia:Integer):Prestamo
-	pre pre1: (self.multas->forAll(m1| m1.fechaFin=null))->size()=0 
-	pre pre2: (self.prestamos->forAll(p1| p1.fechaDeDevolucion=null))->size()<3
-	--post post1: self.prestamos->size() > self.prestamos->size()@pre--solo un ejemplo del uso del @pre no se si lo vamos a implementar 
+	pre noPoseeMultas: self.multas->forAll(m1| m1.fechaFin<>null)
+	pre poseeLimiteXPrestamo: (self.prestamos->select(p1| p1.fechaDeDevolucion=null))->size()<3
+	post post1: self.prestamos->size() > self.prestamos->size()--@pre--solo un ejemplo del uso del @pre no se si lo vamos a implementar 
 	
 endpackage

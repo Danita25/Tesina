@@ -50,6 +50,9 @@
         eType="#//Libro"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Socio">
+    <eOperations name="existeSocio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eParameters name="nombreSocio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eOperations name="solicitarEjemplar" lowerBound="1" eType="#//Prestamo">
       <eParameters name="numeroDeCopia" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
