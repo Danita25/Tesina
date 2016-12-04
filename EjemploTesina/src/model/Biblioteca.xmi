@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Biblioteca:Biblioteca
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:Biblioteca="http://www.eclipse.org/ocl/examples/Biblioteca.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/ocl/examples/Biblioteca.ecore Biblioteca.ecore">
+  <libros codigo="1"
+      titulo="El resplandor"
+      editorial="Doubleday"
+      anioDeEdicion="1977"
+      copias="3"
+      tipoLibro="Terror"
+      activo="true"
+      autor="//@autores.0"/>
+  <libros codigo="2"
+      titulo="Hija de La fortuna"
+      editorial="Plaza Janes"
+      anioDeEdicion="1998"
+      copias="2"
+      tipoLibro="Narrativo"
+      activo="true"
+      autor="//@autores.1"/>
+  <autores nombreCompleto="Stephen Edwin King"
+      nacionalidad="estadounidense"
+      fechaDeNacimiento="1947-09-21T00:00:00.000-0300"
+      obras="//@libros.0"/>
+  <autores nombreCompleto="Isabel Allende"
+      nacionalidad="chilena"
+      fechaDeNacimiento="1942-08-02T00:00:00.000-0300"
+      obras="//@libros.1"/>
+  <socios numeroSocio="1"
+      nombreCompleto="Juan Perez"
+      telefono="221153487659"
+      direccion="Calle 50"
+      edad="20"/>
+  <socios numeroSocio="2"
+      nombreCompleto="Maria Perez"
+      telefono="221154323123"
+      direccion="Calle 34"
+      edad="32"/>
+  <prestamos
+      fechaInicio="2016-12-20T00:00:00.000-0300"
+      fechaFin="2016-12-30T00:00:00.000-0300"
+      libro="//@libros.0"
+      socio="//@socios.0"/>
+  <prestamos
+      fechaInicio="2016-10-01T00:00:00.000-0300"
+      fechaFin="2016-10-20T00:00:00.000-0300"
+      libro="//@libros.1"
+      socio="//@socios.1"/>
+</Biblioteca:Biblioteca>

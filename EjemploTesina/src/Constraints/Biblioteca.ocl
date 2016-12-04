@@ -1,88 +1,80 @@
-import '../model/Biblioteca.ecore'
+import Biblioteca: '../model/Biblioteca.ecore'
 
 package Biblioteca
 
 context Biblioteca
-
---busca todos los libros con ese titulo
-def: getLibros(titulo : String) : Set(Libro) = 
-	libros->select(l | l.titulo = titulo)->asSet()
-
-
+	inv poseeDireccion: direccion<>''
+	inv poseeLibros: libros->select(l| l.activo=true)->notEmpty()
+	inv librosNoRepetidos: libros->forAll(l1,l2|l1<>l2 and l1.autor=l2.autor implies l1.titulo<>l2.titulo) 
+	inv autoresNoRepetidos: autores->forAll(a1,a2|a1<>a2 implies a1.nombreCompleto<>a2.nombreCompleto) 
+	
 context Libro 
-	inv tieneTitulo: self.titulo <> ''
-	inv tieneTipo: self.tipo <> null	
-	inv tieneAutor: self.autor <> null	
-	inv alMenosUnaCopia : copias->notEmpty()
-	inv opcionesLibro: Libro.allInstances()->forAll(l1,l2|l1<>l2 and l1.autor<>l2.autor implies l1.titulo<>l2.titulo)
-	--los prestamos que contienen el libro
-	def: prestamo : Prestamo = Prestamo.allInstances()->any(ejemplar->includes(self))
-
-context Copia 
-	inv numeroCopiaValida: self.numeroDeCopia > 0
+	inv poseeCopias: copias>0
+	inv tieneAutor: autor <> null	
+	inv suficientesCopias: (Prestamo.allInstances()->select(p1| p1.fechaDeDevolucion=null and p1.libro=self))->size()<= copias
+	
 
 context Prestamo 
-	inv tieneFechaInicio : self.fechaInicio<>null
-	inv tieneSolicitante : self.solicitante<>null  
+	inv tieneFechaInicio : fechaInicio<>null
+	inv tieneFechaFin : fechaFin<>null
+	inv tieneSocio : socio<>null  
+	inv tieneLibro : libro<>null
+--	inv fechaValidas: fechaInicio<=fechaFin
 	inv fechasSolicitudValidas : 
-		self.fechaFin.isAfter(fechaInicio)
-	--tal vez podemos pensarlo con una precondicion, indicando que es valida solo ara aquellas con fechaDeDevolucion<>null
-	inv fechaDevolucionValida : 
-		if(self.fechaDeDevolucion<>null)then
-			self.fechaDeDevolucion.isAfter(fechaInicio) and self.fechaDeDevolucion.isBefore(fechaFin)
+		if(fechaInicio<>null and fechaFin<>null)then
+				fechaInicio<=fechaFin
 		else
 			true
 		endif
 		
-	inv soloCopiasEnBuenEstado :
-		ejemplar.estado = EstadoDeLaCopia::Bueno
-		
-		
-		--inv realizarPrestamo : prestamosActivos 
-
+	
 context Multa
-	inv fechasValidas: self.fechaFin.isAfter(fechaInicio)
-	inv: self.fechaInicio.isBefore(fechaFin)
-
+	inv tienePrestamo:prestamo<>null
+	inv fechaInicio : fechaInicio<>null
+	
+	
 context Socio	
-	inv tieneNumeroSocio: self.numeroDeSocio>0
---	inv tieneDireccion: self.direccion<>''
-	inv tieneFechaDeNacimiento:self.fechaDeNacimiento<>null
-	inv tieneNombreCompleto: self.nombreCompleto<>''
+	--Obtener todos los prestamos del socio activos y no activos
+	def: getAllPrestamosSocio() : Set(Prestamo) = Prestamo.allInstances()->select(p| p.socio=self)->asSet()
+	--Obtener todos las multas del socio activas y no activas ordenadas.
+	def:getAllMultas() : OrderedSet(Multa) = Multa.allInstances()->select(m|m.prestamo.socio=self)->asOrderedSet()
 	inv mayorEdad: edad > 18  
-	
-	--prestamos sin devolver. Aca podriamos pensar algo mas copado tipo que ya esten vencidos no? habria que ver de comparar con la fecha actual
-	inv devolucionesPendientes: self.prestamos->select(fechaDeDevolucion=null) ->notEmpty()
+	inv tieneNumeroSocio: numeroSocio>0
+	inv tieneNombreCompleto: nombreCompleto<>''
+	--el socio al menos tiene que haber realizo un prestamo, sino no existe el socio
+	inv poseePrestamo:getAllPrestamosSocio()->size()>0
+	inv prestamosActivos: let prestamos:Boolean = (getAllPrestamosSocio()->select(p1| p1.fechaDeDevolucion=null))->size()<=3 in
+	if prestamos then 
+		true
+	 else 
+	 	false
+	 endif
 
--- no me reconoce el let, si podes decomenta esto y proba a ver si a vos te funciona.
- 	inv noMasDe3PrestamosActivos: 
- 		let prestamosActivos : Integer = self.prestamos->size() in 
- 	    if prestamosActivos > 3 then false
- 	    else true
- 	    endif
-	
+context Socio::devolverEjemplar(codigo:Integer, fechaActual :ecore::EDate) : Prestamo
+	pre: Prestamo.allInstances()->select(p1| p1.fechaDeDevolucion=null and p1.socio=self)->notEmpty()
+	post: Prestamo.allInstances()->select( p | p.libro.codigo = codigo and p.socio=self and p.fechaDeDevolucion=null).fechaDeDevolucion = fechaActual
 	
 
-
-context Socio::solicitarEjemplar(numeroDeCopia:Integer):Prestamo
-	pre pre1: multas->isEmpty()
-	pre pre2: prestamos->size() < 3
-	post: prestamos->size() > prestamos->size()@pre --solo un ejemplo del uso del @pre no se si lo vamos a implementar 
-	
-context Socio::devolverEjemplar(numeroDeCopia:Integer, fechaActual :Date):Prestamo 
-	pre: prestamos->notEmpty()
-	body: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia and p.fechaFin.isBefore(fechaActual)).fechaDeDevolucion = fechaActual
-	post: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia).fechaDeDevolucion = fechaActual
-	
+context Socio::existeSocio(numeroDeSocio:String):Boolean
+	body: Socio.allInstances()->exists(numeroDeSocio=numeroDeSocio)
 
 --para asegurar id de socio unico
-context Socio::numeroDeSocio : String init:
+context Socio::numeroSocio : String init:
 	Socio::uniqueID()
+
+context Libro::codigo : String init:
+	Libro::uniqueID()
 	
 
 context Autor
-	inv tieneNombre: self.nombre<>''
-	inv poseeObras: obras->notEmpty()
+	inv tieneNombre: nombreCompleto<>''
+	inv poseeObras: not obras->isEmpty()
 
 
+context Socio::solicitarEjemplar(libro:Libro):Prestamo
+	pre noPoseeMultas: getAllMultas()->select(m| m.fechaFin=null)->isEmpty()
+	pre poseeLimiteXPrestamo: (getAllPrestamosSocio()->select(p1| p1.fechaDeDevolucion=null))->size()<3
+	pre libroActivo: libro.activo
+	pre libroDisponible: (Prestamo.allInstances()->select(p|p.fechaDeDevolucion=null and p.libro=libro)->size()<libro.copias)
+	post prestamosPost: getAllPrestamosSocio()->size() > getAllPrestamosSocio()->size()@pre
 endpackage
