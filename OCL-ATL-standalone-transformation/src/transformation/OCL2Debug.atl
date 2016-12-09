@@ -1,0 +1,138 @@
+-- @nsURI OCL=http://www.eclipse.org/ocl/2015/Pivot
+
+
+module OCL2Debug;
+create OUT: ECORE from IN: OCL;
+
+uses strings;
+-------------------------------------------------------------------------------
+-- HELPERS --------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+-- HELPER: getPackageName
+-- Returns name of the first package defined
+-- OUT:		String
+helper def: getPackageName : String = 
+	 thisModule.removePrefix( OCL!Model.allInstances().first().ownedPackages.first().toString());
+ 
+-- HELPER: removePrefix
+-- Returns string after removing IN! prefix if exists.
+-- OUT:		String
+helper def: removePrefix (str: String) : String = 
+	if str.startsWith('IN!') then
+		str.substring(4, str.size())
+	else
+		str
+	endif;
+
+	
+-------------------------------------------------------------------------------
+-- RULES ----------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+rule Model2Debug {
+	from 
+		s: OCL!Model
+	to 
+--		t: ECORE!EClass (
+--				name <- s.name.debug('Model'),
+--				name <- s.externalURI.debug('External URI'),
+--				--name <- s.ownedPackages.first().name.debug('Package'),
+--				name <- thisModule.getPackageName.debug('Package')
+--		), 
+		t2: ECORE!EPackage (
+			name <- thisModule.getPackageName	
+		)
+}
+
+--Classes filter only the ones that correspond to Ecore package so it does not display DataTypes classes.
+rule Class2Debug {
+	from
+		s: OCL!Class ( s.refImmediateComposite().name = thisModule.getPackageName ) 
+	to
+		t: ECORE!EClass (
+
+				name <- s.refImmediateComposite().oclIsTypeOf(OCL!Package).toString().debug('Parent is Package'),
+				name <- s.refImmediateComposite().name.debug('Package Name'),
+				name <- s.name.debug('Class')
+
+		)
+		,
+		t2: ECORE!EAttribute (
+			name <- if not s.ownedInvariants.oclIsUndefined() then
+						'Constraints'
+					else 
+						OclUndefined
+					endif,
+			upperBound <- if not s.ownedInvariants.oclIsUndefined() then -1
+						  else 
+								OclUndefined
+						  endif, 
+			defaultValueLiteral <-  if s.ownedInvariants.notEmpty() then
+										s.ownedInvariants->iterate(i; res : String = '' | res.concat(' '+thisModule.removePrefix(i.toString())))
+
+						  			else 
+										''
+						  			endif
+			)					
+
+}
+
+--rule Invariant2Attribute {
+--	from 
+--		s: OCL!Invariant 
+--	to
+--		t: ECORE!EAttribute (
+--				
+--		)
+--}
+--
+--rule Variable2Debug {
+--	from
+--		s: OCL!Variable
+--	to
+--		t: ECORE!EClass (
+--			name <- s.debug('Variable: ').type.debug('Variable type: ' + s.type.
+--					oclType()).name.debug('Variable type name: ')
+--		)
+--}
+--
+--rule OperationCallExp2Debug {
+--	from
+--		s: OCL!OperationCallExp
+--	to
+--		t: ECORE!EClass (
+--			name <- s.debug('OperationCallExp: ').type.debug('Variable type: ' + s.type.
+--					oclType()).name.debug('Variable type name: '),
+--			name <- s.debug('body').referredOperation
+--		)
+--}
+--
+--rule PropertyCallExp2Debug {
+--	from
+--		s: OCL!PropertyCallExp
+--	to
+--		t: ECORE!EClass (
+--			name <- s.debug('PropertyCallExp name: ').referredProperty.name
+--		)
+--}
+--
+--rule ExpressionInOCL2Debug {
+--	from
+--		s: OCL!ExpressionInOCL
+--	to
+--		t: ECORE!EClass (
+--			name <- s.debug('ExpressionInOCL: ').body
+--		)
+--}
+--
+--rule IntegerLiteralExp2Debug {
+--	from
+--		s: OCL!IntegerLiteralExp (
+--			s.oclIsTypeOf(OCL!IntegerLiteralExp)
+--		)
+--	to
+--		t: ECORE!EClass (
+--			name <- s.debug('IntegerLiteralExp: ').integerSymbol.toString()
+--		)
+--}
