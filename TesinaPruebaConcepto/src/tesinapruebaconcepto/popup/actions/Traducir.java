@@ -178,11 +178,11 @@ public class Traducir implements IObjectActionDelegate {
 		OCLInput document = new OCLInput(in);
 		 List<Constraint>  constraints =  ocl.parse(document);
 		 
-
+		Visitor v = new StringTraducirVisitor();
 		for (Constraint c : constraints)
 		{ 
-			Visitor v = new StringTraducirVisitor();
-			System.out.println("Spec es " + c.getSpecification().accept(v));
+			c.getSpecification().accept(v);
+			//System.out.println("Spec es " + c.getSpecification().accept(v));
 /*			ExpressionInOCL<EClassifier, EParameter> expr = c.getSpecification();
 			System.out.println("Context => "+expr.getContextVariable());
 			System.out.println("Body => "+expr.getBodyExpression());
