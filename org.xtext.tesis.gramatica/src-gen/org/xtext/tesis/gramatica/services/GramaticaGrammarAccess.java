@@ -241,7 +241,13 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAtributoAtributoParserRuleCall_17_1_1_0 = (RuleCall)cAtributoAssignment_17_1_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_18 = (Keyword)cGroup.eContents().get(18);
 		
-		//Compleja:
+		/// **
+		// * Considere que la constraint se divide en tres partes:
+		// * parte1->parte2->parte3
+		// * parte1-> se refiere a clase/coleccion y el contexto donde esta esta definida.
+		// * parte2->aplicamos una operacion para obtener un subconjunto aplicando alguna condicion (el resultado podria ser toda la coleccion)
+		// * parte3->aplicamos una condicion/operacion que esperamos que se cumpla sobre el subconjunto que obtuvimos en la parte2
+		// * / Compleja:
 		//	'Para todos/as' atributo=Clase 'de' 'un/una' contexto=Clase 'tal que'
 		//	'(' ('seleccionamos' | 'para todos' | 'existe') 'Los/Las' atributo=Clase 'donde' atributo=Atributo ('mayor que' |
 		//	'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') (literal=Literal |
@@ -420,6 +426,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
+		////No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
 		//Atributo:
 		//	'Coleccion de'? name=ID;
 		@Override public ParserRule getRule() { return rule; }
@@ -559,7 +566,13 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		return getSimpleAccess().getRule();
 	}
 	
-	//Compleja:
+	/// **
+	// * Considere que la constraint se divide en tres partes:
+	// * parte1->parte2->parte3
+	// * parte1-> se refiere a clase/coleccion y el contexto donde esta esta definida.
+	// * parte2->aplicamos una operacion para obtener un subconjunto aplicando alguna condicion (el resultado podria ser toda la coleccion)
+	// * parte3->aplicamos una condicion/operacion que esperamos que se cumpla sobre el subconjunto que obtuvimos en la parte2
+	// * / Compleja:
 	//	'Para todos/as' atributo=Clase 'de' 'un/una' contexto=Clase 'tal que'
 	//	'(' ('seleccionamos' | 'para todos' | 'existe') 'Los/Las' atributo=Clase 'donde' atributo=Atributo ('mayor que' |
 	//	'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') (literal=Literal |
@@ -573,6 +586,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		return getComplejaAccess().getRule();
 	}
 	
+	////No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
 	//Atributo:
 	//	'Coleccion de'? name=ID;
 	public AtributoElements getAtributoAccess() {
