@@ -11,7 +11,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.tesis.gramatica.gramatica.Clase;
 import org.xtext.tesis.gramatica.gramatica.Compleja;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
 
@@ -24,11 +26,13 @@ import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getAtributo <em>Atributo</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getContexto <em>Contexto</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getLiteral <em>Literal</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ComplejaImpl extends OracionImpl implements Compleja
+public class ComplejaImpl extends MinimalEObjectImpl.Container implements Compleja
 {
   /**
    * The cached value of the '{@link #getAtributo() <em>Atributo</em>}' containment reference.
@@ -39,6 +43,36 @@ public class ComplejaImpl extends OracionImpl implements Compleja
    * @ordered
    */
   protected EObject atributo;
+
+  /**
+   * The cached value of the '{@link #getContexto() <em>Contexto</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContexto()
+   * @generated
+   * @ordered
+   */
+  protected Clase contexto;
+
+  /**
+   * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLiteral()
+   * @generated
+   * @ordered
+   */
+  protected static final String LITERAL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLiteral()
+   * @generated
+   * @ordered
+   */
+  protected String literal = LITERAL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,6 +148,77 @@ public class ComplejaImpl extends OracionImpl implements Compleja
    * <!-- end-user-doc -->
    * @generated
    */
+  public Clase getContexto()
+  {
+    return contexto;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetContexto(Clase newContexto, NotificationChain msgs)
+  {
+    Clase oldContexto = contexto;
+    contexto = newContexto;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CONTEXTO, oldContexto, newContexto);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setContexto(Clase newContexto)
+  {
+    if (newContexto != contexto)
+    {
+      NotificationChain msgs = null;
+      if (contexto != null)
+        msgs = ((InternalEObject)contexto).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CONTEXTO, null, msgs);
+      if (newContexto != null)
+        msgs = ((InternalEObject)newContexto).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CONTEXTO, null, msgs);
+      msgs = basicSetContexto(newContexto, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CONTEXTO, newContexto, newContexto));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLiteral()
+  {
+    return literal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLiteral(String newLiteral)
+  {
+    String oldLiteral = literal;
+    literal = newLiteral;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__LITERAL, oldLiteral, literal));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -121,6 +226,8 @@ public class ComplejaImpl extends OracionImpl implements Compleja
     {
       case GramaticaPackage.COMPLEJA__ATRIBUTO:
         return basicSetAtributo(null, msgs);
+      case GramaticaPackage.COMPLEJA__CONTEXTO:
+        return basicSetContexto(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,6 +244,10 @@ public class ComplejaImpl extends OracionImpl implements Compleja
     {
       case GramaticaPackage.COMPLEJA__ATRIBUTO:
         return getAtributo();
+      case GramaticaPackage.COMPLEJA__CONTEXTO:
+        return getContexto();
+      case GramaticaPackage.COMPLEJA__LITERAL:
+        return getLiteral();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,6 +264,12 @@ public class ComplejaImpl extends OracionImpl implements Compleja
     {
       case GramaticaPackage.COMPLEJA__ATRIBUTO:
         setAtributo((EObject)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__CONTEXTO:
+        setContexto((Clase)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__LITERAL:
+        setLiteral((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,6 +288,12 @@ public class ComplejaImpl extends OracionImpl implements Compleja
       case GramaticaPackage.COMPLEJA__ATRIBUTO:
         setAtributo((EObject)null);
         return;
+      case GramaticaPackage.COMPLEJA__CONTEXTO:
+        setContexto((Clase)null);
+        return;
+      case GramaticaPackage.COMPLEJA__LITERAL:
+        setLiteral(LITERAL_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -187,8 +310,29 @@ public class ComplejaImpl extends OracionImpl implements Compleja
     {
       case GramaticaPackage.COMPLEJA__ATRIBUTO:
         return atributo != null;
+      case GramaticaPackage.COMPLEJA__CONTEXTO:
+        return contexto != null;
+      case GramaticaPackage.COMPLEJA__LITERAL:
+        return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (literal: ");
+    result.append(literal);
+    result.append(')');
+    return result.toString();
   }
 
 } //ComplejaImpl

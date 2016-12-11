@@ -10,13 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Oracion</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Oracion#getContexto <em>Contexto</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Oracion#getLiteral <em>Literal</em>}</li>
- * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getOracion()
  * @model
@@ -24,56 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Oracion extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Contexto</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Contexto</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Contexto</em>' containment reference.
-   * @see #setContexto(Clase)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getOracion_Contexto()
-   * @model containment="true"
-   * @generated
-   */
-  Clase getContexto();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Oracion#getContexto <em>Contexto</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Contexto</em>' containment reference.
-   * @see #getContexto()
-   * @generated
-   */
-  void setContexto(Clase value);
-
-  /**
-   * Returns the value of the '<em><b>Literal</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Literal</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Literal</em>' attribute.
-   * @see #setLiteral(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getOracion_Literal()
-   * @model
-   * @generated
-   */
-  String getLiteral();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Oracion#getLiteral <em>Literal</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Literal</em>' attribute.
-   * @see #getLiteral()
-   * @generated
-   */
-  void setLiteral(String value);
-
 } // Oracion

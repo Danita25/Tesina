@@ -73,10 +73,10 @@ public class GramaticaSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case GramaticaPackage.GRAMATICA:
+      case GramaticaPackage.DOCUMENTO:
       {
-        Gramatica gramatica = (Gramatica)theEObject;
-        T result = caseGramatica(gramatica);
+        Documento documento = (Documento)theEObject;
+        T result = caseDocumento(documento);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -95,11 +95,10 @@ public class GramaticaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GramaticaPackage.COMPLEJA:
+      case GramaticaPackage.DETERMINANTE:
       {
-        Compleja compleja = (Compleja)theEObject;
-        T result = caseCompleja(compleja);
-        if (result == null) result = caseOracion(compleja);
+        Determinante determinante = (Determinante)theEObject;
+        T result = caseDeterminante(determinante);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -110,10 +109,52 @@ public class GramaticaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GramaticaPackage.SINTAGMA_PREPOSICIONAL:
+      {
+        SintagmaPreposicional sintagmaPreposicional = (SintagmaPreposicional)theEObject;
+        T result = caseSintagmaPreposicional(sintagmaPreposicional);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.OBLIGACION:
+      {
+        Obligacion obligacion = (Obligacion)theEObject;
+        T result = caseObligacion(obligacion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.OBLIGACION_DEBER:
+      {
+        ObligacionDeber obligacionDeber = (ObligacionDeber)theEObject;
+        T result = caseObligacionDeber(obligacionDeber);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.NEGACION:
+      {
+        Negacion negacion = (Negacion)theEObject;
+        T result = caseNegacion(negacion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.OPERACION:
+      {
+        Operacion operacion = (Operacion)theEObject;
+        T result = caseOperacion(operacion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GramaticaPackage.CLASE:
       {
         Clase clase = (Clase)theEObject;
         T result = caseClase(clase);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.COMPLEJA:
+      {
+        Compleja compleja = (Compleja)theEObject;
+        T result = caseCompleja(compleja);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -122,17 +163,17 @@ public class GramaticaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Gramatica</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Documento</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Gramatica</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Documento</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGramatica(Gramatica object)
+  public T caseDocumento(Documento object)
   {
     return null;
   }
@@ -170,17 +211,17 @@ public class GramaticaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Compleja</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Determinante</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Compleja</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Determinante</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCompleja(Compleja object)
+  public T caseDeterminante(Determinante object)
   {
     return null;
   }
@@ -202,6 +243,86 @@ public class GramaticaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Sintagma Preposicional</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sintagma Preposicional</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSintagmaPreposicional(SintagmaPreposicional object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Obligacion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Obligacion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseObligacion(Obligacion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Obligacion Deber</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Obligacion Deber</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseObligacionDeber(ObligacionDeber object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Negacion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Negacion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNegacion(Negacion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operacion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operacion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperacion(Operacion object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Clase</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -213,6 +334,22 @@ public class GramaticaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseClase(Clase object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Compleja</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Compleja</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompleja(Compleja object)
   {
     return null;
   }

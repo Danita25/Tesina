@@ -65,12 +65,18 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
   {
     switch (eClass.getClassifierID())
     {
-      case GramaticaPackage.GRAMATICA: return createGramatica();
+      case GramaticaPackage.DOCUMENTO: return createDocumento();
       case GramaticaPackage.ORACION: return createOracion();
       case GramaticaPackage.SIMPLE: return createSimple();
-      case GramaticaPackage.COMPLEJA: return createCompleja();
+      case GramaticaPackage.DETERMINANTE: return createDeterminante();
       case GramaticaPackage.ATRIBUTO: return createAtributo();
+      case GramaticaPackage.SINTAGMA_PREPOSICIONAL: return createSintagmaPreposicional();
+      case GramaticaPackage.OBLIGACION: return createObligacion();
+      case GramaticaPackage.OBLIGACION_DEBER: return createObligacionDeber();
+      case GramaticaPackage.NEGACION: return createNegacion();
+      case GramaticaPackage.OPERACION: return createOperacion();
       case GramaticaPackage.CLASE: return createClase();
+      case GramaticaPackage.COMPLEJA: return createCompleja();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -81,10 +87,10 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Gramatica createGramatica()
+  public Documento createDocumento()
   {
-    GramaticaImpl gramatica = new GramaticaImpl();
-    return gramatica;
+    DocumentoImpl documento = new DocumentoImpl();
+    return documento;
   }
 
   /**
@@ -114,10 +120,10 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Compleja createCompleja()
+  public Determinante createDeterminante()
   {
-    ComplejaImpl compleja = new ComplejaImpl();
-    return compleja;
+    DeterminanteImpl determinante = new DeterminanteImpl();
+    return determinante;
   }
 
   /**
@@ -136,10 +142,76 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  public SintagmaPreposicional createSintagmaPreposicional()
+  {
+    SintagmaPreposicionalImpl sintagmaPreposicional = new SintagmaPreposicionalImpl();
+    return sintagmaPreposicional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Obligacion createObligacion()
+  {
+    ObligacionImpl obligacion = new ObligacionImpl();
+    return obligacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ObligacionDeber createObligacionDeber()
+  {
+    ObligacionDeberImpl obligacionDeber = new ObligacionDeberImpl();
+    return obligacionDeber;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Negacion createNegacion()
+  {
+    NegacionImpl negacion = new NegacionImpl();
+    return negacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operacion createOperacion()
+  {
+    OperacionImpl operacion = new OperacionImpl();
+    return operacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Clase createClase()
   {
     ClaseImpl clase = new ClaseImpl();
     return clase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Compleja createCompleja()
+  {
+    ComplejaImpl compleja = new ComplejaImpl();
+    return compleja;
   }
 
   /**

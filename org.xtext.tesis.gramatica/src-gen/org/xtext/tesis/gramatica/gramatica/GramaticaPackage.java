@@ -58,14 +58,32 @@ public interface GramaticaPackage extends EPackage
   GramaticaPackage eINSTANCE = org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.GramaticaImpl <em>Gramatica</em>}' class.
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.DocumentoImpl <em>Documento</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaImpl
-   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getGramatica()
+   * @see org.xtext.tesis.gramatica.gramatica.impl.DocumentoImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getDocumento()
    * @generated
    */
-  int GRAMATICA = 0;
+  int DOCUMENTO = 0;
+
+  /**
+   * The feature id for the '<em><b>Path Modelo</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCUMENTO__PATH_MODELO = 0;
+
+  /**
+   * The feature id for the '<em><b>Path Ocl</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCUMENTO__PATH_OCL = 1;
 
   /**
    * The feature id for the '<em><b>Oraciones</b></em>' containment reference list.
@@ -74,16 +92,16 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GRAMATICA__ORACIONES = 0;
+  int DOCUMENTO__ORACIONES = 2;
 
   /**
-   * The number of structural features of the '<em>Gramatica</em>' class.
+   * The number of structural features of the '<em>Documento</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GRAMATICA_FEATURE_COUNT = 1;
+  int DOCUMENTO_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OracionImpl <em>Oracion</em>}' class.
@@ -96,31 +114,13 @@ public interface GramaticaPackage extends EPackage
   int ORACION = 1;
 
   /**
-   * The feature id for the '<em><b>Contexto</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ORACION__CONTEXTO = 0;
-
-  /**
-   * The feature id for the '<em><b>Literal</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ORACION__LITERAL = 1;
-
-  /**
    * The number of structural features of the '<em>Oracion</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ORACION_FEATURE_COUNT = 2;
+  int ORACION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl <em>Simple</em>}' class.
@@ -133,22 +133,13 @@ public interface GramaticaPackage extends EPackage
   int SIMPLE = 2;
 
   /**
-   * The feature id for the '<em><b>Contexto</b></em>' containment reference.
+   * The feature id for the '<em><b>Determinante</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE__CONTEXTO = ORACION__CONTEXTO;
-
-  /**
-   * The feature id for the '<em><b>Literal</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE__LITERAL = ORACION__LITERAL;
+  int SIMPLE__DETERMINANTE = ORACION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Atributo</b></em>' containment reference.
@@ -157,7 +148,52 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE__ATRIBUTO = ORACION_FEATURE_COUNT + 0;
+  int SIMPLE__ATRIBUTO = ORACION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Sintagma</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE__SINTAGMA = ORACION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Contexto</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE__CONTEXTO = ORACION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Obligacion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE__OBLIGACION = ORACION_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Operacion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE__OPERACION = ORACION_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Literal</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE__LITERAL = ORACION_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Simple</em>' class.
@@ -166,53 +202,35 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FEATURE_COUNT = ORACION_FEATURE_COUNT + 1;
+  int SIMPLE_FEATURE_COUNT = ORACION_FEATURE_COUNT + 7;
 
   /**
-   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl <em>Compleja</em>}' class.
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.DeterminanteImpl <em>Determinante</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl
-   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getCompleja()
+   * @see org.xtext.tesis.gramatica.gramatica.impl.DeterminanteImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getDeterminante()
    * @generated
    */
-  int COMPLEJA = 3;
+  int DETERMINANTE = 3;
 
   /**
-   * The feature id for the '<em><b>Contexto</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPLEJA__CONTEXTO = ORACION__CONTEXTO;
-
-  /**
-   * The feature id for the '<em><b>Literal</b></em>' attribute.
+   * The feature id for the '<em><b>Descripcion</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPLEJA__LITERAL = ORACION__LITERAL;
+  int DETERMINANTE__DESCRIPCION = 0;
 
   /**
-   * The feature id for the '<em><b>Atributo</b></em>' containment reference.
+   * The number of structural features of the '<em>Determinante</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPLEJA__ATRIBUTO = ORACION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Compleja</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPLEJA_FEATURE_COUNT = ORACION_FEATURE_COUNT + 1;
+  int DETERMINANTE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl <em>Atributo</em>}' class.
@@ -243,6 +261,155 @@ public interface GramaticaPackage extends EPackage
   int ATRIBUTO_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.SintagmaPreposicionalImpl <em>Sintagma Preposicional</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.SintagmaPreposicionalImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getSintagmaPreposicional()
+   * @generated
+   */
+  int SINTAGMA_PREPOSICIONAL = 5;
+
+  /**
+   * The feature id for the '<em><b>Descripcion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINTAGMA_PREPOSICIONAL__DESCRIPCION = 0;
+
+  /**
+   * The number of structural features of the '<em>Sintagma Preposicional</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINTAGMA_PREPOSICIONAL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ObligacionImpl <em>Obligacion</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.ObligacionImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getObligacion()
+   * @generated
+   */
+  int OBLIGACION = 6;
+
+  /**
+   * The feature id for the '<em><b>Negacion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBLIGACION__NEGACION = 0;
+
+  /**
+   * The feature id for the '<em><b>Obligacion Deber</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBLIGACION__OBLIGACION_DEBER = 1;
+
+  /**
+   * The number of structural features of the '<em>Obligacion</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBLIGACION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ObligacionDeberImpl <em>Obligacion Deber</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.ObligacionDeberImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getObligacionDeber()
+   * @generated
+   */
+  int OBLIGACION_DEBER = 7;
+
+  /**
+   * The feature id for the '<em><b>Descripcion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBLIGACION_DEBER__DESCRIPCION = 0;
+
+  /**
+   * The number of structural features of the '<em>Obligacion Deber</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBLIGACION_DEBER_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.NegacionImpl <em>Negacion</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.NegacionImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getNegacion()
+   * @generated
+   */
+  int NEGACION = 8;
+
+  /**
+   * The feature id for the '<em><b>Descripcion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEGACION__DESCRIPCION = 0;
+
+  /**
+   * The number of structural features of the '<em>Negacion</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEGACION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OperacionImpl <em>Operacion</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.OperacionImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getOperacion()
+   * @generated
+   */
+  int OPERACION = 9;
+
+  /**
+   * The feature id for the '<em><b>Descripcion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERACION__DESCRIPCION = 0;
+
+  /**
+   * The number of structural features of the '<em>Operacion</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERACION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ClaseImpl <em>Clase</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -250,7 +417,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getClase()
    * @generated
    */
-  int CLASE = 5;
+  int CLASE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -270,27 +437,95 @@ public interface GramaticaPackage extends EPackage
    */
   int CLASE_FEATURE_COUNT = 1;
 
-
   /**
-   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Gramatica <em>Gramatica</em>}'.
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl <em>Compleja</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Gramatica</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Gramatica
+   * @see org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getCompleja()
    * @generated
    */
-  EClass getGramatica();
+  int COMPLEJA = 11;
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.tesis.gramatica.gramatica.Gramatica#getOraciones <em>Oraciones</em>}'.
+   * The feature id for the '<em><b>Atributo</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__ATRIBUTO = 0;
+
+  /**
+   * The feature id for the '<em><b>Contexto</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__CONTEXTO = 1;
+
+  /**
+   * The feature id for the '<em><b>Literal</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__LITERAL = 2;
+
+  /**
+   * The number of structural features of the '<em>Compleja</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA_FEATURE_COUNT = 3;
+
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Documento <em>Documento</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Documento</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Documento
+   * @generated
+   */
+  EClass getDocumento();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo <em>Path Modelo</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path Modelo</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo()
+   * @see #getDocumento()
+   * @generated
+   */
+  EAttribute getDocumento_PathModelo();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl <em>Path Ocl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path Ocl</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl()
+   * @see #getDocumento()
+   * @generated
+   */
+  EAttribute getDocumento_PathOcl();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.tesis.gramatica.gramatica.Documento#getOraciones <em>Oraciones</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Oraciones</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Gramatica#getOraciones()
-   * @see #getGramatica()
+   * @see org.xtext.tesis.gramatica.gramatica.Documento#getOraciones()
+   * @see #getDocumento()
    * @generated
    */
-  EReference getGramatica_Oraciones();
+  EReference getDocumento_Oraciones();
 
   /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Oracion <em>Oracion</em>}'.
@@ -303,28 +538,6 @@ public interface GramaticaPackage extends EPackage
   EClass getOracion();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Oracion#getContexto <em>Contexto</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Contexto</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Oracion#getContexto()
-   * @see #getOracion()
-   * @generated
-   */
-  EReference getOracion_Contexto();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Oracion#getLiteral <em>Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Literal</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Oracion#getLiteral()
-   * @see #getOracion()
-   * @generated
-   */
-  EAttribute getOracion_Literal();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Simple <em>Simple</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -333,6 +546,17 @@ public interface GramaticaPackage extends EPackage
    * @generated
    */
   EClass getSimple();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Simple#getDeterminante <em>Determinante</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Determinante</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Simple#getDeterminante()
+   * @see #getSimple()
+   * @generated
+   */
+  EReference getSimple_Determinante();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Simple#getAtributo <em>Atributo</em>}'.
@@ -346,25 +570,80 @@ public interface GramaticaPackage extends EPackage
   EReference getSimple_Atributo();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Compleja <em>Compleja</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Simple#getSintagma <em>Sintagma</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Compleja</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Compleja
+   * @return the meta object for the containment reference '<em>Sintagma</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Simple#getSintagma()
+   * @see #getSimple()
    * @generated
    */
-  EClass getCompleja();
+  EReference getSimple_Sintagma();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtributo <em>Atributo</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Simple#getContexto <em>Contexto</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Atributo</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtributo()
-   * @see #getCompleja()
+   * @return the meta object for the containment reference '<em>Contexto</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Simple#getContexto()
+   * @see #getSimple()
    * @generated
    */
-  EReference getCompleja_Atributo();
+  EReference getSimple_Contexto();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Simple#getObligacion <em>Obligacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Obligacion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Simple#getObligacion()
+   * @see #getSimple()
+   * @generated
+   */
+  EReference getSimple_Obligacion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Simple#getOperacion <em>Operacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operacion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Simple#getOperacion()
+   * @see #getSimple()
+   * @generated
+   */
+  EReference getSimple_Operacion();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Simple#getLiteral <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Literal</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Simple#getLiteral()
+   * @see #getSimple()
+   * @generated
+   */
+  EAttribute getSimple_Literal();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Determinante <em>Determinante</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Determinante</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Determinante
+   * @generated
+   */
+  EClass getDeterminante();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Determinante#getDescripcion <em>Descripcion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descripcion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Determinante#getDescripcion()
+   * @see #getDeterminante()
+   * @generated
+   */
+  EAttribute getDeterminante_Descripcion();
 
   /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Atributo <em>Atributo</em>}'.
@@ -388,6 +667,122 @@ public interface GramaticaPackage extends EPackage
   EAttribute getAtributo_Name();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional <em>Sintagma Preposicional</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sintagma Preposicional</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional
+   * @generated
+   */
+  EClass getSintagmaPreposicional();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional#getDescripcion <em>Descripcion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descripcion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional#getDescripcion()
+   * @see #getSintagmaPreposicional()
+   * @generated
+   */
+  EAttribute getSintagmaPreposicional_Descripcion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Obligacion <em>Obligacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Obligacion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Obligacion
+   * @generated
+   */
+  EClass getObligacion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Obligacion#getNegacion <em>Negacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Negacion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Obligacion#getNegacion()
+   * @see #getObligacion()
+   * @generated
+   */
+  EReference getObligacion_Negacion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Obligacion#getObligacionDeber <em>Obligacion Deber</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Obligacion Deber</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Obligacion#getObligacionDeber()
+   * @see #getObligacion()
+   * @generated
+   */
+  EReference getObligacion_ObligacionDeber();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.ObligacionDeber <em>Obligacion Deber</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Obligacion Deber</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.ObligacionDeber
+   * @generated
+   */
+  EClass getObligacionDeber();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.ObligacionDeber#getDescripcion <em>Descripcion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descripcion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.ObligacionDeber#getDescripcion()
+   * @see #getObligacionDeber()
+   * @generated
+   */
+  EAttribute getObligacionDeber_Descripcion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Negacion <em>Negacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Negacion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Negacion
+   * @generated
+   */
+  EClass getNegacion();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Negacion#getDescripcion <em>Descripcion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descripcion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Negacion#getDescripcion()
+   * @see #getNegacion()
+   * @generated
+   */
+  EAttribute getNegacion_Descripcion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Operacion <em>Operacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operacion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Operacion
+   * @generated
+   */
+  EClass getOperacion();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Operacion#getDescripcion <em>Descripcion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descripcion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Operacion#getDescripcion()
+   * @see #getOperacion()
+   * @generated
+   */
+  EAttribute getOperacion_Descripcion();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Clase <em>Clase</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -407,6 +802,49 @@ public interface GramaticaPackage extends EPackage
    * @generated
    */
   EAttribute getClase_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Compleja <em>Compleja</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Compleja</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja
+   * @generated
+   */
+  EClass getCompleja();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtributo <em>Atributo</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Atributo</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtributo()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Atributo();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getContexto <em>Contexto</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Contexto</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getContexto()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Contexto();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLiteral <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Literal</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getLiteral()
+   * @see #getCompleja()
+   * @generated
+   */
+  EAttribute getCompleja_Literal();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -432,14 +870,30 @@ public interface GramaticaPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.GramaticaImpl <em>Gramatica</em>}' class.
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.DocumentoImpl <em>Documento</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaImpl
-     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getGramatica()
+     * @see org.xtext.tesis.gramatica.gramatica.impl.DocumentoImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getDocumento()
      * @generated
      */
-    EClass GRAMATICA = eINSTANCE.getGramatica();
+    EClass DOCUMENTO = eINSTANCE.getDocumento();
+
+    /**
+     * The meta object literal for the '<em><b>Path Modelo</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOCUMENTO__PATH_MODELO = eINSTANCE.getDocumento_PathModelo();
+
+    /**
+     * The meta object literal for the '<em><b>Path Ocl</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOCUMENTO__PATH_OCL = eINSTANCE.getDocumento_PathOcl();
 
     /**
      * The meta object literal for the '<em><b>Oraciones</b></em>' containment reference list feature.
@@ -447,7 +901,7 @@ public interface GramaticaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GRAMATICA__ORACIONES = eINSTANCE.getGramatica_Oraciones();
+    EReference DOCUMENTO__ORACIONES = eINSTANCE.getDocumento_Oraciones();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OracionImpl <em>Oracion</em>}' class.
@@ -460,22 +914,6 @@ public interface GramaticaPackage extends EPackage
     EClass ORACION = eINSTANCE.getOracion();
 
     /**
-     * The meta object literal for the '<em><b>Contexto</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ORACION__CONTEXTO = eINSTANCE.getOracion_Contexto();
-
-    /**
-     * The meta object literal for the '<em><b>Literal</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ORACION__LITERAL = eINSTANCE.getOracion_Literal();
-
-    /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl <em>Simple</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -486,6 +924,14 @@ public interface GramaticaPackage extends EPackage
     EClass SIMPLE = eINSTANCE.getSimple();
 
     /**
+     * The meta object literal for the '<em><b>Determinante</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE__DETERMINANTE = eINSTANCE.getSimple_Determinante();
+
+    /**
      * The meta object literal for the '<em><b>Atributo</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -494,22 +940,62 @@ public interface GramaticaPackage extends EPackage
     EReference SIMPLE__ATRIBUTO = eINSTANCE.getSimple_Atributo();
 
     /**
-     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl <em>Compleja</em>}' class.
+     * The meta object literal for the '<em><b>Sintagma</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl
-     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getCompleja()
      * @generated
      */
-    EClass COMPLEJA = eINSTANCE.getCompleja();
+    EReference SIMPLE__SINTAGMA = eINSTANCE.getSimple_Sintagma();
 
     /**
-     * The meta object literal for the '<em><b>Atributo</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Contexto</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPLEJA__ATRIBUTO = eINSTANCE.getCompleja_Atributo();
+    EReference SIMPLE__CONTEXTO = eINSTANCE.getSimple_Contexto();
+
+    /**
+     * The meta object literal for the '<em><b>Obligacion</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE__OBLIGACION = eINSTANCE.getSimple_Obligacion();
+
+    /**
+     * The meta object literal for the '<em><b>Operacion</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE__OPERACION = eINSTANCE.getSimple_Operacion();
+
+    /**
+     * The meta object literal for the '<em><b>Literal</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE__LITERAL = eINSTANCE.getSimple_Literal();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.DeterminanteImpl <em>Determinante</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.DeterminanteImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getDeterminante()
+     * @generated
+     */
+    EClass DETERMINANTE = eINSTANCE.getDeterminante();
+
+    /**
+     * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DETERMINANTE__DESCRIPCION = eINSTANCE.getDeterminante_Descripcion();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl <em>Atributo</em>}' class.
@@ -530,6 +1016,104 @@ public interface GramaticaPackage extends EPackage
     EAttribute ATRIBUTO__NAME = eINSTANCE.getAtributo_Name();
 
     /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.SintagmaPreposicionalImpl <em>Sintagma Preposicional</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.SintagmaPreposicionalImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getSintagmaPreposicional()
+     * @generated
+     */
+    EClass SINTAGMA_PREPOSICIONAL = eINSTANCE.getSintagmaPreposicional();
+
+    /**
+     * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINTAGMA_PREPOSICIONAL__DESCRIPCION = eINSTANCE.getSintagmaPreposicional_Descripcion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ObligacionImpl <em>Obligacion</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.ObligacionImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getObligacion()
+     * @generated
+     */
+    EClass OBLIGACION = eINSTANCE.getObligacion();
+
+    /**
+     * The meta object literal for the '<em><b>Negacion</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OBLIGACION__NEGACION = eINSTANCE.getObligacion_Negacion();
+
+    /**
+     * The meta object literal for the '<em><b>Obligacion Deber</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OBLIGACION__OBLIGACION_DEBER = eINSTANCE.getObligacion_ObligacionDeber();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ObligacionDeberImpl <em>Obligacion Deber</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.ObligacionDeberImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getObligacionDeber()
+     * @generated
+     */
+    EClass OBLIGACION_DEBER = eINSTANCE.getObligacionDeber();
+
+    /**
+     * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OBLIGACION_DEBER__DESCRIPCION = eINSTANCE.getObligacionDeber_Descripcion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.NegacionImpl <em>Negacion</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.NegacionImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getNegacion()
+     * @generated
+     */
+    EClass NEGACION = eINSTANCE.getNegacion();
+
+    /**
+     * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NEGACION__DESCRIPCION = eINSTANCE.getNegacion_Descripcion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OperacionImpl <em>Operacion</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.OperacionImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getOperacion()
+     * @generated
+     */
+    EClass OPERACION = eINSTANCE.getOperacion();
+
+    /**
+     * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERACION__DESCRIPCION = eINSTANCE.getOperacion_Descripcion();
+
+    /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ClaseImpl <em>Clase</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -546,6 +1130,40 @@ public interface GramaticaPackage extends EPackage
      * @generated
      */
     EAttribute CLASE__NAME = eINSTANCE.getClase_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl <em>Compleja</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getCompleja()
+     * @generated
+     */
+    EClass COMPLEJA = eINSTANCE.getCompleja();
+
+    /**
+     * The meta object literal for the '<em><b>Atributo</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__ATRIBUTO = eINSTANCE.getCompleja_Atributo();
+
+    /**
+     * The meta object literal for the '<em><b>Contexto</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__CONTEXTO = eINSTANCE.getCompleja_Contexto();
+
+    /**
+     * The meta object literal for the '<em><b>Literal</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPLEJA__LITERAL = eINSTANCE.getCompleja_Literal();
 
   }
 

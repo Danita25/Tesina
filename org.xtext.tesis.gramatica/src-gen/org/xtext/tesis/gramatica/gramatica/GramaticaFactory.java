@@ -24,13 +24,13 @@ public interface GramaticaFactory extends EFactory
   GramaticaFactory eINSTANCE = org.xtext.tesis.gramatica.gramatica.impl.GramaticaFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Gramatica</em>'.
+   * Returns a new object of class '<em>Documento</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Gramatica</em>'.
+   * @return a new object of class '<em>Documento</em>'.
    * @generated
    */
-  Gramatica createGramatica();
+  Documento createDocumento();
 
   /**
    * Returns a new object of class '<em>Oracion</em>'.
@@ -51,13 +51,13 @@ public interface GramaticaFactory extends EFactory
   Simple createSimple();
 
   /**
-   * Returns a new object of class '<em>Compleja</em>'.
+   * Returns a new object of class '<em>Determinante</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Compleja</em>'.
+   * @return a new object of class '<em>Determinante</em>'.
    * @generated
    */
-  Compleja createCompleja();
+  Determinante createDeterminante();
 
   /**
    * Returns a new object of class '<em>Atributo</em>'.
@@ -69,6 +69,51 @@ public interface GramaticaFactory extends EFactory
   Atributo createAtributo();
 
   /**
+   * Returns a new object of class '<em>Sintagma Preposicional</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sintagma Preposicional</em>'.
+   * @generated
+   */
+  SintagmaPreposicional createSintagmaPreposicional();
+
+  /**
+   * Returns a new object of class '<em>Obligacion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Obligacion</em>'.
+   * @generated
+   */
+  Obligacion createObligacion();
+
+  /**
+   * Returns a new object of class '<em>Obligacion Deber</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Obligacion Deber</em>'.
+   * @generated
+   */
+  ObligacionDeber createObligacionDeber();
+
+  /**
+   * Returns a new object of class '<em>Negacion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Negacion</em>'.
+   * @generated
+   */
+  Negacion createNegacion();
+
+  /**
+   * Returns a new object of class '<em>Operacion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operacion</em>'.
+   * @generated
+   */
+  Operacion createOperacion();
+
+  /**
    * Returns a new object of class '<em>Clase</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,6 +121,15 @@ public interface GramaticaFactory extends EFactory
    * @generated
    */
   Clase createClase();
+
+  /**
+   * Returns a new object of class '<em>Compleja</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Compleja</em>'.
+   * @generated
+   */
+  Compleja createCompleja();
 
   /**
    * Returns the package supported by this factory.

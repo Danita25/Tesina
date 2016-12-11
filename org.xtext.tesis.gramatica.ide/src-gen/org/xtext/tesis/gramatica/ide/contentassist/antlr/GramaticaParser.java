@@ -35,37 +35,52 @@ public class GramaticaParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getOracionAccess().getAlternatives(), "rule__Oracion__Alternatives");
-					put(grammarAccess.getSimpleAccess().getAlternatives_0(), "rule__Simple__Alternatives_0");
-					put(grammarAccess.getSimpleAccess().getAlternatives_7(), "rule__Simple__Alternatives_7");
-					put(grammarAccess.getSimpleAccess().getAlternatives_8(), "rule__Simple__Alternatives_8");
-					put(grammarAccess.getSimpleAccess().getAlternatives_9(), "rule__Simple__Alternatives_9");
-					put(grammarAccess.getComplejaAccess().getAlternatives_7(), "rule__Compleja__Alternatives_7");
-					put(grammarAccess.getComplejaAccess().getAlternatives_12(), "rule__Compleja__Alternatives_12");
-					put(grammarAccess.getComplejaAccess().getAlternatives_13(), "rule__Compleja__Alternatives_13");
-					put(grammarAccess.getComplejaAccess().getAlternatives_16(), "rule__Compleja__Alternatives_16");
-					put(grammarAccess.getComplejaAccess().getAlternatives_17_0(), "rule__Compleja__Alternatives_17_0");
-					put(grammarAccess.getComplejaAccess().getAlternatives_17_1(), "rule__Compleja__Alternatives_17_1");
+					put(grammarAccess.getSimpleAccess().getAlternatives_6(), "rule__Simple__Alternatives_6");
+					put(grammarAccess.getDeterminanteAccess().getDescripcionAlternatives_0(), "rule__Determinante__DescripcionAlternatives_0");
+					put(grammarAccess.getObligacionDeberAccess().getDescripcionAlternatives_0(), "rule__ObligacionDeber__DescripcionAlternatives_0");
+					put(grammarAccess.getOperacionAccess().getDescripcionAlternatives_0(), "rule__Operacion__DescripcionAlternatives_0");
 					put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
+					put(grammarAccess.getComplejaAccess().getAlternatives_6(), "rule__Compleja__Alternatives_6");
+					put(grammarAccess.getComplejaAccess().getAlternatives_10_1(), "rule__Compleja__Alternatives_10_1");
+					put(grammarAccess.getComplejaAccess().getAlternatives_10_2(), "rule__Compleja__Alternatives_10_2");
+					put(grammarAccess.getComplejaAccess().getAlternatives_11(), "rule__Compleja__Alternatives_11");
+					put(grammarAccess.getComplejaAccess().getAlternatives_12_0(), "rule__Compleja__Alternatives_12_0");
+					put(grammarAccess.getComplejaAccess().getAlternatives_12_1(), "rule__Compleja__Alternatives_12_1");
+					put(grammarAccess.getDocumentoAccess().getGroup(), "rule__Documento__Group__0");
 					put(grammarAccess.getSimpleAccess().getGroup(), "rule__Simple__Group__0");
-					put(grammarAccess.getComplejaAccess().getGroup(), "rule__Compleja__Group__0");
-					put(grammarAccess.getComplejaAccess().getGroup_17(), "rule__Compleja__Group_17__0");
 					put(grammarAccess.getAtributoAccess().getGroup(), "rule__Atributo__Group__0");
-					put(grammarAccess.getGramaticaAccess().getOracionesAssignment(), "rule__Gramatica__OracionesAssignment");
+					put(grammarAccess.getObligacionAccess().getGroup(), "rule__Obligacion__Group__0");
+					put(grammarAccess.getComplejaAccess().getGroup(), "rule__Compleja__Group__0");
+					put(grammarAccess.getComplejaAccess().getGroup_10(), "rule__Compleja__Group_10__0");
+					put(grammarAccess.getComplejaAccess().getGroup_12(), "rule__Compleja__Group_12__0");
+					put(grammarAccess.getDocumentoAccess().getPathModeloAssignment_0(), "rule__Documento__PathModeloAssignment_0");
+					put(grammarAccess.getDocumentoAccess().getPathOclAssignment_2(), "rule__Documento__PathOclAssignment_2");
+					put(grammarAccess.getDocumentoAccess().getOracionesAssignment_4(), "rule__Documento__OracionesAssignment_4");
+					put(grammarAccess.getSimpleAccess().getDeterminanteAssignment_0(), "rule__Simple__DeterminanteAssignment_0");
 					put(grammarAccess.getSimpleAccess().getAtributoAssignment_1(), "rule__Simple__AtributoAssignment_1");
-					put(grammarAccess.getSimpleAccess().getContextoAssignment_4(), "rule__Simple__ContextoAssignment_4");
-					put(grammarAccess.getSimpleAccess().getLiteralAssignment_9_0(), "rule__Simple__LiteralAssignment_9_0");
-					put(grammarAccess.getSimpleAccess().getAtributoAssignment_9_1(), "rule__Simple__AtributoAssignment_9_1");
+					put(grammarAccess.getSimpleAccess().getSintagmaAssignment_2(), "rule__Simple__SintagmaAssignment_2");
+					put(grammarAccess.getSimpleAccess().getContextoAssignment_3(), "rule__Simple__ContextoAssignment_3");
+					put(grammarAccess.getSimpleAccess().getObligacionAssignment_4(), "rule__Simple__ObligacionAssignment_4");
+					put(grammarAccess.getSimpleAccess().getOperacionAssignment_5(), "rule__Simple__OperacionAssignment_5");
+					put(grammarAccess.getSimpleAccess().getLiteralAssignment_6_0(), "rule__Simple__LiteralAssignment_6_0");
+					put(grammarAccess.getSimpleAccess().getAtributoAssignment_6_1(), "rule__Simple__AtributoAssignment_6_1");
+					put(grammarAccess.getDeterminanteAccess().getDescripcionAssignment(), "rule__Determinante__DescripcionAssignment");
+					put(grammarAccess.getAtributoAccess().getNameAssignment_1(), "rule__Atributo__NameAssignment_1");
+					put(grammarAccess.getSintagmaPreposicionalAccess().getDescripcionAssignment(), "rule__SintagmaPreposicional__DescripcionAssignment");
+					put(grammarAccess.getObligacionAccess().getNegacionAssignment_0(), "rule__Obligacion__NegacionAssignment_0");
+					put(grammarAccess.getObligacionAccess().getObligacionDeberAssignment_1(), "rule__Obligacion__ObligacionDeberAssignment_1");
+					put(grammarAccess.getObligacionDeberAccess().getDescripcionAssignment(), "rule__ObligacionDeber__DescripcionAssignment");
+					put(grammarAccess.getNegacionAccess().getDescripcionAssignment(), "rule__Negacion__DescripcionAssignment");
+					put(grammarAccess.getOperacionAccess().getDescripcionAssignment(), "rule__Operacion__DescripcionAssignment");
+					put(grammarAccess.getClaseAccess().getNameAssignment(), "rule__Clase__NameAssignment");
 					put(grammarAccess.getComplejaAccess().getAtributoAssignment_1(), "rule__Compleja__AtributoAssignment_1");
 					put(grammarAccess.getComplejaAccess().getContextoAssignment_4(), "rule__Compleja__ContextoAssignment_4");
-					put(grammarAccess.getComplejaAccess().getAtributoAssignment_9(), "rule__Compleja__AtributoAssignment_9");
-					put(grammarAccess.getComplejaAccess().getAtributoAssignment_11(), "rule__Compleja__AtributoAssignment_11");
-					put(grammarAccess.getComplejaAccess().getLiteralAssignment_13_0(), "rule__Compleja__LiteralAssignment_13_0");
-					put(grammarAccess.getComplejaAccess().getAtributoAssignment_13_1(), "rule__Compleja__AtributoAssignment_13_1");
-					put(grammarAccess.getComplejaAccess().getLiteralAssignment_17_1_0(), "rule__Compleja__LiteralAssignment_17_1_0");
-					put(grammarAccess.getComplejaAccess().getAtributoAssignment_17_1_1(), "rule__Compleja__AtributoAssignment_17_1_1");
-					put(grammarAccess.getAtributoAccess().getNameAssignment_1(), "rule__Atributo__NameAssignment_1");
-					put(grammarAccess.getClaseAccess().getNameAssignment(), "rule__Clase__NameAssignment");
+					put(grammarAccess.getComplejaAccess().getAtributoAssignment_8(), "rule__Compleja__AtributoAssignment_8");
+					put(grammarAccess.getComplejaAccess().getAtributoAssignment_10_0(), "rule__Compleja__AtributoAssignment_10_0");
+					put(grammarAccess.getComplejaAccess().getLiteralAssignment_10_2_0(), "rule__Compleja__LiteralAssignment_10_2_0");
+					put(grammarAccess.getComplejaAccess().getAtributoAssignment_10_2_1(), "rule__Compleja__AtributoAssignment_10_2_1");
+					put(grammarAccess.getComplejaAccess().getLiteralAssignment_12_1_0(), "rule__Compleja__LiteralAssignment_12_1_0");
+					put(grammarAccess.getComplejaAccess().getAtributoAssignment_12_1_1(), "rule__Compleja__AtributoAssignment_12_1_1");
 				}
 			};
 		}
@@ -76,7 +91,7 @@ public class GramaticaParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalGramaticaParser typedParser = (InternalGramaticaParser) parser;
-			typedParser.entryRuleGramatica();
+			typedParser.entryRuleDocumento();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

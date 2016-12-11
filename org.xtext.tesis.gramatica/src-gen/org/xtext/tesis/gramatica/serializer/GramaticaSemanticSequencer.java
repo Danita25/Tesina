@@ -17,9 +17,15 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.tesis.gramatica.gramatica.Atributo;
 import org.xtext.tesis.gramatica.gramatica.Clase;
 import org.xtext.tesis.gramatica.gramatica.Compleja;
-import org.xtext.tesis.gramatica.gramatica.Gramatica;
+import org.xtext.tesis.gramatica.gramatica.Determinante;
+import org.xtext.tesis.gramatica.gramatica.Documento;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
+import org.xtext.tesis.gramatica.gramatica.Negacion;
+import org.xtext.tesis.gramatica.gramatica.Obligacion;
+import org.xtext.tesis.gramatica.gramatica.ObligacionDeber;
+import org.xtext.tesis.gramatica.gramatica.Operacion;
 import org.xtext.tesis.gramatica.gramatica.Simple;
+import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
 import org.xtext.tesis.gramatica.services.GramaticaGrammarAccess;
 
 @SuppressWarnings("all")
@@ -45,11 +51,29 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case GramaticaPackage.COMPLEJA:
 				sequence_Compleja(context, (Compleja) semanticObject); 
 				return; 
-			case GramaticaPackage.GRAMATICA:
-				sequence_Gramatica(context, (Gramatica) semanticObject); 
+			case GramaticaPackage.DETERMINANTE:
+				sequence_Determinante(context, (Determinante) semanticObject); 
+				return; 
+			case GramaticaPackage.DOCUMENTO:
+				sequence_Documento(context, (Documento) semanticObject); 
+				return; 
+			case GramaticaPackage.NEGACION:
+				sequence_Negacion(context, (Negacion) semanticObject); 
+				return; 
+			case GramaticaPackage.OBLIGACION:
+				sequence_Obligacion(context, (Obligacion) semanticObject); 
+				return; 
+			case GramaticaPackage.OBLIGACION_DEBER:
+				sequence_ObligacionDeber(context, (ObligacionDeber) semanticObject); 
+				return; 
+			case GramaticaPackage.OPERACION:
+				sequence_Operacion(context, (Operacion) semanticObject); 
 				return; 
 			case GramaticaPackage.SIMPLE:
 				sequence_Simple(context, (Simple) semanticObject); 
+				return; 
+			case GramaticaPackage.SINTAGMA_PREPOSICIONAL:
+				sequence_SintagmaPreposicional(context, (SintagmaPreposicional) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -94,16 +118,14 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     Oracion returns Compleja
 	 *     Compleja returns Compleja
 	 *
 	 * Constraint:
 	 *     (
-	 *         atributo=Clase 
+	 *         atributo=Atributo 
 	 *         contexto=Clase 
 	 *         atributo=Clase 
-	 *         atributo=Atributo 
-	 *         (literal=Literal | atributo=Atributo) 
+	 *         (atributo=Atributo (literal=Literal | atributo=Atributo))* 
 	 *         (literal=Literal | atributo=Atributo)?
 	 *     )
 	 */
@@ -114,12 +136,86 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     Gramatica returns Gramatica
+	 *     Determinante returns Determinante
 	 *
 	 * Constraint:
-	 *     oraciones+=Oracion+
+	 *     (descripcion='El/La' | descripcion='Los/Las')
 	 */
-	protected void sequence_Gramatica(ISerializationContext context, Gramatica semanticObject) {
+	protected void sequence_Determinante(ISerializationContext context, Determinante semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Documento returns Documento
+	 *
+	 * Constraint:
+	 *     (pathModelo='pathModelo:' pathOcl='pathOcl:' oraciones+=Oracion*)
+	 */
+	protected void sequence_Documento(ISerializationContext context, Documento semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Negacion returns Negacion
+	 *
+	 * Constraint:
+	 *     descripcion='no'
+	 */
+	protected void sequence_Negacion(ISerializationContext context, Negacion semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.NEGACION__DESCRIPCION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.NEGACION__DESCRIPCION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNegacionAccess().getDescripcionNoKeyword_0(), semanticObject.getDescripcion());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ObligacionDeber returns ObligacionDeber
+	 *
+	 * Constraint:
+	 *     (descripcion='debe ser' | descripcion='debe estar')
+	 */
+	protected void sequence_ObligacionDeber(ISerializationContext context, ObligacionDeber semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Obligacion returns Obligacion
+	 *
+	 * Constraint:
+	 *     (negacion=Negacion? obligacionDeber=ObligacionDeber)
+	 */
+	protected void sequence_Obligacion(ISerializationContext context, Obligacion semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Operacion returns Operacion
+	 *
+	 * Constraint:
+	 *     (
+	 *         descripcion='mayor que' | 
+	 *         descripcion='menor que' | 
+	 *         descripcion='igual a' | 
+	 *         descripcion='mayor o igual a' | 
+	 *         descripcion='menor o igual a' | 
+	 *         descripcion='distinto de' | 
+	 *         descripcion='al menos'
+	 *     )
+	 */
+	protected void sequence_Operacion(ISerializationContext context, Operacion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -130,10 +226,36 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Simple returns Simple
 	 *
 	 * Constraint:
-	 *     (atributo=Atributo contexto=Clase (literal=Literal | atributo=Atributo))
+	 *     (
+	 *         determinante=Determinante 
+	 *         atributo=Atributo 
+	 *         Sintagma=SintagmaPreposicional 
+	 *         contexto=Clase 
+	 *         obligacion=Obligacion 
+	 *         operacion=Operacion? 
+	 *         (literal=Literal | atributo=Atributo)
+	 *     )
 	 */
 	protected void sequence_Simple(ISerializationContext context, Simple semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SintagmaPreposicional returns SintagmaPreposicional
+	 *
+	 * Constraint:
+	 *     descripcion='de un/una'
+	 */
+	protected void sequence_SintagmaPreposicional(ISerializationContext context, SintagmaPreposicional semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.SINTAGMA_PREPOSICIONAL__DESCRIPCION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.SINTAGMA_PREPOSICIONAL__DESCRIPCION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSintagmaPreposicionalAccess().getDescripcionDeUnUnaKeyword_0(), semanticObject.getDescripcion());
+		feeder.finish();
 	}
 	
 	

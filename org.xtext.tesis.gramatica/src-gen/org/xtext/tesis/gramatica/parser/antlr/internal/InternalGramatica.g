@@ -43,7 +43,7 @@ import org.xtext.tesis.gramatica.services.GramaticaGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Gramatica";
+    	return "Documento";
    	}
 
    	@Override
@@ -60,15 +60,15 @@ import org.xtext.tesis.gramatica.services.GramaticaGrammarAccess;
     }
 }
 
-// Entry rule entryRuleGramatica
-entryRuleGramatica returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getGramaticaRule()); }
-	iv_ruleGramatica=ruleGramatica
-	{ $current=$iv_ruleGramatica.current; }
+// Entry rule entryRuleDocumento
+entryRuleDocumento returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDocumentoRule()); }
+	iv_ruleDocumento=ruleDocumento
+	{ $current=$iv_ruleDocumento.current; }
 	EOF;
 
-// Rule Gramatica
-ruleGramatica returns [EObject current=null]
+// Rule Documento
+ruleDocumento returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -77,23 +77,61 @@ ruleGramatica returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getGramaticaAccess().getOracionesOracionParserRuleCall_0());
-			}
-			lv_oraciones_0_0=ruleOracion
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getGramaticaRule());
+			(
+				lv_pathModelo_0_0='pathModelo:'
+				{
+					newLeafNode(lv_pathModelo_0_0, grammarAccess.getDocumentoAccess().getPathModeloPathModeloKeyword_0_0());
 				}
-				add(
-					$current,
-					"oraciones",
-					lv_oraciones_0_0,
-					"org.xtext.tesis.gramatica.Gramatica.Oracion");
-				afterParserOrEnumRuleCall();
-			}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDocumentoRule());
+					}
+					setWithLastConsumed($current, "pathModelo", lv_pathModelo_0_0, "pathModelo:");
+				}
+			)
 		)
-	)*
+		this_STRING_1=RULE_STRING
+		{
+			newLeafNode(this_STRING_1, grammarAccess.getDocumentoAccess().getSTRINGTerminalRuleCall_1());
+		}
+		(
+			(
+				lv_pathOcl_2_0='pathOcl:'
+				{
+					newLeafNode(lv_pathOcl_2_0, grammarAccess.getDocumentoAccess().getPathOclPathOclKeyword_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDocumentoRule());
+					}
+					setWithLastConsumed($current, "pathOcl", lv_pathOcl_2_0, "pathOcl:");
+				}
+			)
+		)
+		this_STRING_3=RULE_STRING
+		{
+			newLeafNode(this_STRING_3, grammarAccess.getDocumentoAccess().getSTRINGTerminalRuleCall_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDocumentoAccess().getOracionesOracionParserRuleCall_4_0());
+				}
+				lv_oraciones_4_0=ruleOracion
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDocumentoRule());
+					}
+					add(
+						$current,
+						"oraciones",
+						lv_oraciones_4_0,
+						"org.xtext.tesis.gramatica.Gramatica.Oracion");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
 ;
 
 // Entry rule entryRuleOracion
@@ -111,25 +149,14 @@ ruleOracion returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	(
-		{
-			newCompositeNode(grammarAccess.getOracionAccess().getSimpleParserRuleCall_0());
-		}
-		this_Simple_0=ruleSimple
-		{
-			$current = $this_Simple_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getOracionAccess().getComplejaParserRuleCall_1());
-		}
-		this_Compleja_1=ruleCompleja
-		{
-			$current = $this_Compleja_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
+	{
+		newCompositeNode(grammarAccess.getOracionAccess().getSimpleParserRuleCall());
+	}
+	this_Simple_0=ruleSimple
+	{
+		$current = $this_Simple_0.current;
+		afterParserOrEnumRuleCall();
+	}
 ;
 
 // Entry rule entryRuleSimple
@@ -149,22 +176,30 @@ ruleSimple returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='El/La'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getSimpleAccess().getElLaKeyword_0_0());
-			}
-			    |
-			otherlv_1='Los/Las'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getSimpleAccess().getLosLasKeyword_0_1());
-			}
+			(
+				{
+					newCompositeNode(grammarAccess.getSimpleAccess().getDeterminanteDeterminanteParserRuleCall_0_0());
+				}
+				lv_determinante_0_0=ruleDeterminante
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSimpleRule());
+					}
+					set(
+						$current,
+						"determinante",
+						lv_determinante_0_0,
+						"org.xtext.tesis.gramatica.Gramatica.Determinante");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getSimpleAccess().getAtributoAtributoParserRuleCall_1_0());
 				}
-				lv_atributo_2_0=ruleAtributo
+				lv_atributo_1_0=ruleAtributo
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSimpleRule());
@@ -172,26 +207,37 @@ ruleSimple returns [EObject current=null]
 					set(
 						$current,
 						"atributo",
-						lv_atributo_2_0,
+						lv_atributo_1_0,
 						"org.xtext.tesis.gramatica.Gramatica.Atributo");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3='de'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getSimpleAccess().getDeKeyword_2());
-		}
-		otherlv_4='un/una'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getSimpleAccess().getUnUnaKeyword_3());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSimpleAccess().getContextoClaseParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSimpleAccess().getSintagmaSintagmaPreposicionalParserRuleCall_2_0());
 				}
-				lv_contexto_5_0=ruleClase
+				lv_Sintagma_2_0=ruleSintagmaPreposicional
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSimpleRule());
+					}
+					set(
+						$current,
+						"Sintagma",
+						lv_Sintagma_2_0,
+						"org.xtext.tesis.gramatica.Gramatica.SintagmaPreposicional");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSimpleAccess().getContextoClaseParserRuleCall_3_0());
+				}
+				lv_contexto_3_0=ruleClase
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSimpleRule());
@@ -199,76 +245,57 @@ ruleSimple returns [EObject current=null]
 					set(
 						$current,
 						"contexto",
-						lv_contexto_5_0,
+						lv_contexto_3_0,
 						"org.xtext.tesis.gramatica.Gramatica.Clase");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_6='no'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getSimpleAccess().getNoKeyword_5());
-			}
-		)?
-		otherlv_7='debe'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getSimpleAccess().getDebeKeyword_6());
-		}
-		(
-			otherlv_8='ser'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getSimpleAccess().getSerKeyword_7_0());
-			}
-			    |
-			otherlv_9='estar'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getSimpleAccess().getEstarKeyword_7_1());
-			}
+			(
+				{
+					newCompositeNode(grammarAccess.getSimpleAccess().getObligacionObligacionParserRuleCall_4_0());
+				}
+				lv_obligacion_4_0=ruleObligacion
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSimpleRule());
+					}
+					set(
+						$current,
+						"obligacion",
+						lv_obligacion_4_0,
+						"org.xtext.tesis.gramatica.Gramatica.Obligacion");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 		(
-			otherlv_10='mayor que'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getSimpleAccess().getMayorQueKeyword_8_0());
-			}
-			    |
-			otherlv_11='menor que'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getSimpleAccess().getMenorQueKeyword_8_1());
-			}
-			    |
-			otherlv_12='igual a'
-			{
-				newLeafNode(otherlv_12, grammarAccess.getSimpleAccess().getIgualAKeyword_8_2());
-			}
-			    |
-			otherlv_13='mayor o igual a'
-			{
-				newLeafNode(otherlv_13, grammarAccess.getSimpleAccess().getMayorOIgualAKeyword_8_3());
-			}
-			    |
-			otherlv_14='menor o igual a'
-			{
-				newLeafNode(otherlv_14, grammarAccess.getSimpleAccess().getMenorOIgualAKeyword_8_4());
-			}
-			    |
-			otherlv_15='distinto de'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getSimpleAccess().getDistintoDeKeyword_8_5());
-			}
-			    |
-			otherlv_16='al menos'
-			{
-				newLeafNode(otherlv_16, grammarAccess.getSimpleAccess().getAlMenosKeyword_8_6());
-			}
+			(
+				{
+					newCompositeNode(grammarAccess.getSimpleAccess().getOperacionOperacionParserRuleCall_5_0());
+				}
+				lv_operacion_5_0=ruleOperacion
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSimpleRule());
+					}
+					set(
+						$current,
+						"operacion",
+						lv_operacion_5_0,
+						"org.xtext.tesis.gramatica.Gramatica.Operacion");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)?
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSimpleAccess().getLiteralLiteralParserRuleCall_9_0_0());
+						newCompositeNode(grammarAccess.getSimpleAccess().getLiteralLiteralParserRuleCall_6_0_0());
 					}
-					lv_literal_17_0=ruleLiteral
+					lv_literal_6_0=ruleLiteral
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSimpleRule());
@@ -276,7 +303,7 @@ ruleSimple returns [EObject current=null]
 						set(
 							$current,
 							"literal",
-							lv_literal_17_0,
+							lv_literal_6_0,
 							"org.xtext.tesis.gramatica.Gramatica.Literal");
 						afterParserOrEnumRuleCall();
 					}
@@ -286,9 +313,9 @@ ruleSimple returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSimpleAccess().getAtributoAtributoParserRuleCall_9_1_0());
+						newCompositeNode(grammarAccess.getSimpleAccess().getAtributoAtributoParserRuleCall_6_1_0());
 					}
-					lv_atributo_18_0=ruleAtributo
+					lv_atributo_7_0=ruleAtributo
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSimpleRule());
@@ -296,29 +323,29 @@ ruleSimple returns [EObject current=null]
 						set(
 							$current,
 							"atributo",
-							lv_atributo_18_0,
+							lv_atributo_7_0,
 							"org.xtext.tesis.gramatica.Gramatica.Atributo");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)
-		otherlv_19='.'
+		otherlv_8='.'
 		{
-			newLeafNode(otherlv_19, grammarAccess.getSimpleAccess().getFullStopKeyword_10());
+			newLeafNode(otherlv_8, grammarAccess.getSimpleAccess().getFullStopKeyword_7());
 		}
 	)
 ;
 
-// Entry rule entryRuleCompleja
-entryRuleCompleja returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getComplejaRule()); }
-	iv_ruleCompleja=ruleCompleja
-	{ $current=$iv_ruleCompleja.current; }
+// Entry rule entryRuleDeterminante
+entryRuleDeterminante returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDeterminanteRule()); }
+	iv_ruleDeterminante=ruleDeterminante
+	{ $current=$iv_ruleDeterminante.current; }
 	EOF;
 
-// Rule Compleja
-ruleCompleja returns [EObject current=null]
+// Rule Determinante
+ruleDeterminante returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -326,305 +353,31 @@ ruleCompleja returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Para todos/as'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getComplejaAccess().getParaTodosAsKeyword_0());
-		}
 		(
 			(
+				lv_descripcion_0_1='El/La'
 				{
-					newCompositeNode(grammarAccess.getComplejaAccess().getAtributoClaseParserRuleCall_1_0());
+					newLeafNode(lv_descripcion_0_1, grammarAccess.getDeterminanteAccess().getDescripcionElLaKeyword_0_0());
 				}
-				lv_atributo_1_0=ruleClase
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getComplejaRule());
+						$current = createModelElement(grammarAccess.getDeterminanteRule());
 					}
-					set(
-						$current,
-						"atributo",
-						lv_atributo_1_0,
-						"org.xtext.tesis.gramatica.Gramatica.Clase");
-					afterParserOrEnumRuleCall();
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_1, null);
 				}
-			)
-		)
-		otherlv_2='de'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getComplejaAccess().getDeKeyword_2());
-		}
-		otherlv_3='un/una'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getComplejaAccess().getUnUnaKeyword_3());
-		}
-		(
-			(
+				    |
+				lv_descripcion_0_2='Los/Las'
 				{
-					newCompositeNode(grammarAccess.getComplejaAccess().getContextoClaseParserRuleCall_4_0());
+					newLeafNode(lv_descripcion_0_2, grammarAccess.getDeterminanteAccess().getDescripcionLosLasKeyword_0_1());
 				}
-				lv_contexto_4_0=ruleClase
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getComplejaRule());
+						$current = createModelElement(grammarAccess.getDeterminanteRule());
 					}
-					set(
-						$current,
-						"contexto",
-						lv_contexto_4_0,
-						"org.xtext.tesis.gramatica.Gramatica.Clase");
-					afterParserOrEnumRuleCall();
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_2, null);
 				}
 			)
 		)
-		otherlv_5='tal que'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getComplejaAccess().getTalQueKeyword_5());
-		}
-		otherlv_6='('
-		{
-			newLeafNode(otherlv_6, grammarAccess.getComplejaAccess().getLeftParenthesisKeyword_6());
-		}
-		(
-			otherlv_7='seleccionamos'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getComplejaAccess().getSeleccionamosKeyword_7_0());
-			}
-			    |
-			otherlv_8='para todos'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getComplejaAccess().getParaTodosKeyword_7_1());
-			}
-			    |
-			otherlv_9='existe'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getComplejaAccess().getExisteKeyword_7_2());
-			}
-		)
-		otherlv_10='Los/Las'
-		{
-			newLeafNode(otherlv_10, grammarAccess.getComplejaAccess().getLosLasKeyword_8());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getComplejaAccess().getAtributoClaseParserRuleCall_9_0());
-				}
-				lv_atributo_11_0=ruleClase
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getComplejaRule());
-					}
-					set(
-						$current,
-						"atributo",
-						lv_atributo_11_0,
-						"org.xtext.tesis.gramatica.Gramatica.Clase");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_12='donde'
-		{
-			newLeafNode(otherlv_12, grammarAccess.getComplejaAccess().getDondeKeyword_10());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getComplejaAccess().getAtributoAtributoParserRuleCall_11_0());
-				}
-				lv_atributo_13_0=ruleAtributo
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getComplejaRule());
-					}
-					set(
-						$current,
-						"atributo",
-						lv_atributo_13_0,
-						"org.xtext.tesis.gramatica.Gramatica.Atributo");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_14='mayor que'
-			{
-				newLeafNode(otherlv_14, grammarAccess.getComplejaAccess().getMayorQueKeyword_12_0());
-			}
-			    |
-			otherlv_15='menor que'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getComplejaAccess().getMenorQueKeyword_12_1());
-			}
-			    |
-			otherlv_16='igual a'
-			{
-				newLeafNode(otherlv_16, grammarAccess.getComplejaAccess().getIgualAKeyword_12_2());
-			}
-			    |
-			otherlv_17='mayor o igual a'
-			{
-				newLeafNode(otherlv_17, grammarAccess.getComplejaAccess().getMayorOIgualAKeyword_12_3());
-			}
-			    |
-			otherlv_18='menor o igual a'
-			{
-				newLeafNode(otherlv_18, grammarAccess.getComplejaAccess().getMenorOIgualAKeyword_12_4());
-			}
-			    |
-			otherlv_19='distinto de'
-			{
-				newLeafNode(otherlv_19, grammarAccess.getComplejaAccess().getDistintoDeKeyword_12_5());
-			}
-			    |
-			otherlv_20='al menos'
-			{
-				newLeafNode(otherlv_20, grammarAccess.getComplejaAccess().getAlMenosKeyword_12_6());
-			}
-		)
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getComplejaAccess().getLiteralLiteralParserRuleCall_13_0_0());
-					}
-					lv_literal_21_0=ruleLiteral
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getComplejaRule());
-						}
-						set(
-							$current,
-							"literal",
-							lv_literal_21_0,
-							"org.xtext.tesis.gramatica.Gramatica.Literal");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getComplejaAccess().getAtributoAtributoParserRuleCall_13_1_0());
-					}
-					lv_atributo_22_0=ruleAtributo
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getComplejaRule());
-						}
-						set(
-							$current,
-							"atributo",
-							lv_atributo_22_0,
-							"org.xtext.tesis.gramatica.Gramatica.Atributo");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		otherlv_23=')'
-		{
-			newLeafNode(otherlv_23, grammarAccess.getComplejaAccess().getRightParenthesisKeyword_14());
-		}
-		otherlv_24='tal que'
-		{
-			newLeafNode(otherlv_24, grammarAccess.getComplejaAccess().getTalQueKeyword_15());
-		}
-		(
-			otherlv_25='es no vacio'
-			{
-				newLeafNode(otherlv_25, grammarAccess.getComplejaAccess().getEsNoVacioKeyword_16_0());
-			}
-			    |
-			otherlv_26='es vacio | tamanio'
-			{
-				newLeafNode(otherlv_26, grammarAccess.getComplejaAccess().getEsVacioTamanioKeyword_16_1());
-			}
-		)
-		(
-			(
-				otherlv_27='mayor que'
-				{
-					newLeafNode(otherlv_27, grammarAccess.getComplejaAccess().getMayorQueKeyword_17_0_0());
-				}
-				    |
-				otherlv_28='menor que'
-				{
-					newLeafNode(otherlv_28, grammarAccess.getComplejaAccess().getMenorQueKeyword_17_0_1());
-				}
-				    |
-				otherlv_29='igual a'
-				{
-					newLeafNode(otherlv_29, grammarAccess.getComplejaAccess().getIgualAKeyword_17_0_2());
-				}
-				    |
-				otherlv_30='mayor o igual a'
-				{
-					newLeafNode(otherlv_30, grammarAccess.getComplejaAccess().getMayorOIgualAKeyword_17_0_3());
-				}
-				    |
-				otherlv_31='menor o igual a'
-				{
-					newLeafNode(otherlv_31, grammarAccess.getComplejaAccess().getMenorOIgualAKeyword_17_0_4());
-				}
-				    |
-				otherlv_32='distinto de'
-				{
-					newLeafNode(otherlv_32, grammarAccess.getComplejaAccess().getDistintoDeKeyword_17_0_5());
-				}
-				    |
-				otherlv_33='al menos'
-				{
-					newLeafNode(otherlv_33, grammarAccess.getComplejaAccess().getAlMenosKeyword_17_0_6());
-				}
-			)
-			(
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getComplejaAccess().getLiteralLiteralParserRuleCall_17_1_0_0());
-						}
-						lv_literal_34_0=ruleLiteral
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getComplejaRule());
-							}
-							set(
-								$current,
-								"literal",
-								lv_literal_34_0,
-								"org.xtext.tesis.gramatica.Gramatica.Literal");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				    |
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getComplejaAccess().getAtributoAtributoParserRuleCall_17_1_1_0());
-						}
-						lv_atributo_35_0=ruleAtributo
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getComplejaRule());
-							}
-							set(
-								$current,
-								"atributo",
-								lv_atributo_35_0,
-								"org.xtext.tesis.gramatica.Gramatica.Atributo");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-		)?
-		otherlv_36='.'
-		{
-			newLeafNode(otherlv_36, grammarAccess.getComplejaAccess().getFullStopKeyword_18());
-		}
 	)
 ;
 
@@ -665,6 +418,268 @@ ruleAtributo returns [EObject current=null]
 						"name",
 						lv_name_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleSintagmaPreposicional
+entryRuleSintagmaPreposicional returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSintagmaPreposicionalRule()); }
+	iv_ruleSintagmaPreposicional=ruleSintagmaPreposicional
+	{ $current=$iv_ruleSintagmaPreposicional.current; }
+	EOF;
+
+// Rule SintagmaPreposicional
+ruleSintagmaPreposicional returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_descripcion_0_0='de un/una'
+			{
+				newLeafNode(lv_descripcion_0_0, grammarAccess.getSintagmaPreposicionalAccess().getDescripcionDeUnUnaKeyword_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getSintagmaPreposicionalRule());
+				}
+				setWithLastConsumed($current, "descripcion", lv_descripcion_0_0, "de un/una");
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleObligacion
+entryRuleObligacion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getObligacionRule()); }
+	iv_ruleObligacion=ruleObligacion
+	{ $current=$iv_ruleObligacion.current; }
+	EOF;
+
+// Rule Obligacion
+ruleObligacion returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getObligacionAccess().getNegacionNegacionParserRuleCall_0_0());
+				}
+				lv_negacion_0_0=ruleNegacion
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getObligacionRule());
+					}
+					set(
+						$current,
+						"negacion",
+						lv_negacion_0_0,
+						"org.xtext.tesis.gramatica.Gramatica.Negacion");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getObligacionAccess().getObligacionDeberObligacionDeberParserRuleCall_1_0());
+				}
+				lv_obligacionDeber_1_0=ruleObligacionDeber
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getObligacionRule());
+					}
+					set(
+						$current,
+						"obligacionDeber",
+						lv_obligacionDeber_1_0,
+						"org.xtext.tesis.gramatica.Gramatica.ObligacionDeber");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleObligacionDeber
+entryRuleObligacionDeber returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getObligacionDeberRule()); }
+	iv_ruleObligacionDeber=ruleObligacionDeber
+	{ $current=$iv_ruleObligacionDeber.current; }
+	EOF;
+
+// Rule ObligacionDeber
+ruleObligacionDeber returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_descripcion_0_1='debe ser'
+				{
+					newLeafNode(lv_descripcion_0_1, grammarAccess.getObligacionDeberAccess().getDescripcionDebeSerKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getObligacionDeberRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_1, null);
+				}
+				    |
+				lv_descripcion_0_2='debe estar'
+				{
+					newLeafNode(lv_descripcion_0_2, grammarAccess.getObligacionDeberAccess().getDescripcionDebeEstarKeyword_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getObligacionDeberRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_2, null);
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleNegacion
+entryRuleNegacion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNegacionRule()); }
+	iv_ruleNegacion=ruleNegacion
+	{ $current=$iv_ruleNegacion.current; }
+	EOF;
+
+// Rule Negacion
+ruleNegacion returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_descripcion_0_0='no'
+			{
+				newLeafNode(lv_descripcion_0_0, grammarAccess.getNegacionAccess().getDescripcionNoKeyword_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getNegacionRule());
+				}
+				setWithLastConsumed($current, "descripcion", lv_descripcion_0_0, "no");
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleOperacion
+entryRuleOperacion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getOperacionRule()); }
+	iv_ruleOperacion=ruleOperacion
+	{ $current=$iv_ruleOperacion.current; }
+	EOF;
+
+// Rule Operacion
+ruleOperacion returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_descripcion_0_1='mayor que'
+				{
+					newLeafNode(lv_descripcion_0_1, grammarAccess.getOperacionAccess().getDescripcionMayorQueKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOperacionRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_1, null);
+				}
+				    |
+				lv_descripcion_0_2='menor que'
+				{
+					newLeafNode(lv_descripcion_0_2, grammarAccess.getOperacionAccess().getDescripcionMenorQueKeyword_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOperacionRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_2, null);
+				}
+				    |
+				lv_descripcion_0_3='igual a'
+				{
+					newLeafNode(lv_descripcion_0_3, grammarAccess.getOperacionAccess().getDescripcionIgualAKeyword_0_2());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOperacionRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_3, null);
+				}
+				    |
+				lv_descripcion_0_4='mayor o igual a'
+				{
+					newLeafNode(lv_descripcion_0_4, grammarAccess.getOperacionAccess().getDescripcionMayorOIgualAKeyword_0_3());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOperacionRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_4, null);
+				}
+				    |
+				lv_descripcion_0_5='menor o igual a'
+				{
+					newLeafNode(lv_descripcion_0_5, grammarAccess.getOperacionAccess().getDescripcionMenorOIgualAKeyword_0_4());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOperacionRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_5, null);
+				}
+				    |
+				lv_descripcion_0_6='distinto de'
+				{
+					newLeafNode(lv_descripcion_0_6, grammarAccess.getOperacionAccess().getDescripcionDistintoDeKeyword_0_5());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOperacionRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_6, null);
+				}
+				    |
+				lv_descripcion_0_7='al menos'
+				{
+					newLeafNode(lv_descripcion_0_7, grammarAccess.getOperacionAccess().getDescripcionAlMenosKeyword_0_6());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOperacionRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_7, null);
 				}
 			)
 		)

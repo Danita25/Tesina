@@ -2,18 +2,60 @@ grammar org.xtext.tesis.gramatica.Gramatica with org.eclipse.xtext.common.Termin
 
 generate gramatica "http://www.xtext.org/tesis/gramatica/Gramatica"
 
-Gramatica: 
+Documento: 
+ 		pathModelo = 'pathModelo:' STRING
+		pathOcl = 'pathOcl:' STRING
 		oraciones += Oracion* 
 ;
 		
+		
 Oracion:
-		Simple | Compleja
+		Simple //| Compleja
 ;
+
 	
 //El/La => atributo simple
 //Los/Las => atributo coleccion	
 Simple:
-	('El/La'|'Los/Las') atributo=Atributo 'de' 'un/una' contexto=Clase ('no')? 'debe' ('ser'|'estar') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos')? (literal=Literal | atributo=Atributo)'.';
+	determinante=Determinante atributo=Atributo  Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion (operacion=Operacion)? (literal=Literal | atributo=Atributo)'.';
+
+Determinante:
+	descripcion=('El/La'|'Los/Las')
+;
+
+//No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
+Atributo:
+	('Coleccion de')? name=ID
+;
+
+SintagmaPreposicional:
+	descripcion='de un/una'
+;
+
+
+Obligacion:
+	(negacion=Negacion)? obligacionDeber=ObligacionDeber
+;
+
+ObligacionDeber:
+	//('no')? 'debe' ('ser'|'estar') 
+	descripcion=('debe ser' | 'debe estar')
+;
+Negacion:
+	descripcion='no'
+;
+
+Operacion:
+	descripcion=('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos')
+;
+
+Clase:
+	name=ID
+;
+
+Literal:
+	INT | STRING
+;
 
 /**
  * Considere que la constraint se divide en tres partes:
@@ -23,19 +65,7 @@ Simple:
  * parte3->aplicamos una condicion/operacion que esperamos que se cumpla sobre el subconjunto que obtuvimos en la parte2
  */
 Compleja:
-	'Para todos/as' atributo=Clase 'de' 'un/una' contexto=Clase 'tal que' 
-		'('('seleccionamos'|'para todos'|'existe') 'Los/Las' atributo=Clase 'donde' atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo)')' 'tal que' 
+	'Para todos/as' atributo=Atributo 'de' 'un/una' contexto=Clase 'tal que' 
+		('seleccionamos'|'para todos'|'existe') 'Los/Las' atributo=Clase 'donde'  (atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo) ('implica')?)* 
 			('es no vacio'| 'es vacio | tamanio') (('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo))?'.'
-;
-//No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
-Atributo:
-	('Coleccion de')? name=ID
-;
-
-Clase:
-	name=ID
-;
-
-Literal:
-	INT | STRING
 ;
