@@ -12,8 +12,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.tesis.gramatica.gramatica.Atributo;
+import org.xtext.tesis.gramatica.gramatica.Clase;
+import org.xtext.tesis.gramatica.gramatica.Determinante;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
+import org.xtext.tesis.gramatica.gramatica.Obligacion;
+import org.xtext.tesis.gramatica.gramatica.Operacion;
 import org.xtext.tesis.gramatica.gramatica.Simple;
+import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,13 +28,29 @@ import org.xtext.tesis.gramatica.gramatica.Simple;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getDeterminante <em>Determinante</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getAtributo <em>Atributo</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getSintagma <em>Sintagma</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getContexto <em>Contexto</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getObligacion <em>Obligacion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getOperacion <em>Operacion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getLiteral <em>Literal</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SimpleImpl extends OracionImpl implements Simple
 {
+  /**
+   * The cached value of the '{@link #getDeterminante() <em>Determinante</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeterminante()
+   * @generated
+   * @ordered
+   */
+  protected Determinante determinante;
+
   /**
    * The cached value of the '{@link #getAtributo() <em>Atributo</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -39,6 +60,66 @@ public class SimpleImpl extends OracionImpl implements Simple
    * @ordered
    */
   protected Atributo atributo;
+
+  /**
+   * The cached value of the '{@link #getSintagma() <em>Sintagma</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSintagma()
+   * @generated
+   * @ordered
+   */
+  protected SintagmaPreposicional sintagma;
+
+  /**
+   * The cached value of the '{@link #getContexto() <em>Contexto</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContexto()
+   * @generated
+   * @ordered
+   */
+  protected Clase contexto;
+
+  /**
+   * The cached value of the '{@link #getObligacion() <em>Obligacion</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getObligacion()
+   * @generated
+   * @ordered
+   */
+  protected Obligacion obligacion;
+
+  /**
+   * The cached value of the '{@link #getOperacion() <em>Operacion</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperacion()
+   * @generated
+   * @ordered
+   */
+  protected Operacion operacion;
+
+  /**
+   * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLiteral()
+   * @generated
+   * @ordered
+   */
+  protected static final String LITERAL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLiteral()
+   * @generated
+   * @ordered
+   */
+  protected String literal = LITERAL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -59,6 +140,54 @@ public class SimpleImpl extends OracionImpl implements Simple
   protected EClass eStaticClass()
   {
     return GramaticaPackage.Literals.SIMPLE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Determinante getDeterminante()
+  {
+    return determinante;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDeterminante(Determinante newDeterminante, NotificationChain msgs)
+  {
+    Determinante oldDeterminante = determinante;
+    determinante = newDeterminante;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__DETERMINANTE, oldDeterminante, newDeterminante);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDeterminante(Determinante newDeterminante)
+  {
+    if (newDeterminante != determinante)
+    {
+      NotificationChain msgs = null;
+      if (determinante != null)
+        msgs = ((InternalEObject)determinante).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__DETERMINANTE, null, msgs);
+      if (newDeterminante != null)
+        msgs = ((InternalEObject)newDeterminante).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__DETERMINANTE, null, msgs);
+      msgs = basicSetDeterminante(newDeterminante, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__DETERMINANTE, newDeterminante, newDeterminante));
   }
 
   /**
@@ -114,13 +243,238 @@ public class SimpleImpl extends OracionImpl implements Simple
    * <!-- end-user-doc -->
    * @generated
    */
+  public SintagmaPreposicional getSintagma()
+  {
+    return sintagma;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSintagma(SintagmaPreposicional newSintagma, NotificationChain msgs)
+  {
+    SintagmaPreposicional oldSintagma = sintagma;
+    sintagma = newSintagma;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__SINTAGMA, oldSintagma, newSintagma);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSintagma(SintagmaPreposicional newSintagma)
+  {
+    if (newSintagma != sintagma)
+    {
+      NotificationChain msgs = null;
+      if (sintagma != null)
+        msgs = ((InternalEObject)sintagma).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__SINTAGMA, null, msgs);
+      if (newSintagma != null)
+        msgs = ((InternalEObject)newSintagma).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__SINTAGMA, null, msgs);
+      msgs = basicSetSintagma(newSintagma, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__SINTAGMA, newSintagma, newSintagma));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Clase getContexto()
+  {
+    return contexto;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetContexto(Clase newContexto, NotificationChain msgs)
+  {
+    Clase oldContexto = contexto;
+    contexto = newContexto;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__CONTEXTO, oldContexto, newContexto);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setContexto(Clase newContexto)
+  {
+    if (newContexto != contexto)
+    {
+      NotificationChain msgs = null;
+      if (contexto != null)
+        msgs = ((InternalEObject)contexto).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__CONTEXTO, null, msgs);
+      if (newContexto != null)
+        msgs = ((InternalEObject)newContexto).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__CONTEXTO, null, msgs);
+      msgs = basicSetContexto(newContexto, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__CONTEXTO, newContexto, newContexto));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Obligacion getObligacion()
+  {
+    return obligacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetObligacion(Obligacion newObligacion, NotificationChain msgs)
+  {
+    Obligacion oldObligacion = obligacion;
+    obligacion = newObligacion;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__OBLIGACION, oldObligacion, newObligacion);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setObligacion(Obligacion newObligacion)
+  {
+    if (newObligacion != obligacion)
+    {
+      NotificationChain msgs = null;
+      if (obligacion != null)
+        msgs = ((InternalEObject)obligacion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__OBLIGACION, null, msgs);
+      if (newObligacion != null)
+        msgs = ((InternalEObject)newObligacion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__OBLIGACION, null, msgs);
+      msgs = basicSetObligacion(newObligacion, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__OBLIGACION, newObligacion, newObligacion));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operacion getOperacion()
+  {
+    return operacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOperacion(Operacion newOperacion, NotificationChain msgs)
+  {
+    Operacion oldOperacion = operacion;
+    operacion = newOperacion;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__OPERACION, oldOperacion, newOperacion);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOperacion(Operacion newOperacion)
+  {
+    if (newOperacion != operacion)
+    {
+      NotificationChain msgs = null;
+      if (operacion != null)
+        msgs = ((InternalEObject)operacion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__OPERACION, null, msgs);
+      if (newOperacion != null)
+        msgs = ((InternalEObject)newOperacion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__OPERACION, null, msgs);
+      msgs = basicSetOperacion(newOperacion, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__OPERACION, newOperacion, newOperacion));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLiteral()
+  {
+    return literal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLiteral(String newLiteral)
+  {
+    String oldLiteral = literal;
+    literal = newLiteral;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__LITERAL, oldLiteral, literal));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case GramaticaPackage.SIMPLE__DETERMINANTE:
+        return basicSetDeterminante(null, msgs);
       case GramaticaPackage.SIMPLE__ATRIBUTO:
         return basicSetAtributo(null, msgs);
+      case GramaticaPackage.SIMPLE__SINTAGMA:
+        return basicSetSintagma(null, msgs);
+      case GramaticaPackage.SIMPLE__CONTEXTO:
+        return basicSetContexto(null, msgs);
+      case GramaticaPackage.SIMPLE__OBLIGACION:
+        return basicSetObligacion(null, msgs);
+      case GramaticaPackage.SIMPLE__OPERACION:
+        return basicSetOperacion(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +489,20 @@ public class SimpleImpl extends OracionImpl implements Simple
   {
     switch (featureID)
     {
+      case GramaticaPackage.SIMPLE__DETERMINANTE:
+        return getDeterminante();
       case GramaticaPackage.SIMPLE__ATRIBUTO:
         return getAtributo();
+      case GramaticaPackage.SIMPLE__SINTAGMA:
+        return getSintagma();
+      case GramaticaPackage.SIMPLE__CONTEXTO:
+        return getContexto();
+      case GramaticaPackage.SIMPLE__OBLIGACION:
+        return getObligacion();
+      case GramaticaPackage.SIMPLE__OPERACION:
+        return getOperacion();
+      case GramaticaPackage.SIMPLE__LITERAL:
+        return getLiteral();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +517,26 @@ public class SimpleImpl extends OracionImpl implements Simple
   {
     switch (featureID)
     {
+      case GramaticaPackage.SIMPLE__DETERMINANTE:
+        setDeterminante((Determinante)newValue);
+        return;
       case GramaticaPackage.SIMPLE__ATRIBUTO:
         setAtributo((Atributo)newValue);
+        return;
+      case GramaticaPackage.SIMPLE__SINTAGMA:
+        setSintagma((SintagmaPreposicional)newValue);
+        return;
+      case GramaticaPackage.SIMPLE__CONTEXTO:
+        setContexto((Clase)newValue);
+        return;
+      case GramaticaPackage.SIMPLE__OBLIGACION:
+        setObligacion((Obligacion)newValue);
+        return;
+      case GramaticaPackage.SIMPLE__OPERACION:
+        setOperacion((Operacion)newValue);
+        return;
+      case GramaticaPackage.SIMPLE__LITERAL:
+        setLiteral((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +552,26 @@ public class SimpleImpl extends OracionImpl implements Simple
   {
     switch (featureID)
     {
+      case GramaticaPackage.SIMPLE__DETERMINANTE:
+        setDeterminante((Determinante)null);
+        return;
       case GramaticaPackage.SIMPLE__ATRIBUTO:
         setAtributo((Atributo)null);
+        return;
+      case GramaticaPackage.SIMPLE__SINTAGMA:
+        setSintagma((SintagmaPreposicional)null);
+        return;
+      case GramaticaPackage.SIMPLE__CONTEXTO:
+        setContexto((Clase)null);
+        return;
+      case GramaticaPackage.SIMPLE__OBLIGACION:
+        setObligacion((Obligacion)null);
+        return;
+      case GramaticaPackage.SIMPLE__OPERACION:
+        setOperacion((Operacion)null);
+        return;
+      case GramaticaPackage.SIMPLE__LITERAL:
+        setLiteral(LITERAL_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -185,10 +587,39 @@ public class SimpleImpl extends OracionImpl implements Simple
   {
     switch (featureID)
     {
+      case GramaticaPackage.SIMPLE__DETERMINANTE:
+        return determinante != null;
       case GramaticaPackage.SIMPLE__ATRIBUTO:
         return atributo != null;
+      case GramaticaPackage.SIMPLE__SINTAGMA:
+        return sintagma != null;
+      case GramaticaPackage.SIMPLE__CONTEXTO:
+        return contexto != null;
+      case GramaticaPackage.SIMPLE__OBLIGACION:
+        return obligacion != null;
+      case GramaticaPackage.SIMPLE__OPERACION:
+        return operacion != null;
+      case GramaticaPackage.SIMPLE__LITERAL:
+        return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (literal: ");
+    result.append(literal);
+    result.append(')');
+    return result.toString();
   }
 
 } //SimpleImpl

@@ -27,7 +27,7 @@ public class GramaticaParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Gramatica";
+		return "Documento";
 	}
 
 	public GramaticaGrammarAccess getGrammarAccess() {

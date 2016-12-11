@@ -22,34 +22,41 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GramaticaGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Atributo_ColeccionDeKeyword_0_q;
-	protected AbstractElementAlias match_Compleja_AlMenosKeyword_12_6_or_DistintoDeKeyword_12_5_or_IgualAKeyword_12_2_or_MayorOIgualAKeyword_12_3_or_MayorQueKeyword_12_0_or_MenorOIgualAKeyword_12_4_or_MenorQueKeyword_12_1;
-	protected AbstractElementAlias match_Compleja_AlMenosKeyword_17_0_6_or_DistintoDeKeyword_17_0_5_or_IgualAKeyword_17_0_2_or_MayorOIgualAKeyword_17_0_3_or_MayorQueKeyword_17_0_0_or_MenorOIgualAKeyword_17_0_4_or_MenorQueKeyword_17_0_1;
-	protected AbstractElementAlias match_Compleja_EsNoVacioKeyword_16_0_or_EsVacioTamanioKeyword_16_1;
-	protected AbstractElementAlias match_Compleja_ExisteKeyword_7_2_or_ParaTodosKeyword_7_1_or_SeleccionamosKeyword_7_0;
-	protected AbstractElementAlias match_Simple_ElLaKeyword_0_0_or_LosLasKeyword_0_1;
-	protected AbstractElementAlias match_Simple_EstarKeyword_7_1_or_SerKeyword_7_0;
-	protected AbstractElementAlias match_Simple_NoKeyword_5_q;
-	protected AbstractElementAlias match_Simple___AlMenosKeyword_8_6_or_DistintoDeKeyword_8_5_or_IgualAKeyword_8_2_or_MayorOIgualAKeyword_8_3_or_MayorQueKeyword_8_0_or_MenorOIgualAKeyword_8_4_or_MenorQueKeyword_8_1__q;
+	protected AbstractElementAlias match_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1;
+	protected AbstractElementAlias match_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1;
+	protected AbstractElementAlias match_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1;
+	protected AbstractElementAlias match_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0;
+	protected AbstractElementAlias match_Compleja_ImplicaKeyword_10_3_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GramaticaGrammarAccess) access;
 		match_Atributo_ColeccionDeKeyword_0_q = new TokenAlias(false, true, grammarAccess.getAtributoAccess().getColeccionDeKeyword_0());
-		match_Compleja_AlMenosKeyword_12_6_or_DistintoDeKeyword_12_5_or_IgualAKeyword_12_2_or_MayorOIgualAKeyword_12_3_or_MayorQueKeyword_12_0_or_MenorOIgualAKeyword_12_4_or_MenorQueKeyword_12_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getAlMenosKeyword_12_6()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getDistintoDeKeyword_12_5()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getIgualAKeyword_12_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorOIgualAKeyword_12_3()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorQueKeyword_12_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorOIgualAKeyword_12_4()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorQueKeyword_12_1()));
-		match_Compleja_AlMenosKeyword_17_0_6_or_DistintoDeKeyword_17_0_5_or_IgualAKeyword_17_0_2_or_MayorOIgualAKeyword_17_0_3_or_MayorQueKeyword_17_0_0_or_MenorOIgualAKeyword_17_0_4_or_MenorQueKeyword_17_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getAlMenosKeyword_17_0_6()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getDistintoDeKeyword_17_0_5()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getIgualAKeyword_17_0_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorOIgualAKeyword_17_0_3()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorQueKeyword_17_0_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorOIgualAKeyword_17_0_4()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorQueKeyword_17_0_1()));
-		match_Compleja_EsNoVacioKeyword_16_0_or_EsVacioTamanioKeyword_16_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getEsNoVacioKeyword_16_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getEsVacioTamanioKeyword_16_1()));
-		match_Compleja_ExisteKeyword_7_2_or_ParaTodosKeyword_7_1_or_SeleccionamosKeyword_7_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getExisteKeyword_7_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getParaTodosKeyword_7_1()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getSeleccionamosKeyword_7_0()));
-		match_Simple_ElLaKeyword_0_0_or_LosLasKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSimpleAccess().getElLaKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getSimpleAccess().getLosLasKeyword_0_1()));
-		match_Simple_EstarKeyword_7_1_or_SerKeyword_7_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSimpleAccess().getEstarKeyword_7_1()), new TokenAlias(false, false, grammarAccess.getSimpleAccess().getSerKeyword_7_0()));
-		match_Simple_NoKeyword_5_q = new TokenAlias(false, true, grammarAccess.getSimpleAccess().getNoKeyword_5());
-		match_Simple___AlMenosKeyword_8_6_or_DistintoDeKeyword_8_5_or_IgualAKeyword_8_2_or_MayorOIgualAKeyword_8_3_or_MayorQueKeyword_8_0_or_MenorOIgualAKeyword_8_4_or_MenorQueKeyword_8_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getSimpleAccess().getAlMenosKeyword_8_6()), new TokenAlias(false, false, grammarAccess.getSimpleAccess().getDistintoDeKeyword_8_5()), new TokenAlias(false, false, grammarAccess.getSimpleAccess().getIgualAKeyword_8_2()), new TokenAlias(false, false, grammarAccess.getSimpleAccess().getMayorOIgualAKeyword_8_3()), new TokenAlias(false, false, grammarAccess.getSimpleAccess().getMayorQueKeyword_8_0()), new TokenAlias(false, false, grammarAccess.getSimpleAccess().getMenorOIgualAKeyword_8_4()), new TokenAlias(false, false, grammarAccess.getSimpleAccess().getMenorQueKeyword_8_1()));
+		match_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getAlMenosKeyword_10_1_6()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getDistintoDeKeyword_10_1_5()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getIgualAKeyword_10_1_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorOIgualAKeyword_10_1_3()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorQueKeyword_10_1_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorOIgualAKeyword_10_1_4()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorQueKeyword_10_1_1()));
+		match_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getAlMenosKeyword_12_0_6()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getDistintoDeKeyword_12_0_5()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getIgualAKeyword_12_0_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorOIgualAKeyword_12_0_3()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorQueKeyword_12_0_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorOIgualAKeyword_12_0_4()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorQueKeyword_12_0_1()));
+		match_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getEsNoVacioKeyword_11_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getEsVacioTamanioKeyword_11_1()));
+		match_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getExisteKeyword_6_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getParaTodosKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getSeleccionamosKeyword_6_0()));
+		match_Compleja_ImplicaKeyword_10_3_q = new TokenAlias(false, true, grammarAccess.getComplejaAccess().getImplicaKeyword_10_3());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
+			return getSTRINGToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal STRING	: 
+	 * 			'"' ( '\\' .  | !('\\'|'"') )* '"' |
+	 * 			"'" ( '\\' .  | !('\\'|"'") )* "'"
+	 * 		;
+	 */
+	protected String getSTRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\"\"";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -59,22 +66,16 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Atributo_ColeccionDeKeyword_0_q.equals(syntax))
 				emit_Atributo_ColeccionDeKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_AlMenosKeyword_12_6_or_DistintoDeKeyword_12_5_or_IgualAKeyword_12_2_or_MayorOIgualAKeyword_12_3_or_MayorQueKeyword_12_0_or_MenorOIgualAKeyword_12_4_or_MenorQueKeyword_12_1.equals(syntax))
-				emit_Compleja_AlMenosKeyword_12_6_or_DistintoDeKeyword_12_5_or_IgualAKeyword_12_2_or_MayorOIgualAKeyword_12_3_or_MayorQueKeyword_12_0_or_MenorOIgualAKeyword_12_4_or_MenorQueKeyword_12_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_AlMenosKeyword_17_0_6_or_DistintoDeKeyword_17_0_5_or_IgualAKeyword_17_0_2_or_MayorOIgualAKeyword_17_0_3_or_MayorQueKeyword_17_0_0_or_MenorOIgualAKeyword_17_0_4_or_MenorQueKeyword_17_0_1.equals(syntax))
-				emit_Compleja_AlMenosKeyword_17_0_6_or_DistintoDeKeyword_17_0_5_or_IgualAKeyword_17_0_2_or_MayorOIgualAKeyword_17_0_3_or_MayorQueKeyword_17_0_0_or_MenorOIgualAKeyword_17_0_4_or_MenorQueKeyword_17_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_EsNoVacioKeyword_16_0_or_EsVacioTamanioKeyword_16_1.equals(syntax))
-				emit_Compleja_EsNoVacioKeyword_16_0_or_EsVacioTamanioKeyword_16_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_ExisteKeyword_7_2_or_ParaTodosKeyword_7_1_or_SeleccionamosKeyword_7_0.equals(syntax))
-				emit_Compleja_ExisteKeyword_7_2_or_ParaTodosKeyword_7_1_or_SeleccionamosKeyword_7_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Simple_ElLaKeyword_0_0_or_LosLasKeyword_0_1.equals(syntax))
-				emit_Simple_ElLaKeyword_0_0_or_LosLasKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Simple_EstarKeyword_7_1_or_SerKeyword_7_0.equals(syntax))
-				emit_Simple_EstarKeyword_7_1_or_SerKeyword_7_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Simple_NoKeyword_5_q.equals(syntax))
-				emit_Simple_NoKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Simple___AlMenosKeyword_8_6_or_DistintoDeKeyword_8_5_or_IgualAKeyword_8_2_or_MayorOIgualAKeyword_8_3_or_MayorQueKeyword_8_0_or_MenorOIgualAKeyword_8_4_or_MenorQueKeyword_8_1__q.equals(syntax))
-				emit_Simple___AlMenosKeyword_8_6_or_DistintoDeKeyword_8_5_or_IgualAKeyword_8_2_or_MayorOIgualAKeyword_8_3_or_MayorQueKeyword_8_0_or_MenorOIgualAKeyword_8_4_or_MenorQueKeyword_8_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1.equals(syntax))
+				emit_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1.equals(syntax))
+				emit_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1.equals(syntax))
+				emit_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0.equals(syntax))
+				emit_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Compleja_ImplicaKeyword_10_3_q.equals(syntax))
+				emit_Compleja_ImplicaKeyword_10_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -106,7 +107,7 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     atributo=Atributo (ambiguity) atributo=Atributo
 	 *     atributo=Atributo (ambiguity) literal=Literal
 	 */
-	protected void emit_Compleja_AlMenosKeyword_12_6_or_DistintoDeKeyword_12_5_or_IgualAKeyword_12_2_or_MayorOIgualAKeyword_12_3_or_MayorQueKeyword_12_0_or_MenorOIgualAKeyword_12_4_or_MenorQueKeyword_12_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -123,12 +124,14 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 	  *     )
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     atributo=Atributo ')' 'tal que' ('es no vacio' | 'es vacio | tamanio') (ambiguity) atributo=Atributo
-	 *     atributo=Atributo ')' 'tal que' ('es no vacio' | 'es vacio | tamanio') (ambiguity) literal=Literal
-	 *     literal=Literal ')' 'tal que' ('es no vacio' | 'es vacio | tamanio') (ambiguity) atributo=Atributo
-	 *     literal=Literal ')' 'tal que' ('es no vacio' | 'es vacio | tamanio') (ambiguity) literal=Literal
+	 *     atributo=Atributo 'implica'? ('es no vacio' | 'es vacio | tamanio') (ambiguity) atributo=Atributo
+	 *     atributo=Atributo 'implica'? ('es no vacio' | 'es vacio | tamanio') (ambiguity) literal=Literal
+	 *     atributo=Clase 'donde' ('es no vacio' | 'es vacio | tamanio') (ambiguity) atributo=Atributo
+	 *     atributo=Clase 'donde' ('es no vacio' | 'es vacio | tamanio') (ambiguity) literal=Literal
+	 *     literal=Literal 'implica'? ('es no vacio' | 'es vacio | tamanio') (ambiguity) atributo=Atributo
+	 *     literal=Literal 'implica'? ('es no vacio' | 'es vacio | tamanio') (ambiguity) literal=Literal
 	 */
-	protected void emit_Compleja_AlMenosKeyword_17_0_6_or_DistintoDeKeyword_17_0_5_or_IgualAKeyword_17_0_2_or_MayorOIgualAKeyword_17_0_3_or_MayorQueKeyword_17_0_0_or_MenorOIgualAKeyword_17_0_4_or_MenorQueKeyword_17_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -137,14 +140,17 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'es no vacio' | 'es vacio | tamanio'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     atributo=Atributo ')' 'tal que' (ambiguity) '.' (rule end)
-	 *     atributo=Atributo ')' 'tal que' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
-	 *     atributo=Atributo ')' 'tal que' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
-	 *     literal=Literal ')' 'tal que' (ambiguity) '.' (rule end)
-	 *     literal=Literal ')' 'tal que' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
-	 *     literal=Literal ')' 'tal que' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
+	 *     atributo=Atributo 'implica'? (ambiguity) '.' (rule end)
+	 *     atributo=Atributo 'implica'? (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
+	 *     atributo=Atributo 'implica'? (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
+	 *     atributo=Clase 'donde' (ambiguity) '.' (rule end)
+	 *     atributo=Clase 'donde' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
+	 *     atributo=Clase 'donde' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
+	 *     literal=Literal 'implica'? (ambiguity) '.' (rule end)
+	 *     literal=Literal 'implica'? (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
+	 *     literal=Literal 'implica'? (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
 	 */
-	protected void emit_Compleja_EsNoVacioKeyword_16_0_or_EsVacioTamanioKeyword_16_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -153,64 +159,27 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'seleccionamos' | 'para todos' | 'existe'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     contexto=Clase 'tal que' '(' (ambiguity) 'Los/Las' atributo=Clase
+	 *     contexto=Clase 'tal que' (ambiguity) 'Los/Las' atributo=Clase
 	 */
-	protected void emit_Compleja_ExisteKeyword_7_2_or_ParaTodosKeyword_7_1_or_SeleccionamosKeyword_7_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'El/La' | 'Los/Las'
+	 *     'implica'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) atributo=Atributo
+	 *     atributo=Atributo (ambiguity) ('es no vacio' | 'es vacio | tamanio') '.' (rule end)
+	 *     atributo=Atributo (ambiguity) ('es no vacio' | 'es vacio | tamanio') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
+	 *     atributo=Atributo (ambiguity) ('es no vacio' | 'es vacio | tamanio') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
+	 *     atributo=Atributo (ambiguity) atributo=Atributo
+	 *     literal=Literal (ambiguity) ('es no vacio' | 'es vacio | tamanio') '.' (rule end)
+	 *     literal=Literal (ambiguity) ('es no vacio' | 'es vacio | tamanio') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
+	 *     literal=Literal (ambiguity) ('es no vacio' | 'es vacio | tamanio') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
+	 *     literal=Literal (ambiguity) atributo=Atributo
 	 */
-	protected void emit_Simple_ElLaKeyword_0_0_or_LosLasKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'ser' | 'estar'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     contexto=Clase 'no'? 'debe' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')? atributo=Atributo
-	 *     contexto=Clase 'no'? 'debe' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')? literal=Literal
-	 */
-	protected void emit_Simple_EstarKeyword_7_1_or_SerKeyword_7_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'no'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     contexto=Clase (ambiguity) 'debe' ('ser' | 'estar') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')? atributo=Atributo
-	 *     contexto=Clase (ambiguity) 'debe' ('ser' | 'estar') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')? literal=Literal
-	 */
-	protected void emit_Simple_NoKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (
-	  *         'mayor que' | 
-	  *         'menor que' | 
-	  *         'igual a' | 
-	  *         'mayor o igual a' | 
-	  *         'menor o igual a' | 
-	  *         'distinto de' | 
-	  *         'al menos'
-	  *     )?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     contexto=Clase 'no'? 'debe' ('ser' | 'estar') (ambiguity) atributo=Atributo
-	 *     contexto=Clase 'no'? 'debe' ('ser' | 'estar') (ambiguity) literal=Literal
-	 */
-	protected void emit_Simple___AlMenosKeyword_8_6_or_DistintoDeKeyword_8_5_or_IgualAKeyword_8_2_or_MayorOIgualAKeyword_8_3_or_MayorQueKeyword_8_0_or_MenorOIgualAKeyword_8_4_or_MenorQueKeyword_8_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Compleja_ImplicaKeyword_10_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
