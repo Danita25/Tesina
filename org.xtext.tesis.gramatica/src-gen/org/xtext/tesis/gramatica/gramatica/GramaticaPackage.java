@@ -68,7 +68,7 @@ public interface GramaticaPackage extends EPackage
   int DOCUMENTO = 0;
 
   /**
-   * The feature id for the '<em><b>Path Modelo</b></em>' attribute.
+   * The feature id for the '<em><b>Path Modelo</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -77,7 +77,7 @@ public interface GramaticaPackage extends EPackage
   int DOCUMENTO__PATH_MODELO = 0;
 
   /**
-   * The feature id for the '<em><b>Path Ocl</b></em>' attribute.
+   * The feature id for the '<em><b>Path Ocl</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -104,6 +104,62 @@ public interface GramaticaPackage extends EPackage
   int DOCUMENTO_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.PathModeloImpl <em>Path Modelo</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.PathModeloImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getPathModelo()
+   * @generated
+   */
+  int PATH_MODELO = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_MODELO__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Path Modelo</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_MODELO_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.PathOclImpl <em>Path Ocl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.PathOclImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getPathOcl()
+   * @generated
+   */
+  int PATH_OCL = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_OCL__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Path Ocl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_OCL_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OracionImpl <em>Oracion</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -111,7 +167,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getOracion()
    * @generated
    */
-  int ORACION = 1;
+  int ORACION = 3;
 
   /**
    * The number of structural features of the '<em>Oracion</em>' class.
@@ -123,6 +179,43 @@ public interface GramaticaPackage extends EPackage
   int ORACION_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl <em>Compuesta</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getCompuesta()
+   * @generated
+   */
+  int COMPUESTA = 4;
+
+  /**
+   * The feature id for the '<em><b>Simple</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPUESTA__SIMPLE = ORACION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Nexo</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPUESTA__NEXO = ORACION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Compuesta</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPUESTA_FEATURE_COUNT = ORACION_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl <em>Simple</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,7 +223,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getSimple()
    * @generated
    */
-  int SIMPLE = 2;
+  int SIMPLE = 5;
 
   /**
    * The feature id for the '<em><b>Determinante</b></em>' containment reference.
@@ -196,13 +289,50 @@ public interface GramaticaPackage extends EPackage
   int SIMPLE__LITERAL = ORACION_FEATURE_COUNT + 6;
 
   /**
+   * The feature id for the '<em><b>Fin Oracion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE__FIN_ORACION = ORACION_FEATURE_COUNT + 7;
+
+  /**
    * The number of structural features of the '<em>Simple</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_FEATURE_COUNT = ORACION_FEATURE_COUNT + 7;
+  int SIMPLE_FEATURE_COUNT = ORACION_FEATURE_COUNT + 8;
+
+  /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.NexoImpl <em>Nexo</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.NexoImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getNexo()
+   * @generated
+   */
+  int NEXO = 6;
+
+  /**
+   * The feature id for the '<em><b>Descripcion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEXO__DESCRIPCION = 0;
+
+  /**
+   * The number of structural features of the '<em>Nexo</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEXO_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.DeterminanteImpl <em>Determinante</em>}' class.
@@ -212,7 +342,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getDeterminante()
    * @generated
    */
-  int DETERMINANTE = 3;
+  int DETERMINANTE = 7;
 
   /**
    * The feature id for the '<em><b>Descripcion</b></em>' attribute.
@@ -240,7 +370,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getAtributo()
    * @generated
    */
-  int ATRIBUTO = 4;
+  int ATRIBUTO = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -268,7 +398,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getSintagmaPreposicional()
    * @generated
    */
-  int SINTAGMA_PREPOSICIONAL = 5;
+  int SINTAGMA_PREPOSICIONAL = 9;
 
   /**
    * The feature id for the '<em><b>Descripcion</b></em>' attribute.
@@ -296,7 +426,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getObligacion()
    * @generated
    */
-  int OBLIGACION = 6;
+  int OBLIGACION = 10;
 
   /**
    * The feature id for the '<em><b>Negacion</b></em>' containment reference.
@@ -333,7 +463,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getObligacionDeber()
    * @generated
    */
-  int OBLIGACION_DEBER = 7;
+  int OBLIGACION_DEBER = 11;
 
   /**
    * The feature id for the '<em><b>Descripcion</b></em>' attribute.
@@ -361,7 +491,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getNegacion()
    * @generated
    */
-  int NEGACION = 8;
+  int NEGACION = 12;
 
   /**
    * The feature id for the '<em><b>Descripcion</b></em>' attribute.
@@ -389,7 +519,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getOperacion()
    * @generated
    */
-  int OPERACION = 9;
+  int OPERACION = 13;
 
   /**
    * The feature id for the '<em><b>Descripcion</b></em>' attribute.
@@ -417,7 +547,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getClase()
    * @generated
    */
-  int CLASE = 10;
+  int CLASE = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -445,7 +575,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getCompleja()
    * @generated
    */
-  int COMPLEJA = 11;
+  int COMPLEJA = 15;
 
   /**
    * The feature id for the '<em><b>Atributo</b></em>' containment reference.
@@ -495,26 +625,26 @@ public interface GramaticaPackage extends EPackage
   EClass getDocumento();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo <em>Path Modelo</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo <em>Path Modelo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Path Modelo</em>'.
+   * @return the meta object for the containment reference '<em>Path Modelo</em>'.
    * @see org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo()
    * @see #getDocumento()
    * @generated
    */
-  EAttribute getDocumento_PathModelo();
+  EReference getDocumento_PathModelo();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl <em>Path Ocl</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl <em>Path Ocl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Path Ocl</em>'.
+   * @return the meta object for the containment reference '<em>Path Ocl</em>'.
    * @see org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl()
    * @see #getDocumento()
    * @generated
    */
-  EAttribute getDocumento_PathOcl();
+  EReference getDocumento_PathOcl();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.tesis.gramatica.gramatica.Documento#getOraciones <em>Oraciones</em>}'.
@@ -528,6 +658,48 @@ public interface GramaticaPackage extends EPackage
   EReference getDocumento_Oraciones();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.PathModelo <em>Path Modelo</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Path Modelo</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.PathModelo
+   * @generated
+   */
+  EClass getPathModelo();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.PathModelo#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.PathModelo#getName()
+   * @see #getPathModelo()
+   * @generated
+   */
+  EAttribute getPathModelo_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.PathOcl <em>Path Ocl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Path Ocl</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.PathOcl
+   * @generated
+   */
+  EClass getPathOcl();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.PathOcl#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.PathOcl#getName()
+   * @see #getPathOcl()
+   * @generated
+   */
+  EAttribute getPathOcl_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Oracion <em>Oracion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -536,6 +708,38 @@ public interface GramaticaPackage extends EPackage
    * @generated
    */
   EClass getOracion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Compuesta <em>Compuesta</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Compuesta</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compuesta
+   * @generated
+   */
+  EClass getCompuesta();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimple <em>Simple</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simple</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compuesta#getSimple()
+   * @see #getCompuesta()
+   * @generated
+   */
+  EReference getCompuesta_Simple();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getNexo <em>Nexo</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Nexo</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compuesta#getNexo()
+   * @see #getCompuesta()
+   * @generated
+   */
+  EReference getCompuesta_Nexo();
 
   /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Simple <em>Simple</em>}'.
@@ -623,6 +827,38 @@ public interface GramaticaPackage extends EPackage
    * @generated
    */
   EAttribute getSimple_Literal();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Simple#getFinOracion <em>Fin Oracion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fin Oracion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Simple#getFinOracion()
+   * @see #getSimple()
+   * @generated
+   */
+  EAttribute getSimple_FinOracion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Nexo <em>Nexo</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Nexo</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Nexo
+   * @generated
+   */
+  EClass getNexo();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Nexo#getDescripcion <em>Descripcion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descripcion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Nexo#getDescripcion()
+   * @see #getNexo()
+   * @generated
+   */
+  EAttribute getNexo_Descripcion();
 
   /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Determinante <em>Determinante</em>}'.
@@ -880,20 +1116,20 @@ public interface GramaticaPackage extends EPackage
     EClass DOCUMENTO = eINSTANCE.getDocumento();
 
     /**
-     * The meta object literal for the '<em><b>Path Modelo</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Path Modelo</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DOCUMENTO__PATH_MODELO = eINSTANCE.getDocumento_PathModelo();
+    EReference DOCUMENTO__PATH_MODELO = eINSTANCE.getDocumento_PathModelo();
 
     /**
-     * The meta object literal for the '<em><b>Path Ocl</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Path Ocl</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DOCUMENTO__PATH_OCL = eINSTANCE.getDocumento_PathOcl();
+    EReference DOCUMENTO__PATH_OCL = eINSTANCE.getDocumento_PathOcl();
 
     /**
      * The meta object literal for the '<em><b>Oraciones</b></em>' containment reference list feature.
@@ -904,6 +1140,42 @@ public interface GramaticaPackage extends EPackage
     EReference DOCUMENTO__ORACIONES = eINSTANCE.getDocumento_Oraciones();
 
     /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.PathModeloImpl <em>Path Modelo</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.PathModeloImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getPathModelo()
+     * @generated
+     */
+    EClass PATH_MODELO = eINSTANCE.getPathModelo();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PATH_MODELO__NAME = eINSTANCE.getPathModelo_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.PathOclImpl <em>Path Ocl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.PathOclImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getPathOcl()
+     * @generated
+     */
+    EClass PATH_OCL = eINSTANCE.getPathOcl();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PATH_OCL__NAME = eINSTANCE.getPathOcl_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OracionImpl <em>Oracion</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -912,6 +1184,32 @@ public interface GramaticaPackage extends EPackage
      * @generated
      */
     EClass ORACION = eINSTANCE.getOracion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl <em>Compuesta</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getCompuesta()
+     * @generated
+     */
+    EClass COMPUESTA = eINSTANCE.getCompuesta();
+
+    /**
+     * The meta object literal for the '<em><b>Simple</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPUESTA__SIMPLE = eINSTANCE.getCompuesta_Simple();
+
+    /**
+     * The meta object literal for the '<em><b>Nexo</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPUESTA__NEXO = eINSTANCE.getCompuesta_Nexo();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl <em>Simple</em>}' class.
@@ -978,6 +1276,32 @@ public interface GramaticaPackage extends EPackage
      * @generated
      */
     EAttribute SIMPLE__LITERAL = eINSTANCE.getSimple_Literal();
+
+    /**
+     * The meta object literal for the '<em><b>Fin Oracion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE__FIN_ORACION = eINSTANCE.getSimple_FinOracion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.NexoImpl <em>Nexo</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.NexoImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getNexo()
+     * @generated
+     */
+    EClass NEXO = eINSTANCE.getNexo();
+
+    /**
+     * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NEXO__DESCRIPCION = eINSTANCE.getNexo_Descripcion();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.DeterminanteImpl <em>Determinante</em>}' class.

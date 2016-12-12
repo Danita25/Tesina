@@ -22,8 +22,8 @@ class GramaticaParsingTest{
 	@Test 
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			pathModelo:'/modelo/pathname'
-			pathOcl: '/ocl/pathOcl'
+			'/modelo/pathmodelo'
+			'/ocl/pathOcl'
 			El/La edad de un/una Socio debe ser mayor o igual a 18.
 			El/La edad de un/una Socio no debe ser menor que 18.
 			El/La nombreCompleto de un/una Socio debe ser distinto de 'vacio'.
@@ -35,6 +35,8 @@ class GramaticaParsingTest{
 			El/La administrador de un/una Compania no debe estar 'desempleado'.
 			El/La Coleccion de Empleados de un/una Compania debe ser mayor que 0.
 			Los/Las Empleados de un/una Compania debe ser al menos 1.
+			El/La edad de un/una Socio debe ser mayor o igual a 18 y El/La numeroSocio de un/una Socio debe ser mayor que 0.
+			
 		''')
 		println(EmfFormatter.objToStr(result));
 	}

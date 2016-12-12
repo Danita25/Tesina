@@ -35,6 +35,7 @@ import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getObligacion <em>Obligacion</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getOperacion <em>Operacion</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getFinOracion <em>Fin Oracion</em>}</li>
  * </ul>
  *
  * @generated
@@ -120,6 +121,26 @@ public class SimpleImpl extends OracionImpl implements Simple
    * @ordered
    */
   protected String literal = LITERAL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFinOracion() <em>Fin Oracion</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFinOracion()
+   * @generated
+   * @ordered
+   */
+  protected static final String FIN_ORACION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFinOracion() <em>Fin Oracion</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFinOracion()
+   * @generated
+   * @ordered
+   */
+  protected String finOracion = FIN_ORACION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -458,6 +479,29 @@ public class SimpleImpl extends OracionImpl implements Simple
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getFinOracion()
+  {
+    return finOracion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFinOracion(String newFinOracion)
+  {
+    String oldFinOracion = finOracion;
+    finOracion = newFinOracion;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__FIN_ORACION, oldFinOracion, finOracion));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -503,6 +547,8 @@ public class SimpleImpl extends OracionImpl implements Simple
         return getOperacion();
       case GramaticaPackage.SIMPLE__LITERAL:
         return getLiteral();
+      case GramaticaPackage.SIMPLE__FIN_ORACION:
+        return getFinOracion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -537,6 +583,9 @@ public class SimpleImpl extends OracionImpl implements Simple
         return;
       case GramaticaPackage.SIMPLE__LITERAL:
         setLiteral((String)newValue);
+        return;
+      case GramaticaPackage.SIMPLE__FIN_ORACION:
+        setFinOracion((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -573,6 +622,9 @@ public class SimpleImpl extends OracionImpl implements Simple
       case GramaticaPackage.SIMPLE__LITERAL:
         setLiteral(LITERAL_EDEFAULT);
         return;
+      case GramaticaPackage.SIMPLE__FIN_ORACION:
+        setFinOracion(FIN_ORACION_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -601,6 +653,8 @@ public class SimpleImpl extends OracionImpl implements Simple
         return operacion != null;
       case GramaticaPackage.SIMPLE__LITERAL:
         return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
+      case GramaticaPackage.SIMPLE__FIN_ORACION:
+        return FIN_ORACION_EDEFAULT == null ? finOracion != null : !FIN_ORACION_EDEFAULT.equals(finOracion);
     }
     return super.eIsSet(featureID);
   }
@@ -618,6 +672,8 @@ public class SimpleImpl extends OracionImpl implements Simple
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (literal: ");
     result.append(literal);
+    result.append(", finOracion: ");
+    result.append(finOracion);
     result.append(')');
     return result.toString();
   }

@@ -28,56 +28,56 @@ import org.eclipse.emf.ecore.EObject;
 public interface Documento extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Path Modelo</b></em>' attribute.
+   * Returns the value of the '<em><b>Path Modelo</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Path Modelo</em>' attribute isn't clear,
+   * If the meaning of the '<em>Path Modelo</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path Modelo</em>' attribute.
-   * @see #setPathModelo(String)
+   * @return the value of the '<em>Path Modelo</em>' containment reference.
+   * @see #setPathModelo(PathModelo)
    * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getDocumento_PathModelo()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getPathModelo();
+  PathModelo getPathModelo();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo <em>Path Modelo</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo <em>Path Modelo</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path Modelo</em>' attribute.
+   * @param value the new value of the '<em>Path Modelo</em>' containment reference.
    * @see #getPathModelo()
    * @generated
    */
-  void setPathModelo(String value);
+  void setPathModelo(PathModelo value);
 
   /**
-   * Returns the value of the '<em><b>Path Ocl</b></em>' attribute.
+   * Returns the value of the '<em><b>Path Ocl</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Path Ocl</em>' attribute isn't clear,
+   * If the meaning of the '<em>Path Ocl</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path Ocl</em>' attribute.
-   * @see #setPathOcl(String)
+   * @return the value of the '<em>Path Ocl</em>' containment reference.
+   * @see #setPathOcl(PathOcl)
    * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getDocumento_PathOcl()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getPathOcl();
+  PathOcl getPathOcl();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl <em>Path Ocl</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl <em>Path Ocl</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path Ocl</em>' attribute.
+   * @param value the new value of the '<em>Path Ocl</em>' containment reference.
    * @see #getPathOcl()
    * @generated
    */
-  void setPathOcl(String value);
+  void setPathOcl(PathOcl value);
 
   /**
    * Returns the value of the '<em><b>Oraciones</b></em>' containment reference list.

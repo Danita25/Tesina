@@ -3,12 +3,25 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gramatica" nsURI="http://www.xtext.org/tesis/gramatica/Gramatica"
     nsPrefix="gramatica">
   <eClassifiers xsi:type="ecore:EClass" name="Documento">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathModelo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathOcl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pathModelo" eType="#//PathModelo"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pathOcl" eType="#//PathOcl"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="oraciones" upperBound="-1"
         eType="#//Oracion" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PathModelo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PathOcl">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Oracion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Compuesta" eSuperTypes="#//Oracion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simple" eType="#//Simple"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nexo" eType="#//Nexo" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Simple" eSuperTypes="#//Oracion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="determinante" eType="#//Determinante"
         containment="true"/>
@@ -23,6 +36,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="operacion" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finOracion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nexo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Determinante">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
