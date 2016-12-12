@@ -66,8 +66,12 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
     switch (eClass.getClassifierID())
     {
       case GramaticaPackage.DOCUMENTO: return createDocumento();
+      case GramaticaPackage.PATH_MODELO: return createPathModelo();
+      case GramaticaPackage.PATH_OCL: return createPathOcl();
       case GramaticaPackage.ORACION: return createOracion();
+      case GramaticaPackage.COMPUESTA: return createCompuesta();
       case GramaticaPackage.SIMPLE: return createSimple();
+      case GramaticaPackage.NEXO: return createNexo();
       case GramaticaPackage.DETERMINANTE: return createDeterminante();
       case GramaticaPackage.ATRIBUTO: return createAtributo();
       case GramaticaPackage.SINTAGMA_PREPOSICIONAL: return createSintagmaPreposicional();
@@ -98,6 +102,28 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  public PathModelo createPathModelo()
+  {
+    PathModeloImpl pathModelo = new PathModeloImpl();
+    return pathModelo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PathOcl createPathOcl()
+  {
+    PathOclImpl pathOcl = new PathOclImpl();
+    return pathOcl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Oracion createOracion()
   {
     OracionImpl oracion = new OracionImpl();
@@ -109,10 +135,32 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  public Compuesta createCompuesta()
+  {
+    CompuestaImpl compuesta = new CompuestaImpl();
+    return compuesta;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Simple createSimple()
   {
     SimpleImpl simple = new SimpleImpl();
     return simple;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Nexo createNexo()
+  {
+    NexoImpl nexo = new NexoImpl();
+    return nexo;
   }
 
   /**

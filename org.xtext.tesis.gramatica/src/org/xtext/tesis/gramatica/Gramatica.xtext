@@ -3,21 +3,34 @@ grammar org.xtext.tesis.gramatica.Gramatica with org.eclipse.xtext.common.Termin
 generate gramatica "http://www.xtext.org/tesis/gramatica/Gramatica"
 
 Documento: 
- 		pathModelo = 'pathModelo:' STRING
-		pathOcl = 'pathOcl:' STRING
+ 		pathModelo = PathModelo
+		pathOcl = PathOcl
 		oraciones += Oracion* 
 ;
 		
-		
-Oracion:
-		Simple //| Compleja
+PathModelo:
+	name=STRING
+;		
+PathOcl:
+	name=STRING
 ;
 
+Oracion:
+		Simple | Compuesta //| Compleja
+;
+
+Compuesta:
+	simple=Simple nexo=Nexo  
+;
 	
 //El/La => atributo simple
 //Los/Las => atributo coleccion	
 Simple:
-	determinante=Determinante atributo=Atributo  Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion (operacion=Operacion)? (literal=Literal | atributo=Atributo)'.';
+	determinante=Determinante atributo=Atributo  Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion (operacion=Operacion)? (literal=Literal | atributo=Atributo) (finOracion=FinOracion)?;
+
+Nexo:
+	descripcion='y'|'o'
+;
 
 Determinante:
 	descripcion=('El/La'|'Los/Las')
@@ -55,6 +68,10 @@ Clase:
 
 Literal:
 	INT | STRING
+;
+
+FinOracion:
+	'.'
 ;
 
 /**

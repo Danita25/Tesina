@@ -17,13 +17,17 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.tesis.gramatica.gramatica.Atributo;
 import org.xtext.tesis.gramatica.gramatica.Clase;
 import org.xtext.tesis.gramatica.gramatica.Compleja;
+import org.xtext.tesis.gramatica.gramatica.Compuesta;
 import org.xtext.tesis.gramatica.gramatica.Determinante;
 import org.xtext.tesis.gramatica.gramatica.Documento;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
 import org.xtext.tesis.gramatica.gramatica.Negacion;
+import org.xtext.tesis.gramatica.gramatica.Nexo;
 import org.xtext.tesis.gramatica.gramatica.Obligacion;
 import org.xtext.tesis.gramatica.gramatica.ObligacionDeber;
 import org.xtext.tesis.gramatica.gramatica.Operacion;
+import org.xtext.tesis.gramatica.gramatica.PathModelo;
+import org.xtext.tesis.gramatica.gramatica.PathOcl;
 import org.xtext.tesis.gramatica.gramatica.Simple;
 import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
 import org.xtext.tesis.gramatica.services.GramaticaGrammarAccess;
@@ -51,6 +55,9 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case GramaticaPackage.COMPLEJA:
 				sequence_Compleja(context, (Compleja) semanticObject); 
 				return; 
+			case GramaticaPackage.COMPUESTA:
+				sequence_Compuesta(context, (Compuesta) semanticObject); 
+				return; 
 			case GramaticaPackage.DETERMINANTE:
 				sequence_Determinante(context, (Determinante) semanticObject); 
 				return; 
@@ -60,6 +67,9 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case GramaticaPackage.NEGACION:
 				sequence_Negacion(context, (Negacion) semanticObject); 
 				return; 
+			case GramaticaPackage.NEXO:
+				sequence_Nexo(context, (Nexo) semanticObject); 
+				return; 
 			case GramaticaPackage.OBLIGACION:
 				sequence_Obligacion(context, (Obligacion) semanticObject); 
 				return; 
@@ -68,6 +78,12 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case GramaticaPackage.OPERACION:
 				sequence_Operacion(context, (Operacion) semanticObject); 
+				return; 
+			case GramaticaPackage.PATH_MODELO:
+				sequence_PathModelo(context, (PathModelo) semanticObject); 
+				return; 
+			case GramaticaPackage.PATH_OCL:
+				sequence_PathOcl(context, (PathOcl) semanticObject); 
 				return; 
 			case GramaticaPackage.SIMPLE:
 				sequence_Simple(context, (Simple) semanticObject); 
@@ -136,6 +152,28 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Oracion returns Compuesta
+	 *     Compuesta returns Compuesta
+	 *
+	 * Constraint:
+	 *     (simple=Simple nexo=Nexo)
+	 */
+	protected void sequence_Compuesta(ISerializationContext context, Compuesta semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.COMPUESTA__SIMPLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.COMPUESTA__SIMPLE));
+			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.COMPUESTA__NEXO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.COMPUESTA__NEXO));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCompuestaAccess().getSimpleSimpleParserRuleCall_0_0(), semanticObject.getSimple());
+		feeder.accept(grammarAccess.getCompuestaAccess().getNexoNexoParserRuleCall_1_0(), semanticObject.getNexo());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Determinante returns Determinante
 	 *
 	 * Constraint:
@@ -151,7 +189,7 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Documento returns Documento
 	 *
 	 * Constraint:
-	 *     (pathModelo='pathModelo:' pathOcl='pathOcl:' oraciones+=Oracion*)
+	 *     (pathModelo=PathModelo pathOcl=PathOcl oraciones+=Oracion*)
 	 */
 	protected void sequence_Documento(ISerializationContext context, Documento semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -172,6 +210,24 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNegacionAccess().getDescripcionNoKeyword_0(), semanticObject.getDescripcion());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Nexo returns Nexo
+	 *
+	 * Constraint:
+	 *     descripcion='y'
+	 */
+	protected void sequence_Nexo(ISerializationContext context, Nexo semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.NEXO__DESCRIPCION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.NEXO__DESCRIPCION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNexoAccess().getDescripcionYKeyword_0_0(), semanticObject.getDescripcion());
 		feeder.finish();
 	}
 	
@@ -222,6 +278,42 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     PathModelo returns PathModelo
+	 *
+	 * Constraint:
+	 *     name=STRING
+	 */
+	protected void sequence_PathModelo(ISerializationContext context, PathModelo semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.PATH_MODELO__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.PATH_MODELO__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPathModeloAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PathOcl returns PathOcl
+	 *
+	 * Constraint:
+	 *     name=STRING
+	 */
+	protected void sequence_PathOcl(ISerializationContext context, PathOcl semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.PATH_OCL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.PATH_OCL__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPathOclAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Oracion returns Simple
 	 *     Simple returns Simple
 	 *
@@ -233,7 +325,8 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         contexto=Clase 
 	 *         obligacion=Obligacion 
 	 *         operacion=Operacion? 
-	 *         (literal=Literal | atributo=Atributo)
+	 *         (literal=Literal | atributo=Atributo) 
+	 *         finOracion=FinOracion?
 	 *     )
 	 */
 	protected void sequence_Simple(ISerializationContext context, Simple semanticObject) {

@@ -26,58 +26,115 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Documento");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cPathModeloAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cPathModeloPathModeloKeyword_0_0 = (Keyword)cPathModeloAssignment_0.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cPathOclAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Keyword cPathOclPathOclKeyword_2_0 = (Keyword)cPathOclAssignment_2.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Assignment cOracionesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOracionesOracionParserRuleCall_4_0 = (RuleCall)cOracionesAssignment_4.eContents().get(0);
+		private final RuleCall cPathModeloPathModeloParserRuleCall_0_0 = (RuleCall)cPathModeloAssignment_0.eContents().get(0);
+		private final Assignment cPathOclAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPathOclPathOclParserRuleCall_1_0 = (RuleCall)cPathOclAssignment_1.eContents().get(0);
+		private final Assignment cOracionesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOracionesOracionParserRuleCall_2_0 = (RuleCall)cOracionesAssignment_2.eContents().get(0);
 		
 		//Documento:
-		//	pathModelo='pathModelo:' STRING
-		//	pathOcl='pathOcl:' STRING
+		//	pathModelo=PathModelo
+		//	pathOcl=PathOcl
 		//	oraciones+=Oracion*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//pathModelo='pathModelo:' STRING pathOcl='pathOcl:' STRING oraciones+=Oracion*
+		//pathModelo=PathModelo pathOcl=PathOcl oraciones+=Oracion*
 		public Group getGroup() { return cGroup; }
 		
-		//pathModelo='pathModelo:'
+		//pathModelo=PathModelo
 		public Assignment getPathModeloAssignment_0() { return cPathModeloAssignment_0; }
 		
-		//'pathModelo:'
-		public Keyword getPathModeloPathModeloKeyword_0_0() { return cPathModeloPathModeloKeyword_0_0; }
+		//PathModelo
+		public RuleCall getPathModeloPathModeloParserRuleCall_0_0() { return cPathModeloPathModeloParserRuleCall_0_0; }
 		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
+		//pathOcl=PathOcl
+		public Assignment getPathOclAssignment_1() { return cPathOclAssignment_1; }
 		
-		//pathOcl='pathOcl:'
-		public Assignment getPathOclAssignment_2() { return cPathOclAssignment_2; }
-		
-		//'pathOcl:'
-		public Keyword getPathOclPathOclKeyword_2_0() { return cPathOclPathOclKeyword_2_0; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_3() { return cSTRINGTerminalRuleCall_3; }
+		//PathOcl
+		public RuleCall getPathOclPathOclParserRuleCall_1_0() { return cPathOclPathOclParserRuleCall_1_0; }
 		
 		//oraciones+=Oracion*
-		public Assignment getOracionesAssignment_4() { return cOracionesAssignment_4; }
+		public Assignment getOracionesAssignment_2() { return cOracionesAssignment_2; }
 		
 		//Oracion
-		public RuleCall getOracionesOracionParserRuleCall_4_0() { return cOracionesOracionParserRuleCall_4_0; }
+		public RuleCall getOracionesOracionParserRuleCall_2_0() { return cOracionesOracionParserRuleCall_2_0; }
+	}
+	public class PathModeloElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.PathModelo");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//PathModelo:
+		//	name=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=STRING
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
+	}
+	public class PathOclElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.PathOcl");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//PathOcl:
+		//	name=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=STRING
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
 	}
 	public class OracionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Oracion");
-		private final RuleCall cSimpleParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSimpleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCompuestaParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Oracion:
-		//	Simple //| Compleja
+		//	Simple | Compuesta //| Compleja
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//Simple | Compuesta
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//Simple
-		public RuleCall getSimpleParserRuleCall() { return cSimpleParserRuleCall; }
+		public RuleCall getSimpleParserRuleCall_0() { return cSimpleParserRuleCall_0; }
+		
+		//Compuesta
+		public RuleCall getCompuestaParserRuleCall_1() { return cCompuestaParserRuleCall_1; }
+	}
+	public class CompuestaElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Compuesta");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSimpleAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSimpleSimpleParserRuleCall_0_0 = (RuleCall)cSimpleAssignment_0.eContents().get(0);
+		private final Assignment cNexoAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNexoNexoParserRuleCall_1_0 = (RuleCall)cNexoAssignment_1.eContents().get(0);
+		
+		//Compuesta:
+		//	simple=Simple nexo=Nexo;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//simple=Simple nexo=Nexo
+		public Group getGroup() { return cGroup; }
+		
+		//simple=Simple
+		public Assignment getSimpleAssignment_0() { return cSimpleAssignment_0; }
+		
+		//Simple
+		public RuleCall getSimpleSimpleParserRuleCall_0_0() { return cSimpleSimpleParserRuleCall_0_0; }
+		
+		//nexo=Nexo
+		public Assignment getNexoAssignment_1() { return cNexoAssignment_1; }
+		
+		//Nexo
+		public RuleCall getNexoNexoParserRuleCall_1_0() { return cNexoNexoParserRuleCall_1_0; }
 	}
 	public class SimpleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Simple");
@@ -99,17 +156,18 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLiteralLiteralParserRuleCall_6_0_0 = (RuleCall)cLiteralAssignment_6_0.eContents().get(0);
 		private final Assignment cAtributoAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
 		private final RuleCall cAtributoAtributoParserRuleCall_6_1_0 = (RuleCall)cAtributoAssignment_6_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cFinOracionAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cFinOracionFinOracionParserRuleCall_7_0 = (RuleCall)cFinOracionAssignment_7.eContents().get(0);
 		
 		////El/La => atributo simple
 		////Los/Las => atributo coleccion	
 		//Simple:
 		//	determinante=Determinante atributo=Atributo Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion
-		//	operacion=Operacion? (literal=Literal | atributo=Atributo) '.';
+		//	operacion=Operacion? (literal=Literal | atributo=Atributo) finOracion=FinOracion?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//determinante=Determinante atributo=Atributo Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion
-		//operacion=Operacion? (literal=Literal | atributo=Atributo) '.'
+		//operacion=Operacion? (literal=Literal | atributo=Atributo) finOracion=FinOracion?
 		public Group getGroup() { return cGroup; }
 		
 		//determinante=Determinante
@@ -163,8 +221,34 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		//Atributo
 		public RuleCall getAtributoAtributoParserRuleCall_6_1_0() { return cAtributoAtributoParserRuleCall_6_1_0; }
 		
-		//'.'
-		public Keyword getFullStopKeyword_7() { return cFullStopKeyword_7; }
+		//finOracion=FinOracion?
+		public Assignment getFinOracionAssignment_7() { return cFinOracionAssignment_7; }
+		
+		//FinOracion
+		public RuleCall getFinOracionFinOracionParserRuleCall_7_0() { return cFinOracionFinOracionParserRuleCall_7_0; }
+	}
+	public class NexoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Nexo");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cDescripcionAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cDescripcionYKeyword_0_0 = (Keyword)cDescripcionAssignment_0.eContents().get(0);
+		private final Keyword cOKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//Nexo:
+		//	descripcion='y' | 'o';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//descripcion='y' | 'o'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//descripcion='y'
+		public Assignment getDescripcionAssignment_0() { return cDescripcionAssignment_0; }
+		
+		//'y'
+		public Keyword getDescripcionYKeyword_0_0() { return cDescripcionYKeyword_0_0; }
+		
+		//'o'
+		public Keyword getOKeyword_1() { return cOKeyword_1; }
 	}
 	public class DeterminanteElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Determinante");
@@ -371,6 +455,17 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
+	}
+	public class FinOracionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.FinOracion");
+		private final Keyword cFullStopKeyword = (Keyword)rule.eContents().get(1);
+		
+		//FinOracion:
+		//	'.';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'.'
+		public Keyword getFullStopKeyword() { return cFullStopKeyword; }
 	}
 	public class ComplejaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Compleja");
@@ -606,8 +701,12 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final DocumentoElements pDocumento;
+	private final PathModeloElements pPathModelo;
+	private final PathOclElements pPathOcl;
 	private final OracionElements pOracion;
+	private final CompuestaElements pCompuesta;
 	private final SimpleElements pSimple;
+	private final NexoElements pNexo;
 	private final DeterminanteElements pDeterminante;
 	private final AtributoElements pAtributo;
 	private final SintagmaPreposicionalElements pSintagmaPreposicional;
@@ -617,6 +716,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	private final OperacionElements pOperacion;
 	private final ClaseElements pClase;
 	private final LiteralElements pLiteral;
+	private final FinOracionElements pFinOracion;
 	private final ComplejaElements pCompleja;
 	
 	private final Grammar grammar;
@@ -629,8 +729,12 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pDocumento = new DocumentoElements();
+		this.pPathModelo = new PathModeloElements();
+		this.pPathOcl = new PathOclElements();
 		this.pOracion = new OracionElements();
+		this.pCompuesta = new CompuestaElements();
 		this.pSimple = new SimpleElements();
+		this.pNexo = new NexoElements();
 		this.pDeterminante = new DeterminanteElements();
 		this.pAtributo = new AtributoElements();
 		this.pSintagmaPreposicional = new SintagmaPreposicionalElements();
@@ -640,6 +744,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pOperacion = new OperacionElements();
 		this.pClase = new ClaseElements();
 		this.pLiteral = new LiteralElements();
+		this.pFinOracion = new FinOracionElements();
 		this.pCompleja = new ComplejaElements();
 	}
 	
@@ -671,8 +776,8 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Documento:
-	//	pathModelo='pathModelo:' STRING
-	//	pathOcl='pathOcl:' STRING
+	//	pathModelo=PathModelo
+	//	pathOcl=PathOcl
 	//	oraciones+=Oracion*;
 	public DocumentoElements getDocumentoAccess() {
 		return pDocumento;
@@ -682,8 +787,28 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		return getDocumentoAccess().getRule();
 	}
 	
+	//PathModelo:
+	//	name=STRING;
+	public PathModeloElements getPathModeloAccess() {
+		return pPathModelo;
+	}
+	
+	public ParserRule getPathModeloRule() {
+		return getPathModeloAccess().getRule();
+	}
+	
+	//PathOcl:
+	//	name=STRING;
+	public PathOclElements getPathOclAccess() {
+		return pPathOcl;
+	}
+	
+	public ParserRule getPathOclRule() {
+		return getPathOclAccess().getRule();
+	}
+	
 	//Oracion:
-	//	Simple //| Compleja
+	//	Simple | Compuesta //| Compleja
 	//;
 	public OracionElements getOracionAccess() {
 		return pOracion;
@@ -693,17 +818,37 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		return getOracionAccess().getRule();
 	}
 	
+	//Compuesta:
+	//	simple=Simple nexo=Nexo;
+	public CompuestaElements getCompuestaAccess() {
+		return pCompuesta;
+	}
+	
+	public ParserRule getCompuestaRule() {
+		return getCompuestaAccess().getRule();
+	}
+	
 	////El/La => atributo simple
 	////Los/Las => atributo coleccion	
 	//Simple:
 	//	determinante=Determinante atributo=Atributo Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion
-	//	operacion=Operacion? (literal=Literal | atributo=Atributo) '.';
+	//	operacion=Operacion? (literal=Literal | atributo=Atributo) finOracion=FinOracion?;
 	public SimpleElements getSimpleAccess() {
 		return pSimple;
 	}
 	
 	public ParserRule getSimpleRule() {
 		return getSimpleAccess().getRule();
+	}
+	
+	//Nexo:
+	//	descripcion='y' | 'o';
+	public NexoElements getNexoAccess() {
+		return pNexo;
+	}
+	
+	public ParserRule getNexoRule() {
+		return getNexoAccess().getRule();
 	}
 	
 	//Determinante:
@@ -796,6 +941,16 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getLiteralRule() {
 		return getLiteralAccess().getRule();
+	}
+	
+	//FinOracion:
+	//	'.';
+	public FinOracionElements getFinOracionAccess() {
+		return pFinOracion;
+	}
+	
+	public ParserRule getFinOracionRule() {
+		return getFinOracionAccess().getRule();
 	}
 	
 	/// **

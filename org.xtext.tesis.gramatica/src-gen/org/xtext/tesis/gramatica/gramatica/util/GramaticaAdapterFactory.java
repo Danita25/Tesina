@@ -81,14 +81,34 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
         return createDocumentoAdapter();
       }
       @Override
+      public Adapter casePathModelo(PathModelo object)
+      {
+        return createPathModeloAdapter();
+      }
+      @Override
+      public Adapter casePathOcl(PathOcl object)
+      {
+        return createPathOclAdapter();
+      }
+      @Override
       public Adapter caseOracion(Oracion object)
       {
         return createOracionAdapter();
       }
       @Override
+      public Adapter caseCompuesta(Compuesta object)
+      {
+        return createCompuestaAdapter();
+      }
+      @Override
       public Adapter caseSimple(Simple object)
       {
         return createSimpleAdapter();
+      }
+      @Override
+      public Adapter caseNexo(Nexo object)
+      {
+        return createNexoAdapter();
       }
       @Override
       public Adapter caseDeterminante(Determinante object)
@@ -173,6 +193,36 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.PathModelo <em>Path Modelo</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.PathModelo
+   * @generated
+   */
+  public Adapter createPathModeloAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.PathOcl <em>Path Ocl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.PathOcl
+   * @generated
+   */
+  public Adapter createPathOclAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Oracion <em>Oracion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -188,6 +238,21 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Compuesta <em>Compuesta</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.Compuesta
+   * @generated
+   */
+  public Adapter createCompuestaAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Simple <em>Simple</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -198,6 +263,21 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSimpleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Nexo <em>Nexo</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.Nexo
+   * @generated
+   */
+  public Adapter createNexoAdapter()
   {
     return null;
   }

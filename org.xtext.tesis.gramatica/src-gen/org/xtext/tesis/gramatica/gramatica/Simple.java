@@ -20,6 +20,7 @@ package org.xtext.tesis.gramatica.gramatica;
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getObligacion <em>Obligacion</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getOperacion <em>Operacion</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getFinOracion <em>Fin Oracion</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple()
@@ -209,5 +210,31 @@ public interface Simple extends Oracion
    * @generated
    */
   void setLiteral(String value);
+
+  /**
+   * Returns the value of the '<em><b>Fin Oracion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Fin Oracion</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fin Oracion</em>' attribute.
+   * @see #setFinOracion(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_FinOracion()
+   * @model
+   * @generated
+   */
+  String getFinOracion();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getFinOracion <em>Fin Oracion</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fin Oracion</em>' attribute.
+   * @see #getFinOracion()
+   * @generated
+   */
+  void setFinOracion(String value);
 
 } // Simple
