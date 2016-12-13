@@ -41,7 +41,11 @@ rule Model2Debug {
 --				name <- thisModule.getPackageName.debug('Package')
 --		), 
 		t2: ECORE!EPackage (
-			name <- thisModule.getPackageName	
+			name <- thisModule.getPackageName
+			,			eClassifiers <- s.ownedPackages.first().ownedClasses
+			--eSubpackages <- e.contents->select(e | e.oclIsKindOf(KM3!Package)),
+			--nsURI <- e.getMetadata('nsURI'),
+			--nsPrefix <- e.getMetadata('nsPrefix')
 		)
 }
 
@@ -55,7 +59,6 @@ rule Class2Debug {
 				name <- s.refImmediateComposite().oclIsTypeOf(OCL!Package).toString().debug('Parent is Package'),
 				name <- s.refImmediateComposite().name.debug('Package Name'),
 				name <- s.name.debug('Class')
-
 		)
 		,
 		t2: ECORE!EAttribute (
@@ -75,8 +78,15 @@ rule Class2Debug {
 										''
 						  			endif
 			)					
+		do { 
+		  --  t2 <- s.ownedInvariants;	
+			t.eAttributes <- t2;
+		  --t.eAttributes.Constraints <- s.OwnedInvariants
 
-}
+			}
+	}
+	
+
 
 --rule Invariant2Attribute {
 --	from 

@@ -23,4 +23,5 @@ Import-Package: org.eclipse.jface.text,
  org.eclipse.ocl.xtext.completeocl,
  org.eclipse.ocl.xtext.completeocl.utilities,
  org.eclipse.ocl.xtext.essentialocl,
- org.eclipse.ocl.xtext.essentialocl.utilities
+ org.eclipse.ocl.xtext.essentialocl.utilities,
+ org.eclipse.xtext.common.types.util
