@@ -3,34 +3,19 @@ grammar org.xtext.tesis.gramatica.Gramatica with org.eclipse.xtext.common.Termin
 generate gramatica "http://www.xtext.org/tesis/gramatica/Gramatica"
 
 Documento: 
- 		pathModelo = PathModelo
-		pathOcl = PathOcl
+ 		pathModelo = STRING
+		pathOcl = STRING
 		oraciones += Oracion* 
 ;
 		
-PathModelo:
-	name=STRING
-;		
-PathOcl:
-	name=STRING
-;
-
 Oracion:
-		Simple | Compuesta //| Compleja
+		contenido=Simple | Compuesta //| Compleja
 ;
 
-Compuesta:
-	simple=Simple nexo=Nexo  
-;
-	
 //El/La => atributo simple
 //Los/Las => atributo coleccion	
 Simple:
 	determinante=Determinante atributo=Atributo  Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion (operacion=Operacion)? (literal=Literal | atributo=Atributo) (finOracion=FinOracion)?;
-
-Nexo:
-	descripcion='y'|'o'
-;
 
 Determinante:
 	descripcion=('El/La'|'Los/Las')
@@ -73,6 +58,15 @@ Literal:
 FinOracion:
 	'.'
 ;
+
+Compuesta:
+	simple=Simple nexo=Nexo  
+;
+
+Nexo:
+	descripcion='y'|'o'
+;
+
 
 /**
  * Considere que la constraint se divide en tres partes:

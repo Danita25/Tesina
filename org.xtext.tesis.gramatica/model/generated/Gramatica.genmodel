@@ -7,20 +7,12 @@
   <genPackages prefix="Gramatica" basePackage="org.xtext.tesis.gramatica" disposableProviderFactory="true"
       fileExtensions="gramatica" ecorePackage="Gramatica.ecore#/">
     <genClasses ecoreClass="Gramatica.ecore#//Documento">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Documento/pathModelo"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Documento/pathOcl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Documento/pathModelo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Documento/pathOcl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Documento/oraciones"/>
     </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//PathModelo">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//PathModelo/name"/>
-    </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//PathOcl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//PathOcl/name"/>
-    </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//Oracion"/>
-    <genClasses ecoreClass="Gramatica.ecore#//Compuesta">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/simple"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/nexo"/>
+    <genClasses ecoreClass="Gramatica.ecore#//Oracion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Oracion/contenido"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Simple">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/determinante"/>
@@ -31,9 +23,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/operacion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Simple/literal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Simple/finOracion"/>
-    </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//Nexo">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Nexo/descripcion"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Determinante">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Determinante/descripcion"/>
@@ -59,6 +48,13 @@
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Clase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Clase/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Gramatica.ecore#//Compuesta">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/simple"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/nexo"/>
+    </genClasses>
+    <genClasses ecoreClass="Gramatica.ecore#//Nexo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Nexo/descripcion"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Compleja">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/atributo"/>

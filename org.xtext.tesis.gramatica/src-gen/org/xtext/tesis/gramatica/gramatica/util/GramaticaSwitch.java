@@ -80,20 +80,6 @@ public class GramaticaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GramaticaPackage.PATH_MODELO:
-      {
-        PathModelo pathModelo = (PathModelo)theEObject;
-        T result = casePathModelo(pathModelo);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GramaticaPackage.PATH_OCL:
-      {
-        PathOcl pathOcl = (PathOcl)theEObject;
-        T result = casePathOcl(pathOcl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GramaticaPackage.ORACION:
       {
         Oracion oracion = (Oracion)theEObject;
@@ -101,26 +87,10 @@ public class GramaticaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GramaticaPackage.COMPUESTA:
-      {
-        Compuesta compuesta = (Compuesta)theEObject;
-        T result = caseCompuesta(compuesta);
-        if (result == null) result = caseOracion(compuesta);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GramaticaPackage.SIMPLE:
       {
         Simple simple = (Simple)theEObject;
         T result = caseSimple(simple);
-        if (result == null) result = caseOracion(simple);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GramaticaPackage.NEXO:
-      {
-        Nexo nexo = (Nexo)theEObject;
-        T result = caseNexo(nexo);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -180,6 +150,21 @@ public class GramaticaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GramaticaPackage.COMPUESTA:
+      {
+        Compuesta compuesta = (Compuesta)theEObject;
+        T result = caseCompuesta(compuesta);
+        if (result == null) result = caseOracion(compuesta);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.NEXO:
+      {
+        Nexo nexo = (Nexo)theEObject;
+        T result = caseNexo(nexo);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GramaticaPackage.COMPLEJA:
       {
         Compleja compleja = (Compleja)theEObject;
@@ -208,38 +193,6 @@ public class GramaticaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Path Modelo</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Path Modelo</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePathModelo(PathModelo object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Path Ocl</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Path Ocl</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePathOcl(PathOcl object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Oracion</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -256,22 +209,6 @@ public class GramaticaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Compuesta</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Compuesta</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCompuesta(Compuesta object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Simple</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -283,22 +220,6 @@ public class GramaticaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSimple(Simple object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Nexo</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Nexo</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNexo(Nexo object)
   {
     return null;
   }
@@ -427,6 +348,38 @@ public class GramaticaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseClase(Clase object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Compuesta</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Compuesta</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompuesta(Compuesta object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Nexo</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Nexo</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNexo(Nexo object)
   {
     return null;
   }

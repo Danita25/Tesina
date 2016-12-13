@@ -3,6 +3,7 @@
  */
 package org.xtext.tesis.gramatica.gramatica;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,7 @@ package org.xtext.tesis.gramatica.gramatica;
  * @model
  * @generated
  */
-public interface Simple extends Oracion
+public interface Simple extends EObject
 {
   /**
    * Returns the value of the '<em><b>Determinante</b></em>' containment reference.

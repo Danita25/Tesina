@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.tesis.gramatica.gramatica.Atributo;
 import org.xtext.tesis.gramatica.gramatica.Clase;
@@ -40,7 +41,7 @@ import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
  *
  * @generated
  */
-public class SimpleImpl extends OracionImpl implements Simple
+public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
 {
   /**
    * The cached value of the '{@link #getDeterminante() <em>Determinante</em>}' containment reference.

@@ -78,39 +78,37 @@ ruleDocumento returns [EObject current=null]
 	(
 		(
 			(
+				lv_pathModelo_0_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getDocumentoAccess().getPathModeloPathModeloParserRuleCall_0_0());
+					newLeafNode(lv_pathModelo_0_0, grammarAccess.getDocumentoAccess().getPathModeloSTRINGTerminalRuleCall_0_0());
 				}
-				lv_pathModelo_0_0=rulePathModelo
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDocumentoRule());
+						$current = createModelElement(grammarAccess.getDocumentoRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"pathModelo",
 						lv_pathModelo_0_0,
-						"org.xtext.tesis.gramatica.Gramatica.PathModelo");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
 		(
 			(
+				lv_pathOcl_1_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getDocumentoAccess().getPathOclPathOclParserRuleCall_1_0());
+					newLeafNode(lv_pathOcl_1_0, grammarAccess.getDocumentoAccess().getPathOclSTRINGTerminalRuleCall_1_0());
 				}
-				lv_pathOcl_1_0=rulePathOcl
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDocumentoRule());
+						$current = createModelElement(grammarAccess.getDocumentoRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"pathOcl",
 						lv_pathOcl_1_0,
-						"org.xtext.tesis.gramatica.Gramatica.PathOcl");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -136,76 +134,6 @@ ruleDocumento returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRulePathModelo
-entryRulePathModelo returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPathModeloRule()); }
-	iv_rulePathModelo=rulePathModelo
-	{ $current=$iv_rulePathModelo.current; }
-	EOF;
-
-// Rule PathModelo
-rulePathModelo returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_name_0_0=RULE_STRING
-			{
-				newLeafNode(lv_name_0_0, grammarAccess.getPathModeloAccess().getNameSTRINGTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getPathModeloRule());
-				}
-				setWithLastConsumed(
-					$current,
-					"name",
-					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.STRING");
-			}
-		)
-	)
-;
-
-// Entry rule entryRulePathOcl
-entryRulePathOcl returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPathOclRule()); }
-	iv_rulePathOcl=rulePathOcl
-	{ $current=$iv_rulePathOcl.current; }
-	EOF;
-
-// Rule PathOcl
-rulePathOcl returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_name_0_0=RULE_STRING
-			{
-				newLeafNode(lv_name_0_0, grammarAccess.getPathOclAccess().getNameSTRINGTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getPathOclRule());
-				}
-				setWithLastConsumed(
-					$current,
-					"name",
-					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.STRING");
-			}
-		)
-	)
-;
-
 // Entry rule entryRuleOracion
 entryRuleOracion returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getOracionRule()); }
@@ -222,14 +150,25 @@ ruleOracion returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getOracionAccess().getSimpleParserRuleCall_0());
-		}
-		this_Simple_0=ruleSimple
-		{
-			$current = $this_Simple_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getOracionAccess().getContenidoSimpleParserRuleCall_0_0());
+				}
+				lv_contenido_0_0=ruleSimple
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getOracionRule());
+					}
+					set(
+						$current,
+						"contenido",
+						lv_contenido_0_0,
+						"org.xtext.tesis.gramatica.Gramatica.Simple");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
 		{
 			newCompositeNode(grammarAccess.getOracionAccess().getCompuestaParserRuleCall_1());
@@ -239,63 +178,6 @@ ruleOracion returns [EObject current=null]
 			$current = $this_Compuesta_1.current;
 			afterParserOrEnumRuleCall();
 		}
-	)
-;
-
-// Entry rule entryRuleCompuesta
-entryRuleCompuesta returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getCompuestaRule()); }
-	iv_ruleCompuesta=ruleCompuesta
-	{ $current=$iv_ruleCompuesta.current; }
-	EOF;
-
-// Rule Compuesta
-ruleCompuesta returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getCompuestaAccess().getSimpleSimpleParserRuleCall_0_0());
-				}
-				lv_simple_0_0=ruleSimple
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCompuestaRule());
-					}
-					set(
-						$current,
-						"simple",
-						lv_simple_0_0,
-						"org.xtext.tesis.gramatica.Gramatica.Simple");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getCompuestaAccess().getNexoNexoParserRuleCall_1_0());
-				}
-				lv_nexo_1_0=ruleNexo
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCompuestaRule());
-					}
-					set(
-						$current,
-						"nexo",
-						lv_nexo_1_0,
-						"org.xtext.tesis.gramatica.Gramatica.Nexo");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
 	)
 ;
 
@@ -489,44 +371,6 @@ ruleSimple returns [EObject current=null]
 				}
 			)
 		)?
-	)
-;
-
-// Entry rule entryRuleNexo
-entryRuleNexo returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNexoRule()); }
-	iv_ruleNexo=ruleNexo
-	{ $current=$iv_ruleNexo.current; }
-	EOF;
-
-// Rule Nexo
-ruleNexo returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_descripcion_0_0='y'
-				{
-					newLeafNode(lv_descripcion_0_0, grammarAccess.getNexoAccess().getDescripcionYKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getNexoRule());
-					}
-					setWithLastConsumed($current, "descripcion", lv_descripcion_0_0, "y");
-				}
-			)
-		)
-		    |
-		otherlv_1='o'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getNexoAccess().getOKeyword_1());
-		}
 	)
 ;
 
@@ -968,6 +812,101 @@ ruleFinOracion returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 		$current.merge(kw);
 		newLeafNode(kw, grammarAccess.getFinOracionAccess().getFullStopKeyword());
 	}
+;
+
+// Entry rule entryRuleCompuesta
+entryRuleCompuesta returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCompuestaRule()); }
+	iv_ruleCompuesta=ruleCompuesta
+	{ $current=$iv_ruleCompuesta.current; }
+	EOF;
+
+// Rule Compuesta
+ruleCompuesta returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCompuestaAccess().getSimpleSimpleParserRuleCall_0_0());
+				}
+				lv_simple_0_0=ruleSimple
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCompuestaRule());
+					}
+					set(
+						$current,
+						"simple",
+						lv_simple_0_0,
+						"org.xtext.tesis.gramatica.Gramatica.Simple");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCompuestaAccess().getNexoNexoParserRuleCall_1_0());
+				}
+				lv_nexo_1_0=ruleNexo
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCompuestaRule());
+					}
+					set(
+						$current,
+						"nexo",
+						lv_nexo_1_0,
+						"org.xtext.tesis.gramatica.Gramatica.Nexo");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleNexo
+entryRuleNexo returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNexoRule()); }
+	iv_ruleNexo=ruleNexo
+	{ $current=$iv_ruleNexo.current; }
+	EOF;
+
+// Rule Nexo
+ruleNexo returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_descripcion_0_0='y'
+				{
+					newLeafNode(lv_descripcion_0_0, grammarAccess.getNexoAccess().getDescripcionYKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getNexoRule());
+					}
+					setWithLastConsumed($current, "descripcion", lv_descripcion_0_0, "y");
+				}
+			)
+		)
+		    |
+		otherlv_1='o'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getNexoAccess().getOKeyword_1());
+		}
+	)
 ;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

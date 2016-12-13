@@ -33,24 +33,6 @@ public interface GramaticaFactory extends EFactory
   Documento createDocumento();
 
   /**
-   * Returns a new object of class '<em>Path Modelo</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Path Modelo</em>'.
-   * @generated
-   */
-  PathModelo createPathModelo();
-
-  /**
-   * Returns a new object of class '<em>Path Ocl</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Path Ocl</em>'.
-   * @generated
-   */
-  PathOcl createPathOcl();
-
-  /**
    * Returns a new object of class '<em>Oracion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -60,15 +42,6 @@ public interface GramaticaFactory extends EFactory
   Oracion createOracion();
 
   /**
-   * Returns a new object of class '<em>Compuesta</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Compuesta</em>'.
-   * @generated
-   */
-  Compuesta createCompuesta();
-
-  /**
    * Returns a new object of class '<em>Simple</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,15 +49,6 @@ public interface GramaticaFactory extends EFactory
    * @generated
    */
   Simple createSimple();
-
-  /**
-   * Returns a new object of class '<em>Nexo</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Nexo</em>'.
-   * @generated
-   */
-  Nexo createNexo();
 
   /**
    * Returns a new object of class '<em>Determinante</em>'.
@@ -157,6 +121,24 @@ public interface GramaticaFactory extends EFactory
    * @generated
    */
   Clase createClase();
+
+  /**
+   * Returns a new object of class '<em>Compuesta</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Compuesta</em>'.
+   * @generated
+   */
+  Compuesta createCompuesta();
+
+  /**
+   * Returns a new object of class '<em>Nexo</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nexo</em>'.
+   * @generated
+   */
+  Nexo createNexo();
 
   /**
    * Returns a new object of class '<em>Compleja</em>'.
