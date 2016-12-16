@@ -50,16 +50,44 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Clase/name"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Compuesta">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/simple"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/simpleInicial"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/nexo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/simpleFinal"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Nexo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Nexo/descripcion"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Compleja">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/atributo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/determinante"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/atr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/Sintagma"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/contexto"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Compleja/literal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/conect"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/operacionColeccion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/determinante1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/clase"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/conect1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/atr1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/ope3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Compleja/lit1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/atr2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/ope4"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/atr4"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/ope5"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Compleja/lit2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/atr5"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/conec1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/opeCol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/ope6"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Compleja/lit3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compleja/atr3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Compleja/finOracion"/>
+    </genClasses>
+    <genClasses ecoreClass="Gramatica.ecore#//Conector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Conector/descripcion"/>
+    </genClasses>
+    <genClasses ecoreClass="Gramatica.ecore#//OperacionColeccion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//OperacionColeccion/descripcion"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

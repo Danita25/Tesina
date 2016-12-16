@@ -64,14 +64,16 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cContenidoAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final RuleCall cContenidoSimpleParserRuleCall_0_0 = (RuleCall)cContenidoAssignment_0.eContents().get(0);
-		private final RuleCall cCompuestaParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Assignment cContenidoAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cContenidoCompuestaParserRuleCall_1_0 = (RuleCall)cContenidoAssignment_1.eContents().get(0);
+		private final Assignment cContenidoAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cContenidoComplejaParserRuleCall_2_0 = (RuleCall)cContenidoAssignment_2.eContents().get(0);
 		
 		//Oracion:
-		//	contenido=Simple | Compuesta //| Compleja
-		//;
+		//	contenido=Simple | contenido=Compuesta | contenido=Compleja;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//contenido=Simple | Compuesta
+		//contenido=Simple | contenido=Compuesta | contenido=Compleja
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//contenido=Simple
@@ -80,8 +82,17 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		//Simple
 		public RuleCall getContenidoSimpleParserRuleCall_0_0() { return cContenidoSimpleParserRuleCall_0_0; }
 		
+		//contenido=Compuesta
+		public Assignment getContenidoAssignment_1() { return cContenidoAssignment_1; }
+		
 		//Compuesta
-		public RuleCall getCompuestaParserRuleCall_1() { return cCompuestaParserRuleCall_1; }
+		public RuleCall getContenidoCompuestaParserRuleCall_1_0() { return cContenidoCompuestaParserRuleCall_1_0; }
+		
+		//contenido=Compleja
+		public Assignment getContenidoAssignment_2() { return cContenidoAssignment_2; }
+		
+		//Compleja
+		public RuleCall getContenidoComplejaParserRuleCall_2_0() { return cContenidoComplejaParserRuleCall_2_0; }
 	}
 	public class SimpleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Simple");
@@ -180,15 +191,16 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cDescripcionAlternatives_0 = (Alternatives)cDescripcionAssignment.eContents().get(0);
 		private final Keyword cDescripcionElLaKeyword_0_0 = (Keyword)cDescripcionAlternatives_0.eContents().get(0);
 		private final Keyword cDescripcionLosLasKeyword_0_1 = (Keyword)cDescripcionAlternatives_0.eContents().get(1);
+		private final Keyword cDescripcionParaTodosAsLosLasKeyword_0_2 = (Keyword)cDescripcionAlternatives_0.eContents().get(2);
 		
 		//Determinante:
-		//	descripcion=('El/La' | 'Los/Las');
+		//	descripcion=('El/La' | 'Los/Las' | 'Para todos/as Los/Las');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//descripcion=('El/La' | 'Los/Las')
+		//descripcion=('El/La' | 'Los/Las' | 'Para todos/as Los/Las')
 		public Assignment getDescripcionAssignment() { return cDescripcionAssignment; }
 		
-		//('El/La' | 'Los/Las')
+		//('El/La' | 'Los/Las' | 'Para todos/as Los/Las')
 		public Alternatives getDescripcionAlternatives_0() { return cDescripcionAlternatives_0; }
 		
 		//'El/La'
@@ -196,30 +208,24 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'Los/Las'
 		public Keyword getDescripcionLosLasKeyword_0_1() { return cDescripcionLosLasKeyword_0_1; }
+		
+		//'Para todos/as Los/Las'
+		public Keyword getDescripcionParaTodosAsLosLasKeyword_0_2() { return cDescripcionParaTodosAsLosLasKeyword_0_2; }
 	}
 	public class AtributoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Atributo");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cColeccionDeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
-		////No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
 		//Atributo:
-		//	'Coleccion de'? name=ID;
+		//	name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Coleccion de'? name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//'Coleccion de'?
-		public Keyword getColeccionDeKeyword_0() { return cColeccionDeKeyword_0; }
-		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment() { return cNameAssignment; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
 	public class SintagmaPreposicionalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.SintagmaPreposicional");
@@ -306,45 +312,50 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Operacion");
 		private final Assignment cDescripcionAssignment = (Assignment)rule.eContents().get(1);
 		private final Alternatives cDescripcionAlternatives_0 = (Alternatives)cDescripcionAssignment.eContents().get(0);
-		private final Keyword cDescripcionMayorQueKeyword_0_0 = (Keyword)cDescripcionAlternatives_0.eContents().get(0);
-		private final Keyword cDescripcionMenorQueKeyword_0_1 = (Keyword)cDescripcionAlternatives_0.eContents().get(1);
-		private final Keyword cDescripcionIgualAKeyword_0_2 = (Keyword)cDescripcionAlternatives_0.eContents().get(2);
-		private final Keyword cDescripcionMayorOIgualAKeyword_0_3 = (Keyword)cDescripcionAlternatives_0.eContents().get(3);
-		private final Keyword cDescripcionMenorOIgualAKeyword_0_4 = (Keyword)cDescripcionAlternatives_0.eContents().get(4);
-		private final Keyword cDescripcionDistintoDeKeyword_0_5 = (Keyword)cDescripcionAlternatives_0.eContents().get(5);
-		private final Keyword cDescripcionAlMenosKeyword_0_6 = (Keyword)cDescripcionAlternatives_0.eContents().get(6);
+		private final Keyword cDescripcionImplicaKeyword_0_0 = (Keyword)cDescripcionAlternatives_0.eContents().get(0);
+		private final Keyword cDescripcionMayorQueKeyword_0_1 = (Keyword)cDescripcionAlternatives_0.eContents().get(1);
+		private final Keyword cDescripcionMenorQueKeyword_0_2 = (Keyword)cDescripcionAlternatives_0.eContents().get(2);
+		private final Keyword cDescripcionIgualAKeyword_0_3 = (Keyword)cDescripcionAlternatives_0.eContents().get(3);
+		private final Keyword cDescripcionMayorOIgualAKeyword_0_4 = (Keyword)cDescripcionAlternatives_0.eContents().get(4);
+		private final Keyword cDescripcionMenorOIgualAKeyword_0_5 = (Keyword)cDescripcionAlternatives_0.eContents().get(5);
+		private final Keyword cDescripcionDistintoDeKeyword_0_6 = (Keyword)cDescripcionAlternatives_0.eContents().get(6);
+		private final Keyword cDescripcionAlMenosKeyword_0_7 = (Keyword)cDescripcionAlternatives_0.eContents().get(7);
 		
 		//Operacion:
-		//	descripcion=('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' |
-		//	'al menos');
+		//	descripcion=('implica' | 'mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de'
+		//	| 'al menos');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//descripcion=('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')
+		//descripcion=('implica' | 'mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' |
+		//'al menos')
 		public Assignment getDescripcionAssignment() { return cDescripcionAssignment; }
 		
-		//('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')
+		//('implica' | 'mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')
 		public Alternatives getDescripcionAlternatives_0() { return cDescripcionAlternatives_0; }
 		
+		//'implica'
+		public Keyword getDescripcionImplicaKeyword_0_0() { return cDescripcionImplicaKeyword_0_0; }
+		
 		//'mayor que'
-		public Keyword getDescripcionMayorQueKeyword_0_0() { return cDescripcionMayorQueKeyword_0_0; }
+		public Keyword getDescripcionMayorQueKeyword_0_1() { return cDescripcionMayorQueKeyword_0_1; }
 		
 		//'menor que'
-		public Keyword getDescripcionMenorQueKeyword_0_1() { return cDescripcionMenorQueKeyword_0_1; }
+		public Keyword getDescripcionMenorQueKeyword_0_2() { return cDescripcionMenorQueKeyword_0_2; }
 		
 		//'igual a'
-		public Keyword getDescripcionIgualAKeyword_0_2() { return cDescripcionIgualAKeyword_0_2; }
+		public Keyword getDescripcionIgualAKeyword_0_3() { return cDescripcionIgualAKeyword_0_3; }
 		
 		//'mayor o igual a'
-		public Keyword getDescripcionMayorOIgualAKeyword_0_3() { return cDescripcionMayorOIgualAKeyword_0_3; }
+		public Keyword getDescripcionMayorOIgualAKeyword_0_4() { return cDescripcionMayorOIgualAKeyword_0_4; }
 		
 		//'menor o igual a'
-		public Keyword getDescripcionMenorOIgualAKeyword_0_4() { return cDescripcionMenorOIgualAKeyword_0_4; }
+		public Keyword getDescripcionMenorOIgualAKeyword_0_5() { return cDescripcionMenorOIgualAKeyword_0_5; }
 		
 		//'distinto de'
-		public Keyword getDescripcionDistintoDeKeyword_0_5() { return cDescripcionDistintoDeKeyword_0_5; }
+		public Keyword getDescripcionDistintoDeKeyword_0_6() { return cDescripcionDistintoDeKeyword_0_6; }
 		
 		//'al menos'
-		public Keyword getDescripcionAlMenosKeyword_0_6() { return cDescripcionAlMenosKeyword_0_6; }
+		public Keyword getDescripcionAlMenosKeyword_0_7() { return cDescripcionAlMenosKeyword_0_7; }
 	}
 	public class ClaseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Clase");
@@ -394,107 +405,129 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	public class CompuestaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Compuesta");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSimpleAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cSimpleSimpleParserRuleCall_0_0 = (RuleCall)cSimpleAssignment_0.eContents().get(0);
-		private final Assignment cNexoAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNexoNexoParserRuleCall_1_0 = (RuleCall)cNexoAssignment_1.eContents().get(0);
+		private final Keyword cCompuestaKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSimpleInicialAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSimpleInicialSimpleParserRuleCall_1_0 = (RuleCall)cSimpleInicialAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cNexoAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cNexoNexoParserRuleCall_2_0_0 = (RuleCall)cNexoAssignment_2_0.eContents().get(0);
+		private final Assignment cSimpleFinalAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cSimpleFinalSimpleParserRuleCall_2_1_0 = (RuleCall)cSimpleFinalAssignment_2_1.eContents().get(0);
 		
-		//Compuesta:
-		//	simple=Simple nexo=Nexo;
+		//Compuesta: //'Compuesta' simpleInicial=Simple (nexo=Nexo simpleCont=Simple)*
+		//	'Compuesta' simpleInicial=Simple (nexo=Nexo simpleFinal=Simple)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//simple=Simple nexo=Nexo
+		////'Compuesta' simpleInicial=Simple (nexo=Nexo simpleCont=Simple)*
+		//'Compuesta' simpleInicial=Simple (nexo=Nexo simpleFinal=Simple)*
 		public Group getGroup() { return cGroup; }
 		
-		//simple=Simple
-		public Assignment getSimpleAssignment_0() { return cSimpleAssignment_0; }
+		////'Compuesta' simpleInicial=Simple (nexo=Nexo simpleCont=Simple)*
+		//'Compuesta'
+		public Keyword getCompuestaKeyword_0() { return cCompuestaKeyword_0; }
+		
+		//simpleInicial=Simple
+		public Assignment getSimpleInicialAssignment_1() { return cSimpleInicialAssignment_1; }
 		
 		//Simple
-		public RuleCall getSimpleSimpleParserRuleCall_0_0() { return cSimpleSimpleParserRuleCall_0_0; }
+		public RuleCall getSimpleInicialSimpleParserRuleCall_1_0() { return cSimpleInicialSimpleParserRuleCall_1_0; }
+		
+		//(nexo=Nexo simpleFinal=Simple)*
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//nexo=Nexo
-		public Assignment getNexoAssignment_1() { return cNexoAssignment_1; }
+		public Assignment getNexoAssignment_2_0() { return cNexoAssignment_2_0; }
 		
 		//Nexo
-		public RuleCall getNexoNexoParserRuleCall_1_0() { return cNexoNexoParserRuleCall_1_0; }
+		public RuleCall getNexoNexoParserRuleCall_2_0_0() { return cNexoNexoParserRuleCall_2_0_0; }
+		
+		//simpleFinal=Simple
+		public Assignment getSimpleFinalAssignment_2_1() { return cSimpleFinalAssignment_2_1; }
+		
+		//Simple
+		public RuleCall getSimpleFinalSimpleParserRuleCall_2_1_0() { return cSimpleFinalSimpleParserRuleCall_2_1_0; }
 	}
 	public class NexoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Nexo");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cDescripcionAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final Keyword cDescripcionYKeyword_0_0 = (Keyword)cDescripcionAssignment_0.eContents().get(0);
-		private final Keyword cOKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Assignment cDescripcionAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cDescripcionAlternatives_0 = (Alternatives)cDescripcionAssignment.eContents().get(0);
+		private final Keyword cDescripcionYKeyword_0_0 = (Keyword)cDescripcionAlternatives_0.eContents().get(0);
+		private final Keyword cDescripcionOKeyword_0_1 = (Keyword)cDescripcionAlternatives_0.eContents().get(1);
 		
 		//Nexo:
-		//	descripcion='y' | 'o';
+		//	descripcion=('y' | 'o');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//descripcion='y' | 'o'
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//descripcion=('y' | 'o')
+		public Assignment getDescripcionAssignment() { return cDescripcionAssignment; }
 		
-		//descripcion='y'
-		public Assignment getDescripcionAssignment_0() { return cDescripcionAssignment_0; }
+		//('y' | 'o')
+		public Alternatives getDescripcionAlternatives_0() { return cDescripcionAlternatives_0; }
 		
 		//'y'
 		public Keyword getDescripcionYKeyword_0_0() { return cDescripcionYKeyword_0_0; }
 		
 		//'o'
-		public Keyword getOKeyword_1() { return cOKeyword_1; }
+		public Keyword getDescripcionOKeyword_0_1() { return cDescripcionOKeyword_0_1; }
 	}
 	public class ComplejaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Compleja");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cParaTodosAsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cAtributoAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAtributoAtributoParserRuleCall_1_0 = (RuleCall)cAtributoAssignment_1.eContents().get(0);
-		private final Keyword cDeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cUnUnaKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cContextoAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cContextoClaseParserRuleCall_4_0 = (RuleCall)cContextoAssignment_4.eContents().get(0);
-		private final Keyword cTalQueKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
-		private final Keyword cSeleccionamosKeyword_6_0 = (Keyword)cAlternatives_6.eContents().get(0);
-		private final Keyword cParaTodosKeyword_6_1 = (Keyword)cAlternatives_6.eContents().get(1);
-		private final Keyword cExisteKeyword_6_2 = (Keyword)cAlternatives_6.eContents().get(2);
-		private final Keyword cLosLasKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cAtributoAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cAtributoClaseParserRuleCall_8_0 = (RuleCall)cAtributoAssignment_8.eContents().get(0);
-		private final Keyword cDondeKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Assignment cAtributoAssignment_10_0 = (Assignment)cGroup_10.eContents().get(0);
-		private final RuleCall cAtributoAtributoParserRuleCall_10_0_0 = (RuleCall)cAtributoAssignment_10_0.eContents().get(0);
-		private final Alternatives cAlternatives_10_1 = (Alternatives)cGroup_10.eContents().get(1);
-		private final Keyword cMayorQueKeyword_10_1_0 = (Keyword)cAlternatives_10_1.eContents().get(0);
-		private final Keyword cMenorQueKeyword_10_1_1 = (Keyword)cAlternatives_10_1.eContents().get(1);
-		private final Keyword cIgualAKeyword_10_1_2 = (Keyword)cAlternatives_10_1.eContents().get(2);
-		private final Keyword cMayorOIgualAKeyword_10_1_3 = (Keyword)cAlternatives_10_1.eContents().get(3);
-		private final Keyword cMenorOIgualAKeyword_10_1_4 = (Keyword)cAlternatives_10_1.eContents().get(4);
-		private final Keyword cDistintoDeKeyword_10_1_5 = (Keyword)cAlternatives_10_1.eContents().get(5);
-		private final Keyword cAlMenosKeyword_10_1_6 = (Keyword)cAlternatives_10_1.eContents().get(6);
-		private final Alternatives cAlternatives_10_2 = (Alternatives)cGroup_10.eContents().get(2);
-		private final Assignment cLiteralAssignment_10_2_0 = (Assignment)cAlternatives_10_2.eContents().get(0);
-		private final RuleCall cLiteralLiteralParserRuleCall_10_2_0_0 = (RuleCall)cLiteralAssignment_10_2_0.eContents().get(0);
-		private final Assignment cAtributoAssignment_10_2_1 = (Assignment)cAlternatives_10_2.eContents().get(1);
-		private final RuleCall cAtributoAtributoParserRuleCall_10_2_1_0 = (RuleCall)cAtributoAssignment_10_2_1.eContents().get(0);
-		private final Keyword cImplicaKeyword_10_3 = (Keyword)cGroup_10.eContents().get(3);
-		private final Alternatives cAlternatives_11 = (Alternatives)cGroup.eContents().get(11);
-		private final Keyword cEsNoVacioKeyword_11_0 = (Keyword)cAlternatives_11.eContents().get(0);
-		private final Keyword cEsVacioTamanioKeyword_11_1 = (Keyword)cAlternatives_11.eContents().get(1);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Alternatives cAlternatives_12_0 = (Alternatives)cGroup_12.eContents().get(0);
-		private final Keyword cMayorQueKeyword_12_0_0 = (Keyword)cAlternatives_12_0.eContents().get(0);
-		private final Keyword cMenorQueKeyword_12_0_1 = (Keyword)cAlternatives_12_0.eContents().get(1);
-		private final Keyword cIgualAKeyword_12_0_2 = (Keyword)cAlternatives_12_0.eContents().get(2);
-		private final Keyword cMayorOIgualAKeyword_12_0_3 = (Keyword)cAlternatives_12_0.eContents().get(3);
-		private final Keyword cMenorOIgualAKeyword_12_0_4 = (Keyword)cAlternatives_12_0.eContents().get(4);
-		private final Keyword cDistintoDeKeyword_12_0_5 = (Keyword)cAlternatives_12_0.eContents().get(5);
-		private final Keyword cAlMenosKeyword_12_0_6 = (Keyword)cAlternatives_12_0.eContents().get(6);
-		private final Alternatives cAlternatives_12_1 = (Alternatives)cGroup_12.eContents().get(1);
-		private final Assignment cLiteralAssignment_12_1_0 = (Assignment)cAlternatives_12_1.eContents().get(0);
-		private final RuleCall cLiteralLiteralParserRuleCall_12_1_0_0 = (RuleCall)cLiteralAssignment_12_1_0.eContents().get(0);
-		private final Assignment cAtributoAssignment_12_1_1 = (Assignment)cAlternatives_12_1.eContents().get(1);
-		private final RuleCall cAtributoAtributoParserRuleCall_12_1_1_0 = (RuleCall)cAtributoAssignment_12_1_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Assignment cDeterminanteAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDeterminanteDeterminanteParserRuleCall_0_0 = (RuleCall)cDeterminanteAssignment_0.eContents().get(0);
+		private final Assignment cAtrAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAtrAtributoParserRuleCall_1_0 = (RuleCall)cAtrAssignment_1.eContents().get(0);
+		private final Assignment cSintagmaAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSintagmaSintagmaPreposicionalParserRuleCall_2_0 = (RuleCall)cSintagmaAssignment_2.eContents().get(0);
+		private final Assignment cContextoAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cContextoClaseParserRuleCall_3_0 = (RuleCall)cContextoAssignment_3.eContents().get(0);
+		private final Assignment cConectAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cConectConectorParserRuleCall_4_0 = (RuleCall)cConectAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Assignment cOperacionColeccionAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cOperacionColeccionOperacionColeccionParserRuleCall_5_0_0 = (RuleCall)cOperacionColeccionAssignment_5_0.eContents().get(0);
+		private final Assignment cDeterminante1Assignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cDeterminante1DeterminanteParserRuleCall_5_1_0 = (RuleCall)cDeterminante1Assignment_5_1.eContents().get(0);
+		private final Assignment cClaseAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cClaseClaseParserRuleCall_5_2_0 = (RuleCall)cClaseAssignment_5_2.eContents().get(0);
+		private final Assignment cConect1Assignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cConect1ConectorParserRuleCall_5_3_0 = (RuleCall)cConect1Assignment_5_3.eContents().get(0);
+		private final Group cGroup_5_4 = (Group)cGroup_5.eContents().get(4);
+		private final Assignment cAtr1Assignment_5_4_0 = (Assignment)cGroup_5_4.eContents().get(0);
+		private final RuleCall cAtr1AtributoParserRuleCall_5_4_0_0 = (RuleCall)cAtr1Assignment_5_4_0.eContents().get(0);
+		private final Assignment cOpe3Assignment_5_4_1 = (Assignment)cGroup_5_4.eContents().get(1);
+		private final RuleCall cOpe3OperacionParserRuleCall_5_4_1_0 = (RuleCall)cOpe3Assignment_5_4_1.eContents().get(0);
+		private final Alternatives cAlternatives_5_4_2 = (Alternatives)cGroup_5_4.eContents().get(2);
+		private final Assignment cLit1Assignment_5_4_2_0 = (Assignment)cAlternatives_5_4_2.eContents().get(0);
+		private final RuleCall cLit1LiteralParserRuleCall_5_4_2_0_0 = (RuleCall)cLit1Assignment_5_4_2_0.eContents().get(0);
+		private final Assignment cAtr2Assignment_5_4_2_1 = (Assignment)cAlternatives_5_4_2.eContents().get(1);
+		private final RuleCall cAtr2AtributoParserRuleCall_5_4_2_1_0 = (RuleCall)cAtr2Assignment_5_4_2_1.eContents().get(0);
+		private final Assignment cOpe4Assignment_5_4_3 = (Assignment)cGroup_5_4.eContents().get(3);
+		private final RuleCall cOpe4OperacionParserRuleCall_5_4_3_0 = (RuleCall)cOpe4Assignment_5_4_3.eContents().get(0);
+		private final Group cGroup_5_4_4 = (Group)cGroup_5_4.eContents().get(4);
+		private final Assignment cAtr4Assignment_5_4_4_0 = (Assignment)cGroup_5_4_4.eContents().get(0);
+		private final RuleCall cAtr4AtributoParserRuleCall_5_4_4_0_0 = (RuleCall)cAtr4Assignment_5_4_4_0.eContents().get(0);
+		private final Assignment cOpe5Assignment_5_4_4_1 = (Assignment)cGroup_5_4_4.eContents().get(1);
+		private final RuleCall cOpe5OperacionParserRuleCall_5_4_4_1_0 = (RuleCall)cOpe5Assignment_5_4_4_1.eContents().get(0);
+		private final Alternatives cAlternatives_5_4_4_2 = (Alternatives)cGroup_5_4_4.eContents().get(2);
+		private final Assignment cLit2Assignment_5_4_4_2_0 = (Assignment)cAlternatives_5_4_4_2.eContents().get(0);
+		private final RuleCall cLit2LiteralParserRuleCall_5_4_4_2_0_0 = (RuleCall)cLit2Assignment_5_4_4_2_0.eContents().get(0);
+		private final Assignment cAtr5Assignment_5_4_4_2_1 = (Assignment)cAlternatives_5_4_4_2.eContents().get(1);
+		private final RuleCall cAtr5AtributoParserRuleCall_5_4_4_2_1_0 = (RuleCall)cAtr5Assignment_5_4_4_2_1.eContents().get(0);
+		private final Assignment cConec1Assignment_5_5 = (Assignment)cGroup_5.eContents().get(5);
+		private final RuleCall cConec1ConectorParserRuleCall_5_5_0 = (RuleCall)cConec1Assignment_5_5.eContents().get(0);
+		private final Assignment cOpeColAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cOpeColOperacionColeccionParserRuleCall_6_0 = (RuleCall)cOpeColAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Assignment cOpe6Assignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
+		private final RuleCall cOpe6OperacionParserRuleCall_7_0_0 = (RuleCall)cOpe6Assignment_7_0.eContents().get(0);
+		private final Alternatives cAlternatives_7_1 = (Alternatives)cGroup_7.eContents().get(1);
+		private final Assignment cLit3Assignment_7_1_0 = (Assignment)cAlternatives_7_1.eContents().get(0);
+		private final RuleCall cLit3LiteralParserRuleCall_7_1_0_0 = (RuleCall)cLit3Assignment_7_1_0.eContents().get(0);
+		private final Assignment cAtr3Assignment_7_1_1 = (Assignment)cAlternatives_7_1.eContents().get(1);
+		private final RuleCall cAtr3AtributoParserRuleCall_7_1_1_0 = (RuleCall)cAtr3Assignment_7_1_1.eContents().get(0);
+		private final Assignment cFinOracionAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cFinOracionFinOracionParserRuleCall_8_0 = (RuleCall)cFinOracionAssignment_8.eContents().get(0);
 		
 		/// **
 		// * Considere que la constraint se divide en tres partes:
@@ -502,175 +535,255 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		// * parte1-> se refiere a clase/coleccion y el contexto donde esta esta definida.
 		// * parte2->aplicamos una operacion para obtener un subconjunto aplicando alguna condicion (el resultado podria ser toda la coleccion)
 		// * parte3->aplicamos una condicion/operacion que esperamos que se cumpla sobre el subconjunto que obtuvimos en la parte2
-		// * / Compleja:
-		//	'Para todos/as' atributo=Atributo 'de' 'un/una' contexto=Clase 'tal que' ('seleccionamos' | 'para todos' | 'existe')
-		//	'Los/Las' atributo=Clase 'donde' (atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' |
-		//	'menor o igual a' | 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo) 'implica'?)* ('es no vacio' |
-		//	'es vacio | tamanio') (('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de'
-		//	| 'al menos') (literal=Literal | atributo=Atributo))? '.';
+		// * / //Compleja:
+		////	determinante=Determinante atributo=Atributo Sintagma=SintagmaPreposicional contexto=Clase conector=Conector 
+		////		((operacionColeccion=OperacionColeccion) determinanteC=Determinante atributoC=Clase conect=Conector (atr=Atributo ope=Operacion)* (ope1=Operacion)? (lit=Literal | atr1=Atributo)(oper1=OperacionColeccion)?)? (conec1=Conector)? 
+		////			(operacionComp=OperacionColeccion)? (operacion=Operacion (literal=Literal | atributoF=Atributo))? finOracion=FinOracion
+		////;
+		//Compleja:
+		//	determinante=Determinante atr=Atributo Sintagma=SintagmaPreposicional contexto=Clase conect=Conector
+		//	(operacionColeccion=OperacionColeccion determinante1=Determinante clase=Clase conect1=Conector (atr1=Atributo
+		//	ope3=Operacion (lit1=Literal | atr2=Atributo) ope4=Operacion? (atr4=Atributo ope5=Operacion (lit2=Literal |
+		//	atr5=Atributo))?)? conec1=Conector?)?
+		//	opeCol=OperacionColeccion? (ope6=Operacion (lit3=Literal | atr3=Atributo))? finOracion=FinOracion;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Para todos/as' atributo=Atributo 'de' 'un/una' contexto=Clase 'tal que' ('seleccionamos' | 'para todos' | 'existe')
-		//'Los/Las' atributo=Clase 'donde' (atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' |
-		//'menor o igual a' | 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo) 'implica'?)* ('es no vacio' |
-		//'es vacio | tamanio') (('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' |
-		//'al menos') (literal=Literal | atributo=Atributo))? '.'
+		//determinante=Determinante atr=Atributo Sintagma=SintagmaPreposicional contexto=Clase conect=Conector
+		//(operacionColeccion=OperacionColeccion determinante1=Determinante clase=Clase conect1=Conector (atr1=Atributo
+		//ope3=Operacion (lit1=Literal | atr2=Atributo) ope4=Operacion? (atr4=Atributo ope5=Operacion (lit2=Literal |
+		//atr5=Atributo))?)? conec1=Conector?)? opeCol=OperacionColeccion? (ope6=Operacion (lit3=Literal | atr3=Atributo))?
+		//finOracion=FinOracion
 		public Group getGroup() { return cGroup; }
 		
-		//'Para todos/as'
-		public Keyword getParaTodosAsKeyword_0() { return cParaTodosAsKeyword_0; }
+		//determinante=Determinante
+		public Assignment getDeterminanteAssignment_0() { return cDeterminanteAssignment_0; }
 		
-		//atributo=Atributo
-		public Assignment getAtributoAssignment_1() { return cAtributoAssignment_1; }
+		//Determinante
+		public RuleCall getDeterminanteDeterminanteParserRuleCall_0_0() { return cDeterminanteDeterminanteParserRuleCall_0_0; }
+		
+		//atr=Atributo
+		public Assignment getAtrAssignment_1() { return cAtrAssignment_1; }
 		
 		//Atributo
-		public RuleCall getAtributoAtributoParserRuleCall_1_0() { return cAtributoAtributoParserRuleCall_1_0; }
+		public RuleCall getAtrAtributoParserRuleCall_1_0() { return cAtrAtributoParserRuleCall_1_0; }
 		
-		//'de'
-		public Keyword getDeKeyword_2() { return cDeKeyword_2; }
+		//Sintagma=SintagmaPreposicional
+		public Assignment getSintagmaAssignment_2() { return cSintagmaAssignment_2; }
 		
-		//'un/una'
-		public Keyword getUnUnaKeyword_3() { return cUnUnaKeyword_3; }
+		//SintagmaPreposicional
+		public RuleCall getSintagmaSintagmaPreposicionalParserRuleCall_2_0() { return cSintagmaSintagmaPreposicionalParserRuleCall_2_0; }
 		
 		//contexto=Clase
-		public Assignment getContextoAssignment_4() { return cContextoAssignment_4; }
+		public Assignment getContextoAssignment_3() { return cContextoAssignment_3; }
 		
 		//Clase
-		public RuleCall getContextoClaseParserRuleCall_4_0() { return cContextoClaseParserRuleCall_4_0; }
+		public RuleCall getContextoClaseParserRuleCall_3_0() { return cContextoClaseParserRuleCall_3_0; }
+		
+		//conect=Conector
+		public Assignment getConectAssignment_4() { return cConectAssignment_4; }
+		
+		//Conector
+		public RuleCall getConectConectorParserRuleCall_4_0() { return cConectConectorParserRuleCall_4_0; }
+		
+		//(operacionColeccion=OperacionColeccion determinante1=Determinante clase=Clase conect1=Conector (atr1=Atributo
+		//ope3=Operacion (lit1=Literal | atr2=Atributo) ope4=Operacion? (atr4=Atributo ope5=Operacion (lit2=Literal |
+		//atr5=Atributo))?)? conec1=Conector?)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//operacionColeccion=OperacionColeccion
+		public Assignment getOperacionColeccionAssignment_5_0() { return cOperacionColeccionAssignment_5_0; }
+		
+		//OperacionColeccion
+		public RuleCall getOperacionColeccionOperacionColeccionParserRuleCall_5_0_0() { return cOperacionColeccionOperacionColeccionParserRuleCall_5_0_0; }
+		
+		//determinante1=Determinante
+		public Assignment getDeterminante1Assignment_5_1() { return cDeterminante1Assignment_5_1; }
+		
+		//Determinante
+		public RuleCall getDeterminante1DeterminanteParserRuleCall_5_1_0() { return cDeterminante1DeterminanteParserRuleCall_5_1_0; }
+		
+		//clase=Clase
+		public Assignment getClaseAssignment_5_2() { return cClaseAssignment_5_2; }
+		
+		//Clase
+		public RuleCall getClaseClaseParserRuleCall_5_2_0() { return cClaseClaseParserRuleCall_5_2_0; }
+		
+		//conect1=Conector
+		public Assignment getConect1Assignment_5_3() { return cConect1Assignment_5_3; }
+		
+		//Conector
+		public RuleCall getConect1ConectorParserRuleCall_5_3_0() { return cConect1ConectorParserRuleCall_5_3_0; }
+		
+		//(atr1=Atributo ope3=Operacion (lit1=Literal | atr2=Atributo) ope4=Operacion? (atr4=Atributo ope5=Operacion (lit2=Literal
+		//| atr5=Atributo))?)?
+		public Group getGroup_5_4() { return cGroup_5_4; }
+		
+		//atr1=Atributo
+		public Assignment getAtr1Assignment_5_4_0() { return cAtr1Assignment_5_4_0; }
+		
+		//Atributo
+		public RuleCall getAtr1AtributoParserRuleCall_5_4_0_0() { return cAtr1AtributoParserRuleCall_5_4_0_0; }
+		
+		//ope3=Operacion
+		public Assignment getOpe3Assignment_5_4_1() { return cOpe3Assignment_5_4_1; }
+		
+		//Operacion
+		public RuleCall getOpe3OperacionParserRuleCall_5_4_1_0() { return cOpe3OperacionParserRuleCall_5_4_1_0; }
+		
+		//(lit1=Literal | atr2=Atributo)
+		public Alternatives getAlternatives_5_4_2() { return cAlternatives_5_4_2; }
+		
+		//lit1=Literal
+		public Assignment getLit1Assignment_5_4_2_0() { return cLit1Assignment_5_4_2_0; }
+		
+		//Literal
+		public RuleCall getLit1LiteralParserRuleCall_5_4_2_0_0() { return cLit1LiteralParserRuleCall_5_4_2_0_0; }
+		
+		//atr2=Atributo
+		public Assignment getAtr2Assignment_5_4_2_1() { return cAtr2Assignment_5_4_2_1; }
+		
+		//Atributo
+		public RuleCall getAtr2AtributoParserRuleCall_5_4_2_1_0() { return cAtr2AtributoParserRuleCall_5_4_2_1_0; }
+		
+		//ope4=Operacion?
+		public Assignment getOpe4Assignment_5_4_3() { return cOpe4Assignment_5_4_3; }
+		
+		//Operacion
+		public RuleCall getOpe4OperacionParserRuleCall_5_4_3_0() { return cOpe4OperacionParserRuleCall_5_4_3_0; }
+		
+		//(atr4=Atributo ope5=Operacion (lit2=Literal | atr5=Atributo))?
+		public Group getGroup_5_4_4() { return cGroup_5_4_4; }
+		
+		//atr4=Atributo
+		public Assignment getAtr4Assignment_5_4_4_0() { return cAtr4Assignment_5_4_4_0; }
+		
+		//Atributo
+		public RuleCall getAtr4AtributoParserRuleCall_5_4_4_0_0() { return cAtr4AtributoParserRuleCall_5_4_4_0_0; }
+		
+		//ope5=Operacion
+		public Assignment getOpe5Assignment_5_4_4_1() { return cOpe5Assignment_5_4_4_1; }
+		
+		//Operacion
+		public RuleCall getOpe5OperacionParserRuleCall_5_4_4_1_0() { return cOpe5OperacionParserRuleCall_5_4_4_1_0; }
+		
+		//(lit2=Literal | atr5=Atributo)
+		public Alternatives getAlternatives_5_4_4_2() { return cAlternatives_5_4_4_2; }
+		
+		//lit2=Literal
+		public Assignment getLit2Assignment_5_4_4_2_0() { return cLit2Assignment_5_4_4_2_0; }
+		
+		//Literal
+		public RuleCall getLit2LiteralParserRuleCall_5_4_4_2_0_0() { return cLit2LiteralParserRuleCall_5_4_4_2_0_0; }
+		
+		//atr5=Atributo
+		public Assignment getAtr5Assignment_5_4_4_2_1() { return cAtr5Assignment_5_4_4_2_1; }
+		
+		//Atributo
+		public RuleCall getAtr5AtributoParserRuleCall_5_4_4_2_1_0() { return cAtr5AtributoParserRuleCall_5_4_4_2_1_0; }
+		
+		//conec1=Conector?
+		public Assignment getConec1Assignment_5_5() { return cConec1Assignment_5_5; }
+		
+		//Conector
+		public RuleCall getConec1ConectorParserRuleCall_5_5_0() { return cConec1ConectorParserRuleCall_5_5_0; }
+		
+		//opeCol=OperacionColeccion?
+		public Assignment getOpeColAssignment_6() { return cOpeColAssignment_6; }
+		
+		//OperacionColeccion
+		public RuleCall getOpeColOperacionColeccionParserRuleCall_6_0() { return cOpeColOperacionColeccionParserRuleCall_6_0; }
+		
+		//(ope6=Operacion (lit3=Literal | atr3=Atributo))?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//ope6=Operacion
+		public Assignment getOpe6Assignment_7_0() { return cOpe6Assignment_7_0; }
+		
+		//Operacion
+		public RuleCall getOpe6OperacionParserRuleCall_7_0_0() { return cOpe6OperacionParserRuleCall_7_0_0; }
+		
+		//(lit3=Literal | atr3=Atributo)
+		public Alternatives getAlternatives_7_1() { return cAlternatives_7_1; }
+		
+		//lit3=Literal
+		public Assignment getLit3Assignment_7_1_0() { return cLit3Assignment_7_1_0; }
+		
+		//Literal
+		public RuleCall getLit3LiteralParserRuleCall_7_1_0_0() { return cLit3LiteralParserRuleCall_7_1_0_0; }
+		
+		//atr3=Atributo
+		public Assignment getAtr3Assignment_7_1_1() { return cAtr3Assignment_7_1_1; }
+		
+		//Atributo
+		public RuleCall getAtr3AtributoParserRuleCall_7_1_1_0() { return cAtr3AtributoParserRuleCall_7_1_1_0; }
+		
+		//finOracion=FinOracion
+		public Assignment getFinOracionAssignment_8() { return cFinOracionAssignment_8; }
+		
+		//FinOracion
+		public RuleCall getFinOracionFinOracionParserRuleCall_8_0() { return cFinOracionFinOracionParserRuleCall_8_0; }
+	}
+	public class ConectorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Conector");
+		private final Assignment cDescripcionAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cDescripcionAlternatives_0 = (Alternatives)cDescripcionAssignment.eContents().get(0);
+		private final Keyword cDescripcionTalQueKeyword_0_0 = (Keyword)cDescripcionAlternatives_0.eContents().get(0);
+		private final Keyword cDescripcionDondeKeyword_0_1 = (Keyword)cDescripcionAlternatives_0.eContents().get(1);
+		
+		//Conector:
+		//	descripcion=('tal que' | 'donde');
+		@Override public ParserRule getRule() { return rule; }
+		
+		//descripcion=('tal que' | 'donde')
+		public Assignment getDescripcionAssignment() { return cDescripcionAssignment; }
+		
+		//('tal que' | 'donde')
+		public Alternatives getDescripcionAlternatives_0() { return cDescripcionAlternatives_0; }
 		
 		//'tal que'
-		public Keyword getTalQueKeyword_5() { return cTalQueKeyword_5; }
-		
-		//('seleccionamos' | 'para todos' | 'existe')
-		public Alternatives getAlternatives_6() { return cAlternatives_6; }
-		
-		//'seleccionamos'
-		public Keyword getSeleccionamosKeyword_6_0() { return cSeleccionamosKeyword_6_0; }
-		
-		//'para todos'
-		public Keyword getParaTodosKeyword_6_1() { return cParaTodosKeyword_6_1; }
-		
-		//'existe'
-		public Keyword getExisteKeyword_6_2() { return cExisteKeyword_6_2; }
-		
-		//'Los/Las'
-		public Keyword getLosLasKeyword_7() { return cLosLasKeyword_7; }
-		
-		//atributo=Clase
-		public Assignment getAtributoAssignment_8() { return cAtributoAssignment_8; }
-		
-		//Clase
-		public RuleCall getAtributoClaseParserRuleCall_8_0() { return cAtributoClaseParserRuleCall_8_0; }
+		public Keyword getDescripcionTalQueKeyword_0_0() { return cDescripcionTalQueKeyword_0_0; }
 		
 		//'donde'
-		public Keyword getDondeKeyword_9() { return cDondeKeyword_9; }
+		public Keyword getDescripcionDondeKeyword_0_1() { return cDescripcionDondeKeyword_0_1; }
+	}
+	public class OperacionColeccionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.OperacionColeccion");
+		private final Assignment cDescripcionAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cDescripcionAlternatives_0 = (Alternatives)cDescripcionAssignment.eContents().get(0);
+		private final Keyword cDescripcionSeleccionamosKeyword_0_0 = (Keyword)cDescripcionAlternatives_0.eContents().get(0);
+		private final Keyword cDescripcionParaTodosKeyword_0_1 = (Keyword)cDescripcionAlternatives_0.eContents().get(1);
+		private final Keyword cDescripcionExisteKeyword_0_2 = (Keyword)cDescripcionAlternatives_0.eContents().get(2);
+		private final Keyword cDescripcionEsNoVacioKeyword_0_3 = (Keyword)cDescripcionAlternatives_0.eContents().get(3);
+		private final Keyword cDescripcionEsVacioKeyword_0_4 = (Keyword)cDescripcionAlternatives_0.eContents().get(4);
+		private final Keyword cDescripcionTamanioKeyword_0_5 = (Keyword)cDescripcionAlternatives_0.eContents().get(5);
 		
-		//(atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' |
-		//'al menos') (literal=Literal | atributo=Atributo) 'implica'?)*
-		public Group getGroup_10() { return cGroup_10; }
+		//OperacionColeccion:
+		//	descripcion=('seleccionamos' | 'para todos' | 'existe' | 'es no vacio' | 'es vacio' | 'tamanio');
+		@Override public ParserRule getRule() { return rule; }
 		
-		//atributo=Atributo
-		public Assignment getAtributoAssignment_10_0() { return cAtributoAssignment_10_0; }
+		//descripcion=('seleccionamos' | 'para todos' | 'existe' | 'es no vacio' | 'es vacio' | 'tamanio')
+		public Assignment getDescripcionAssignment() { return cDescripcionAssignment; }
 		
-		//Atributo
-		public RuleCall getAtributoAtributoParserRuleCall_10_0_0() { return cAtributoAtributoParserRuleCall_10_0_0; }
+		//('seleccionamos' | 'para todos' | 'existe' | 'es no vacio' | 'es vacio' | 'tamanio')
+		public Alternatives getDescripcionAlternatives_0() { return cDescripcionAlternatives_0; }
 		
-		//('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')
-		public Alternatives getAlternatives_10_1() { return cAlternatives_10_1; }
+		//'seleccionamos'
+		public Keyword getDescripcionSeleccionamosKeyword_0_0() { return cDescripcionSeleccionamosKeyword_0_0; }
 		
-		//'mayor que'
-		public Keyword getMayorQueKeyword_10_1_0() { return cMayorQueKeyword_10_1_0; }
+		//'para todos'
+		public Keyword getDescripcionParaTodosKeyword_0_1() { return cDescripcionParaTodosKeyword_0_1; }
 		
-		//'menor que'
-		public Keyword getMenorQueKeyword_10_1_1() { return cMenorQueKeyword_10_1_1; }
-		
-		//'igual a'
-		public Keyword getIgualAKeyword_10_1_2() { return cIgualAKeyword_10_1_2; }
-		
-		//'mayor o igual a'
-		public Keyword getMayorOIgualAKeyword_10_1_3() { return cMayorOIgualAKeyword_10_1_3; }
-		
-		//'menor o igual a'
-		public Keyword getMenorOIgualAKeyword_10_1_4() { return cMenorOIgualAKeyword_10_1_4; }
-		
-		//'distinto de'
-		public Keyword getDistintoDeKeyword_10_1_5() { return cDistintoDeKeyword_10_1_5; }
-		
-		//'al menos'
-		public Keyword getAlMenosKeyword_10_1_6() { return cAlMenosKeyword_10_1_6; }
-		
-		//(literal=Literal | atributo=Atributo)
-		public Alternatives getAlternatives_10_2() { return cAlternatives_10_2; }
-		
-		//literal=Literal
-		public Assignment getLiteralAssignment_10_2_0() { return cLiteralAssignment_10_2_0; }
-		
-		//Literal
-		public RuleCall getLiteralLiteralParserRuleCall_10_2_0_0() { return cLiteralLiteralParserRuleCall_10_2_0_0; }
-		
-		//atributo=Atributo
-		public Assignment getAtributoAssignment_10_2_1() { return cAtributoAssignment_10_2_1; }
-		
-		//Atributo
-		public RuleCall getAtributoAtributoParserRuleCall_10_2_1_0() { return cAtributoAtributoParserRuleCall_10_2_1_0; }
-		
-		//'implica'?
-		public Keyword getImplicaKeyword_10_3() { return cImplicaKeyword_10_3; }
-		
-		//('es no vacio' | 'es vacio | tamanio')
-		public Alternatives getAlternatives_11() { return cAlternatives_11; }
+		//'existe'
+		public Keyword getDescripcionExisteKeyword_0_2() { return cDescripcionExisteKeyword_0_2; }
 		
 		//'es no vacio'
-		public Keyword getEsNoVacioKeyword_11_0() { return cEsNoVacioKeyword_11_0; }
+		public Keyword getDescripcionEsNoVacioKeyword_0_3() { return cDescripcionEsNoVacioKeyword_0_3; }
 		
-		//'es vacio | tamanio'
-		public Keyword getEsVacioTamanioKeyword_11_1() { return cEsVacioTamanioKeyword_11_1; }
+		//'es vacio'
+		public Keyword getDescripcionEsVacioKeyword_0_4() { return cDescripcionEsVacioKeyword_0_4; }
 		
-		//(('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')
-		//(literal=Literal | atributo=Atributo))?
-		public Group getGroup_12() { return cGroup_12; }
-		
-		//('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos')
-		public Alternatives getAlternatives_12_0() { return cAlternatives_12_0; }
-		
-		//'mayor que'
-		public Keyword getMayorQueKeyword_12_0_0() { return cMayorQueKeyword_12_0_0; }
-		
-		//'menor que'
-		public Keyword getMenorQueKeyword_12_0_1() { return cMenorQueKeyword_12_0_1; }
-		
-		//'igual a'
-		public Keyword getIgualAKeyword_12_0_2() { return cIgualAKeyword_12_0_2; }
-		
-		//'mayor o igual a'
-		public Keyword getMayorOIgualAKeyword_12_0_3() { return cMayorOIgualAKeyword_12_0_3; }
-		
-		//'menor o igual a'
-		public Keyword getMenorOIgualAKeyword_12_0_4() { return cMenorOIgualAKeyword_12_0_4; }
-		
-		//'distinto de'
-		public Keyword getDistintoDeKeyword_12_0_5() { return cDistintoDeKeyword_12_0_5; }
-		
-		//'al menos'
-		public Keyword getAlMenosKeyword_12_0_6() { return cAlMenosKeyword_12_0_6; }
-		
-		//(literal=Literal | atributo=Atributo)
-		public Alternatives getAlternatives_12_1() { return cAlternatives_12_1; }
-		
-		//literal=Literal
-		public Assignment getLiteralAssignment_12_1_0() { return cLiteralAssignment_12_1_0; }
-		
-		//Literal
-		public RuleCall getLiteralLiteralParserRuleCall_12_1_0_0() { return cLiteralLiteralParserRuleCall_12_1_0_0; }
-		
-		//atributo=Atributo
-		public Assignment getAtributoAssignment_12_1_1() { return cAtributoAssignment_12_1_1; }
-		
-		//Atributo
-		public RuleCall getAtributoAtributoParserRuleCall_12_1_1_0() { return cAtributoAtributoParserRuleCall_12_1_1_0; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_13() { return cFullStopKeyword_13; }
+		//'tamanio'
+		public Keyword getDescripcionTamanioKeyword_0_5() { return cDescripcionTamanioKeyword_0_5; }
 	}
 	
 	
@@ -690,6 +803,8 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	private final CompuestaElements pCompuesta;
 	private final NexoElements pNexo;
 	private final ComplejaElements pCompleja;
+	private final ConectorElements pConector;
+	private final OperacionColeccionElements pOperacionColeccion;
 	
 	private final Grammar grammar;
 	
@@ -716,6 +831,8 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCompuesta = new CompuestaElements();
 		this.pNexo = new NexoElements();
 		this.pCompleja = new ComplejaElements();
+		this.pConector = new ConectorElements();
+		this.pOperacionColeccion = new OperacionColeccionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -758,8 +875,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Oracion:
-	//	contenido=Simple | Compuesta //| Compleja
-	//;
+	//	contenido=Simple | contenido=Compuesta | contenido=Compleja;
 	public OracionElements getOracionAccess() {
 		return pOracion;
 	}
@@ -782,7 +898,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Determinante:
-	//	descripcion=('El/La' | 'Los/Las');
+	//	descripcion=('El/La' | 'Los/Las' | 'Para todos/as Los/Las');
 	public DeterminanteElements getDeterminanteAccess() {
 		return pDeterminante;
 	}
@@ -791,9 +907,8 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		return getDeterminanteAccess().getRule();
 	}
 	
-	////No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
 	//Atributo:
-	//	'Coleccion de'? name=ID;
+	//	name=ID;
 	public AtributoElements getAtributoAccess() {
 		return pAtributo;
 	}
@@ -843,8 +958,8 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Operacion:
-	//	descripcion=('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' |
-	//	'al menos');
+	//	descripcion=('implica' | 'mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de'
+	//	| 'al menos');
 	public OperacionElements getOperacionAccess() {
 		return pOperacion;
 	}
@@ -883,8 +998,8 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		return getFinOracionAccess().getRule();
 	}
 	
-	//Compuesta:
-	//	simple=Simple nexo=Nexo;
+	//Compuesta: //'Compuesta' simpleInicial=Simple (nexo=Nexo simpleCont=Simple)*
+	//	'Compuesta' simpleInicial=Simple (nexo=Nexo simpleFinal=Simple)*;
 	public CompuestaElements getCompuestaAccess() {
 		return pCompuesta;
 	}
@@ -894,7 +1009,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Nexo:
-	//	descripcion='y' | 'o';
+	//	descripcion=('y' | 'o');
 	public NexoElements getNexoAccess() {
 		return pNexo;
 	}
@@ -909,18 +1024,43 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	// * parte1-> se refiere a clase/coleccion y el contexto donde esta esta definida.
 	// * parte2->aplicamos una operacion para obtener un subconjunto aplicando alguna condicion (el resultado podria ser toda la coleccion)
 	// * parte3->aplicamos una condicion/operacion que esperamos que se cumpla sobre el subconjunto que obtuvimos en la parte2
-	// * / Compleja:
-	//	'Para todos/as' atributo=Atributo 'de' 'un/una' contexto=Clase 'tal que' ('seleccionamos' | 'para todos' | 'existe')
-	//	'Los/Las' atributo=Clase 'donde' (atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' |
-	//	'menor o igual a' | 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo) 'implica'?)* ('es no vacio' |
-	//	'es vacio | tamanio') (('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de'
-	//	| 'al menos') (literal=Literal | atributo=Atributo))? '.';
+	// * / //Compleja:
+	////	determinante=Determinante atributo=Atributo Sintagma=SintagmaPreposicional contexto=Clase conector=Conector 
+	////		((operacionColeccion=OperacionColeccion) determinanteC=Determinante atributoC=Clase conect=Conector (atr=Atributo ope=Operacion)* (ope1=Operacion)? (lit=Literal | atr1=Atributo)(oper1=OperacionColeccion)?)? (conec1=Conector)? 
+	////			(operacionComp=OperacionColeccion)? (operacion=Operacion (literal=Literal | atributoF=Atributo))? finOracion=FinOracion
+	////;
+	//Compleja:
+	//	determinante=Determinante atr=Atributo Sintagma=SintagmaPreposicional contexto=Clase conect=Conector
+	//	(operacionColeccion=OperacionColeccion determinante1=Determinante clase=Clase conect1=Conector (atr1=Atributo
+	//	ope3=Operacion (lit1=Literal | atr2=Atributo) ope4=Operacion? (atr4=Atributo ope5=Operacion (lit2=Literal |
+	//	atr5=Atributo))?)? conec1=Conector?)?
+	//	opeCol=OperacionColeccion? (ope6=Operacion (lit3=Literal | atr3=Atributo))? finOracion=FinOracion;
 	public ComplejaElements getComplejaAccess() {
 		return pCompleja;
 	}
 	
 	public ParserRule getComplejaRule() {
 		return getComplejaAccess().getRule();
+	}
+	
+	//Conector:
+	//	descripcion=('tal que' | 'donde');
+	public ConectorElements getConectorAccess() {
+		return pConector;
+	}
+	
+	public ParserRule getConectorRule() {
+		return getConectorAccess().getRule();
+	}
+	
+	//OperacionColeccion:
+	//	descripcion=('seleccionamos' | 'para todos' | 'existe' | 'es no vacio' | 'es vacio' | 'tamanio');
+	public OperacionColeccionElements getOperacionColeccionAccess() {
+		return pOperacionColeccion;
+	}
+	
+	public ParserRule getOperacionColeccionRule() {
+		return getOperacionColeccionAccess().getRule();
 	}
 	
 	//terminal ID:

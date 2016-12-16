@@ -14,9 +14,30 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtributo <em>Atributo</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getDeterminante <em>Determinante</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr <em>Atr</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getSintagma <em>Sintagma</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getContexto <em>Contexto</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConect <em>Conect</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOperacionColeccion <em>Operacion Coleccion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getDeterminante1 <em>Determinante1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getClase <em>Clase</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConect1 <em>Conect1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr1 <em>Atr1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe3 <em>Ope3</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit1 <em>Lit1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr2 <em>Atr2</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe4 <em>Ope4</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr4 <em>Atr4</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe5 <em>Ope5</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit2 <em>Lit2</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr5 <em>Atr5</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConec1 <em>Conec1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpeCol <em>Ope Col</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe6 <em>Ope6</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit3 <em>Lit3</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr3 <em>Atr3</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compleja#getFinOracion <em>Fin Oracion</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja()
@@ -26,30 +47,82 @@ import org.eclipse.emf.ecore.EObject;
 public interface Compleja extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Atributo</b></em>' containment reference.
+   * Returns the value of the '<em><b>Determinante</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Atributo</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Determinante</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Atributo</em>' containment reference.
-   * @see #setAtributo(EObject)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Atributo()
+   * @return the value of the '<em>Determinante</em>' containment reference.
+   * @see #setDeterminante(Determinante)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Determinante()
    * @model containment="true"
    * @generated
    */
-  EObject getAtributo();
+  Determinante getDeterminante();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtributo <em>Atributo</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getDeterminante <em>Determinante</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Atributo</em>' containment reference.
-   * @see #getAtributo()
+   * @param value the new value of the '<em>Determinante</em>' containment reference.
+   * @see #getDeterminante()
    * @generated
    */
-  void setAtributo(EObject value);
+  void setDeterminante(Determinante value);
+
+  /**
+   * Returns the value of the '<em><b>Atr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Atr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Atr</em>' containment reference.
+   * @see #setAtr(Atributo)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Atr()
+   * @model containment="true"
+   * @generated
+   */
+  Atributo getAtr();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr <em>Atr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Atr</em>' containment reference.
+   * @see #getAtr()
+   * @generated
+   */
+  void setAtr(Atributo value);
+
+  /**
+   * Returns the value of the '<em><b>Sintagma</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Sintagma</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sintagma</em>' containment reference.
+   * @see #setSintagma(SintagmaPreposicional)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Sintagma()
+   * @model containment="true"
+   * @generated
+   */
+  SintagmaPreposicional getSintagma();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getSintagma <em>Sintagma</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sintagma</em>' containment reference.
+   * @see #getSintagma()
+   * @generated
+   */
+  void setSintagma(SintagmaPreposicional value);
 
   /**
    * Returns the value of the '<em><b>Contexto</b></em>' containment reference.
@@ -78,29 +151,523 @@ public interface Compleja extends EObject
   void setContexto(Clase value);
 
   /**
-   * Returns the value of the '<em><b>Literal</b></em>' attribute.
+   * Returns the value of the '<em><b>Conect</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Literal</em>' attribute isn't clear,
+   * If the meaning of the '<em>Conect</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Literal</em>' attribute.
-   * @see #setLiteral(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Literal()
+   * @return the value of the '<em>Conect</em>' containment reference.
+   * @see #setConect(Conector)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Conect()
+   * @model containment="true"
+   * @generated
+   */
+  Conector getConect();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConect <em>Conect</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Conect</em>' containment reference.
+   * @see #getConect()
+   * @generated
+   */
+  void setConect(Conector value);
+
+  /**
+   * Returns the value of the '<em><b>Operacion Coleccion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Operacion Coleccion</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operacion Coleccion</em>' containment reference.
+   * @see #setOperacionColeccion(OperacionColeccion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_OperacionColeccion()
+   * @model containment="true"
+   * @generated
+   */
+  OperacionColeccion getOperacionColeccion();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOperacionColeccion <em>Operacion Coleccion</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operacion Coleccion</em>' containment reference.
+   * @see #getOperacionColeccion()
+   * @generated
+   */
+  void setOperacionColeccion(OperacionColeccion value);
+
+  /**
+   * Returns the value of the '<em><b>Determinante1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Determinante1</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Determinante1</em>' containment reference.
+   * @see #setDeterminante1(Determinante)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Determinante1()
+   * @model containment="true"
+   * @generated
+   */
+  Determinante getDeterminante1();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getDeterminante1 <em>Determinante1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Determinante1</em>' containment reference.
+   * @see #getDeterminante1()
+   * @generated
+   */
+  void setDeterminante1(Determinante value);
+
+  /**
+   * Returns the value of the '<em><b>Clase</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Clase</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Clase</em>' containment reference.
+   * @see #setClase(Clase)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Clase()
+   * @model containment="true"
+   * @generated
+   */
+  Clase getClase();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getClase <em>Clase</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Clase</em>' containment reference.
+   * @see #getClase()
+   * @generated
+   */
+  void setClase(Clase value);
+
+  /**
+   * Returns the value of the '<em><b>Conect1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Conect1</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Conect1</em>' containment reference.
+   * @see #setConect1(Conector)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Conect1()
+   * @model containment="true"
+   * @generated
+   */
+  Conector getConect1();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConect1 <em>Conect1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Conect1</em>' containment reference.
+   * @see #getConect1()
+   * @generated
+   */
+  void setConect1(Conector value);
+
+  /**
+   * Returns the value of the '<em><b>Atr1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Atr1</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Atr1</em>' containment reference.
+   * @see #setAtr1(Atributo)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Atr1()
+   * @model containment="true"
+   * @generated
+   */
+  Atributo getAtr1();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr1 <em>Atr1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Atr1</em>' containment reference.
+   * @see #getAtr1()
+   * @generated
+   */
+  void setAtr1(Atributo value);
+
+  /**
+   * Returns the value of the '<em><b>Ope3</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ope3</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ope3</em>' containment reference.
+   * @see #setOpe3(Operacion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Ope3()
+   * @model containment="true"
+   * @generated
+   */
+  Operacion getOpe3();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe3 <em>Ope3</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ope3</em>' containment reference.
+   * @see #getOpe3()
+   * @generated
+   */
+  void setOpe3(Operacion value);
+
+  /**
+   * Returns the value of the '<em><b>Lit1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lit1</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lit1</em>' attribute.
+   * @see #setLit1(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Lit1()
    * @model
    * @generated
    */
-  String getLiteral();
+  String getLit1();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLiteral <em>Literal</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit1 <em>Lit1</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Literal</em>' attribute.
-   * @see #getLiteral()
+   * @param value the new value of the '<em>Lit1</em>' attribute.
+   * @see #getLit1()
    * @generated
    */
-  void setLiteral(String value);
+  void setLit1(String value);
+
+  /**
+   * Returns the value of the '<em><b>Atr2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Atr2</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Atr2</em>' containment reference.
+   * @see #setAtr2(Atributo)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Atr2()
+   * @model containment="true"
+   * @generated
+   */
+  Atributo getAtr2();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr2 <em>Atr2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Atr2</em>' containment reference.
+   * @see #getAtr2()
+   * @generated
+   */
+  void setAtr2(Atributo value);
+
+  /**
+   * Returns the value of the '<em><b>Ope4</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ope4</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ope4</em>' containment reference.
+   * @see #setOpe4(Operacion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Ope4()
+   * @model containment="true"
+   * @generated
+   */
+  Operacion getOpe4();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe4 <em>Ope4</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ope4</em>' containment reference.
+   * @see #getOpe4()
+   * @generated
+   */
+  void setOpe4(Operacion value);
+
+  /**
+   * Returns the value of the '<em><b>Atr4</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Atr4</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Atr4</em>' containment reference.
+   * @see #setAtr4(Atributo)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Atr4()
+   * @model containment="true"
+   * @generated
+   */
+  Atributo getAtr4();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr4 <em>Atr4</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Atr4</em>' containment reference.
+   * @see #getAtr4()
+   * @generated
+   */
+  void setAtr4(Atributo value);
+
+  /**
+   * Returns the value of the '<em><b>Ope5</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ope5</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ope5</em>' containment reference.
+   * @see #setOpe5(Operacion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Ope5()
+   * @model containment="true"
+   * @generated
+   */
+  Operacion getOpe5();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe5 <em>Ope5</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ope5</em>' containment reference.
+   * @see #getOpe5()
+   * @generated
+   */
+  void setOpe5(Operacion value);
+
+  /**
+   * Returns the value of the '<em><b>Lit2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lit2</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lit2</em>' attribute.
+   * @see #setLit2(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Lit2()
+   * @model
+   * @generated
+   */
+  String getLit2();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit2 <em>Lit2</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Lit2</em>' attribute.
+   * @see #getLit2()
+   * @generated
+   */
+  void setLit2(String value);
+
+  /**
+   * Returns the value of the '<em><b>Atr5</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Atr5</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Atr5</em>' containment reference.
+   * @see #setAtr5(Atributo)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Atr5()
+   * @model containment="true"
+   * @generated
+   */
+  Atributo getAtr5();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr5 <em>Atr5</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Atr5</em>' containment reference.
+   * @see #getAtr5()
+   * @generated
+   */
+  void setAtr5(Atributo value);
+
+  /**
+   * Returns the value of the '<em><b>Conec1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Conec1</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Conec1</em>' containment reference.
+   * @see #setConec1(Conector)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Conec1()
+   * @model containment="true"
+   * @generated
+   */
+  Conector getConec1();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConec1 <em>Conec1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Conec1</em>' containment reference.
+   * @see #getConec1()
+   * @generated
+   */
+  void setConec1(Conector value);
+
+  /**
+   * Returns the value of the '<em><b>Ope Col</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ope Col</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ope Col</em>' containment reference.
+   * @see #setOpeCol(OperacionColeccion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_OpeCol()
+   * @model containment="true"
+   * @generated
+   */
+  OperacionColeccion getOpeCol();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpeCol <em>Ope Col</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ope Col</em>' containment reference.
+   * @see #getOpeCol()
+   * @generated
+   */
+  void setOpeCol(OperacionColeccion value);
+
+  /**
+   * Returns the value of the '<em><b>Ope6</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ope6</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ope6</em>' containment reference.
+   * @see #setOpe6(Operacion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Ope6()
+   * @model containment="true"
+   * @generated
+   */
+  Operacion getOpe6();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe6 <em>Ope6</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ope6</em>' containment reference.
+   * @see #getOpe6()
+   * @generated
+   */
+  void setOpe6(Operacion value);
+
+  /**
+   * Returns the value of the '<em><b>Lit3</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lit3</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lit3</em>' attribute.
+   * @see #setLit3(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Lit3()
+   * @model
+   * @generated
+   */
+  String getLit3();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit3 <em>Lit3</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Lit3</em>' attribute.
+   * @see #getLit3()
+   * @generated
+   */
+  void setLit3(String value);
+
+  /**
+   * Returns the value of the '<em><b>Atr3</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Atr3</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Atr3</em>' containment reference.
+   * @see #setAtr3(Atributo)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_Atr3()
+   * @model containment="true"
+   * @generated
+   */
+  Atributo getAtr3();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr3 <em>Atr3</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Atr3</em>' containment reference.
+   * @see #getAtr3()
+   * @generated
+   */
+  void setAtr3(Atributo value);
+
+  /**
+   * Returns the value of the '<em><b>Fin Oracion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Fin Oracion</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fin Oracion</em>' attribute.
+   * @see #setFinOracion(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompleja_FinOracion()
+   * @model
+   * @generated
+   */
+  String getFinOracion();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getFinOracion <em>Fin Oracion</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fin Oracion</em>' attribute.
+   * @see #getFinOracion()
+   * @generated
+   */
+  void setFinOracion(String value);
 
 } // Compleja

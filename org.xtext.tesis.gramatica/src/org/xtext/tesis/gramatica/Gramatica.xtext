@@ -9,21 +9,20 @@ Documento:
 ;
 		
 Oracion:
-		contenido=Simple | Compuesta //| Compleja
+		contenido=Simple | contenido=Compuesta | contenido=Compleja
 ;
 
 //El/La => atributo simple
 //Los/Las => atributo coleccion	
 Simple:
-	determinante=Determinante atributo=Atributo  Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion (operacion=Operacion)? (literal=Literal | atributo=Atributo) (finOracion=FinOracion)?;
+	determinante=Determinante atributo=Atributo Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion (operacion=Operacion)? (literal=Literal | atributo=Atributo) (finOracion=FinOracion)?;
 
 Determinante:
-	descripcion=('El/La'|'Los/Las')
+	descripcion=('El/La'|'Los/Las'|'Para todos/as Los/Las')
 ;
 
-//No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
 Atributo:
-	('Coleccion de')? name=ID
+	name=ID
 ;
 
 SintagmaPreposicional:
@@ -44,7 +43,7 @@ Negacion:
 ;
 
 Operacion:
-	descripcion=('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos')
+	descripcion=('implica' | 'mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos')
 ;
 
 Clase:
@@ -60,11 +59,12 @@ FinOracion:
 ;
 
 Compuesta:
-	simple=Simple nexo=Nexo  
+	//'Compuesta' simpleInicial=Simple (nexo=Nexo simpleCont=Simple)*
+	'Compuesta' simpleInicial=Simple (nexo=Nexo simpleFinal=Simple)* 
 ;
 
 Nexo:
-	descripcion='y'|'o'
+	descripcion=('y'|'o')
 ;
 
 
@@ -75,8 +75,21 @@ Nexo:
  * parte2->aplicamos una operacion para obtener un subconjunto aplicando alguna condicion (el resultado podria ser toda la coleccion)
  * parte3->aplicamos una condicion/operacion que esperamos que se cumpla sobre el subconjunto que obtuvimos en la parte2
  */
+//Compleja:
+//	determinante=Determinante atributo=Atributo Sintagma=SintagmaPreposicional contexto=Clase conector=Conector 
+//		((operacionColeccion=OperacionColeccion) determinanteC=Determinante atributoC=Clase conect=Conector (atr=Atributo ope=Operacion)* (ope1=Operacion)? (lit=Literal | atr1=Atributo)(oper1=OperacionColeccion)?)? (conec1=Conector)? 
+//			(operacionComp=OperacionColeccion)? (operacion=Operacion (literal=Literal | atributoF=Atributo))? finOracion=FinOracion
+//;
 Compleja:
-	'Para todos/as' atributo=Atributo 'de' 'un/una' contexto=Clase 'tal que' 
-		('seleccionamos'|'para todos'|'existe') 'Los/Las' atributo=Clase 'donde'  (atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo) ('implica')?)* 
-			('es no vacio'| 'es vacio | tamanio') (('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo))?'.'
+	determinante=Determinante atr=Atributo Sintagma=SintagmaPreposicional contexto=Clase conect=Conector 
+		((operacionColeccion=OperacionColeccion) determinante1=Determinante clase=Clase conect1=Conector  (atr1=Atributo ope3=Operacion (lit1=Literal | atr2=Atributo) (ope4=Operacion)? (atr4=Atributo ope5=Operacion (lit2=Literal | atr5=Atributo))? )? (conec1=Conector)?)? 
+			(opeCol=OperacionColeccion)? (ope6=Operacion (lit3=Literal | atr3=Atributo))? finOracion=FinOracion
+;
+
+Conector:
+	descripcion=('tal que'|'donde')
+;
+
+OperacionColeccion:
+	descripcion=('seleccionamos'|'para todos'|'existe'|'es no vacio'| 'es vacio' | 'tamanio')
 ;

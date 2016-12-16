@@ -18,6 +18,7 @@ import org.xtext.tesis.gramatica.gramatica.Atributo;
 import org.xtext.tesis.gramatica.gramatica.Clase;
 import org.xtext.tesis.gramatica.gramatica.Compleja;
 import org.xtext.tesis.gramatica.gramatica.Compuesta;
+import org.xtext.tesis.gramatica.gramatica.Conector;
 import org.xtext.tesis.gramatica.gramatica.Determinante;
 import org.xtext.tesis.gramatica.gramatica.Documento;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
@@ -26,6 +27,7 @@ import org.xtext.tesis.gramatica.gramatica.Nexo;
 import org.xtext.tesis.gramatica.gramatica.Obligacion;
 import org.xtext.tesis.gramatica.gramatica.ObligacionDeber;
 import org.xtext.tesis.gramatica.gramatica.Operacion;
+import org.xtext.tesis.gramatica.gramatica.OperacionColeccion;
 import org.xtext.tesis.gramatica.gramatica.Oracion;
 import org.xtext.tesis.gramatica.gramatica.Simple;
 import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
@@ -57,6 +59,9 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case GramaticaPackage.COMPUESTA:
 				sequence_Compuesta(context, (Compuesta) semanticObject); 
 				return; 
+			case GramaticaPackage.CONECTOR:
+				sequence_Conector(context, (Conector) semanticObject); 
+				return; 
 			case GramaticaPackage.DETERMINANTE:
 				sequence_Determinante(context, (Determinante) semanticObject); 
 				return; 
@@ -77,6 +82,9 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case GramaticaPackage.OPERACION:
 				sequence_Operacion(context, (Operacion) semanticObject); 
+				return; 
+			case GramaticaPackage.OPERACION_COLECCION:
+				sequence_OperacionColeccion(context, (OperacionColeccion) semanticObject); 
 				return; 
 			case GramaticaPackage.ORACION:
 				sequence_Oracion(context, (Oracion) semanticObject); 
@@ -105,7 +113,7 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.ATRIBUTO__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtributoAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAtributoAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -134,11 +142,22 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *
 	 * Constraint:
 	 *     (
-	 *         atributo=Atributo 
+	 *         determinante=Determinante 
+	 *         atr=Atributo 
+	 *         Sintagma=SintagmaPreposicional 
 	 *         contexto=Clase 
-	 *         atributo=Clase 
-	 *         (atributo=Atributo (literal=Literal | atributo=Atributo))* 
-	 *         (literal=Literal | atributo=Atributo)?
+	 *         conect=Conector 
+	 *         (
+	 *             operacionColeccion=OperacionColeccion 
+	 *             determinante1=Determinante 
+	 *             clase=Clase 
+	 *             conect1=Conector 
+	 *             (atr1=Atributo ope3=Operacion (lit1=Literal | atr2=Atributo) ope4=Operacion? (atr4=Atributo ope5=Operacion (lit2=Literal | atr5=Atributo))?)? 
+	 *             conec1=Conector?
+	 *         )? 
+	 *         opeCol=OperacionColeccion? 
+	 *         (ope6=Operacion (lit3=Literal | atr3=Atributo))? 
+	 *         finOracion=FinOracion
 	 *     )
 	 */
 	protected void sequence_Compleja(ISerializationContext context, Compleja semanticObject) {
@@ -148,23 +167,25 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     Oracion returns Compuesta
 	 *     Compuesta returns Compuesta
 	 *
 	 * Constraint:
-	 *     (simple=Simple nexo=Nexo)
+	 *     (simpleInicial=Simple (nexo=Nexo simpleFinal=Simple)*)
 	 */
 	protected void sequence_Compuesta(ISerializationContext context, Compuesta semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.COMPUESTA__SIMPLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.COMPUESTA__SIMPLE));
-			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.COMPUESTA__NEXO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.COMPUESTA__NEXO));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCompuestaAccess().getSimpleSimpleParserRuleCall_0_0(), semanticObject.getSimple());
-		feeder.accept(grammarAccess.getCompuestaAccess().getNexoNexoParserRuleCall_1_0(), semanticObject.getNexo());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conector returns Conector
+	 *
+	 * Constraint:
+	 *     (descripcion='tal que' | descripcion='donde')
+	 */
+	protected void sequence_Conector(ISerializationContext context, Conector semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -173,7 +194,7 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Determinante returns Determinante
 	 *
 	 * Constraint:
-	 *     (descripcion='El/La' | descripcion='Los/Las')
+	 *     (descripcion='El/La' | descripcion='Los/Las' | descripcion='Para todos/as Los/Las')
 	 */
 	protected void sequence_Determinante(ISerializationContext context, Determinante semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -215,16 +236,10 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Nexo returns Nexo
 	 *
 	 * Constraint:
-	 *     descripcion='y'
+	 *     (descripcion='y' | descripcion='o')
 	 */
 	protected void sequence_Nexo(ISerializationContext context, Nexo semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.NEXO__DESCRIPCION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.NEXO__DESCRIPCION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNexoAccess().getDescripcionYKeyword_0_0(), semanticObject.getDescripcion());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -254,10 +269,30 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     OperacionColeccion returns OperacionColeccion
+	 *
+	 * Constraint:
+	 *     (
+	 *         descripcion='seleccionamos' | 
+	 *         descripcion='para todos' | 
+	 *         descripcion='existe' | 
+	 *         descripcion='es no vacio' | 
+	 *         descripcion='es vacio' | 
+	 *         descripcion='tamanio'
+	 *     )
+	 */
+	protected void sequence_OperacionColeccion(ISerializationContext context, OperacionColeccion semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Operacion returns Operacion
 	 *
 	 * Constraint:
 	 *     (
+	 *         descripcion='implica' | 
 	 *         descripcion='mayor que' | 
 	 *         descripcion='menor que' | 
 	 *         descripcion='igual a' | 
@@ -277,16 +312,10 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Oracion returns Oracion
 	 *
 	 * Constraint:
-	 *     contenido=Simple
+	 *     (contenido=Simple | contenido=Compuesta | contenido=Compleja)
 	 */
 	protected void sequence_Oracion(ISerializationContext context, Oracion semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.ORACION__CONTENIDO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.ORACION__CONTENIDO));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOracionAccess().getContenidoSimpleParserRuleCall_0_0(), semanticObject.getContenido());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

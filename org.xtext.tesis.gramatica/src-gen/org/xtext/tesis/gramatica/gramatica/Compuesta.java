@@ -3,6 +3,7 @@
  */
 package org.xtext.tesis.gramatica.gramatica;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,41 +14,42 @@ package org.xtext.tesis.gramatica.gramatica;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimple <em>Simple</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimpleInicial <em>Simple Inicial</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getNexo <em>Nexo</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimpleFinal <em>Simple Final</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompuesta()
  * @model
  * @generated
  */
-public interface Compuesta extends Oracion
+public interface Compuesta extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Simple</b></em>' containment reference.
+   * Returns the value of the '<em><b>Simple Inicial</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Simple</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Simple Inicial</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Simple</em>' containment reference.
-   * @see #setSimple(Simple)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompuesta_Simple()
+   * @return the value of the '<em>Simple Inicial</em>' containment reference.
+   * @see #setSimpleInicial(Simple)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompuesta_SimpleInicial()
    * @model containment="true"
    * @generated
    */
-  Simple getSimple();
+  Simple getSimpleInicial();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimple <em>Simple</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimpleInicial <em>Simple Inicial</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Simple</em>' containment reference.
-   * @see #getSimple()
+   * @param value the new value of the '<em>Simple Inicial</em>' containment reference.
+   * @see #getSimpleInicial()
    * @generated
    */
-  void setSimple(Simple value);
+  void setSimpleInicial(Simple value);
 
   /**
    * Returns the value of the '<em><b>Nexo</b></em>' containment reference.
@@ -74,5 +76,31 @@ public interface Compuesta extends Oracion
    * @generated
    */
   void setNexo(Nexo value);
+
+  /**
+   * Returns the value of the '<em><b>Simple Final</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Simple Final</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Simple Final</em>' containment reference.
+   * @see #setSimpleFinal(Simple)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompuesta_SimpleFinal()
+   * @model containment="true"
+   * @generated
+   */
+  Simple getSimpleFinal();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimpleFinal <em>Simple Final</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Simple Final</em>' containment reference.
+   * @see #getSimpleFinal()
+   * @generated
+   */
+  void setSimpleFinal(Simple value);
 
 } // Compuesta

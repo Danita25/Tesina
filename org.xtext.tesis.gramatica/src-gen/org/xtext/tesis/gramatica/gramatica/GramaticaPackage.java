@@ -466,22 +466,13 @@ public interface GramaticaPackage extends EPackage
   int COMPUESTA = 11;
 
   /**
-   * The feature id for the '<em><b>Contenido</b></em>' containment reference.
+   * The feature id for the '<em><b>Simple Inicial</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPUESTA__CONTENIDO = ORACION__CONTENIDO;
-
-  /**
-   * The feature id for the '<em><b>Simple</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPUESTA__SIMPLE = ORACION_FEATURE_COUNT + 0;
+  int COMPUESTA__SIMPLE_INICIAL = 0;
 
   /**
    * The feature id for the '<em><b>Nexo</b></em>' containment reference.
@@ -490,7 +481,16 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPUESTA__NEXO = ORACION_FEATURE_COUNT + 1;
+  int COMPUESTA__NEXO = 1;
+
+  /**
+   * The feature id for the '<em><b>Simple Final</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPUESTA__SIMPLE_FINAL = 2;
 
   /**
    * The number of structural features of the '<em>Compuesta</em>' class.
@@ -499,7 +499,7 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPUESTA_FEATURE_COUNT = ORACION_FEATURE_COUNT + 2;
+  int COMPUESTA_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.NexoImpl <em>Nexo</em>}' class.
@@ -540,13 +540,31 @@ public interface GramaticaPackage extends EPackage
   int COMPLEJA = 13;
 
   /**
-   * The feature id for the '<em><b>Atributo</b></em>' containment reference.
+   * The feature id for the '<em><b>Determinante</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPLEJA__ATRIBUTO = 0;
+  int COMPLEJA__DETERMINANTE = 0;
+
+  /**
+   * The feature id for the '<em><b>Atr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__ATR = 1;
+
+  /**
+   * The feature id for the '<em><b>Sintagma</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__SINTAGMA = 2;
 
   /**
    * The feature id for the '<em><b>Contexto</b></em>' containment reference.
@@ -555,16 +573,187 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPLEJA__CONTEXTO = 1;
+  int COMPLEJA__CONTEXTO = 3;
 
   /**
-   * The feature id for the '<em><b>Literal</b></em>' attribute.
+   * The feature id for the '<em><b>Conect</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPLEJA__LITERAL = 2;
+  int COMPLEJA__CONECT = 4;
+
+  /**
+   * The feature id for the '<em><b>Operacion Coleccion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__OPERACION_COLECCION = 5;
+
+  /**
+   * The feature id for the '<em><b>Determinante1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__DETERMINANTE1 = 6;
+
+  /**
+   * The feature id for the '<em><b>Clase</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__CLASE = 7;
+
+  /**
+   * The feature id for the '<em><b>Conect1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__CONECT1 = 8;
+
+  /**
+   * The feature id for the '<em><b>Atr1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__ATR1 = 9;
+
+  /**
+   * The feature id for the '<em><b>Ope3</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__OPE3 = 10;
+
+  /**
+   * The feature id for the '<em><b>Lit1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__LIT1 = 11;
+
+  /**
+   * The feature id for the '<em><b>Atr2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__ATR2 = 12;
+
+  /**
+   * The feature id for the '<em><b>Ope4</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__OPE4 = 13;
+
+  /**
+   * The feature id for the '<em><b>Atr4</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__ATR4 = 14;
+
+  /**
+   * The feature id for the '<em><b>Ope5</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__OPE5 = 15;
+
+  /**
+   * The feature id for the '<em><b>Lit2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__LIT2 = 16;
+
+  /**
+   * The feature id for the '<em><b>Atr5</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__ATR5 = 17;
+
+  /**
+   * The feature id for the '<em><b>Conec1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__CONEC1 = 18;
+
+  /**
+   * The feature id for the '<em><b>Ope Col</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__OPE_COL = 19;
+
+  /**
+   * The feature id for the '<em><b>Ope6</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__OPE6 = 20;
+
+  /**
+   * The feature id for the '<em><b>Lit3</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__LIT3 = 21;
+
+  /**
+   * The feature id for the '<em><b>Atr3</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__ATR3 = 22;
+
+  /**
+   * The feature id for the '<em><b>Fin Oracion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEJA__FIN_ORACION = 23;
 
   /**
    * The number of structural features of the '<em>Compleja</em>' class.
@@ -573,7 +762,63 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPLEJA_FEATURE_COUNT = 3;
+  int COMPLEJA_FEATURE_COUNT = 24;
+
+  /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ConectorImpl <em>Conector</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.ConectorImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getConector()
+   * @generated
+   */
+  int CONECTOR = 14;
+
+  /**
+   * The feature id for the '<em><b>Descripcion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONECTOR__DESCRIPCION = 0;
+
+  /**
+   * The number of structural features of the '<em>Conector</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONECTOR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OperacionColeccionImpl <em>Operacion Coleccion</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.OperacionColeccionImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getOperacionColeccion()
+   * @generated
+   */
+  int OPERACION_COLECCION = 15;
+
+  /**
+   * The feature id for the '<em><b>Descripcion</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERACION_COLECCION__DESCRIPCION = 0;
+
+  /**
+   * The number of structural features of the '<em>Operacion Coleccion</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERACION_COLECCION_FEATURE_COUNT = 1;
 
 
   /**
@@ -928,15 +1173,15 @@ public interface GramaticaPackage extends EPackage
   EClass getCompuesta();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimple <em>Simple</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimpleInicial <em>Simple Inicial</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Simple</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Compuesta#getSimple()
+   * @return the meta object for the containment reference '<em>Simple Inicial</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compuesta#getSimpleInicial()
    * @see #getCompuesta()
    * @generated
    */
-  EReference getCompuesta_Simple();
+  EReference getCompuesta_SimpleInicial();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getNexo <em>Nexo</em>}'.
@@ -948,6 +1193,17 @@ public interface GramaticaPackage extends EPackage
    * @generated
    */
   EReference getCompuesta_Nexo();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimpleFinal <em>Simple Final</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simple Final</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compuesta#getSimpleFinal()
+   * @see #getCompuesta()
+   * @generated
+   */
+  EReference getCompuesta_SimpleFinal();
 
   /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Nexo <em>Nexo</em>}'.
@@ -981,15 +1237,37 @@ public interface GramaticaPackage extends EPackage
   EClass getCompleja();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtributo <em>Atributo</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getDeterminante <em>Determinante</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Atributo</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtributo()
+   * @return the meta object for the containment reference '<em>Determinante</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getDeterminante()
    * @see #getCompleja()
    * @generated
    */
-  EReference getCompleja_Atributo();
+  EReference getCompleja_Determinante();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr <em>Atr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Atr</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtr()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Atr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getSintagma <em>Sintagma</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sintagma</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getSintagma()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Sintagma();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getContexto <em>Contexto</em>}'.
@@ -1003,15 +1281,266 @@ public interface GramaticaPackage extends EPackage
   EReference getCompleja_Contexto();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLiteral <em>Literal</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConect <em>Conect</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Literal</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getLiteral()
+   * @return the meta object for the containment reference '<em>Conect</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getConect()
    * @see #getCompleja()
    * @generated
    */
-  EAttribute getCompleja_Literal();
+  EReference getCompleja_Conect();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOperacionColeccion <em>Operacion Coleccion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operacion Coleccion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getOperacionColeccion()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_OperacionColeccion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getDeterminante1 <em>Determinante1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Determinante1</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getDeterminante1()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Determinante1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getClase <em>Clase</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Clase</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getClase()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Clase();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConect1 <em>Conect1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Conect1</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getConect1()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Conect1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr1 <em>Atr1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Atr1</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtr1()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Atr1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe3 <em>Ope3</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ope3</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getOpe3()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Ope3();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit1 <em>Lit1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Lit1</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getLit1()
+   * @see #getCompleja()
+   * @generated
+   */
+  EAttribute getCompleja_Lit1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr2 <em>Atr2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Atr2</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtr2()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Atr2();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe4 <em>Ope4</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ope4</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getOpe4()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Ope4();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr4 <em>Atr4</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Atr4</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtr4()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Atr4();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe5 <em>Ope5</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ope5</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getOpe5()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Ope5();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit2 <em>Lit2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Lit2</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getLit2()
+   * @see #getCompleja()
+   * @generated
+   */
+  EAttribute getCompleja_Lit2();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr5 <em>Atr5</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Atr5</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtr5()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Atr5();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getConec1 <em>Conec1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Conec1</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getConec1()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Conec1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpeCol <em>Ope Col</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ope Col</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getOpeCol()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_OpeCol();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getOpe6 <em>Ope6</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ope6</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getOpe6()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Ope6();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getLit3 <em>Lit3</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Lit3</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getLit3()
+   * @see #getCompleja()
+   * @generated
+   */
+  EAttribute getCompleja_Lit3();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getAtr3 <em>Atr3</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Atr3</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getAtr3()
+   * @see #getCompleja()
+   * @generated
+   */
+  EReference getCompleja_Atr3();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Compleja#getFinOracion <em>Fin Oracion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fin Oracion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Compleja#getFinOracion()
+   * @see #getCompleja()
+   * @generated
+   */
+  EAttribute getCompleja_FinOracion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Conector <em>Conector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Conector</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Conector
+   * @generated
+   */
+  EClass getConector();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Conector#getDescripcion <em>Descripcion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descripcion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Conector#getDescripcion()
+   * @see #getConector()
+   * @generated
+   */
+  EAttribute getConector_Descripcion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.OperacionColeccion <em>Operacion Coleccion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operacion Coleccion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.OperacionColeccion
+   * @generated
+   */
+  EClass getOperacionColeccion();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.OperacionColeccion#getDescripcion <em>Descripcion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descripcion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.OperacionColeccion#getDescripcion()
+   * @see #getOperacionColeccion()
+   * @generated
+   */
+  EAttribute getOperacionColeccion_Descripcion();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1325,12 +1854,12 @@ public interface GramaticaPackage extends EPackage
     EClass COMPUESTA = eINSTANCE.getCompuesta();
 
     /**
-     * The meta object literal for the '<em><b>Simple</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Simple Inicial</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPUESTA__SIMPLE = eINSTANCE.getCompuesta_Simple();
+    EReference COMPUESTA__SIMPLE_INICIAL = eINSTANCE.getCompuesta_SimpleInicial();
 
     /**
      * The meta object literal for the '<em><b>Nexo</b></em>' containment reference feature.
@@ -1339,6 +1868,14 @@ public interface GramaticaPackage extends EPackage
      * @generated
      */
     EReference COMPUESTA__NEXO = eINSTANCE.getCompuesta_Nexo();
+
+    /**
+     * The meta object literal for the '<em><b>Simple Final</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPUESTA__SIMPLE_FINAL = eINSTANCE.getCompuesta_SimpleFinal();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.NexoImpl <em>Nexo</em>}' class.
@@ -1369,12 +1906,28 @@ public interface GramaticaPackage extends EPackage
     EClass COMPLEJA = eINSTANCE.getCompleja();
 
     /**
-     * The meta object literal for the '<em><b>Atributo</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Determinante</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPLEJA__ATRIBUTO = eINSTANCE.getCompleja_Atributo();
+    EReference COMPLEJA__DETERMINANTE = eINSTANCE.getCompleja_Determinante();
+
+    /**
+     * The meta object literal for the '<em><b>Atr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__ATR = eINSTANCE.getCompleja_Atr();
+
+    /**
+     * The meta object literal for the '<em><b>Sintagma</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__SINTAGMA = eINSTANCE.getCompleja_Sintagma();
 
     /**
      * The meta object literal for the '<em><b>Contexto</b></em>' containment reference feature.
@@ -1385,12 +1938,200 @@ public interface GramaticaPackage extends EPackage
     EReference COMPLEJA__CONTEXTO = eINSTANCE.getCompleja_Contexto();
 
     /**
-     * The meta object literal for the '<em><b>Literal</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Conect</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute COMPLEJA__LITERAL = eINSTANCE.getCompleja_Literal();
+    EReference COMPLEJA__CONECT = eINSTANCE.getCompleja_Conect();
+
+    /**
+     * The meta object literal for the '<em><b>Operacion Coleccion</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__OPERACION_COLECCION = eINSTANCE.getCompleja_OperacionColeccion();
+
+    /**
+     * The meta object literal for the '<em><b>Determinante1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__DETERMINANTE1 = eINSTANCE.getCompleja_Determinante1();
+
+    /**
+     * The meta object literal for the '<em><b>Clase</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__CLASE = eINSTANCE.getCompleja_Clase();
+
+    /**
+     * The meta object literal for the '<em><b>Conect1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__CONECT1 = eINSTANCE.getCompleja_Conect1();
+
+    /**
+     * The meta object literal for the '<em><b>Atr1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__ATR1 = eINSTANCE.getCompleja_Atr1();
+
+    /**
+     * The meta object literal for the '<em><b>Ope3</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__OPE3 = eINSTANCE.getCompleja_Ope3();
+
+    /**
+     * The meta object literal for the '<em><b>Lit1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPLEJA__LIT1 = eINSTANCE.getCompleja_Lit1();
+
+    /**
+     * The meta object literal for the '<em><b>Atr2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__ATR2 = eINSTANCE.getCompleja_Atr2();
+
+    /**
+     * The meta object literal for the '<em><b>Ope4</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__OPE4 = eINSTANCE.getCompleja_Ope4();
+
+    /**
+     * The meta object literal for the '<em><b>Atr4</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__ATR4 = eINSTANCE.getCompleja_Atr4();
+
+    /**
+     * The meta object literal for the '<em><b>Ope5</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__OPE5 = eINSTANCE.getCompleja_Ope5();
+
+    /**
+     * The meta object literal for the '<em><b>Lit2</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPLEJA__LIT2 = eINSTANCE.getCompleja_Lit2();
+
+    /**
+     * The meta object literal for the '<em><b>Atr5</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__ATR5 = eINSTANCE.getCompleja_Atr5();
+
+    /**
+     * The meta object literal for the '<em><b>Conec1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__CONEC1 = eINSTANCE.getCompleja_Conec1();
+
+    /**
+     * The meta object literal for the '<em><b>Ope Col</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__OPE_COL = eINSTANCE.getCompleja_OpeCol();
+
+    /**
+     * The meta object literal for the '<em><b>Ope6</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__OPE6 = eINSTANCE.getCompleja_Ope6();
+
+    /**
+     * The meta object literal for the '<em><b>Lit3</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPLEJA__LIT3 = eINSTANCE.getCompleja_Lit3();
+
+    /**
+     * The meta object literal for the '<em><b>Atr3</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEJA__ATR3 = eINSTANCE.getCompleja_Atr3();
+
+    /**
+     * The meta object literal for the '<em><b>Fin Oracion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPLEJA__FIN_ORACION = eINSTANCE.getCompleja_FinOracion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ConectorImpl <em>Conector</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.ConectorImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getConector()
+     * @generated
+     */
+    EClass CONECTOR = eINSTANCE.getConector();
+
+    /**
+     * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONECTOR__DESCRIPCION = eINSTANCE.getConector_Descripcion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OperacionColeccionImpl <em>Operacion Coleccion</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.OperacionColeccionImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getOperacionColeccion()
+     * @generated
+     */
+    EClass OPERACION_COLECCION = eINSTANCE.getOperacionColeccion();
+
+    /**
+     * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERACION_COLECCION__DESCRIPCION = eINSTANCE.getOperacionColeccion_Descripcion();
 
   }
 

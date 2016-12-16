@@ -24,6 +24,7 @@ class GramaticaParsingTest{
 		val result = parseHelper.parse('''
 			'/modelo/pathmodelo'
 			'/ocl/pathOcl'
+			
 			El/La edad de un/una Socio debe ser mayor o igual a 18.
 			El/La edad de un/una Socio no debe ser menor que 18.
 			El/La nombreCompleto de un/una Socio debe ser distinto de 'vacio'.
@@ -35,8 +36,24 @@ class GramaticaParsingTest{
 			El/La administrador de un/una Compania no debe estar 'desempleado'.
 			El/La Coleccion de Empleados de un/una Compania debe ser mayor que 0.
 			Los/Las Empleados de un/una Compania debe ser al menos 1.
-			El/La edad de un/una Socio debe ser mayor o igual a 18 y El/La numeroSocio de un/una Socio debe ser mayor que 0.
 			
+			
+			El/La copias de un/una Libro debe ser mayor que 0.
+			El/La autor de un/una Libro debe ser distinto de 'null'.
+			El/La fechaInicio de un/una Prestamo debe ser distinto de 'null'.
+			El/La fechaFin de un/una Prestamo debe ser distinto de 'null'.
+						
+						
+			Para todos/as libros de un/una Biblioteca tal que seleccionamos Los/Las libros donde activo igual a 'verdadero' es no vacio.
+			Para todos/as libros de un/una Biblioteca tal que para todos Los/Las libros donde  autor igual a autor implica titulo distinto de titulo. 
+			Para todos/as autores de un/una Biblioteca tal que para todos Los/Las autores donde a1 distinto de a2 implica nombreCompleto distinto de nombreCompleto.
+			Para todos/as copias de un/una Libro tal que seleccionamos Los/Las prestamos donde fechaDeDevolucion igual a vacio tamanio menor o igual a  copias.
+			Para todos/as Prestamos de un/una Socio tal que seleccionamos Los/Las Prestamos fechaDeDevolucion igual a 'vacio' tal que tamanio menor o igual a 3.
+			
+			
+			Compuesta El/La edad de un/una Socio debe ser mayor o igual a 18 y El/La numeroSocio de un/una Socio debe ser mayor que 0 y El/La numeroSocio de un/una Socio debe ser menor que 100.
+			
+			Para todos/as Los/Las libros de un/una Biblioteca tal que para todos Los/Las libros donde autor igual a autor implica titulo distinto de titulo.
 		''')
 		println(EmfFormatter.objToStr(result));
 	}

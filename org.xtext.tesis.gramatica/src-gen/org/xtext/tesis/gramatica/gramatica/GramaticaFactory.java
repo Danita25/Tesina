@@ -150,6 +150,24 @@ public interface GramaticaFactory extends EFactory
   Compleja createCompleja();
 
   /**
+   * Returns a new object of class '<em>Conector</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Conector</em>'.
+   * @generated
+   */
+  Conector createConector();
+
+  /**
+   * Returns a new object of class '<em>Operacion Coleccion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operacion Coleccion</em>'.
+   * @generated
+   */
+  OperacionColeccion createOperacionColeccion();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.tesis.gramatica.gramatica.Compuesta;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
@@ -24,23 +25,24 @@ import org.xtext.tesis.gramatica.gramatica.Simple;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl#getSimple <em>Simple</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl#getSimpleInicial <em>Simple Inicial</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl#getNexo <em>Nexo</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl#getSimpleFinal <em>Simple Final</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CompuestaImpl extends OracionImpl implements Compuesta
+public class CompuestaImpl extends MinimalEObjectImpl.Container implements Compuesta
 {
   /**
-   * The cached value of the '{@link #getSimple() <em>Simple</em>}' containment reference.
+   * The cached value of the '{@link #getSimpleInicial() <em>Simple Inicial</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSimple()
+   * @see #getSimpleInicial()
    * @generated
    * @ordered
    */
-  protected Simple simple;
+  protected Simple simpleInicial;
 
   /**
    * The cached value of the '{@link #getNexo() <em>Nexo</em>}' containment reference.
@@ -51,6 +53,16 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
    * @ordered
    */
   protected Nexo nexo;
+
+  /**
+   * The cached value of the '{@link #getSimpleFinal() <em>Simple Final</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSimpleFinal()
+   * @generated
+   * @ordered
+   */
+  protected Simple simpleFinal;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,9 +90,9 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
    * <!-- end-user-doc -->
    * @generated
    */
-  public Simple getSimple()
+  public Simple getSimpleInicial()
   {
-    return simple;
+    return simpleInicial;
   }
 
   /**
@@ -88,13 +100,13 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSimple(Simple newSimple, NotificationChain msgs)
+  public NotificationChain basicSetSimpleInicial(Simple newSimpleInicial, NotificationChain msgs)
   {
-    Simple oldSimple = simple;
-    simple = newSimple;
+    Simple oldSimpleInicial = simpleInicial;
+    simpleInicial = newSimpleInicial;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPUESTA__SIMPLE, oldSimple, newSimple);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPUESTA__SIMPLE_INICIAL, oldSimpleInicial, newSimpleInicial);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -105,20 +117,20 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSimple(Simple newSimple)
+  public void setSimpleInicial(Simple newSimpleInicial)
   {
-    if (newSimple != simple)
+    if (newSimpleInicial != simpleInicial)
     {
       NotificationChain msgs = null;
-      if (simple != null)
-        msgs = ((InternalEObject)simple).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPUESTA__SIMPLE, null, msgs);
-      if (newSimple != null)
-        msgs = ((InternalEObject)newSimple).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPUESTA__SIMPLE, null, msgs);
-      msgs = basicSetSimple(newSimple, msgs);
+      if (simpleInicial != null)
+        msgs = ((InternalEObject)simpleInicial).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPUESTA__SIMPLE_INICIAL, null, msgs);
+      if (newSimpleInicial != null)
+        msgs = ((InternalEObject)newSimpleInicial).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPUESTA__SIMPLE_INICIAL, null, msgs);
+      msgs = basicSetSimpleInicial(newSimpleInicial, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPUESTA__SIMPLE, newSimple, newSimple));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPUESTA__SIMPLE_INICIAL, newSimpleInicial, newSimpleInicial));
   }
 
   /**
@@ -174,15 +186,65 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
    * <!-- end-user-doc -->
    * @generated
    */
+  public Simple getSimpleFinal()
+  {
+    return simpleFinal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSimpleFinal(Simple newSimpleFinal, NotificationChain msgs)
+  {
+    Simple oldSimpleFinal = simpleFinal;
+    simpleFinal = newSimpleFinal;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPUESTA__SIMPLE_FINAL, oldSimpleFinal, newSimpleFinal);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSimpleFinal(Simple newSimpleFinal)
+  {
+    if (newSimpleFinal != simpleFinal)
+    {
+      NotificationChain msgs = null;
+      if (simpleFinal != null)
+        msgs = ((InternalEObject)simpleFinal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPUESTA__SIMPLE_FINAL, null, msgs);
+      if (newSimpleFinal != null)
+        msgs = ((InternalEObject)newSimpleFinal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPUESTA__SIMPLE_FINAL, null, msgs);
+      msgs = basicSetSimpleFinal(newSimpleFinal, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPUESTA__SIMPLE_FINAL, newSimpleFinal, newSimpleFinal));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPUESTA__SIMPLE:
-        return basicSetSimple(null, msgs);
+      case GramaticaPackage.COMPUESTA__SIMPLE_INICIAL:
+        return basicSetSimpleInicial(null, msgs);
       case GramaticaPackage.COMPUESTA__NEXO:
         return basicSetNexo(null, msgs);
+      case GramaticaPackage.COMPUESTA__SIMPLE_FINAL:
+        return basicSetSimpleFinal(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,10 +259,12 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPUESTA__SIMPLE:
-        return getSimple();
+      case GramaticaPackage.COMPUESTA__SIMPLE_INICIAL:
+        return getSimpleInicial();
       case GramaticaPackage.COMPUESTA__NEXO:
         return getNexo();
+      case GramaticaPackage.COMPUESTA__SIMPLE_FINAL:
+        return getSimpleFinal();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,11 +279,14 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPUESTA__SIMPLE:
-        setSimple((Simple)newValue);
+      case GramaticaPackage.COMPUESTA__SIMPLE_INICIAL:
+        setSimpleInicial((Simple)newValue);
         return;
       case GramaticaPackage.COMPUESTA__NEXO:
         setNexo((Nexo)newValue);
+        return;
+      case GramaticaPackage.COMPUESTA__SIMPLE_FINAL:
+        setSimpleFinal((Simple)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +302,14 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPUESTA__SIMPLE:
-        setSimple((Simple)null);
+      case GramaticaPackage.COMPUESTA__SIMPLE_INICIAL:
+        setSimpleInicial((Simple)null);
         return;
       case GramaticaPackage.COMPUESTA__NEXO:
         setNexo((Nexo)null);
+        return;
+      case GramaticaPackage.COMPUESTA__SIMPLE_FINAL:
+        setSimpleFinal((Simple)null);
         return;
     }
     super.eUnset(featureID);
@@ -255,10 +325,12 @@ public class CompuestaImpl extends OracionImpl implements Compuesta
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPUESTA__SIMPLE:
-        return simple != null;
+      case GramaticaPackage.COMPUESTA__SIMPLE_INICIAL:
+        return simpleInicial != null;
       case GramaticaPackage.COMPUESTA__NEXO:
         return nexo != null;
+      case GramaticaPackage.COMPUESTA__SIMPLE_FINAL:
+        return simpleFinal != null;
     }
     return super.eIsSet(featureID);
   }

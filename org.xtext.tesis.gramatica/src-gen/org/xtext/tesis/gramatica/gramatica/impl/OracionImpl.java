@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -14,7 +15,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
 import org.xtext.tesis.gramatica.gramatica.Oracion;
-import org.xtext.tesis.gramatica.gramatica.Simple;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
    * @generated
    * @ordered
    */
-  protected Simple contenido;
+  protected EObject contenido;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
    * <!-- end-user-doc -->
    * @generated
    */
-  public Simple getContenido()
+  public EObject getContenido()
   {
     return contenido;
   }
@@ -77,9 +77,9 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetContenido(Simple newContenido, NotificationChain msgs)
+  public NotificationChain basicSetContenido(EObject newContenido, NotificationChain msgs)
   {
-    Simple oldContenido = contenido;
+    EObject oldContenido = contenido;
     contenido = newContenido;
     if (eNotificationRequired())
     {
@@ -94,7 +94,7 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setContenido(Simple newContenido)
+  public void setContenido(EObject newContenido)
   {
     if (newContenido != contenido)
     {
@@ -153,7 +153,7 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
     switch (featureID)
     {
       case GramaticaPackage.ORACION__CONTENIDO:
-        setContenido((Simple)newValue);
+        setContenido((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,7 +170,7 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
     switch (featureID)
     {
       case GramaticaPackage.ORACION__CONTENIDO:
-        setContenido((Simple)null);
+        setContenido((EObject)null);
         return;
     }
     super.eUnset(featureID);

@@ -154,7 +154,6 @@ public class GramaticaSwitch<T> extends Switch<T>
       {
         Compuesta compuesta = (Compuesta)theEObject;
         T result = caseCompuesta(compuesta);
-        if (result == null) result = caseOracion(compuesta);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -169,6 +168,20 @@ public class GramaticaSwitch<T> extends Switch<T>
       {
         Compleja compleja = (Compleja)theEObject;
         T result = caseCompleja(compleja);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.CONECTOR:
+      {
+        Conector conector = (Conector)theEObject;
+        T result = caseConector(conector);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.OPERACION_COLECCION:
+      {
+        OperacionColeccion operacionColeccion = (OperacionColeccion)theEObject;
+        T result = caseOperacionColeccion(operacionColeccion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -396,6 +409,38 @@ public class GramaticaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCompleja(Compleja object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Conector</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Conector</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConector(Conector object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operacion Coleccion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operacion Coleccion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperacionColeccion(OperacionColeccion object)
   {
     return null;
   }

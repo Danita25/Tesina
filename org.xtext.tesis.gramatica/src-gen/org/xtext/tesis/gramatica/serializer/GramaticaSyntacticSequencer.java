@@ -10,9 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.tesis.gramatica.services.GramaticaGrammarAccess;
@@ -21,22 +18,10 @@ import org.xtext.tesis.gramatica.services.GramaticaGrammarAccess;
 public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GramaticaGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Atributo_ColeccionDeKeyword_0_q;
-	protected AbstractElementAlias match_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1;
-	protected AbstractElementAlias match_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1;
-	protected AbstractElementAlias match_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1;
-	protected AbstractElementAlias match_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0;
-	protected AbstractElementAlias match_Compleja_ImplicaKeyword_10_3_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GramaticaGrammarAccess) access;
-		match_Atributo_ColeccionDeKeyword_0_q = new TokenAlias(false, true, grammarAccess.getAtributoAccess().getColeccionDeKeyword_0());
-		match_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getAlMenosKeyword_10_1_6()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getDistintoDeKeyword_10_1_5()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getIgualAKeyword_10_1_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorOIgualAKeyword_10_1_3()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorQueKeyword_10_1_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorOIgualAKeyword_10_1_4()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorQueKeyword_10_1_1()));
-		match_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getAlMenosKeyword_12_0_6()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getDistintoDeKeyword_12_0_5()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getIgualAKeyword_12_0_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorOIgualAKeyword_12_0_3()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMayorQueKeyword_12_0_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorOIgualAKeyword_12_0_4()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getMenorQueKeyword_12_0_1()));
-		match_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getEsNoVacioKeyword_11_0()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getEsVacioTamanioKeyword_11_1()));
-		match_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComplejaAccess().getExisteKeyword_6_2()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getParaTodosKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getComplejaAccess().getSeleccionamosKeyword_6_0()));
-		match_Compleja_ImplicaKeyword_10_3_q = new TokenAlias(false, true, grammarAccess.getComplejaAccess().getImplicaKeyword_10_3());
 	}
 	
 	@Override
@@ -51,123 +36,8 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Atributo_ColeccionDeKeyword_0_q.equals(syntax))
-				emit_Atributo_ColeccionDeKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1.equals(syntax))
-				emit_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1.equals(syntax))
-				emit_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1.equals(syntax))
-				emit_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0.equals(syntax))
-				emit_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Compleja_ImplicaKeyword_10_3_q.equals(syntax))
-				emit_Compleja_ImplicaKeyword_10_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     'Coleccion de'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) name=ID
-	 */
-	protected void emit_Atributo_ColeccionDeKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (
-	  *         'mayor que' | 
-	  *         'menor que' | 
-	  *         'igual a' | 
-	  *         'mayor o igual a' | 
-	  *         'menor o igual a' | 
-	  *         'distinto de' | 
-	  *         'al menos'
-	  *     )
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     atributo=Atributo (ambiguity) atributo=Atributo
-	 *     atributo=Atributo (ambiguity) literal=Literal
-	 */
-	protected void emit_Compleja_AlMenosKeyword_10_1_6_or_DistintoDeKeyword_10_1_5_or_IgualAKeyword_10_1_2_or_MayorOIgualAKeyword_10_1_3_or_MayorQueKeyword_10_1_0_or_MenorOIgualAKeyword_10_1_4_or_MenorQueKeyword_10_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (
-	  *         'mayor que' | 
-	  *         'menor que' | 
-	  *         'igual a' | 
-	  *         'mayor o igual a' | 
-	  *         'menor o igual a' | 
-	  *         'distinto de' | 
-	  *         'al menos'
-	  *     )
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     atributo=Atributo 'implica'? ('es no vacio' | 'es vacio | tamanio') (ambiguity) atributo=Atributo
-	 *     atributo=Atributo 'implica'? ('es no vacio' | 'es vacio | tamanio') (ambiguity) literal=Literal
-	 *     atributo=Clase 'donde' ('es no vacio' | 'es vacio | tamanio') (ambiguity) atributo=Atributo
-	 *     atributo=Clase 'donde' ('es no vacio' | 'es vacio | tamanio') (ambiguity) literal=Literal
-	 *     literal=Literal 'implica'? ('es no vacio' | 'es vacio | tamanio') (ambiguity) atributo=Atributo
-	 *     literal=Literal 'implica'? ('es no vacio' | 'es vacio | tamanio') (ambiguity) literal=Literal
-	 */
-	protected void emit_Compleja_AlMenosKeyword_12_0_6_or_DistintoDeKeyword_12_0_5_or_IgualAKeyword_12_0_2_or_MayorOIgualAKeyword_12_0_3_or_MayorQueKeyword_12_0_0_or_MenorOIgualAKeyword_12_0_4_or_MenorQueKeyword_12_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'es no vacio' | 'es vacio | tamanio'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     atributo=Atributo 'implica'? (ambiguity) '.' (rule end)
-	 *     atributo=Atributo 'implica'? (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
-	 *     atributo=Atributo 'implica'? (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
-	 *     atributo=Clase 'donde' (ambiguity) '.' (rule end)
-	 *     atributo=Clase 'donde' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
-	 *     atributo=Clase 'donde' (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
-	 *     literal=Literal 'implica'? (ambiguity) '.' (rule end)
-	 *     literal=Literal 'implica'? (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
-	 *     literal=Literal 'implica'? (ambiguity) ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
-	 */
-	protected void emit_Compleja_EsNoVacioKeyword_11_0_or_EsVacioTamanioKeyword_11_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'seleccionamos' | 'para todos' | 'existe'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     contexto=Clase 'tal que' (ambiguity) 'Los/Las' atributo=Clase
-	 */
-	protected void emit_Compleja_ExisteKeyword_6_2_or_ParaTodosKeyword_6_1_or_SeleccionamosKeyword_6_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'implica'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     atributo=Atributo (ambiguity) ('es no vacio' | 'es vacio | tamanio') '.' (rule end)
-	 *     atributo=Atributo (ambiguity) ('es no vacio' | 'es vacio | tamanio') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
-	 *     atributo=Atributo (ambiguity) ('es no vacio' | 'es vacio | tamanio') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
-	 *     atributo=Atributo (ambiguity) atributo=Atributo
-	 *     literal=Literal (ambiguity) ('es no vacio' | 'es vacio | tamanio') '.' (rule end)
-	 *     literal=Literal (ambiguity) ('es no vacio' | 'es vacio | tamanio') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') atributo=Atributo
-	 *     literal=Literal (ambiguity) ('es no vacio' | 'es vacio | tamanio') ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de' | 'al menos') literal=Literal
-	 *     literal=Literal (ambiguity) atributo=Atributo
-	 */
-	protected void emit_Compleja_ImplicaKeyword_10_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

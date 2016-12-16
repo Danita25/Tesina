@@ -79,6 +79,8 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
       case GramaticaPackage.COMPUESTA: return createCompuesta();
       case GramaticaPackage.NEXO: return createNexo();
       case GramaticaPackage.COMPLEJA: return createCompleja();
+      case GramaticaPackage.CONECTOR: return createConector();
+      case GramaticaPackage.OPERACION_COLECCION: return createOperacionColeccion();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -236,6 +238,28 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
   {
     ComplejaImpl compleja = new ComplejaImpl();
     return compleja;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Conector createConector()
+  {
+    ConectorImpl conector = new ConectorImpl();
+    return conector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OperacionColeccion createOperacionColeccion()
+  {
+    OperacionColeccionImpl operacionColeccion = new OperacionColeccionImpl();
+    return operacionColeccion;
   }
 
   /**

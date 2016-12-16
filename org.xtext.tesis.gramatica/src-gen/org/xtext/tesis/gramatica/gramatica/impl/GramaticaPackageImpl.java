@@ -14,6 +14,7 @@ import org.xtext.tesis.gramatica.gramatica.Atributo;
 import org.xtext.tesis.gramatica.gramatica.Clase;
 import org.xtext.tesis.gramatica.gramatica.Compleja;
 import org.xtext.tesis.gramatica.gramatica.Compuesta;
+import org.xtext.tesis.gramatica.gramatica.Conector;
 import org.xtext.tesis.gramatica.gramatica.Determinante;
 import org.xtext.tesis.gramatica.gramatica.Documento;
 import org.xtext.tesis.gramatica.gramatica.GramaticaFactory;
@@ -23,6 +24,7 @@ import org.xtext.tesis.gramatica.gramatica.Nexo;
 import org.xtext.tesis.gramatica.gramatica.Obligacion;
 import org.xtext.tesis.gramatica.gramatica.ObligacionDeber;
 import org.xtext.tesis.gramatica.gramatica.Operacion;
+import org.xtext.tesis.gramatica.gramatica.OperacionColeccion;
 import org.xtext.tesis.gramatica.gramatica.Oracion;
 import org.xtext.tesis.gramatica.gramatica.Simple;
 import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
@@ -132,6 +134,20 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * @generated
    */
   private EClass complejaEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conectorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass operacionColeccionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -531,7 +547,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCompuesta_Simple()
+  public EReference getCompuesta_SimpleInicial()
   {
     return (EReference)compuestaEClass.getEStructuralFeatures().get(0);
   }
@@ -544,6 +560,16 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
   public EReference getCompuesta_Nexo()
   {
     return (EReference)compuestaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompuesta_SimpleFinal()
+  {
+    return (EReference)compuestaEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -581,7 +607,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCompleja_Atributo()
+  public EReference getCompleja_Determinante()
   {
     return (EReference)complejaEClass.getEStructuralFeatures().get(0);
   }
@@ -591,7 +617,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCompleja_Contexto()
+  public EReference getCompleja_Atr()
   {
     return (EReference)complejaEClass.getEStructuralFeatures().get(1);
   }
@@ -601,9 +627,259 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCompleja_Literal()
+  public EReference getCompleja_Sintagma()
   {
-    return (EAttribute)complejaEClass.getEStructuralFeatures().get(2);
+    return (EReference)complejaEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Contexto()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Conect()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_OperacionColeccion()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Determinante1()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Clase()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Conect1()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Atr1()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Ope3()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCompleja_Lit1()
+  {
+    return (EAttribute)complejaEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Atr2()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Ope4()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(13);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Atr4()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(14);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Ope5()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(15);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCompleja_Lit2()
+  {
+    return (EAttribute)complejaEClass.getEStructuralFeatures().get(16);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Atr5()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(17);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Conec1()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(18);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_OpeCol()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(19);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Ope6()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(20);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCompleja_Lit3()
+  {
+    return (EAttribute)complejaEClass.getEStructuralFeatures().get(21);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompleja_Atr3()
+  {
+    return (EReference)complejaEClass.getEStructuralFeatures().get(22);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCompleja_FinOracion()
+  {
+    return (EAttribute)complejaEClass.getEStructuralFeatures().get(23);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getConector()
+  {
+    return conectorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConector_Descripcion()
+  {
+    return (EAttribute)conectorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOperacionColeccion()
+  {
+    return operacionColeccionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperacionColeccion_Descripcion()
+  {
+    return (EAttribute)operacionColeccionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -680,16 +956,44 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     createEAttribute(claseEClass, CLASE__NAME);
 
     compuestaEClass = createEClass(COMPUESTA);
-    createEReference(compuestaEClass, COMPUESTA__SIMPLE);
+    createEReference(compuestaEClass, COMPUESTA__SIMPLE_INICIAL);
     createEReference(compuestaEClass, COMPUESTA__NEXO);
+    createEReference(compuestaEClass, COMPUESTA__SIMPLE_FINAL);
 
     nexoEClass = createEClass(NEXO);
     createEAttribute(nexoEClass, NEXO__DESCRIPCION);
 
     complejaEClass = createEClass(COMPLEJA);
-    createEReference(complejaEClass, COMPLEJA__ATRIBUTO);
+    createEReference(complejaEClass, COMPLEJA__DETERMINANTE);
+    createEReference(complejaEClass, COMPLEJA__ATR);
+    createEReference(complejaEClass, COMPLEJA__SINTAGMA);
     createEReference(complejaEClass, COMPLEJA__CONTEXTO);
-    createEAttribute(complejaEClass, COMPLEJA__LITERAL);
+    createEReference(complejaEClass, COMPLEJA__CONECT);
+    createEReference(complejaEClass, COMPLEJA__OPERACION_COLECCION);
+    createEReference(complejaEClass, COMPLEJA__DETERMINANTE1);
+    createEReference(complejaEClass, COMPLEJA__CLASE);
+    createEReference(complejaEClass, COMPLEJA__CONECT1);
+    createEReference(complejaEClass, COMPLEJA__ATR1);
+    createEReference(complejaEClass, COMPLEJA__OPE3);
+    createEAttribute(complejaEClass, COMPLEJA__LIT1);
+    createEReference(complejaEClass, COMPLEJA__ATR2);
+    createEReference(complejaEClass, COMPLEJA__OPE4);
+    createEReference(complejaEClass, COMPLEJA__ATR4);
+    createEReference(complejaEClass, COMPLEJA__OPE5);
+    createEAttribute(complejaEClass, COMPLEJA__LIT2);
+    createEReference(complejaEClass, COMPLEJA__ATR5);
+    createEReference(complejaEClass, COMPLEJA__CONEC1);
+    createEReference(complejaEClass, COMPLEJA__OPE_COL);
+    createEReference(complejaEClass, COMPLEJA__OPE6);
+    createEAttribute(complejaEClass, COMPLEJA__LIT3);
+    createEReference(complejaEClass, COMPLEJA__ATR3);
+    createEAttribute(complejaEClass, COMPLEJA__FIN_ORACION);
+
+    conectorEClass = createEClass(CONECTOR);
+    createEAttribute(conectorEClass, CONECTOR__DESCRIPCION);
+
+    operacionColeccionEClass = createEClass(OPERACION_COLECCION);
+    createEAttribute(operacionColeccionEClass, OPERACION_COLECCION__DESCRIPCION);
   }
 
   /**
@@ -721,7 +1025,6 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    compuestaEClass.getESuperTypes().add(this.getOracion());
 
     // Initialize classes and features; add operations and parameters
     initEClass(documentoEClass, Documento.class, "Documento", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -730,7 +1033,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     initEReference(getDocumento_Oraciones(), this.getOracion(), null, "oraciones", null, 0, -1, Documento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(oracionEClass, Oracion.class, "Oracion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOracion_Contenido(), this.getSimple(), null, "contenido", null, 0, 1, Oracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOracion_Contenido(), ecorePackage.getEObject(), null, "contenido", null, 0, 1, Oracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(simpleEClass, Simple.class, "Simple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSimple_Determinante(), this.getDeterminante(), null, "determinante", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -768,16 +1071,44 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     initEAttribute(getClase_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(compuestaEClass, Compuesta.class, "Compuesta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCompuesta_Simple(), this.getSimple(), null, "simple", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompuesta_SimpleInicial(), this.getSimple(), null, "simpleInicial", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompuesta_Nexo(), this.getNexo(), null, "nexo", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompuesta_SimpleFinal(), this.getSimple(), null, "simpleFinal", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nexoEClass, Nexo.class, "Nexo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNexo_Descripcion(), ecorePackage.getEString(), "descripcion", null, 0, 1, Nexo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(complejaEClass, Compleja.class, "Compleja", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCompleja_Atributo(), ecorePackage.getEObject(), null, "atributo", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Determinante(), this.getDeterminante(), null, "determinante", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Atr(), this.getAtributo(), null, "atr", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Sintagma(), this.getSintagmaPreposicional(), null, "Sintagma", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompleja_Contexto(), this.getClase(), null, "contexto", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCompleja_Literal(), ecorePackage.getEString(), "literal", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Conect(), this.getConector(), null, "conect", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_OperacionColeccion(), this.getOperacionColeccion(), null, "operacionColeccion", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Determinante1(), this.getDeterminante(), null, "determinante1", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Clase(), this.getClase(), null, "clase", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Conect1(), this.getConector(), null, "conect1", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Atr1(), this.getAtributo(), null, "atr1", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Ope3(), this.getOperacion(), null, "ope3", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCompleja_Lit1(), ecorePackage.getEString(), "lit1", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Atr2(), this.getAtributo(), null, "atr2", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Ope4(), this.getOperacion(), null, "ope4", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Atr4(), this.getAtributo(), null, "atr4", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Ope5(), this.getOperacion(), null, "ope5", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCompleja_Lit2(), ecorePackage.getEString(), "lit2", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Atr5(), this.getAtributo(), null, "atr5", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Conec1(), this.getConector(), null, "conec1", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_OpeCol(), this.getOperacionColeccion(), null, "opeCol", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Ope6(), this.getOperacion(), null, "ope6", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCompleja_Lit3(), ecorePackage.getEString(), "lit3", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompleja_Atr3(), this.getAtributo(), null, "atr3", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCompleja_FinOracion(), ecorePackage.getEString(), "finOracion", null, 0, 1, Compleja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conectorEClass, Conector.class, "Conector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConector_Descripcion(), ecorePackage.getEString(), "descripcion", null, 0, 1, Conector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(operacionColeccionEClass, OperacionColeccion.class, "OperacionColeccion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOperacionColeccion_Descripcion(), ecorePackage.getEString(), "descripcion", null, 0, 1, OperacionColeccion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

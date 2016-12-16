@@ -7,15 +7,20 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.tesis.gramatica.gramatica.Atributo;
 import org.xtext.tesis.gramatica.gramatica.Clase;
 import org.xtext.tesis.gramatica.gramatica.Compleja;
+import org.xtext.tesis.gramatica.gramatica.Conector;
+import org.xtext.tesis.gramatica.gramatica.Determinante;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
+import org.xtext.tesis.gramatica.gramatica.Operacion;
+import org.xtext.tesis.gramatica.gramatica.OperacionColeccion;
+import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,9 +30,30 @@ import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getAtributo <em>Atributo</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getDeterminante <em>Determinante</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getAtr <em>Atr</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getSintagma <em>Sintagma</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getContexto <em>Contexto</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getConect <em>Conect</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getOperacionColeccion <em>Operacion Coleccion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getDeterminante1 <em>Determinante1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getClase <em>Clase</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getConect1 <em>Conect1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getAtr1 <em>Atr1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getOpe3 <em>Ope3</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getLit1 <em>Lit1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getAtr2 <em>Atr2</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getOpe4 <em>Ope4</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getAtr4 <em>Atr4</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getOpe5 <em>Ope5</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getLit2 <em>Lit2</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getAtr5 <em>Atr5</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getConec1 <em>Conec1</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getOpeCol <em>Ope Col</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getOpe6 <em>Ope6</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getLit3 <em>Lit3</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getAtr3 <em>Atr3</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComplejaImpl#getFinOracion <em>Fin Oracion</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +61,34 @@ import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
 public class ComplejaImpl extends MinimalEObjectImpl.Container implements Compleja
 {
   /**
-   * The cached value of the '{@link #getAtributo() <em>Atributo</em>}' containment reference.
+   * The cached value of the '{@link #getDeterminante() <em>Determinante</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAtributo()
+   * @see #getDeterminante()
    * @generated
    * @ordered
    */
-  protected EObject atributo;
+  protected Determinante determinante;
+
+  /**
+   * The cached value of the '{@link #getAtr() <em>Atr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAtr()
+   * @generated
+   * @ordered
+   */
+  protected Atributo atr;
+
+  /**
+   * The cached value of the '{@link #getSintagma() <em>Sintagma</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSintagma()
+   * @generated
+   * @ordered
+   */
+  protected SintagmaPreposicional sintagma;
 
   /**
    * The cached value of the '{@link #getContexto() <em>Contexto</em>}' containment reference.
@@ -55,24 +101,244 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
   protected Clase contexto;
 
   /**
-   * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
+   * The cached value of the '{@link #getConect() <em>Conect</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLiteral()
+   * @see #getConect()
    * @generated
    * @ordered
    */
-  protected static final String LITERAL_EDEFAULT = null;
+  protected Conector conect;
 
   /**
-   * The cached value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
+   * The cached value of the '{@link #getOperacionColeccion() <em>Operacion Coleccion</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLiteral()
+   * @see #getOperacionColeccion()
    * @generated
    * @ordered
    */
-  protected String literal = LITERAL_EDEFAULT;
+  protected OperacionColeccion operacionColeccion;
+
+  /**
+   * The cached value of the '{@link #getDeterminante1() <em>Determinante1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeterminante1()
+   * @generated
+   * @ordered
+   */
+  protected Determinante determinante1;
+
+  /**
+   * The cached value of the '{@link #getClase() <em>Clase</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClase()
+   * @generated
+   * @ordered
+   */
+  protected Clase clase;
+
+  /**
+   * The cached value of the '{@link #getConect1() <em>Conect1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConect1()
+   * @generated
+   * @ordered
+   */
+  protected Conector conect1;
+
+  /**
+   * The cached value of the '{@link #getAtr1() <em>Atr1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAtr1()
+   * @generated
+   * @ordered
+   */
+  protected Atributo atr1;
+
+  /**
+   * The cached value of the '{@link #getOpe3() <em>Ope3</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOpe3()
+   * @generated
+   * @ordered
+   */
+  protected Operacion ope3;
+
+  /**
+   * The default value of the '{@link #getLit1() <em>Lit1</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLit1()
+   * @generated
+   * @ordered
+   */
+  protected static final String LIT1_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLit1() <em>Lit1</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLit1()
+   * @generated
+   * @ordered
+   */
+  protected String lit1 = LIT1_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getAtr2() <em>Atr2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAtr2()
+   * @generated
+   * @ordered
+   */
+  protected Atributo atr2;
+
+  /**
+   * The cached value of the '{@link #getOpe4() <em>Ope4</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOpe4()
+   * @generated
+   * @ordered
+   */
+  protected Operacion ope4;
+
+  /**
+   * The cached value of the '{@link #getAtr4() <em>Atr4</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAtr4()
+   * @generated
+   * @ordered
+   */
+  protected Atributo atr4;
+
+  /**
+   * The cached value of the '{@link #getOpe5() <em>Ope5</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOpe5()
+   * @generated
+   * @ordered
+   */
+  protected Operacion ope5;
+
+  /**
+   * The default value of the '{@link #getLit2() <em>Lit2</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLit2()
+   * @generated
+   * @ordered
+   */
+  protected static final String LIT2_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLit2() <em>Lit2</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLit2()
+   * @generated
+   * @ordered
+   */
+  protected String lit2 = LIT2_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getAtr5() <em>Atr5</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAtr5()
+   * @generated
+   * @ordered
+   */
+  protected Atributo atr5;
+
+  /**
+   * The cached value of the '{@link #getConec1() <em>Conec1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConec1()
+   * @generated
+   * @ordered
+   */
+  protected Conector conec1;
+
+  /**
+   * The cached value of the '{@link #getOpeCol() <em>Ope Col</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOpeCol()
+   * @generated
+   * @ordered
+   */
+  protected OperacionColeccion opeCol;
+
+  /**
+   * The cached value of the '{@link #getOpe6() <em>Ope6</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOpe6()
+   * @generated
+   * @ordered
+   */
+  protected Operacion ope6;
+
+  /**
+   * The default value of the '{@link #getLit3() <em>Lit3</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLit3()
+   * @generated
+   * @ordered
+   */
+  protected static final String LIT3_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLit3() <em>Lit3</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLit3()
+   * @generated
+   * @ordered
+   */
+  protected String lit3 = LIT3_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getAtr3() <em>Atr3</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAtr3()
+   * @generated
+   * @ordered
+   */
+  protected Atributo atr3;
+
+  /**
+   * The default value of the '{@link #getFinOracion() <em>Fin Oracion</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFinOracion()
+   * @generated
+   * @ordered
+   */
+  protected static final String FIN_ORACION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFinOracion() <em>Fin Oracion</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFinOracion()
+   * @generated
+   * @ordered
+   */
+  protected String finOracion = FIN_ORACION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,9 +366,9 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getAtributo()
+  public Determinante getDeterminante()
   {
-    return atributo;
+    return determinante;
   }
 
   /**
@@ -110,13 +376,13 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAtributo(EObject newAtributo, NotificationChain msgs)
+  public NotificationChain basicSetDeterminante(Determinante newDeterminante, NotificationChain msgs)
   {
-    EObject oldAtributo = atributo;
-    atributo = newAtributo;
+    Determinante oldDeterminante = determinante;
+    determinante = newDeterminante;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATRIBUTO, oldAtributo, newAtributo);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__DETERMINANTE, oldDeterminante, newDeterminante);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -127,20 +393,116 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAtributo(EObject newAtributo)
+  public void setDeterminante(Determinante newDeterminante)
   {
-    if (newAtributo != atributo)
+    if (newDeterminante != determinante)
     {
       NotificationChain msgs = null;
-      if (atributo != null)
-        msgs = ((InternalEObject)atributo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATRIBUTO, null, msgs);
-      if (newAtributo != null)
-        msgs = ((InternalEObject)newAtributo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATRIBUTO, null, msgs);
-      msgs = basicSetAtributo(newAtributo, msgs);
+      if (determinante != null)
+        msgs = ((InternalEObject)determinante).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__DETERMINANTE, null, msgs);
+      if (newDeterminante != null)
+        msgs = ((InternalEObject)newDeterminante).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__DETERMINANTE, null, msgs);
+      msgs = basicSetDeterminante(newDeterminante, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATRIBUTO, newAtributo, newAtributo));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__DETERMINANTE, newDeterminante, newDeterminante));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Atributo getAtr()
+  {
+    return atr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAtr(Atributo newAtr, NotificationChain msgs)
+  {
+    Atributo oldAtr = atr;
+    atr = newAtr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR, oldAtr, newAtr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAtr(Atributo newAtr)
+  {
+    if (newAtr != atr)
+    {
+      NotificationChain msgs = null;
+      if (atr != null)
+        msgs = ((InternalEObject)atr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR, null, msgs);
+      if (newAtr != null)
+        msgs = ((InternalEObject)newAtr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR, null, msgs);
+      msgs = basicSetAtr(newAtr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR, newAtr, newAtr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SintagmaPreposicional getSintagma()
+  {
+    return sintagma;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSintagma(SintagmaPreposicional newSintagma, NotificationChain msgs)
+  {
+    SintagmaPreposicional oldSintagma = sintagma;
+    sintagma = newSintagma;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__SINTAGMA, oldSintagma, newSintagma);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSintagma(SintagmaPreposicional newSintagma)
+  {
+    if (newSintagma != sintagma)
+    {
+      NotificationChain msgs = null;
+      if (sintagma != null)
+        msgs = ((InternalEObject)sintagma).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__SINTAGMA, null, msgs);
+      if (newSintagma != null)
+        msgs = ((InternalEObject)newSintagma).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__SINTAGMA, null, msgs);
+      msgs = basicSetSintagma(newSintagma, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__SINTAGMA, newSintagma, newSintagma));
   }
 
   /**
@@ -196,9 +558,9 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLiteral()
+  public Conector getConect()
   {
-    return literal;
+    return conect;
   }
 
   /**
@@ -206,12 +568,849 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLiteral(String newLiteral)
+  public NotificationChain basicSetConect(Conector newConect, NotificationChain msgs)
   {
-    String oldLiteral = literal;
-    literal = newLiteral;
+    Conector oldConect = conect;
+    conect = newConect;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__LITERAL, oldLiteral, literal));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CONECT, oldConect, newConect);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConect(Conector newConect)
+  {
+    if (newConect != conect)
+    {
+      NotificationChain msgs = null;
+      if (conect != null)
+        msgs = ((InternalEObject)conect).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CONECT, null, msgs);
+      if (newConect != null)
+        msgs = ((InternalEObject)newConect).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CONECT, null, msgs);
+      msgs = basicSetConect(newConect, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CONECT, newConect, newConect));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OperacionColeccion getOperacionColeccion()
+  {
+    return operacionColeccion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOperacionColeccion(OperacionColeccion newOperacionColeccion, NotificationChain msgs)
+  {
+    OperacionColeccion oldOperacionColeccion = operacionColeccion;
+    operacionColeccion = newOperacionColeccion;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPERACION_COLECCION, oldOperacionColeccion, newOperacionColeccion);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOperacionColeccion(OperacionColeccion newOperacionColeccion)
+  {
+    if (newOperacionColeccion != operacionColeccion)
+    {
+      NotificationChain msgs = null;
+      if (operacionColeccion != null)
+        msgs = ((InternalEObject)operacionColeccion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPERACION_COLECCION, null, msgs);
+      if (newOperacionColeccion != null)
+        msgs = ((InternalEObject)newOperacionColeccion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPERACION_COLECCION, null, msgs);
+      msgs = basicSetOperacionColeccion(newOperacionColeccion, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPERACION_COLECCION, newOperacionColeccion, newOperacionColeccion));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Determinante getDeterminante1()
+  {
+    return determinante1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDeterminante1(Determinante newDeterminante1, NotificationChain msgs)
+  {
+    Determinante oldDeterminante1 = determinante1;
+    determinante1 = newDeterminante1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__DETERMINANTE1, oldDeterminante1, newDeterminante1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDeterminante1(Determinante newDeterminante1)
+  {
+    if (newDeterminante1 != determinante1)
+    {
+      NotificationChain msgs = null;
+      if (determinante1 != null)
+        msgs = ((InternalEObject)determinante1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__DETERMINANTE1, null, msgs);
+      if (newDeterminante1 != null)
+        msgs = ((InternalEObject)newDeterminante1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__DETERMINANTE1, null, msgs);
+      msgs = basicSetDeterminante1(newDeterminante1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__DETERMINANTE1, newDeterminante1, newDeterminante1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Clase getClase()
+  {
+    return clase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetClase(Clase newClase, NotificationChain msgs)
+  {
+    Clase oldClase = clase;
+    clase = newClase;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CLASE, oldClase, newClase);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setClase(Clase newClase)
+  {
+    if (newClase != clase)
+    {
+      NotificationChain msgs = null;
+      if (clase != null)
+        msgs = ((InternalEObject)clase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CLASE, null, msgs);
+      if (newClase != null)
+        msgs = ((InternalEObject)newClase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CLASE, null, msgs);
+      msgs = basicSetClase(newClase, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CLASE, newClase, newClase));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Conector getConect1()
+  {
+    return conect1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConect1(Conector newConect1, NotificationChain msgs)
+  {
+    Conector oldConect1 = conect1;
+    conect1 = newConect1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CONECT1, oldConect1, newConect1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConect1(Conector newConect1)
+  {
+    if (newConect1 != conect1)
+    {
+      NotificationChain msgs = null;
+      if (conect1 != null)
+        msgs = ((InternalEObject)conect1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CONECT1, null, msgs);
+      if (newConect1 != null)
+        msgs = ((InternalEObject)newConect1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CONECT1, null, msgs);
+      msgs = basicSetConect1(newConect1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CONECT1, newConect1, newConect1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Atributo getAtr1()
+  {
+    return atr1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAtr1(Atributo newAtr1, NotificationChain msgs)
+  {
+    Atributo oldAtr1 = atr1;
+    atr1 = newAtr1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR1, oldAtr1, newAtr1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAtr1(Atributo newAtr1)
+  {
+    if (newAtr1 != atr1)
+    {
+      NotificationChain msgs = null;
+      if (atr1 != null)
+        msgs = ((InternalEObject)atr1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR1, null, msgs);
+      if (newAtr1 != null)
+        msgs = ((InternalEObject)newAtr1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR1, null, msgs);
+      msgs = basicSetAtr1(newAtr1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR1, newAtr1, newAtr1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operacion getOpe3()
+  {
+    return ope3;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOpe3(Operacion newOpe3, NotificationChain msgs)
+  {
+    Operacion oldOpe3 = ope3;
+    ope3 = newOpe3;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE3, oldOpe3, newOpe3);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOpe3(Operacion newOpe3)
+  {
+    if (newOpe3 != ope3)
+    {
+      NotificationChain msgs = null;
+      if (ope3 != null)
+        msgs = ((InternalEObject)ope3).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE3, null, msgs);
+      if (newOpe3 != null)
+        msgs = ((InternalEObject)newOpe3).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE3, null, msgs);
+      msgs = basicSetOpe3(newOpe3, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE3, newOpe3, newOpe3));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLit1()
+  {
+    return lit1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLit1(String newLit1)
+  {
+    String oldLit1 = lit1;
+    lit1 = newLit1;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__LIT1, oldLit1, lit1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Atributo getAtr2()
+  {
+    return atr2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAtr2(Atributo newAtr2, NotificationChain msgs)
+  {
+    Atributo oldAtr2 = atr2;
+    atr2 = newAtr2;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR2, oldAtr2, newAtr2);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAtr2(Atributo newAtr2)
+  {
+    if (newAtr2 != atr2)
+    {
+      NotificationChain msgs = null;
+      if (atr2 != null)
+        msgs = ((InternalEObject)atr2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR2, null, msgs);
+      if (newAtr2 != null)
+        msgs = ((InternalEObject)newAtr2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR2, null, msgs);
+      msgs = basicSetAtr2(newAtr2, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR2, newAtr2, newAtr2));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operacion getOpe4()
+  {
+    return ope4;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOpe4(Operacion newOpe4, NotificationChain msgs)
+  {
+    Operacion oldOpe4 = ope4;
+    ope4 = newOpe4;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE4, oldOpe4, newOpe4);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOpe4(Operacion newOpe4)
+  {
+    if (newOpe4 != ope4)
+    {
+      NotificationChain msgs = null;
+      if (ope4 != null)
+        msgs = ((InternalEObject)ope4).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE4, null, msgs);
+      if (newOpe4 != null)
+        msgs = ((InternalEObject)newOpe4).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE4, null, msgs);
+      msgs = basicSetOpe4(newOpe4, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE4, newOpe4, newOpe4));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Atributo getAtr4()
+  {
+    return atr4;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAtr4(Atributo newAtr4, NotificationChain msgs)
+  {
+    Atributo oldAtr4 = atr4;
+    atr4 = newAtr4;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR4, oldAtr4, newAtr4);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAtr4(Atributo newAtr4)
+  {
+    if (newAtr4 != atr4)
+    {
+      NotificationChain msgs = null;
+      if (atr4 != null)
+        msgs = ((InternalEObject)atr4).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR4, null, msgs);
+      if (newAtr4 != null)
+        msgs = ((InternalEObject)newAtr4).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR4, null, msgs);
+      msgs = basicSetAtr4(newAtr4, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR4, newAtr4, newAtr4));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operacion getOpe5()
+  {
+    return ope5;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOpe5(Operacion newOpe5, NotificationChain msgs)
+  {
+    Operacion oldOpe5 = ope5;
+    ope5 = newOpe5;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE5, oldOpe5, newOpe5);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOpe5(Operacion newOpe5)
+  {
+    if (newOpe5 != ope5)
+    {
+      NotificationChain msgs = null;
+      if (ope5 != null)
+        msgs = ((InternalEObject)ope5).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE5, null, msgs);
+      if (newOpe5 != null)
+        msgs = ((InternalEObject)newOpe5).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE5, null, msgs);
+      msgs = basicSetOpe5(newOpe5, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE5, newOpe5, newOpe5));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLit2()
+  {
+    return lit2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLit2(String newLit2)
+  {
+    String oldLit2 = lit2;
+    lit2 = newLit2;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__LIT2, oldLit2, lit2));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Atributo getAtr5()
+  {
+    return atr5;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAtr5(Atributo newAtr5, NotificationChain msgs)
+  {
+    Atributo oldAtr5 = atr5;
+    atr5 = newAtr5;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR5, oldAtr5, newAtr5);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAtr5(Atributo newAtr5)
+  {
+    if (newAtr5 != atr5)
+    {
+      NotificationChain msgs = null;
+      if (atr5 != null)
+        msgs = ((InternalEObject)atr5).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR5, null, msgs);
+      if (newAtr5 != null)
+        msgs = ((InternalEObject)newAtr5).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR5, null, msgs);
+      msgs = basicSetAtr5(newAtr5, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR5, newAtr5, newAtr5));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Conector getConec1()
+  {
+    return conec1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConec1(Conector newConec1, NotificationChain msgs)
+  {
+    Conector oldConec1 = conec1;
+    conec1 = newConec1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CONEC1, oldConec1, newConec1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConec1(Conector newConec1)
+  {
+    if (newConec1 != conec1)
+    {
+      NotificationChain msgs = null;
+      if (conec1 != null)
+        msgs = ((InternalEObject)conec1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CONEC1, null, msgs);
+      if (newConec1 != null)
+        msgs = ((InternalEObject)newConec1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__CONEC1, null, msgs);
+      msgs = basicSetConec1(newConec1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__CONEC1, newConec1, newConec1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OperacionColeccion getOpeCol()
+  {
+    return opeCol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOpeCol(OperacionColeccion newOpeCol, NotificationChain msgs)
+  {
+    OperacionColeccion oldOpeCol = opeCol;
+    opeCol = newOpeCol;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE_COL, oldOpeCol, newOpeCol);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOpeCol(OperacionColeccion newOpeCol)
+  {
+    if (newOpeCol != opeCol)
+    {
+      NotificationChain msgs = null;
+      if (opeCol != null)
+        msgs = ((InternalEObject)opeCol).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE_COL, null, msgs);
+      if (newOpeCol != null)
+        msgs = ((InternalEObject)newOpeCol).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE_COL, null, msgs);
+      msgs = basicSetOpeCol(newOpeCol, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE_COL, newOpeCol, newOpeCol));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operacion getOpe6()
+  {
+    return ope6;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOpe6(Operacion newOpe6, NotificationChain msgs)
+  {
+    Operacion oldOpe6 = ope6;
+    ope6 = newOpe6;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE6, oldOpe6, newOpe6);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOpe6(Operacion newOpe6)
+  {
+    if (newOpe6 != ope6)
+    {
+      NotificationChain msgs = null;
+      if (ope6 != null)
+        msgs = ((InternalEObject)ope6).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE6, null, msgs);
+      if (newOpe6 != null)
+        msgs = ((InternalEObject)newOpe6).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__OPE6, null, msgs);
+      msgs = basicSetOpe6(newOpe6, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__OPE6, newOpe6, newOpe6));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLit3()
+  {
+    return lit3;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLit3(String newLit3)
+  {
+    String oldLit3 = lit3;
+    lit3 = newLit3;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__LIT3, oldLit3, lit3));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Atributo getAtr3()
+  {
+    return atr3;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAtr3(Atributo newAtr3, NotificationChain msgs)
+  {
+    Atributo oldAtr3 = atr3;
+    atr3 = newAtr3;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR3, oldAtr3, newAtr3);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAtr3(Atributo newAtr3)
+  {
+    if (newAtr3 != atr3)
+    {
+      NotificationChain msgs = null;
+      if (atr3 != null)
+        msgs = ((InternalEObject)atr3).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR3, null, msgs);
+      if (newAtr3 != null)
+        msgs = ((InternalEObject)newAtr3).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPLEJA__ATR3, null, msgs);
+      msgs = basicSetAtr3(newAtr3, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__ATR3, newAtr3, newAtr3));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getFinOracion()
+  {
+    return finOracion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFinOracion(String newFinOracion)
+  {
+    String oldFinOracion = finOracion;
+    finOracion = newFinOracion;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPLEJA__FIN_ORACION, oldFinOracion, finOracion));
   }
 
   /**
@@ -224,10 +1423,46 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPLEJA__ATRIBUTO:
-        return basicSetAtributo(null, msgs);
+      case GramaticaPackage.COMPLEJA__DETERMINANTE:
+        return basicSetDeterminante(null, msgs);
+      case GramaticaPackage.COMPLEJA__ATR:
+        return basicSetAtr(null, msgs);
+      case GramaticaPackage.COMPLEJA__SINTAGMA:
+        return basicSetSintagma(null, msgs);
       case GramaticaPackage.COMPLEJA__CONTEXTO:
         return basicSetContexto(null, msgs);
+      case GramaticaPackage.COMPLEJA__CONECT:
+        return basicSetConect(null, msgs);
+      case GramaticaPackage.COMPLEJA__OPERACION_COLECCION:
+        return basicSetOperacionColeccion(null, msgs);
+      case GramaticaPackage.COMPLEJA__DETERMINANTE1:
+        return basicSetDeterminante1(null, msgs);
+      case GramaticaPackage.COMPLEJA__CLASE:
+        return basicSetClase(null, msgs);
+      case GramaticaPackage.COMPLEJA__CONECT1:
+        return basicSetConect1(null, msgs);
+      case GramaticaPackage.COMPLEJA__ATR1:
+        return basicSetAtr1(null, msgs);
+      case GramaticaPackage.COMPLEJA__OPE3:
+        return basicSetOpe3(null, msgs);
+      case GramaticaPackage.COMPLEJA__ATR2:
+        return basicSetAtr2(null, msgs);
+      case GramaticaPackage.COMPLEJA__OPE4:
+        return basicSetOpe4(null, msgs);
+      case GramaticaPackage.COMPLEJA__ATR4:
+        return basicSetAtr4(null, msgs);
+      case GramaticaPackage.COMPLEJA__OPE5:
+        return basicSetOpe5(null, msgs);
+      case GramaticaPackage.COMPLEJA__ATR5:
+        return basicSetAtr5(null, msgs);
+      case GramaticaPackage.COMPLEJA__CONEC1:
+        return basicSetConec1(null, msgs);
+      case GramaticaPackage.COMPLEJA__OPE_COL:
+        return basicSetOpeCol(null, msgs);
+      case GramaticaPackage.COMPLEJA__OPE6:
+        return basicSetOpe6(null, msgs);
+      case GramaticaPackage.COMPLEJA__ATR3:
+        return basicSetAtr3(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -242,12 +1477,54 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPLEJA__ATRIBUTO:
-        return getAtributo();
+      case GramaticaPackage.COMPLEJA__DETERMINANTE:
+        return getDeterminante();
+      case GramaticaPackage.COMPLEJA__ATR:
+        return getAtr();
+      case GramaticaPackage.COMPLEJA__SINTAGMA:
+        return getSintagma();
       case GramaticaPackage.COMPLEJA__CONTEXTO:
         return getContexto();
-      case GramaticaPackage.COMPLEJA__LITERAL:
-        return getLiteral();
+      case GramaticaPackage.COMPLEJA__CONECT:
+        return getConect();
+      case GramaticaPackage.COMPLEJA__OPERACION_COLECCION:
+        return getOperacionColeccion();
+      case GramaticaPackage.COMPLEJA__DETERMINANTE1:
+        return getDeterminante1();
+      case GramaticaPackage.COMPLEJA__CLASE:
+        return getClase();
+      case GramaticaPackage.COMPLEJA__CONECT1:
+        return getConect1();
+      case GramaticaPackage.COMPLEJA__ATR1:
+        return getAtr1();
+      case GramaticaPackage.COMPLEJA__OPE3:
+        return getOpe3();
+      case GramaticaPackage.COMPLEJA__LIT1:
+        return getLit1();
+      case GramaticaPackage.COMPLEJA__ATR2:
+        return getAtr2();
+      case GramaticaPackage.COMPLEJA__OPE4:
+        return getOpe4();
+      case GramaticaPackage.COMPLEJA__ATR4:
+        return getAtr4();
+      case GramaticaPackage.COMPLEJA__OPE5:
+        return getOpe5();
+      case GramaticaPackage.COMPLEJA__LIT2:
+        return getLit2();
+      case GramaticaPackage.COMPLEJA__ATR5:
+        return getAtr5();
+      case GramaticaPackage.COMPLEJA__CONEC1:
+        return getConec1();
+      case GramaticaPackage.COMPLEJA__OPE_COL:
+        return getOpeCol();
+      case GramaticaPackage.COMPLEJA__OPE6:
+        return getOpe6();
+      case GramaticaPackage.COMPLEJA__LIT3:
+        return getLit3();
+      case GramaticaPackage.COMPLEJA__ATR3:
+        return getAtr3();
+      case GramaticaPackage.COMPLEJA__FIN_ORACION:
+        return getFinOracion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -262,14 +1539,77 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPLEJA__ATRIBUTO:
-        setAtributo((EObject)newValue);
+      case GramaticaPackage.COMPLEJA__DETERMINANTE:
+        setDeterminante((Determinante)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR:
+        setAtr((Atributo)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__SINTAGMA:
+        setSintagma((SintagmaPreposicional)newValue);
         return;
       case GramaticaPackage.COMPLEJA__CONTEXTO:
         setContexto((Clase)newValue);
         return;
-      case GramaticaPackage.COMPLEJA__LITERAL:
-        setLiteral((String)newValue);
+      case GramaticaPackage.COMPLEJA__CONECT:
+        setConect((Conector)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__OPERACION_COLECCION:
+        setOperacionColeccion((OperacionColeccion)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__DETERMINANTE1:
+        setDeterminante1((Determinante)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__CLASE:
+        setClase((Clase)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__CONECT1:
+        setConect1((Conector)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR1:
+        setAtr1((Atributo)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE3:
+        setOpe3((Operacion)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__LIT1:
+        setLit1((String)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR2:
+        setAtr2((Atributo)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE4:
+        setOpe4((Operacion)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR4:
+        setAtr4((Atributo)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE5:
+        setOpe5((Operacion)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__LIT2:
+        setLit2((String)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR5:
+        setAtr5((Atributo)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__CONEC1:
+        setConec1((Conector)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE_COL:
+        setOpeCol((OperacionColeccion)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE6:
+        setOpe6((Operacion)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__LIT3:
+        setLit3((String)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR3:
+        setAtr3((Atributo)newValue);
+        return;
+      case GramaticaPackage.COMPLEJA__FIN_ORACION:
+        setFinOracion((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -285,14 +1625,77 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPLEJA__ATRIBUTO:
-        setAtributo((EObject)null);
+      case GramaticaPackage.COMPLEJA__DETERMINANTE:
+        setDeterminante((Determinante)null);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR:
+        setAtr((Atributo)null);
+        return;
+      case GramaticaPackage.COMPLEJA__SINTAGMA:
+        setSintagma((SintagmaPreposicional)null);
         return;
       case GramaticaPackage.COMPLEJA__CONTEXTO:
         setContexto((Clase)null);
         return;
-      case GramaticaPackage.COMPLEJA__LITERAL:
-        setLiteral(LITERAL_EDEFAULT);
+      case GramaticaPackage.COMPLEJA__CONECT:
+        setConect((Conector)null);
+        return;
+      case GramaticaPackage.COMPLEJA__OPERACION_COLECCION:
+        setOperacionColeccion((OperacionColeccion)null);
+        return;
+      case GramaticaPackage.COMPLEJA__DETERMINANTE1:
+        setDeterminante1((Determinante)null);
+        return;
+      case GramaticaPackage.COMPLEJA__CLASE:
+        setClase((Clase)null);
+        return;
+      case GramaticaPackage.COMPLEJA__CONECT1:
+        setConect1((Conector)null);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR1:
+        setAtr1((Atributo)null);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE3:
+        setOpe3((Operacion)null);
+        return;
+      case GramaticaPackage.COMPLEJA__LIT1:
+        setLit1(LIT1_EDEFAULT);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR2:
+        setAtr2((Atributo)null);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE4:
+        setOpe4((Operacion)null);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR4:
+        setAtr4((Atributo)null);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE5:
+        setOpe5((Operacion)null);
+        return;
+      case GramaticaPackage.COMPLEJA__LIT2:
+        setLit2(LIT2_EDEFAULT);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR5:
+        setAtr5((Atributo)null);
+        return;
+      case GramaticaPackage.COMPLEJA__CONEC1:
+        setConec1((Conector)null);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE_COL:
+        setOpeCol((OperacionColeccion)null);
+        return;
+      case GramaticaPackage.COMPLEJA__OPE6:
+        setOpe6((Operacion)null);
+        return;
+      case GramaticaPackage.COMPLEJA__LIT3:
+        setLit3(LIT3_EDEFAULT);
+        return;
+      case GramaticaPackage.COMPLEJA__ATR3:
+        setAtr3((Atributo)null);
+        return;
+      case GramaticaPackage.COMPLEJA__FIN_ORACION:
+        setFinOracion(FIN_ORACION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -308,12 +1711,54 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
   {
     switch (featureID)
     {
-      case GramaticaPackage.COMPLEJA__ATRIBUTO:
-        return atributo != null;
+      case GramaticaPackage.COMPLEJA__DETERMINANTE:
+        return determinante != null;
+      case GramaticaPackage.COMPLEJA__ATR:
+        return atr != null;
+      case GramaticaPackage.COMPLEJA__SINTAGMA:
+        return sintagma != null;
       case GramaticaPackage.COMPLEJA__CONTEXTO:
         return contexto != null;
-      case GramaticaPackage.COMPLEJA__LITERAL:
-        return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
+      case GramaticaPackage.COMPLEJA__CONECT:
+        return conect != null;
+      case GramaticaPackage.COMPLEJA__OPERACION_COLECCION:
+        return operacionColeccion != null;
+      case GramaticaPackage.COMPLEJA__DETERMINANTE1:
+        return determinante1 != null;
+      case GramaticaPackage.COMPLEJA__CLASE:
+        return clase != null;
+      case GramaticaPackage.COMPLEJA__CONECT1:
+        return conect1 != null;
+      case GramaticaPackage.COMPLEJA__ATR1:
+        return atr1 != null;
+      case GramaticaPackage.COMPLEJA__OPE3:
+        return ope3 != null;
+      case GramaticaPackage.COMPLEJA__LIT1:
+        return LIT1_EDEFAULT == null ? lit1 != null : !LIT1_EDEFAULT.equals(lit1);
+      case GramaticaPackage.COMPLEJA__ATR2:
+        return atr2 != null;
+      case GramaticaPackage.COMPLEJA__OPE4:
+        return ope4 != null;
+      case GramaticaPackage.COMPLEJA__ATR4:
+        return atr4 != null;
+      case GramaticaPackage.COMPLEJA__OPE5:
+        return ope5 != null;
+      case GramaticaPackage.COMPLEJA__LIT2:
+        return LIT2_EDEFAULT == null ? lit2 != null : !LIT2_EDEFAULT.equals(lit2);
+      case GramaticaPackage.COMPLEJA__ATR5:
+        return atr5 != null;
+      case GramaticaPackage.COMPLEJA__CONEC1:
+        return conec1 != null;
+      case GramaticaPackage.COMPLEJA__OPE_COL:
+        return opeCol != null;
+      case GramaticaPackage.COMPLEJA__OPE6:
+        return ope6 != null;
+      case GramaticaPackage.COMPLEJA__LIT3:
+        return LIT3_EDEFAULT == null ? lit3 != null : !LIT3_EDEFAULT.equals(lit3);
+      case GramaticaPackage.COMPLEJA__ATR3:
+        return atr3 != null;
+      case GramaticaPackage.COMPLEJA__FIN_ORACION:
+        return FIN_ORACION_EDEFAULT == null ? finOracion != null : !FIN_ORACION_EDEFAULT.equals(finOracion);
     }
     return super.eIsSet(featureID);
   }
@@ -329,8 +1774,14 @@ public class ComplejaImpl extends MinimalEObjectImpl.Container implements Comple
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (literal: ");
-    result.append(literal);
+    result.append(" (lit1: ");
+    result.append(lit1);
+    result.append(", lit2: ");
+    result.append(lit2);
+    result.append(", lit3: ");
+    result.append(lit3);
+    result.append(", finOracion: ");
+    result.append(finOracion);
     result.append(')');
     return result.toString();
   }
