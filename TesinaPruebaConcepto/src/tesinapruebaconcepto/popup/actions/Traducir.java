@@ -2,6 +2,7 @@ package tesinapruebaconcepto.popup.actions;
 
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -47,6 +48,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
 import tesinapruebaconcepto.Activator;
+import transformation.OCL2LNR;
 
 
 public class Traducir implements IObjectActionDelegate {
@@ -103,7 +105,7 @@ public class Traducir implements IObjectActionDelegate {
 		}
 		try {
 			this.parseOCL(ecoreFileName, sourceFile);
-		} catch (IOException | ParserException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -117,7 +119,13 @@ public class Traducir implements IObjectActionDelegate {
 	   System.out.println("SelectionChanged");
 	}
 	
-	public void parseOCL (String ecoreFileName, IFile file) throws IOException, ParserException {
+	public void parseOCL(String ecoreFileName, IFile input) throws Exception {
+		String inputPath = input.getFullPath().toString();
+		OCL2LNR.run(inputPath, inputPath + "_Output.xmi");
+	}
+
+	
+	public void parseOCL2 (String ecoreFileName, IFile file) throws IOException, ParserException {
 		EPackage.Registry registry = new EPackageRegistryImpl();
 		//EPackage ePackage = EcoreFactory.eINSTANCE.createEPackage();
 		//ePackage.setName("RandL");
