@@ -1,0 +1,139 @@
+-- @nsURI OCL=http://www.eclipse.org/ocl/2015/Pivot
+-- @nsURI LNR=http://www.xtext.org/tesis/gramatica/Gramatica
+
+
+module OCL2LNR;
+create OUT: LNR from IN: OCL;
+
+--uses strings;
+-------------------------------------------------------------------------------
+-- HELPERS --------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+-- HELPER: getPackageName
+-- Returns name of the first package defined
+-- OUT:		String
+helper def: getPackageName: String =
+	thisModule.removePrefix(OCL!Model.allInstances().first().ownedPackages.first().toString());
+
+-- HELPER: removePrefix
+-- Returns string after removing anything before ! if exists.
+-- OUT:		String
+helper def: removePrefix(str: String): String =
+	let idx : Integer = str.indexOf('!') + 2 in
+	if ( idx > 0) then
+		str.substring(idx, str.size())
+	else
+		str
+	endif;
+
+-- HELPER: operationName
+-- Returns string the complete name for the operation passed as param. Eg. > return 'mayor que'
+-- OUT:		String
+helper def: operationName(str: String): String =
+	if ( str = '>') then 'mayor que'
+	else if ( str = '<') then 'menor que'
+		 else if ( str = '<=') then 'menor o igual a'
+		      else if ( str = '>=') then 'mayor o igual a'
+			  	   else if ( str = '=') then 'igual a'
+				   		else if ( str = '<>') then 'distinto de'
+							 else OclUndefined
+							endif
+						endif
+					endif
+			  endif
+		 endif
+	endif;
+
+-------------------------------------------------------------------------------
+-- RULES ----------------------------------------------------------------------
+-------------------------------------------------------------------------------
+rule Model2Documento {
+	from
+		s: OCL!Model (
+			s.oclIsTypeOf(OCL!Model)
+		)
+	to
+		t2: LNR!Documento (
+			pathModelo <- s.ownedPackages.first().URI,
+			pathOcl <- s.externalURI
+			, oraciones <- s.ownedPackages.first().ownedClasses.first().ownedInvariants
+		)
+}
+
+rule Constraint2Oracion {
+	from
+		s : OCL!Constraint
+	to 
+		t : LNR!Oracion ( 
+		--	extraStr <- s.ownedSpecification.body,
+			contenido <- s.ownedSpecification
+		)
+}
+
+
+rule ExpressionInOCL2Simple {
+	from
+		s: OCL!ExpressionInOCL
+	to
+		t2: LNR!Simple (
+				--extraStr <- s.getBody() + s.ownedBody.name + s.ownedBody.oclIsTypeOf(OCL!OperationCallExp).toString() ,
+				determinante <- d,
+				atributo <- a,
+				sintagma <- sp, 
+				contexto <- c,
+				obligacion <- ob, 
+				operacion <- op, 
+				literal <- l 
+		),
+		d: LNR!Determinante (descripcion <- 'El/La'),
+		a: LNR!Atributo (
+			prefijo <- 'prefix', --+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!ReferringElement),
+			--+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!NavigationCallExp),
+			name <- if (s.ownedBody.oclIsTypeOf(OCL!OperationCallExp)) then 
+						if (s.ownedBody.ownedSource.oclIsTypeOf(OCL!PropertyCallExp)) then
+						     thisModule.removePrefix(s.ownedBody.ownedSource.referredProperty.toString())
+						else --not (self.titulo <> '')) tengo que bajar un nivel para poder retornar el atributo, hay que ver que pasa con multiples niveles.
+							 if (s.ownedBody.ownedSource.oclIsTypeOf(OCL!OperationCallExp)) then
+						     	--'test'+s.ownedBody.ownedSource.ownedSource.referredProperty.toString()
+							 	thisModule.removePrefix(s.ownedBody.ownedSource.ownedSource.referredProperty.toString())
+							 else 
+							 	OclUndefined
+							 endif
+						endif
+					else
+						'no es opCall'+s.ownedBody.ownedSource.oclType().toString()
+					endif
+		),--Conseguir nombre del atributo?
+		sp: LNR!SintagmaPreposicional ( 
+			descripcion <- 'de un/una'
+		),
+		c: LNR!Clase (
+			name <- s.owningConstraint.context.name	
+		), 
+		ob: LNR!Obligacion (
+			negacion <- if (s.ownedBody.name = 'not') then 
+							'no'
+						else
+							OclUndefined
+						endif,
+			obligacionDeber <- 'debe ser' 
+			), 
+		op: LNR!Operacion(
+			descripcion <-  if(s.ownedBody.name = 'not') then 
+								thisModule.operationName(s.ownedBody.ownedSource.name)
+						   	else 
+						   		thisModule.operationName(s.ownedBody.name)
+						   	endif
+			),
+		l: LNR!Literal (
+			valor <- if(s.ownedBody.name = 'not') then 
+								--'not'
+								s.ownedBody.ownedSource.ownedArguments.first().stringSymbol
+						   	else 
+						   		s.ownedBody.ownedArguments.first().stringSymbol
+						   	endif)
+			
+}	
+
+

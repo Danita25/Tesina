@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OCL2LNR_Transformador
+Bundle-SymbolicName: OCL2LNR_Transformador
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: OCL2LNR_Transformador.Activator
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.12.0",
+ org.eclipse.ocl.examples.pivot;bundle-version="3.5.0",
+ org.eclipse.ocl.ecore;bundle-version="3.6.0",
+ org.eclipse.m2m.atl.engine.emfvm,
+ org.eclipse.ocl.pivot;bundle-version="1.1.1"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5,
+ J2SE-1.4
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
