@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<gramatica:Documento xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:gramatica="http://www.xtext.org/tesis/gramatica/Gramatica" pathModelo="Tesis.Biblioteca.ecore" pathOcl="platform:/resource/Test/src/Biblioteca.ocl">
+  <oraciones>
+    <contenido>
+      <determinante descripcion="El/La"/>
+      <atributo prefijo="prefix" name="titulo"/>
+      <sintagma descripcion="de un/una"/>
+      <contexto name="Libro"/>
+      <obligacion obligacionDeber="debe ser"/>
+      <operacion descripcion="distinto de"/>
+      <literal valor=""/>
+    </contenido>
+  </oraciones>
+  <oraciones>
+    <contenido>
+      <determinante descripcion="El/La"/>
+      <atributo prefijo="prefix" name="titulo"/>
+      <sintagma descripcion="de un/una"/>
+      <contexto name="Libro"/>
+      <obligacion negacion="no" obligacionDeber="debe ser"/>
+      <operacion descripcion="distinto de"/>
+      <literal valor=""/>
+    </contenido>
+  </oraciones>
+</gramatica:Documento>

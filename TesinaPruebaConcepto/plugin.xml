@@ -7,7 +7,7 @@
       <objectContribution
             objectClass="org.eclipse.ui.IEditorInput"
             id="TesinaPruebaConcepto.contribution1"
-            nameFilter="*.ocl">
+            nameFilter="*.ocl.oclas">
          <menu
                label="Traducir"
                path="additions"

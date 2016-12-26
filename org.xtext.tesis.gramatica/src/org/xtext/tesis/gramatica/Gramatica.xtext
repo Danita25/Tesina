@@ -3,21 +3,32 @@ grammar org.xtext.tesis.gramatica.Gramatica with org.eclipse.xtext.common.Termin
 generate gramatica "http://www.xtext.org/tesis/gramatica/Gramatica"
 
 Documento: 
- 		pathModelo = 'pathModelo:' STRING
-		pathOcl = 'pathOcl:' STRING
+ 		pathModelo =  STRING
+		pathOcl =  STRING
 		oraciones += Oracion* 
+//		extraStr = STRING
 ;
 		
-		
+Path hidden(): 
+       "/" ID ("/" ID)*;		
+       
 Oracion:
-		Simple //| Compleja
+	contenido = Simple //| Compleja
+//	extraStr = STRING
 ;
 
 	
-//El/La => atributo simple
-//Los/Las => atributo coleccion	
 Simple:
-	determinante=Determinante atributo=Atributo  Sintagma=SintagmaPreposicional contexto=Clase obligacion=Obligacion (operacion=Operacion)? (literal=Literal | atributo=Atributo)'.';
+	determinante=Determinante 
+	atributo=Atributo  
+	sintagma=SintagmaPreposicional
+	contexto=Clase
+	obligacion=Obligacion
+	(operacion=Operacion)?
+	(literal=Literal | atributoDer=Atributo)
+	'.'
+//	extraStr = STRING
+	;
 
 Determinante:
 	descripcion=('El/La'|'Los/Las')
@@ -25,7 +36,8 @@ Determinante:
 
 //No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
 Atributo:
-	('Coleccion de')? name=ID
+	prefijo= ('Coleccion de')?
+	name=ID
 ;
 
 SintagmaPreposicional:
@@ -34,16 +46,16 @@ SintagmaPreposicional:
 
 
 Obligacion:
-	(negacion=Negacion)? obligacionDeber=ObligacionDeber
+	(negacion='no')? obligacionDeber='debe ser'
 ;
 
-ObligacionDeber:
-	//('no')? 'debe' ('ser'|'estar') 
-	descripcion=('debe ser' | 'debe estar')
-;
-Negacion:
-	descripcion='no'
-;
+//ObligacionDeber:
+//	//('no')? 'debe' ('ser'|'estar') 
+//	descripcion=('debe ser' | 'debe estar')
+//;
+//Negacion:
+//	descripcion='no'
+//;
 
 Operacion:
 	descripcion=('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos')
@@ -54,7 +66,7 @@ Clase:
 ;
 
 Literal:
-	INT | STRING
+	valor =  STRING
 ;
 
 /**
@@ -64,8 +76,8 @@ Literal:
  * parte2->aplicamos una operacion para obtener un subconjunto aplicando alguna condicion (el resultado podria ser toda la coleccion)
  * parte3->aplicamos una condicion/operacion que esperamos que se cumpla sobre el subconjunto que obtuvimos en la parte2
  */
-Compleja:
-	'Para todos/as' atributo=Atributo 'de' 'un/una' contexto=Clase 'tal que' 
-		('seleccionamos'|'para todos'|'existe') 'Los/Las' atributo=Clase 'donde'  (atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo) ('implica')?)* 
-			('es no vacio'| 'es vacio | tamanio') (('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo))?'.'
-;
+//Compleja:
+//	'Para todos/as' atributo=Atributo 'de' 'un/una' contexto=Clase 'tal que' 
+//		('seleccionamos'|'para todos'|'existe') 'Los/Las' atributo=Clase 'donde'  (atributo=Atributo ('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo) ('implica')?)* 
+//			('es no vacio'| 'es vacio | tamanio') (('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos') (literal=Literal | atributo=Atributo))?'.'
+//;

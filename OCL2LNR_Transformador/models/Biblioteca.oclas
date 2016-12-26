@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pivot:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pivot="http://www.eclipse.org/ocl/2015/Pivot"
+    xsi:schemaLocation="http://www.eclipse.org/ocl/2015/Pivot java://org.eclipse.ocl.pivot.PivotPackage" name="Biblioteca.ocl" externalURI="platform:/resource/Test/src/Biblioteca.ocl">
+  <ownedImports importedNamespace="pivot:Model Biblioteca.ecore.oclas#/"/>
+  <ownedPackages xmi:id="P.Biblioteca" name="Biblioteca" URI="Tesis.Biblioteca.ecore">
+    <ownedClasses xmi:id="T.Biblioteca.Libro" name="Libro">
+      <ownedInvariants xmi:id="ciBiblioteca.Libro.tieneTitulo" name="tieneTitulo">
+        <ownedSpecification xsi:type="pivot:ExpressionInOCL" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
+            body="self.titulo &lt;> ''&#xA;">
+          <ownedBody xsi:type="pivot:OperationCallExp" name="&lt;>" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
+              referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%60%%62%..ocl.OclSelf">
+            <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
+                referredProperty="Biblioteca.ecore.oclas#p.Biblioteca.Libro.titulo">
+              <ownedSource xsi:type="pivot:VariableExp" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Libro" referredVariable="#//@ownedPackages.0/@ownedClasses.0/@ownedInvariants.0/@ownedSpecification/@ownedContext"/>
+            </ownedSource>
+            <ownedArguments xsi:type="pivot:StringLiteralExp" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
+                stringSymbol=""/>
+          </ownedBody>
+          <ownedContext name="self" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
+        </ownedSpecification>
+      </ownedInvariants>
+      <ownedInvariants xmi:id="ciBiblioteca.Libro.notieneTitulo" name="notieneTitulo">
+        <ownedSpecification xsi:type="pivot:ExpressionInOCL" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
+            body="not (self.titulo &lt;> '')&#xA;">
+          <ownedBody xsi:type="pivot:OperationCallExp" name="not" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
+              referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Boolean.not">
+            <ownedSource xsi:type="pivot:OperationCallExp" name="&lt;>" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
+                referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%60%%62%..ocl.OclSelf">
+              <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
+                  referredProperty="Biblioteca.ecore.oclas#p.Biblioteca.Libro.titulo">
+                <ownedSource xsi:type="pivot:VariableExp" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Libro" referredVariable="#//@ownedPackages.0/@ownedClasses.0/@ownedInvariants.1/@ownedSpecification/@ownedContext"/>
+              </ownedSource>
+              <ownedArguments xsi:type="pivot:StringLiteralExp" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
+                  stringSymbol=""/>
+            </ownedSource>
+          </ownedBody>
+          <ownedContext name="self" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
+        </ownedSpecification>
+      </ownedInvariants>
+    </ownedClasses>
+  </ownedPackages>
+</pivot:Model>

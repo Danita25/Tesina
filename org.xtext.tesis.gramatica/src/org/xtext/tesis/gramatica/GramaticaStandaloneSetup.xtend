@@ -7,7 +7,7 @@ package org.xtext.tesis.gramatica
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
-class GramaticaStandaloneSetup extends GramaticaStandaloneSetupGenerated {
+public class GramaticaStandaloneSetup extends GramaticaStandaloneSetupGenerated {
 
 	def static void doSetup() {
 		new GramaticaStandaloneSetup().createInjectorAndDoEMFRegistration()

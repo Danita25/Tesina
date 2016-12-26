@@ -1,18 +1,15 @@
 package tesinapruebaconcepto.popup.actions;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.Reader;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.impl.LeafNodeWithSyntaxError;
 import org.eclipse.xtext.parser.IParseResult;
@@ -53,7 +50,24 @@ public class TraducirDesdeXtext {
 		return contents.get(0);
 	}
 		
+	public EObject writeXmi(OutputStream os, EObject content) throws IOException {
+		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+		Resource resource = resourceSet.createResource(URI.createURI("dummy:/example.xmi"));
+		EList<EObject> contents = resource.getContents();
+		contents.add(content);
+		resource.save(os, resourceSet.getLoadOptions());
+		return contents.get(0);
+	}
 
+	public void writeLnr(OutputStream os, EObject content) throws IOException {
+		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+		Resource resource = resourceSet.createResource(URI.createURI("dummy:/example.gramatica"));
+		EList<EObject> contents = resource.getContents();
+		contents.add(content);
+		resource.save(os, null);
+	}
+
+	
 	/**
 	 * Parses data provided by an input reader using Xtext and returns the root
 	 * node of the resulting object tree.
@@ -76,13 +90,13 @@ public class TraducirDesdeXtext {
 		return result.getRootASTElement();
 	}
 	
-	private String serialize(EObject result) {
+	public String serialize(EObject result) {
 		return serializer.serialize(result);
 	}
 	
 	public static void main(String[] args) throws IOException {
 		TraducirDesdeXtext xtext = new TraducirDesdeXtext();
-		FileInputStream f = new FileInputStream("C:\\Users\\Danae\\workspace\\OCL2LNR_Launcher\\models\\LNR_Output.xmi");
+		FileInputStream f = new FileInputStream("C:\\Users\\Danae\\git\\OCL2LNR_Launcher\\models\\LNR_Output.xmi");
 		EObject result = xtext.parseXmi(f);
 		System.out.println(xtext.serialize(result));
 	}

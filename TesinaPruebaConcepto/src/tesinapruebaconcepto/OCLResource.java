@@ -26,7 +26,7 @@ import org.eclipse.ocl.examples.interpreter.console.text.OCLDocument;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.ConstraintKind;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.eclipse.ocl.util.ToStringVisitor;
+
 
 
 

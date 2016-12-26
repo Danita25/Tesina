@@ -50,7 +50,7 @@ public class StringTraducirVisitor<C, O, P, EL, PM, S, COA, SSA, CT> implements 
 	}
 
 /*** UTILS ***/	
-	private String listToString(EList list) {
+	private String listToString(EList<?> list) {
 		String arguments = "";
 		for (Object a : list) {
 			String result = ((Visitable)a).accept(this);

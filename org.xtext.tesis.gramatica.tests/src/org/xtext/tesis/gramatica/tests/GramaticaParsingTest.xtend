@@ -11,6 +11,10 @@ import org.eclipse.xtext.util.EmfFormatter
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.xtext.tesis.gramatica.gramatica.Documento
+import org.eclipse.xtext.serializer.impl.Serializer
+import org.eclipse.xtext.serializer.ISerializer
+import com.google.inject.Injector
+import org.xtext.tesis.gramatica.GramaticaStandaloneSetup
 
 @RunWith(XtextRunner)
 @InjectWith(GramaticaInjectorProvider)
@@ -18,9 +22,13 @@ class GramaticaParsingTest{
 
 	@Inject
 	ParseHelper<Documento> parseHelper
+	
+	@Inject
+	ISerializer serializer
 
 	@Test 
 	def void loadModel() {
+
 		val result = parseHelper.parse('''
 			pathModelo:'/modelo/pathname'
 			pathOcl: '/ocl/pathOcl'
@@ -36,7 +44,10 @@ class GramaticaParsingTest{
 			El/La Coleccion de Empleados de un/una Compania debe ser mayor que 0.
 			Los/Las Empleados de un/una Compania debe ser al menos 1.
 		''')
-		println(EmfFormatter.objToStr(result));
+		println(EmfFormatter.objToStr(result))
+		println("    ============        ")
+		println(serializer.serialize(result))
+		
 	}
 
 }
