@@ -74,23 +74,23 @@ rule Constraint2Oracion {
 
 rule ExpressionInOCL2Simple {
 	from
-		s: OCL!ExpressionInOCL
+		s: OCL!ExpressionInOCL (s.ownedBody.name <> 'and' and s.ownedBody.name <> 'notEmpty') 
 	to
 		t2: LNR!Simple (
 				--extraStr <- s.getBody() + s.ownedBody.name + s.ownedBody.oclIsTypeOf(OCL!OperationCallExp).toString() ,
 				determinante <- d,
 				atributo <- a,
 				sintagma <- sp, 
-				contexto <- c,
+--				contexto <- c,
 				obligacion <- ob, 
 				operacion <- op, 
 				literal <- l 
 		),
-		d: LNR!Determinante (descripcion <- 'El/La'),
+		d: LNR!Determinante (valor <- 'El/La'),
 		a: LNR!Atributo (
-			prefijo <- 'prefix', --+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!ReferringElement),
+			--prefijo <- 'prefix', --+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!ReferringElement),
 			--+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!NavigationCallExp),
-			name <- if (s.ownedBody.oclIsTypeOf(OCL!OperationCallExp)) then 
+			nombre <- if (s.ownedBody.oclIsTypeOf(OCL!OperationCallExp)) then 
 						if (s.ownedBody.ownedSource.oclIsTypeOf(OCL!PropertyCallExp)) then
 						     thisModule.removePrefix(s.ownedBody.ownedSource.referredProperty.toString())
 						else --not (self.titulo <> '')) tengo que bajar un nivel para poder retornar el atributo, hay que ver que pasa con multiples niveles.
@@ -104,12 +104,23 @@ rule ExpressionInOCL2Simple {
 					else
 						'no es opCall'+s.ownedBody.ownedSource.oclType().toString()
 					endif
-		),--Conseguir nombre del atributo?
-		sp: LNR!SintagmaPreposicional ( 
-			descripcion <- 'de un/una'
 		),
-		c: LNR!Clase (
-			name <- s.owningConstraint.context.name	
+		sp: LNR!SintagmaPreposicional ( 
+			enlace <- e, 
+			termino <- t
+		),
+		e: LNR!Enlace (
+			valor <- 'de'
+		),
+		t: LNR!Termino (
+			indeterminante <- i,
+			contexto <- c
+			),
+		i: LNR!Indeterminante (
+			valor <- 'un/una'		
+		),
+		c: LNR!Contexto (
+			nombre <- s.owningConstraint.context.name	
 		), 
 		ob: LNR!Obligacion (
 			negacion <- if (s.ownedBody.name = 'not') then 
@@ -120,14 +131,14 @@ rule ExpressionInOCL2Simple {
 			obligacionDeber <- 'debe ser' 
 			), 
 		op: LNR!Operacion(
-			descripcion <-  if(s.ownedBody.name = 'not') then 
+			descripcion <-  if(s.ownedBody.name = 'not')then 
 								thisModule.operationName(s.ownedBody.ownedSource.name)
-						   	else 
+						   	else
 						   		thisModule.operationName(s.ownedBody.name)
-						   	endif
+							endif
 			),
 		l: LNR!Literal (
-			valor <- if(s.ownedBody.name = 'not') then 
+			valor <- if(s.ownedBody.name = 'not')  or (s.ownedBody.name = 'and') then 
 								--'not'
 								s.ownedBody.ownedSource.ownedArguments.first().stringSymbol
 						   	else 
@@ -136,4 +147,14 @@ rule ExpressionInOCL2Simple {
 			
 }	
 
-
+--Generar otra regla para simples donde el atributo es una coleccion. 
+rule ExpressionInOCL2Compuesta {
+	from
+		s: OCL!ExpressionInOCL (s.ownedBody.name = 'and' and s.ownedBody.name <> 'notEmpty')
+	to
+		t2: LNR!Compuesta(
+			simple <- s.ownedBody.ownedSource,
+			nexo <- 'y',
+			oracion <- s.ownedBody.ownedArguments.first()
+)
+}	

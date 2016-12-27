@@ -10,50 +10,50 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.tesis.gramatica.gramatica.Clase;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
+import org.xtext.tesis.gramatica.gramatica.Nexo;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Clase</b></em>'.
+ * An implementation of the model object '<em><b>Nexo</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ClaseImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.NexoImpl#getValor <em>Valor</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
+public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getValor() <em>Valor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getValor()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String VALOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getValor() <em>Valor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getValor()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String valor = VALOR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ClaseImpl()
+  protected NexoImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
   @Override
   protected EClass eStaticClass()
   {
-    return GramaticaPackage.Literals.CLASE;
+    return GramaticaPackage.Literals.NEXO;
   }
 
   /**
@@ -74,9 +74,9 @@ public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getValor()
   {
-    return name;
+    return valor;
   }
 
   /**
@@ -84,12 +84,12 @@ public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setValor(String newValor)
   {
-    String oldName = name;
-    name = newName;
+    String oldValor = valor;
+    valor = newValor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.CLASE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.NEXO__VALOR, oldValor, valor));
   }
 
   /**
@@ -102,8 +102,8 @@ public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
   {
     switch (featureID)
     {
-      case GramaticaPackage.CLASE__NAME:
-        return getName();
+      case GramaticaPackage.NEXO__VALOR:
+        return getValor();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
   {
     switch (featureID)
     {
-      case GramaticaPackage.CLASE__NAME:
-        setName((String)newValue);
+      case GramaticaPackage.NEXO__VALOR:
+        setValor((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
   {
     switch (featureID)
     {
-      case GramaticaPackage.CLASE__NAME:
-        setName(NAME_EDEFAULT);
+      case GramaticaPackage.NEXO__VALOR:
+        setValor(VALOR_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
   {
     switch (featureID)
     {
-      case GramaticaPackage.CLASE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GramaticaPackage.NEXO__VALOR:
+        return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
     }
     return super.eIsSet(featureID);
   }
@@ -169,10 +169,10 @@ public class ClaseImpl extends MinimalEObjectImpl.Container implements Clase
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (valor: ");
+    result.append(valor);
     result.append(')');
     return result.toString();
   }
 
-} //ClaseImpl
+} //NexoImpl

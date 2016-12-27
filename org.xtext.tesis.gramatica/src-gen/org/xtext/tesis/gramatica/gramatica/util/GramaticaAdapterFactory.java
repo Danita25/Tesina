@@ -91,6 +91,16 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
         return createSimpleAdapter();
       }
       @Override
+      public Adapter caseCompuesta(Compuesta object)
+      {
+        return createCompuestaAdapter();
+      }
+      @Override
+      public Adapter caseNexo(Nexo object)
+      {
+        return createNexoAdapter();
+      }
+      @Override
       public Adapter caseDeterminante(Determinante object)
       {
         return createDeterminanteAdapter();
@@ -106,6 +116,21 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
         return createSintagmaPreposicionalAdapter();
       }
       @Override
+      public Adapter caseEnlace(Enlace object)
+      {
+        return createEnlaceAdapter();
+      }
+      @Override
+      public Adapter caseTermino(Termino object)
+      {
+        return createTerminoAdapter();
+      }
+      @Override
+      public Adapter caseIndeterminante(Indeterminante object)
+      {
+        return createIndeterminanteAdapter();
+      }
+      @Override
       public Adapter caseObligacion(Obligacion object)
       {
         return createObligacionAdapter();
@@ -116,9 +141,9 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
         return createOperacionAdapter();
       }
       @Override
-      public Adapter caseClase(Clase object)
+      public Adapter caseContexto(Contexto object)
       {
-        return createClaseAdapter();
+        return createContextoAdapter();
       }
       @Override
       public Adapter caseLiteral(Literal object)
@@ -193,6 +218,36 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Compuesta <em>Compuesta</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.Compuesta
+   * @generated
+   */
+  public Adapter createCompuestaAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Nexo <em>Nexo</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.Nexo
+   * @generated
+   */
+  public Adapter createNexoAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Determinante <em>Determinante</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -238,6 +293,51 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Enlace <em>Enlace</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.Enlace
+   * @generated
+   */
+  public Adapter createEnlaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Termino <em>Termino</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.Termino
+   * @generated
+   */
+  public Adapter createTerminoAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Indeterminante <em>Indeterminante</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.Indeterminante
+   * @generated
+   */
+  public Adapter createIndeterminanteAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Obligacion <em>Obligacion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -268,16 +368,16 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Clase <em>Clase</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Contexto <em>Contexto</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.tesis.gramatica.gramatica.Clase
+   * @see org.xtext.tesis.gramatica.gramatica.Contexto
    * @generated
    */
-  public Adapter createClaseAdapter()
+  public Adapter createContextoAdapter()
   {
     return null;
   }

@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<gramatica:Documento xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:gramatica="http://www.xtext.org/tesis/gramatica/Gramatica" pathModelo="Tesis.Biblioteca.ecore" pathOcl="platform:/resource/Test/src/Biblioteca.ocl">
-  <oraciones>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:gramatica="http://www.xtext.org/tesis/gramatica/Gramatica">
+  <gramatica:Documento pathModelo="Tesis.Biblioteca.ecore" pathOcl="platform:/resource/Test/src/Biblioteca.ocl">
+    <oraciones>
+      <contenido>
+        <determinante valor="El/La"/>
+        <atributo nombre="titulo"/>
+        <sintagma>
+          <enlace valor="de"/>
+          <termino>
+            <indeterminante valor="un/una"/>
+            <contexto nombre="Libro"/>
+          </termino>
+        </sintagma>
+        <obligacion obligacionDeber="debe ser"/>
+        <operacion descripcion="distinto de"/>
+        <literal valor=""/>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <determinante valor="El/La"/>
+        <atributo nombre="titulo"/>
+        <sintagma>
+          <enlace valor="de"/>
+          <termino>
+            <indeterminante valor="un/una"/>
+            <contexto nombre="Libro"/>
+          </termino>
+        </sintagma>
+        <obligacion negacion="no" obligacionDeber="debe ser"/>
+        <operacion descripcion="distinto de"/>
+        <literal valor=""/>
+      </contenido>
+    </oraciones>
+  </gramatica:Documento>
+  <gramatica:Oracion>
     <contenido>
-      <determinante descripcion="El/La"/>
-      <atributo prefijo="prefix" name="titulo"/>
-      <sintagma descripcion="de un/una"/>
-      <contexto name="Libro"/>
+      <determinante valor="El/La"/>
+      <atributo nombre="direccion"/>
+      <sintagma>
+        <enlace valor="de"/>
+        <termino>
+          <indeterminante valor="un/una"/>
+          <contexto nombre="Socio"/>
+        </termino>
+      </sintagma>
       <obligacion obligacionDeber="debe ser"/>
-      <operacion descripcion="distinto de"/>
+      <operacion/>
       <literal valor=""/>
     </contenido>
-  </oraciones>
-  <oraciones>
-    <contenido>
-      <determinante descripcion="El/La"/>
-      <atributo prefijo="prefix" name="titulo"/>
-      <sintagma descripcion="de un/una"/>
-      <contexto name="Libro"/>
-      <obligacion negacion="no" obligacionDeber="debe ser"/>
-      <operacion descripcion="distinto de"/>
-      <literal valor=""/>
-    </contenido>
-  </oraciones>
-</gramatica:Documento>
+  </gramatica:Oracion>
+</xmi:XMI>

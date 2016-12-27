@@ -10,17 +10,14 @@
  *******************************************************************************/
 package transformation;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Map.Entry;
-
+import java.util.Properties;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -42,8 +39,6 @@ import org.eclipse.m2m.atl.core.emf.EMFInjector;
 import org.eclipse.m2m.atl.core.emf.EMFModelFactory;
 import org.eclipse.m2m.atl.core.launch.ILauncher;
 import org.eclipse.m2m.atl.engine.emfvm.launch.EMFVMLauncher;
-
-import activator.Activator;
 /**
  * Entry point of the 'OCL2Debug' transformation module.
  */
@@ -142,8 +137,7 @@ public class OCL2LNR {
 	 	IReferenceModel oclMetamodel = factory.newReferenceModel();
 		injector.inject(oclMetamodel, getMetamodelUri("OCL"));
 		this.inModel = factory.newModel(oclMetamodel);
-
-		injector.inject(inModel,inModelPath);
+		injector.inject(inModel, inModelPath);
 		this.outModel = factory.newModel(lnrMetamodel);
 	}
 

@@ -17,11 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getDeterminante <em>Determinante</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getAtributo <em>Atributo</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getSintagma <em>Sintagma</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getContexto <em>Contexto</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getObligacion <em>Obligacion</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getOperacion <em>Operacion</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getLiteral <em>Literal</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getAtributoDer <em>Atributo Der</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple()
@@ -109,32 +107,6 @@ public interface Simple extends EObject
   void setSintagma(SintagmaPreposicional value);
 
   /**
-   * Returns the value of the '<em><b>Contexto</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Contexto</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Contexto</em>' containment reference.
-   * @see #setContexto(Clase)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Contexto()
-   * @model containment="true"
-   * @generated
-   */
-  Clase getContexto();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getContexto <em>Contexto</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Contexto</em>' containment reference.
-   * @see #getContexto()
-   * @generated
-   */
-  void setContexto(Clase value);
-
-  /**
    * Returns the value of the '<em><b>Obligacion</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -211,31 +183,5 @@ public interface Simple extends EObject
    * @generated
    */
   void setLiteral(Literal value);
-
-  /**
-   * Returns the value of the '<em><b>Atributo Der</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Atributo Der</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Atributo Der</em>' containment reference.
-   * @see #setAtributoDer(Atributo)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_AtributoDer()
-   * @model containment="true"
-   * @generated
-   */
-  Atributo getAtributoDer();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getAtributoDer <em>Atributo Der</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Atributo Der</em>' containment reference.
-   * @see #getAtributoDer()
-   * @generated
-   */
-  void setAtributoDer(Atributo value);
 
 } // Simple

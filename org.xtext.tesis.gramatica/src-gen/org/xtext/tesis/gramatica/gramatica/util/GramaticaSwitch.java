@@ -94,6 +94,20 @@ public class GramaticaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GramaticaPackage.COMPUESTA:
+      {
+        Compuesta compuesta = (Compuesta)theEObject;
+        T result = caseCompuesta(compuesta);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.NEXO:
+      {
+        Nexo nexo = (Nexo)theEObject;
+        T result = caseNexo(nexo);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GramaticaPackage.DETERMINANTE:
       {
         Determinante determinante = (Determinante)theEObject;
@@ -115,6 +129,27 @@ public class GramaticaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GramaticaPackage.ENLACE:
+      {
+        Enlace enlace = (Enlace)theEObject;
+        T result = caseEnlace(enlace);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.TERMINO:
+      {
+        Termino termino = (Termino)theEObject;
+        T result = caseTermino(termino);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GramaticaPackage.INDETERMINANTE:
+      {
+        Indeterminante indeterminante = (Indeterminante)theEObject;
+        T result = caseIndeterminante(indeterminante);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GramaticaPackage.OBLIGACION:
       {
         Obligacion obligacion = (Obligacion)theEObject;
@@ -129,10 +164,10 @@ public class GramaticaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GramaticaPackage.CLASE:
+      case GramaticaPackage.CONTEXTO:
       {
-        Clase clase = (Clase)theEObject;
-        T result = caseClase(clase);
+        Contexto contexto = (Contexto)theEObject;
+        T result = caseContexto(contexto);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -196,6 +231,38 @@ public class GramaticaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Compuesta</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Compuesta</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompuesta(Compuesta object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Nexo</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Nexo</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNexo(Nexo object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Determinante</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -244,6 +311,54 @@ public class GramaticaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Enlace</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enlace</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnlace(Enlace object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Termino</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Termino</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTermino(Termino object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Indeterminante</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Indeterminante</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIndeterminante(Indeterminante object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Obligacion</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -276,17 +391,17 @@ public class GramaticaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Clase</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Contexto</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Clase</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Contexto</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseClase(Clase object)
+  public T caseContexto(Contexto object)
   {
     return null;
   }

@@ -51,6 +51,24 @@ public interface GramaticaFactory extends EFactory
   Simple createSimple();
 
   /**
+   * Returns a new object of class '<em>Compuesta</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Compuesta</em>'.
+   * @generated
+   */
+  Compuesta createCompuesta();
+
+  /**
+   * Returns a new object of class '<em>Nexo</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nexo</em>'.
+   * @generated
+   */
+  Nexo createNexo();
+
+  /**
    * Returns a new object of class '<em>Determinante</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,6 +96,33 @@ public interface GramaticaFactory extends EFactory
   SintagmaPreposicional createSintagmaPreposicional();
 
   /**
+   * Returns a new object of class '<em>Enlace</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enlace</em>'.
+   * @generated
+   */
+  Enlace createEnlace();
+
+  /**
+   * Returns a new object of class '<em>Termino</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Termino</em>'.
+   * @generated
+   */
+  Termino createTermino();
+
+  /**
+   * Returns a new object of class '<em>Indeterminante</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Indeterminante</em>'.
+   * @generated
+   */
+  Indeterminante createIndeterminante();
+
+  /**
    * Returns a new object of class '<em>Obligacion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -96,13 +141,13 @@ public interface GramaticaFactory extends EFactory
   Operacion createOperacion();
 
   /**
-   * Returns a new object of class '<em>Clase</em>'.
+   * Returns a new object of class '<em>Contexto</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Clase</em>'.
+   * @return a new object of class '<em>Contexto</em>'.
    * @generated
    */
-  Clase createClase();
+  Contexto createContexto();
 
   /**
    * Returns a new object of class '<em>Literal</em>'.

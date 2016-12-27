@@ -11,17 +11,22 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.tesis.gramatica.gramatica.Atributo;
-import org.xtext.tesis.gramatica.gramatica.Clase;
+import org.xtext.tesis.gramatica.gramatica.Compuesta;
+import org.xtext.tesis.gramatica.gramatica.Contexto;
 import org.xtext.tesis.gramatica.gramatica.Determinante;
 import org.xtext.tesis.gramatica.gramatica.Documento;
+import org.xtext.tesis.gramatica.gramatica.Enlace;
 import org.xtext.tesis.gramatica.gramatica.GramaticaFactory;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
+import org.xtext.tesis.gramatica.gramatica.Indeterminante;
 import org.xtext.tesis.gramatica.gramatica.Literal;
+import org.xtext.tesis.gramatica.gramatica.Nexo;
 import org.xtext.tesis.gramatica.gramatica.Obligacion;
 import org.xtext.tesis.gramatica.gramatica.Operacion;
 import org.xtext.tesis.gramatica.gramatica.Oracion;
 import org.xtext.tesis.gramatica.gramatica.Simple;
 import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
+import org.xtext.tesis.gramatica.gramatica.Termino;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,6 +62,20 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass compuestaEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nexoEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass determinanteEClass = null;
 
   /**
@@ -78,6 +97,27 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass enlaceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass terminoEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass indeterminanteEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass obligacionEClass = null;
 
   /**
@@ -92,7 +132,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass claseEClass = null;
+  private EClass contextoEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -269,7 +309,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSimple_Contexto()
+  public EReference getSimple_Obligacion()
   {
     return (EReference)simpleEClass.getEStructuralFeatures().get(3);
   }
@@ -279,7 +319,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSimple_Obligacion()
+  public EReference getSimple_Operacion()
   {
     return (EReference)simpleEClass.getEStructuralFeatures().get(4);
   }
@@ -289,7 +329,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSimple_Operacion()
+  public EReference getSimple_Literal()
   {
     return (EReference)simpleEClass.getEStructuralFeatures().get(5);
   }
@@ -299,9 +339,9 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSimple_Literal()
+  public EClass getCompuesta()
   {
-    return (EReference)simpleEClass.getEStructuralFeatures().get(6);
+    return compuestaEClass;
   }
 
   /**
@@ -309,9 +349,59 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSimple_AtributoDer()
+  public EReference getCompuesta_Simple()
   {
-    return (EReference)simpleEClass.getEStructuralFeatures().get(7);
+    return (EReference)compuestaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompuesta_Nexo()
+  {
+    return (EReference)compuestaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompuesta_Oracion()
+  {
+    return (EReference)compuestaEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCompuesta_ExtraStr()
+  {
+    return (EAttribute)compuestaEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNexo()
+  {
+    return nexoEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNexo_Valor()
+  {
+    return (EAttribute)nexoEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -329,7 +419,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDeterminante_Descripcion()
+  public EAttribute getDeterminante_Valor()
   {
     return (EAttribute)determinanteEClass.getEStructuralFeatures().get(0);
   }
@@ -349,19 +439,9 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAtributo_Prefijo()
+  public EAttribute getAtributo_Nombre()
   {
     return (EAttribute)atributoEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAtributo_Name()
-  {
-    return (EAttribute)atributoEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -379,9 +459,89 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSintagmaPreposicional_Descripcion()
+  public EReference getSintagmaPreposicional_Enlace()
   {
-    return (EAttribute)sintagmaPreposicionalEClass.getEStructuralFeatures().get(0);
+    return (EReference)sintagmaPreposicionalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSintagmaPreposicional_Termino()
+  {
+    return (EReference)sintagmaPreposicionalEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEnlace()
+  {
+    return enlaceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEnlace_Valor()
+  {
+    return (EAttribute)enlaceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTermino()
+  {
+    return terminoEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTermino_Indeterminante()
+  {
+    return (EReference)terminoEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTermino_Contexto()
+  {
+    return (EReference)terminoEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIndeterminante()
+  {
+    return indeterminanteEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIndeterminante_Valor()
+  {
+    return (EAttribute)indeterminanteEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -439,9 +599,9 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getClase()
+  public EClass getContexto()
   {
-    return claseEClass;
+    return contextoEClass;
   }
 
   /**
@@ -449,9 +609,9 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClase_Name()
+  public EAttribute getContexto_Nombre()
   {
-    return (EAttribute)claseEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)contextoEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -516,21 +676,38 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     createEReference(simpleEClass, SIMPLE__DETERMINANTE);
     createEReference(simpleEClass, SIMPLE__ATRIBUTO);
     createEReference(simpleEClass, SIMPLE__SINTAGMA);
-    createEReference(simpleEClass, SIMPLE__CONTEXTO);
     createEReference(simpleEClass, SIMPLE__OBLIGACION);
     createEReference(simpleEClass, SIMPLE__OPERACION);
     createEReference(simpleEClass, SIMPLE__LITERAL);
-    createEReference(simpleEClass, SIMPLE__ATRIBUTO_DER);
+
+    compuestaEClass = createEClass(COMPUESTA);
+    createEReference(compuestaEClass, COMPUESTA__SIMPLE);
+    createEReference(compuestaEClass, COMPUESTA__NEXO);
+    createEReference(compuestaEClass, COMPUESTA__ORACION);
+    createEAttribute(compuestaEClass, COMPUESTA__EXTRA_STR);
+
+    nexoEClass = createEClass(NEXO);
+    createEAttribute(nexoEClass, NEXO__VALOR);
 
     determinanteEClass = createEClass(DETERMINANTE);
-    createEAttribute(determinanteEClass, DETERMINANTE__DESCRIPCION);
+    createEAttribute(determinanteEClass, DETERMINANTE__VALOR);
 
     atributoEClass = createEClass(ATRIBUTO);
-    createEAttribute(atributoEClass, ATRIBUTO__PREFIJO);
-    createEAttribute(atributoEClass, ATRIBUTO__NAME);
+    createEAttribute(atributoEClass, ATRIBUTO__NOMBRE);
 
     sintagmaPreposicionalEClass = createEClass(SINTAGMA_PREPOSICIONAL);
-    createEAttribute(sintagmaPreposicionalEClass, SINTAGMA_PREPOSICIONAL__DESCRIPCION);
+    createEReference(sintagmaPreposicionalEClass, SINTAGMA_PREPOSICIONAL__ENLACE);
+    createEReference(sintagmaPreposicionalEClass, SINTAGMA_PREPOSICIONAL__TERMINO);
+
+    enlaceEClass = createEClass(ENLACE);
+    createEAttribute(enlaceEClass, ENLACE__VALOR);
+
+    terminoEClass = createEClass(TERMINO);
+    createEReference(terminoEClass, TERMINO__INDETERMINANTE);
+    createEReference(terminoEClass, TERMINO__CONTEXTO);
+
+    indeterminanteEClass = createEClass(INDETERMINANTE);
+    createEAttribute(indeterminanteEClass, INDETERMINANTE__VALOR);
 
     obligacionEClass = createEClass(OBLIGACION);
     createEAttribute(obligacionEClass, OBLIGACION__NEGACION);
@@ -539,8 +716,8 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     operacionEClass = createEClass(OPERACION);
     createEAttribute(operacionEClass, OPERACION__DESCRIPCION);
 
-    claseEClass = createEClass(CLASE);
-    createEAttribute(claseEClass, CLASE__NAME);
+    contextoEClass = createEClass(CONTEXTO);
+    createEAttribute(contextoEClass, CONTEXTO__NOMBRE);
 
     literalEClass = createEClass(LITERAL);
     createEAttribute(literalEClass, LITERAL__VALOR);
@@ -583,27 +760,44 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     initEReference(getDocumento_Oraciones(), this.getOracion(), null, "oraciones", null, 0, -1, Documento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(oracionEClass, Oracion.class, "Oracion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOracion_Contenido(), this.getSimple(), null, "contenido", null, 0, 1, Oracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOracion_Contenido(), ecorePackage.getEObject(), null, "contenido", null, 0, 1, Oracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(simpleEClass, Simple.class, "Simple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSimple_Determinante(), this.getDeterminante(), null, "determinante", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSimple_Atributo(), this.getAtributo(), null, "atributo", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSimple_Sintagma(), this.getSintagmaPreposicional(), null, "sintagma", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSimple_Contexto(), this.getClase(), null, "contexto", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSimple_Obligacion(), this.getObligacion(), null, "obligacion", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSimple_Operacion(), this.getOperacion(), null, "operacion", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSimple_Literal(), this.getLiteral(), null, "literal", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSimple_AtributoDer(), this.getAtributo(), null, "atributoDer", null, 0, 1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(compuestaEClass, Compuesta.class, "Compuesta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCompuesta_Simple(), this.getSimple(), null, "simple", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompuesta_Nexo(), this.getNexo(), null, "nexo", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompuesta_Oracion(), this.getOracion(), null, "oracion", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCompuesta_ExtraStr(), ecorePackage.getEString(), "extraStr", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nexoEClass, Nexo.class, "Nexo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNexo_Valor(), ecorePackage.getEString(), "valor", null, 0, 1, Nexo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(determinanteEClass, Determinante.class, "Determinante", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDeterminante_Descripcion(), ecorePackage.getEString(), "descripcion", null, 0, 1, Determinante.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeterminante_Valor(), ecorePackage.getEString(), "valor", null, 0, 1, Determinante.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(atributoEClass, Atributo.class, "Atributo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAtributo_Prefijo(), ecorePackage.getEString(), "prefijo", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAtributo_Name(), ecorePackage.getEString(), "name", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAtributo_Nombre(), ecorePackage.getEString(), "nombre", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sintagmaPreposicionalEClass, SintagmaPreposicional.class, "SintagmaPreposicional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSintagmaPreposicional_Descripcion(), ecorePackage.getEString(), "descripcion", null, 0, 1, SintagmaPreposicional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSintagmaPreposicional_Enlace(), this.getEnlace(), null, "enlace", null, 0, 1, SintagmaPreposicional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSintagmaPreposicional_Termino(), this.getTermino(), null, "termino", null, 0, 1, SintagmaPreposicional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(enlaceEClass, Enlace.class, "Enlace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEnlace_Valor(), ecorePackage.getEString(), "valor", null, 0, 1, Enlace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(terminoEClass, Termino.class, "Termino", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTermino_Indeterminante(), this.getIndeterminante(), null, "indeterminante", null, 0, 1, Termino.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTermino_Contexto(), this.getContexto(), null, "contexto", null, 0, 1, Termino.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(indeterminanteEClass, Indeterminante.class, "Indeterminante", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIndeterminante_Valor(), ecorePackage.getEString(), "valor", null, 0, 1, Indeterminante.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(obligacionEClass, Obligacion.class, "Obligacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getObligacion_Negacion(), ecorePackage.getEString(), "negacion", null, 0, 1, Obligacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -612,8 +806,8 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     initEClass(operacionEClass, Operacion.class, "Operacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperacion_Descripcion(), ecorePackage.getEString(), "descripcion", null, 0, 1, Operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(claseEClass, Clase.class, "Clase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getClase_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(contextoEClass, Contexto.class, "Contexto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContexto_Nombre(), ecorePackage.getEString(), "nombre", null, 0, 1, Contexto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLiteral_Valor(), ecorePackage.getEString(), "valor", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

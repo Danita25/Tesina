@@ -7,21 +7,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Atributo</b></em>'.
+ * A representation of the model object '<em><b>Contexto</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Atributo#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Contexto#getNombre <em>Nombre</em>}</li>
  * </ul>
  *
- * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getAtributo()
+ * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getContexto()
  * @model
  * @generated
  */
-public interface Atributo extends EObject
+public interface Contexto extends EObject
 {
   /**
    * Returns the value of the '<em><b>Nombre</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface Atributo extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Nombre</em>' attribute.
    * @see #setNombre(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getAtributo_Nombre()
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getContexto_Nombre()
    * @model
    * @generated
    */
   String getNombre();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Atributo#getNombre <em>Nombre</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Contexto#getNombre <em>Nombre</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Nombre</em>' attribute.
@@ -49,4 +49,4 @@ public interface Atributo extends EObject
    */
   void setNombre(String value);
 
-} // Atributo
+} // Contexto

@@ -21,7 +21,7 @@ import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.DeterminanteImpl#getDescripcion <em>Descripcion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.DeterminanteImpl#getValor <em>Valor</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
 public class DeterminanteImpl extends MinimalEObjectImpl.Container implements Determinante
 {
   /**
-   * The default value of the '{@link #getDescripcion() <em>Descripcion</em>}' attribute.
+   * The default value of the '{@link #getValor() <em>Valor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescripcion()
+   * @see #getValor()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPCION_EDEFAULT = null;
+  protected static final String VALOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDescripcion() <em>Descripcion</em>}' attribute.
+   * The cached value of the '{@link #getValor() <em>Valor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescripcion()
+   * @see #getValor()
    * @generated
    * @ordered
    */
-  protected String descripcion = DESCRIPCION_EDEFAULT;
+  protected String valor = VALOR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class DeterminanteImpl extends MinimalEObjectImpl.Container implements De
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescripcion()
+  public String getValor()
   {
-    return descripcion;
+    return valor;
   }
 
   /**
@@ -84,12 +84,12 @@ public class DeterminanteImpl extends MinimalEObjectImpl.Container implements De
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescripcion(String newDescripcion)
+  public void setValor(String newValor)
   {
-    String oldDescripcion = descripcion;
-    descripcion = newDescripcion;
+    String oldValor = valor;
+    valor = newValor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.DETERMINANTE__DESCRIPCION, oldDescripcion, descripcion));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.DETERMINANTE__VALOR, oldValor, valor));
   }
 
   /**
@@ -102,8 +102,8 @@ public class DeterminanteImpl extends MinimalEObjectImpl.Container implements De
   {
     switch (featureID)
     {
-      case GramaticaPackage.DETERMINANTE__DESCRIPCION:
-        return getDescripcion();
+      case GramaticaPackage.DETERMINANTE__VALOR:
+        return getValor();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class DeterminanteImpl extends MinimalEObjectImpl.Container implements De
   {
     switch (featureID)
     {
-      case GramaticaPackage.DETERMINANTE__DESCRIPCION:
-        setDescripcion((String)newValue);
+      case GramaticaPackage.DETERMINANTE__VALOR:
+        setValor((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class DeterminanteImpl extends MinimalEObjectImpl.Container implements De
   {
     switch (featureID)
     {
-      case GramaticaPackage.DETERMINANTE__DESCRIPCION:
-        setDescripcion(DESCRIPCION_EDEFAULT);
+      case GramaticaPackage.DETERMINANTE__VALOR:
+        setValor(VALOR_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class DeterminanteImpl extends MinimalEObjectImpl.Container implements De
   {
     switch (featureID)
     {
-      case GramaticaPackage.DETERMINANTE__DESCRIPCION:
-        return DESCRIPCION_EDEFAULT == null ? descripcion != null : !DESCRIPCION_EDEFAULT.equals(descripcion);
+      case GramaticaPackage.DETERMINANTE__VALOR:
+        return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
     }
     return super.eIsSet(featureID);
   }
@@ -169,8 +169,8 @@ public class DeterminanteImpl extends MinimalEObjectImpl.Container implements De
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (descripcion: ");
-    result.append(descripcion);
+    result.append(" (valor: ");
+    result.append(valor);
     result.append(')');
     return result.toString();
   }

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.tesis.gramatica.gramatica.Atributo;
-import org.xtext.tesis.gramatica.gramatica.Clase;
 import org.xtext.tesis.gramatica.gramatica.Determinante;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
 import org.xtext.tesis.gramatica.gramatica.Literal;
@@ -33,11 +32,9 @@ import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getDeterminante <em>Determinante</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getAtributo <em>Atributo</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getSintagma <em>Sintagma</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getContexto <em>Contexto</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getObligacion <em>Obligacion</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getOperacion <em>Operacion</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getLiteral <em>Literal</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SimpleImpl#getAtributoDer <em>Atributo Der</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,16 +72,6 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
   protected SintagmaPreposicional sintagma;
 
   /**
-   * The cached value of the '{@link #getContexto() <em>Contexto</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContexto()
-   * @generated
-   * @ordered
-   */
-  protected Clase contexto;
-
-  /**
    * The cached value of the '{@link #getObligacion() <em>Obligacion</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -113,16 +100,6 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
    * @ordered
    */
   protected Literal literal;
-
-  /**
-   * The cached value of the '{@link #getAtributoDer() <em>Atributo Der</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAtributoDer()
-   * @generated
-   * @ordered
-   */
-  protected Atributo atributoDer;
 
   /**
    * <!-- begin-user-doc -->
@@ -294,54 +271,6 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
    * <!-- end-user-doc -->
    * @generated
    */
-  public Clase getContexto()
-  {
-    return contexto;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetContexto(Clase newContexto, NotificationChain msgs)
-  {
-    Clase oldContexto = contexto;
-    contexto = newContexto;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__CONTEXTO, oldContexto, newContexto);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContexto(Clase newContexto)
-  {
-    if (newContexto != contexto)
-    {
-      NotificationChain msgs = null;
-      if (contexto != null)
-        msgs = ((InternalEObject)contexto).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__CONTEXTO, null, msgs);
-      if (newContexto != null)
-        msgs = ((InternalEObject)newContexto).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__CONTEXTO, null, msgs);
-      msgs = basicSetContexto(newContexto, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__CONTEXTO, newContexto, newContexto));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Obligacion getObligacion()
   {
     return obligacion;
@@ -486,54 +415,6 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
    * <!-- end-user-doc -->
    * @generated
    */
-  public Atributo getAtributoDer()
-  {
-    return atributoDer;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAtributoDer(Atributo newAtributoDer, NotificationChain msgs)
-  {
-    Atributo oldAtributoDer = atributoDer;
-    atributoDer = newAtributoDer;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__ATRIBUTO_DER, oldAtributoDer, newAtributoDer);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAtributoDer(Atributo newAtributoDer)
-  {
-    if (newAtributoDer != atributoDer)
-    {
-      NotificationChain msgs = null;
-      if (atributoDer != null)
-        msgs = ((InternalEObject)atributoDer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__ATRIBUTO_DER, null, msgs);
-      if (newAtributoDer != null)
-        msgs = ((InternalEObject)newAtributoDer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SIMPLE__ATRIBUTO_DER, null, msgs);
-      msgs = basicSetAtributoDer(newAtributoDer, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SIMPLE__ATRIBUTO_DER, newAtributoDer, newAtributoDer));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -545,16 +426,12 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
         return basicSetAtributo(null, msgs);
       case GramaticaPackage.SIMPLE__SINTAGMA:
         return basicSetSintagma(null, msgs);
-      case GramaticaPackage.SIMPLE__CONTEXTO:
-        return basicSetContexto(null, msgs);
       case GramaticaPackage.SIMPLE__OBLIGACION:
         return basicSetObligacion(null, msgs);
       case GramaticaPackage.SIMPLE__OPERACION:
         return basicSetOperacion(null, msgs);
       case GramaticaPackage.SIMPLE__LITERAL:
         return basicSetLiteral(null, msgs);
-      case GramaticaPackage.SIMPLE__ATRIBUTO_DER:
-        return basicSetAtributoDer(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -575,16 +452,12 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
         return getAtributo();
       case GramaticaPackage.SIMPLE__SINTAGMA:
         return getSintagma();
-      case GramaticaPackage.SIMPLE__CONTEXTO:
-        return getContexto();
       case GramaticaPackage.SIMPLE__OBLIGACION:
         return getObligacion();
       case GramaticaPackage.SIMPLE__OPERACION:
         return getOperacion();
       case GramaticaPackage.SIMPLE__LITERAL:
         return getLiteral();
-      case GramaticaPackage.SIMPLE__ATRIBUTO_DER:
-        return getAtributoDer();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -608,9 +481,6 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
       case GramaticaPackage.SIMPLE__SINTAGMA:
         setSintagma((SintagmaPreposicional)newValue);
         return;
-      case GramaticaPackage.SIMPLE__CONTEXTO:
-        setContexto((Clase)newValue);
-        return;
       case GramaticaPackage.SIMPLE__OBLIGACION:
         setObligacion((Obligacion)newValue);
         return;
@@ -619,9 +489,6 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
         return;
       case GramaticaPackage.SIMPLE__LITERAL:
         setLiteral((Literal)newValue);
-        return;
-      case GramaticaPackage.SIMPLE__ATRIBUTO_DER:
-        setAtributoDer((Atributo)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -646,9 +513,6 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
       case GramaticaPackage.SIMPLE__SINTAGMA:
         setSintagma((SintagmaPreposicional)null);
         return;
-      case GramaticaPackage.SIMPLE__CONTEXTO:
-        setContexto((Clase)null);
-        return;
       case GramaticaPackage.SIMPLE__OBLIGACION:
         setObligacion((Obligacion)null);
         return;
@@ -657,9 +521,6 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
         return;
       case GramaticaPackage.SIMPLE__LITERAL:
         setLiteral((Literal)null);
-        return;
-      case GramaticaPackage.SIMPLE__ATRIBUTO_DER:
-        setAtributoDer((Atributo)null);
         return;
     }
     super.eUnset(featureID);
@@ -681,16 +542,12 @@ public class SimpleImpl extends MinimalEObjectImpl.Container implements Simple
         return atributo != null;
       case GramaticaPackage.SIMPLE__SINTAGMA:
         return sintagma != null;
-      case GramaticaPackage.SIMPLE__CONTEXTO:
-        return contexto != null;
       case GramaticaPackage.SIMPLE__OBLIGACION:
         return obligacion != null;
       case GramaticaPackage.SIMPLE__OPERACION:
         return operacion != null;
       case GramaticaPackage.SIMPLE__LITERAL:
         return literal != null;
-      case GramaticaPackage.SIMPLE__ATRIBUTO_DER:
-        return atributoDer != null;
     }
     return super.eIsSet(featureID);
   }

@@ -9,11 +9,11 @@ Documento:
 //		extraStr = STRING
 ;
 		
-Path hidden(): 
-       "/" ID ("/" ID)*;		
+//Path hidden(): 
+//       "/" ID ("/" ID)*;		
        
 Oracion:
-	contenido = Simple //| Compleja
+	contenido =   (Compuesta | Simple)
 //	extraStr = STRING
 ;
 
@@ -22,28 +22,49 @@ Simple:
 	determinante=Determinante 
 	atributo=Atributo  
 	sintagma=SintagmaPreposicional
-	contexto=Clase
 	obligacion=Obligacion
-	(operacion=Operacion)?
-	(literal=Literal | atributoDer=Atributo)
-	'.'
+	operacion=Operacion //saque el opcional
+	literal=Literal // solo literales por ahora para simples (literal=Literal | atributoDer=Atributo)
+	FinOracion
 //	extraStr = STRING
 	;
 
+Compuesta: 
+	simple=Simple
+	nexo=Nexo
+	oracion=Oracion
+	extraStr = STRING
+;
+
+Nexo: 
+	valor= ('y'|'o')
+;
+
+FinOracion :	'.\r\n';
+
 Determinante:
-	descripcion=('El/La'|'Los/Las')
+	valor= 'El/La' //(|'Los/Las') por ahora no lo necesito
 ;
 
-//No me gusta mucho hablar de coleccion, en el ejemplo defini la oracion de dos formas diferentes una consideramdo coleccion y otra no
 Atributo:
-	prefijo= ('Coleccion de')?
-	name=ID
+	//prefijo= ('Coleccion de')?
+	nombre=ID
 ;
 
-SintagmaPreposicional:
-	descripcion='de un/una'
-;
 
+SintagmaPreposicional: 
+		enlace = Enlace
+		termino =  Termino;
+
+Enlace: 
+	valor ='de';
+
+Termino: 
+		indeterminante = Indeterminante 
+		contexto = Contexto;
+
+Indeterminante: 
+	valor = 'un/una';
 
 Obligacion:
 	(negacion='no')? obligacionDeber='debe ser'
@@ -61,12 +82,12 @@ Operacion:
 	descripcion=('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a'| 'distinto de' | 'al menos')
 ;
 
-Clase:
-	name=ID
+Contexto:
+	nombre=ID
 ;
 
 Literal:
-	valor =  STRING
+	valor =  STRING 
 ;
 
 /**

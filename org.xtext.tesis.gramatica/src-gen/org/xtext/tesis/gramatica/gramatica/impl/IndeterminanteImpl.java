@@ -10,50 +10,50 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.tesis.gramatica.gramatica.Atributo;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
+import org.xtext.tesis.gramatica.gramatica.Indeterminante;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Atributo</b></em>'.
+ * An implementation of the model object '<em><b>Indeterminante</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.IndeterminanteImpl#getValor <em>Valor</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AtributoImpl extends MinimalEObjectImpl.Container implements Atributo
+public class IndeterminanteImpl extends MinimalEObjectImpl.Container implements Indeterminante
 {
   /**
-   * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
+   * The default value of the '{@link #getValor() <em>Valor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNombre()
+   * @see #getValor()
    * @generated
    * @ordered
    */
-  protected static final String NOMBRE_EDEFAULT = null;
+  protected static final String VALOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
+   * The cached value of the '{@link #getValor() <em>Valor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNombre()
+   * @see #getValor()
    * @generated
    * @ordered
    */
-  protected String nombre = NOMBRE_EDEFAULT;
+  protected String valor = VALOR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AtributoImpl()
+  protected IndeterminanteImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   @Override
   protected EClass eStaticClass()
   {
-    return GramaticaPackage.Literals.ATRIBUTO;
+    return GramaticaPackage.Literals.INDETERMINANTE;
   }
 
   /**
@@ -74,9 +74,9 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNombre()
+  public String getValor()
   {
-    return nombre;
+    return valor;
   }
 
   /**
@@ -84,12 +84,12 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNombre(String newNombre)
+  public void setValor(String newValor)
   {
-    String oldNombre = nombre;
-    nombre = newNombre;
+    String oldValor = valor;
+    valor = newValor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.ATRIBUTO__NOMBRE, oldNombre, nombre));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.INDETERMINANTE__VALOR, oldValor, valor));
   }
 
   /**
@@ -102,8 +102,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
-      case GramaticaPackage.ATRIBUTO__NOMBRE:
-        return getNombre();
+      case GramaticaPackage.INDETERMINANTE__VALOR:
+        return getValor();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
-      case GramaticaPackage.ATRIBUTO__NOMBRE:
-        setNombre((String)newValue);
+      case GramaticaPackage.INDETERMINANTE__VALOR:
+        setValor((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
-      case GramaticaPackage.ATRIBUTO__NOMBRE:
-        setNombre(NOMBRE_EDEFAULT);
+      case GramaticaPackage.INDETERMINANTE__VALOR:
+        setValor(VALOR_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
-      case GramaticaPackage.ATRIBUTO__NOMBRE:
-        return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
+      case GramaticaPackage.INDETERMINANTE__VALOR:
+        return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
     }
     return super.eIsSet(featureID);
   }
@@ -169,10 +169,10 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (nombre: ");
-    result.append(nombre);
+    result.append(" (valor: ");
+    result.append(valor);
     result.append(')');
     return result.toString();
   }
 
-} //AtributoImpl
+} //IndeterminanteImpl

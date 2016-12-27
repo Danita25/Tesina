@@ -35,14 +35,14 @@ public class GramaticaParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getSimpleAccess().getAlternatives_6(), "rule__Simple__Alternatives_6");
-					put(grammarAccess.getDeterminanteAccess().getDescripcionAlternatives_0(), "rule__Determinante__DescripcionAlternatives_0");
+					put(grammarAccess.getOracionAccess().getContenidoAlternatives_0(), "rule__Oracion__ContenidoAlternatives_0");
+					put(grammarAccess.getNexoAccess().getValorAlternatives_0(), "rule__Nexo__ValorAlternatives_0");
 					put(grammarAccess.getOperacionAccess().getDescripcionAlternatives_0(), "rule__Operacion__DescripcionAlternatives_0");
 					put(grammarAccess.getDocumentoAccess().getGroup(), "rule__Documento__Group__0");
-					put(grammarAccess.getPathAccess().getGroup(), "rule__Path__Group__0");
-					put(grammarAccess.getPathAccess().getGroup_2(), "rule__Path__Group_2__0");
 					put(grammarAccess.getSimpleAccess().getGroup(), "rule__Simple__Group__0");
-					put(grammarAccess.getAtributoAccess().getGroup(), "rule__Atributo__Group__0");
+					put(grammarAccess.getCompuestaAccess().getGroup(), "rule__Compuesta__Group__0");
+					put(grammarAccess.getSintagmaPreposicionalAccess().getGroup(), "rule__SintagmaPreposicional__Group__0");
+					put(grammarAccess.getTerminoAccess().getGroup(), "rule__Termino__Group__0");
 					put(grammarAccess.getObligacionAccess().getGroup(), "rule__Obligacion__Group__0");
 					put(grammarAccess.getDocumentoAccess().getPathModeloAssignment_0(), "rule__Documento__PathModeloAssignment_0");
 					put(grammarAccess.getDocumentoAccess().getPathOclAssignment_1(), "rule__Documento__PathOclAssignment_1");
@@ -51,19 +51,26 @@ public class GramaticaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleAccess().getDeterminanteAssignment_0(), "rule__Simple__DeterminanteAssignment_0");
 					put(grammarAccess.getSimpleAccess().getAtributoAssignment_1(), "rule__Simple__AtributoAssignment_1");
 					put(grammarAccess.getSimpleAccess().getSintagmaAssignment_2(), "rule__Simple__SintagmaAssignment_2");
-					put(grammarAccess.getSimpleAccess().getContextoAssignment_3(), "rule__Simple__ContextoAssignment_3");
-					put(grammarAccess.getSimpleAccess().getObligacionAssignment_4(), "rule__Simple__ObligacionAssignment_4");
-					put(grammarAccess.getSimpleAccess().getOperacionAssignment_5(), "rule__Simple__OperacionAssignment_5");
-					put(grammarAccess.getSimpleAccess().getLiteralAssignment_6_0(), "rule__Simple__LiteralAssignment_6_0");
-					put(grammarAccess.getSimpleAccess().getAtributoDerAssignment_6_1(), "rule__Simple__AtributoDerAssignment_6_1");
-					put(grammarAccess.getDeterminanteAccess().getDescripcionAssignment(), "rule__Determinante__DescripcionAssignment");
-					put(grammarAccess.getAtributoAccess().getPrefijoAssignment_0(), "rule__Atributo__PrefijoAssignment_0");
-					put(grammarAccess.getAtributoAccess().getNameAssignment_1(), "rule__Atributo__NameAssignment_1");
-					put(grammarAccess.getSintagmaPreposicionalAccess().getDescripcionAssignment(), "rule__SintagmaPreposicional__DescripcionAssignment");
+					put(grammarAccess.getSimpleAccess().getObligacionAssignment_3(), "rule__Simple__ObligacionAssignment_3");
+					put(grammarAccess.getSimpleAccess().getOperacionAssignment_4(), "rule__Simple__OperacionAssignment_4");
+					put(grammarAccess.getSimpleAccess().getLiteralAssignment_5(), "rule__Simple__LiteralAssignment_5");
+					put(grammarAccess.getCompuestaAccess().getSimpleAssignment_0(), "rule__Compuesta__SimpleAssignment_0");
+					put(grammarAccess.getCompuestaAccess().getNexoAssignment_1(), "rule__Compuesta__NexoAssignment_1");
+					put(grammarAccess.getCompuestaAccess().getOracionAssignment_2(), "rule__Compuesta__OracionAssignment_2");
+					put(grammarAccess.getCompuestaAccess().getExtraStrAssignment_3(), "rule__Compuesta__ExtraStrAssignment_3");
+					put(grammarAccess.getNexoAccess().getValorAssignment(), "rule__Nexo__ValorAssignment");
+					put(grammarAccess.getDeterminanteAccess().getValorAssignment(), "rule__Determinante__ValorAssignment");
+					put(grammarAccess.getAtributoAccess().getNombreAssignment(), "rule__Atributo__NombreAssignment");
+					put(grammarAccess.getSintagmaPreposicionalAccess().getEnlaceAssignment_0(), "rule__SintagmaPreposicional__EnlaceAssignment_0");
+					put(grammarAccess.getSintagmaPreposicionalAccess().getTerminoAssignment_1(), "rule__SintagmaPreposicional__TerminoAssignment_1");
+					put(grammarAccess.getEnlaceAccess().getValorAssignment(), "rule__Enlace__ValorAssignment");
+					put(grammarAccess.getTerminoAccess().getIndeterminanteAssignment_0(), "rule__Termino__IndeterminanteAssignment_0");
+					put(grammarAccess.getTerminoAccess().getContextoAssignment_1(), "rule__Termino__ContextoAssignment_1");
+					put(grammarAccess.getIndeterminanteAccess().getValorAssignment(), "rule__Indeterminante__ValorAssignment");
 					put(grammarAccess.getObligacionAccess().getNegacionAssignment_0(), "rule__Obligacion__NegacionAssignment_0");
 					put(grammarAccess.getObligacionAccess().getObligacionDeberAssignment_1(), "rule__Obligacion__ObligacionDeberAssignment_1");
 					put(grammarAccess.getOperacionAccess().getDescripcionAssignment(), "rule__Operacion__DescripcionAssignment");
-					put(grammarAccess.getClaseAccess().getNameAssignment(), "rule__Clase__NameAssignment");
+					put(grammarAccess.getContextoAccess().getNombreAssignment(), "rule__Contexto__NombreAssignment");
 					put(grammarAccess.getLiteralAccess().getValorAssignment(), "rule__Literal__ValorAssignment");
 				}
 			};

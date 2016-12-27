@@ -7,21 +7,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Determinante</b></em>'.
+ * A representation of the model object '<em><b>Nexo</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Determinante#getValor <em>Valor</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Nexo#getValor <em>Valor</em>}</li>
  * </ul>
  *
- * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getDeterminante()
+ * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getNexo()
  * @model
  * @generated
  */
-public interface Determinante extends EObject
+public interface Nexo extends EObject
 {
   /**
    * Returns the value of the '<em><b>Valor</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface Determinante extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Valor</em>' attribute.
    * @see #setValor(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getDeterminante_Valor()
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getNexo_Valor()
    * @model
    * @generated
    */
   String getValor();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Determinante#getValor <em>Valor</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Nexo#getValor <em>Valor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Valor</em>' attribute.
@@ -49,4 +49,4 @@ public interface Determinante extends EObject
    */
   void setValor(String value);
 
-} // Determinante
+} // Nexo

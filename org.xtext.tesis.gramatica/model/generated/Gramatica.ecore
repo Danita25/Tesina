@@ -9,7 +9,7 @@
         eType="#//Oracion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Oracion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contenido" eType="#//Simple"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contenido" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Simple">
@@ -19,26 +19,47 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sintagma" eType="#//SintagmaPreposicional"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contexto" eType="#//Clase"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="obligacion" eType="#//Obligacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operacion" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="literal" eType="#//Literal"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="atributoDer" eType="#//Atributo"
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Compuesta">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simple" eType="#//Simple"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nexo" eType="#//Nexo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oracion" eType="#//Oracion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraStr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nexo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Determinante">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Atributo">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefijo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SintagmaPreposicional">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enlace" eType="#//Enlace"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="termino" eType="#//Termino"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enlace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Termino">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="indeterminante" eType="#//Indeterminante"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contexto" eType="#//Contexto"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Indeterminante">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Obligacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="negacion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -47,8 +68,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Clase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Contexto">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Literal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

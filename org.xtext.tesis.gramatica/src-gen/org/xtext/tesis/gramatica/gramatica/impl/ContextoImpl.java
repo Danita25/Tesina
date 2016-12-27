@@ -10,23 +10,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.tesis.gramatica.gramatica.Atributo;
+import org.xtext.tesis.gramatica.gramatica.Contexto;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Atributo</b></em>'.
+ * An implementation of the model object '<em><b>Contexto</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ContextoImpl#getNombre <em>Nombre</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AtributoImpl extends MinimalEObjectImpl.Container implements Atributo
+public class ContextoImpl extends MinimalEObjectImpl.Container implements Contexto
 {
   /**
    * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
@@ -53,7 +53,7 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AtributoImpl()
+  protected ContextoImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   @Override
   protected EClass eStaticClass()
   {
-    return GramaticaPackage.Literals.ATRIBUTO;
+    return GramaticaPackage.Literals.CONTEXTO;
   }
 
   /**
@@ -89,7 +89,7 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     String oldNombre = nombre;
     nombre = newNombre;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.ATRIBUTO__NOMBRE, oldNombre, nombre));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.CONTEXTO__NOMBRE, oldNombre, nombre));
   }
 
   /**
@@ -102,7 +102,7 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
-      case GramaticaPackage.ATRIBUTO__NOMBRE:
+      case GramaticaPackage.CONTEXTO__NOMBRE:
         return getNombre();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -118,7 +118,7 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
-      case GramaticaPackage.ATRIBUTO__NOMBRE:
+      case GramaticaPackage.CONTEXTO__NOMBRE:
         setNombre((String)newValue);
         return;
     }
@@ -135,7 +135,7 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
-      case GramaticaPackage.ATRIBUTO__NOMBRE:
+      case GramaticaPackage.CONTEXTO__NOMBRE:
         setNombre(NOMBRE_EDEFAULT);
         return;
     }
@@ -152,7 +152,7 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
-      case GramaticaPackage.ATRIBUTO__NOMBRE:
+      case GramaticaPackage.CONTEXTO__NOMBRE:
         return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
     }
     return super.eIsSet(featureID);
@@ -175,4 +175,4 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     return result.toString();
   }
 
-} //AtributoImpl
+} //ContextoImpl

@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional#getDescripcion <em>Descripcion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional#getEnlace <em>Enlace</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional#getTermino <em>Termino</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSintagmaPreposicional()
@@ -24,29 +25,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface SintagmaPreposicional extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Descripcion</b></em>' attribute.
+   * Returns the value of the '<em><b>Enlace</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Descripcion</em>' attribute isn't clear,
+   * If the meaning of the '<em>Enlace</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Descripcion</em>' attribute.
-   * @see #setDescripcion(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSintagmaPreposicional_Descripcion()
-   * @model
+   * @return the value of the '<em>Enlace</em>' containment reference.
+   * @see #setEnlace(Enlace)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSintagmaPreposicional_Enlace()
+   * @model containment="true"
    * @generated
    */
-  String getDescripcion();
+  Enlace getEnlace();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional#getDescripcion <em>Descripcion</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional#getEnlace <em>Enlace</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Descripcion</em>' attribute.
-   * @see #getDescripcion()
+   * @param value the new value of the '<em>Enlace</em>' containment reference.
+   * @see #getEnlace()
    * @generated
    */
-  void setDescripcion(String value);
+  void setEnlace(Enlace value);
+
+  /**
+   * Returns the value of the '<em><b>Termino</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Termino</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Termino</em>' containment reference.
+   * @see #setTermino(Termino)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSintagmaPreposicional_Termino()
+   * @model containment="true"
+   * @generated
+   */
+  Termino getTermino();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional#getTermino <em>Termino</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Termino</em>' containment reference.
+   * @see #getTermino()
+   * @generated
+   */
+  void setTermino(Termino value);
 
 } // SintagmaPreposicional

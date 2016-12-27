@@ -26,9 +26,19 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getFinOracionRule())
+			return getFinOracionToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * FinOracion :	'.\r\n';
+	 */
+	protected String getFinOracionToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ".\r\n";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
