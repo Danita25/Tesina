@@ -45,6 +45,19 @@ helper def: operationName(str: String): String =
 		 endif
 	endif;
 
+helper context OclAny def: getExpressionInOCL() : OCL!ExpressionInOCL =
+--	let 
+--		parent: OclAny = self.refImmediateComposite()
+--	in
+	if self.refImmediateComposite().oclIsTypeOf(OCL!ExpressionInOCL) then
+		self.refImmediateComposite()
+	else if self.refImmediateComposite().oclIsUndefined() then
+			OclUndefined
+		else 
+			self.refImmediateComposite().getExpressionInOCL()
+		endif
+	endif;
+			
 -------------------------------------------------------------------------------
 -- RULES ----------------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -57,7 +70,7 @@ rule Model2Documento {
 		t2: LNR!Documento (
 			pathModelo <- s.ownedPackages.first().URI,
 			pathOcl <- s.externalURI
-			, oraciones <- s.ownedPackages.first().ownedClasses.first().ownedInvariants
+			, oraciones <- s.ownedPackages.first().ownedClasses->collect(e | e.ownedInvariants).flatten()
 		)
 }
 
@@ -67,44 +80,14 @@ rule Constraint2Oracion {
 	to 
 		t : LNR!Oracion ( 
 		--	extraStr <- s.ownedSpecification.body,
-			contenido <- s.ownedSpecification
+			contenido <- s.ownedSpecification.ownedBody
 		)
 }
 
-
-rule ExpressionInOCL2Simple {
+lazy rule ExpressionInOCL2SintagmaPreposicional {
 	from
-		s: OCL!ExpressionInOCL (s.ownedBody.name <> 'and' and s.ownedBody.name <> 'notEmpty') 
-	to
-		t2: LNR!Simple (
-				--extraStr <- s.getBody() + s.ownedBody.name + s.ownedBody.oclIsTypeOf(OCL!OperationCallExp).toString() ,
-				determinante <- d,
-				atributo <- a,
-				sintagma <- sp, 
---				contexto <- c,
-				obligacion <- ob, 
-				operacion <- op, 
-				literal <- l 
-		),
-		d: LNR!Determinante (valor <- 'El/La'),
-		a: LNR!Atributo (
-			--prefijo <- 'prefix', --+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!ReferringElement),
-			--+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!NavigationCallExp),
-			nombre <- if (s.ownedBody.oclIsTypeOf(OCL!OperationCallExp)) then 
-						if (s.ownedBody.ownedSource.oclIsTypeOf(OCL!PropertyCallExp)) then
-						     thisModule.removePrefix(s.ownedBody.ownedSource.referredProperty.toString())
-						else --not (self.titulo <> '')) tengo que bajar un nivel para poder retornar el atributo, hay que ver que pasa con multiples niveles.
-							 if (s.ownedBody.ownedSource.oclIsTypeOf(OCL!OperationCallExp)) then
-						     	--'test'+s.ownedBody.ownedSource.ownedSource.referredProperty.toString()
-							 	thisModule.removePrefix(s.ownedBody.ownedSource.ownedSource.referredProperty.toString())
-							 else 
-							 	OclUndefined
-							 endif
-						endif
-					else
-						'no es opCall'+s.ownedBody.ownedSource.oclType().toString()
-					endif
-		),
+		s : OCL!ExpressionInOCL
+	to 
 		sp: LNR!SintagmaPreposicional ( 
 			enlace <- e, 
 			termino <- t
@@ -120,10 +103,47 @@ rule ExpressionInOCL2Simple {
 			valor <- 'un/una'		
 		),
 		c: LNR!Contexto (
-			nombre <- s.owningConstraint.context.name	
-		), 
+			nombre <- if (s.oclIsUndefined()) then OclUndefined else s.owningConstraint.context.name endif	
+		) 
+}
+		
+
+
+rule OperationCallExp2Simple {
+	from
+		s: OCL!OperationCallExp (s.name <> 'and' and s.name <> 'notEmpty' ) 
+	to
+		t2: LNR!Simple (
+				--extraStr <- s.getBody() + s.ownedBody.name + s.ownedBody.oclIsTypeOf(OCL!OperationCallExp).toString() ,
+				determinante <- d,
+				atributo <- a,
+				sintagma <- thisModule.ExpressionInOCL2SintagmaPreposicional(s.getExpressionInOCL()), 
+--				contexto <- c,
+				obligacion <- ob, 
+				operacion <- op, 
+				literal <- l 
+		),
+		d: LNR!Determinante (valor <- 'El/La'),
+		a: LNR!Atributo (
+			--prefijo <- 'prefix', --+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!ReferringElement),
+			--+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!NavigationCallExp),
+			nombre <- if (s.oclIsTypeOf(OCL!OperationCallExp)) then 
+						if (s.ownedSource.oclIsTypeOf(OCL!PropertyCallExp)) then
+						     thisModule.removePrefix(s.ownedSource.referredProperty.toString())
+						else --not (self.titulo <> '')) tengo que bajar un nivel para poder retornar el atributo, hay que ver que pasa con multiples niveles.
+							 if (s.ownedSource.oclIsTypeOf(OCL!OperationCallExp)) then
+						     	--'test'+s.ownedBody.ownedSource.ownedSource.referredProperty.toString()
+							 	thisModule.removePrefix(s.ownedSource.ownedSource.referredProperty.toString())
+							 else 
+							 	OclUndefined
+							 endif
+						endif
+					else
+						'no es opCall'+s.ownedSource.oclType().toString()
+					endif
+		),
 		ob: LNR!Obligacion (
-			negacion <- if (s.ownedBody.name = 'not') then 
+			negacion <- if (s.name = 'not') then 
 							'no'
 						else
 							OclUndefined
@@ -131,30 +151,35 @@ rule ExpressionInOCL2Simple {
 			obligacionDeber <- 'debe ser' 
 			), 
 		op: LNR!Operacion(
-			descripcion <-  if(s.ownedBody.name = 'not')then 
-								thisModule.operationName(s.ownedBody.ownedSource.name)
+			descripcion <-  if(s.name = 'not')then 
+								thisModule.operationName(s.ownedSource.name)
 						   	else
-						   		thisModule.operationName(s.ownedBody.name)
+						   		thisModule.operationName(s.name)
 							endif
 			),
 		l: LNR!Literal (
-			valor <- if(s.ownedBody.name = 'not')  or (s.ownedBody.name = 'and') then 
+			valor <- if(s.name = 'not')  or (s.name = 'and') then 
 								--'not'
-								s.ownedBody.ownedSource.ownedArguments.first().stringSymbol
+								s.ownedSource.ownedArguments.first().stringSymbol
 						   	else 
-						   		s.ownedBody.ownedArguments.first().stringSymbol
+						   		s.ownedArguments.first().stringSymbol
 						   	endif)
 			
 }	
 
 --Generar otra regla para simples donde el atributo es una coleccion. 
-rule ExpressionInOCL2Compuesta {
+rule OperationCallExp2Compuesta {
 	from
-		s: OCL!ExpressionInOCL (s.ownedBody.name = 'and' and s.ownedBody.name <> 'notEmpty')
+		s: OCL!OperationCallExp (s.name = 'and' and s.name <> 'notEmpty')
 	to
 		t2: LNR!Compuesta(
-			simple <- s.ownedBody.ownedSource,
-			nexo <- 'y',
-			oracion <- s.ownedBody.ownedArguments.first()
-)
+			simple <- s.ownedSource,
+			nexo <- n,
+			oracion <- o
+		),
+		n: LNR!Nexo(valor <- 'y'),
+		o: LNR!Oracion (
+		  contenido <- s.ownedArguments.first()
+		)
+
 }	
