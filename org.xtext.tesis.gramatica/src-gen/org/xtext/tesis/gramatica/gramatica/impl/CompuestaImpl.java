@@ -29,7 +29,6 @@ import org.xtext.tesis.gramatica.gramatica.Simple;
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl#getSimple <em>Simple</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl#getNexo <em>Nexo</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl#getOracion <em>Oracion</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.CompuestaImpl#getExtraStr <em>Extra Str</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,26 +64,6 @@ public class CompuestaImpl extends MinimalEObjectImpl.Container implements Compu
    * @ordered
    */
   protected Oracion oracion;
-
-  /**
-   * The default value of the '{@link #getExtraStr() <em>Extra Str</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExtraStr()
-   * @generated
-   * @ordered
-   */
-  protected static final String EXTRA_STR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getExtraStr() <em>Extra Str</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExtraStr()
-   * @generated
-   * @ordered
-   */
-  protected String extraStr = EXTRA_STR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -256,29 +235,6 @@ public class CompuestaImpl extends MinimalEObjectImpl.Container implements Compu
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getExtraStr()
-  {
-    return extraStr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExtraStr(String newExtraStr)
-  {
-    String oldExtraStr = extraStr;
-    extraStr = newExtraStr;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPUESTA__EXTRA_STR, oldExtraStr, extraStr));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -310,8 +266,6 @@ public class CompuestaImpl extends MinimalEObjectImpl.Container implements Compu
         return getNexo();
       case GramaticaPackage.COMPUESTA__ORACION:
         return getOracion();
-      case GramaticaPackage.COMPUESTA__EXTRA_STR:
-        return getExtraStr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -334,9 +288,6 @@ public class CompuestaImpl extends MinimalEObjectImpl.Container implements Compu
         return;
       case GramaticaPackage.COMPUESTA__ORACION:
         setOracion((Oracion)newValue);
-        return;
-      case GramaticaPackage.COMPUESTA__EXTRA_STR:
-        setExtraStr((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -361,9 +312,6 @@ public class CompuestaImpl extends MinimalEObjectImpl.Container implements Compu
       case GramaticaPackage.COMPUESTA__ORACION:
         setOracion((Oracion)null);
         return;
-      case GramaticaPackage.COMPUESTA__EXTRA_STR:
-        setExtraStr(EXTRA_STR_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -384,27 +332,8 @@ public class CompuestaImpl extends MinimalEObjectImpl.Container implements Compu
         return nexo != null;
       case GramaticaPackage.COMPUESTA__ORACION:
         return oracion != null;
-      case GramaticaPackage.COMPUESTA__EXTRA_STR:
-        return EXTRA_STR_EDEFAULT == null ? extraStr != null : !EXTRA_STR_EDEFAULT.equals(extraStr);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (extraStr: ");
-    result.append(extraStr);
-    result.append(')');
-    return result.toString();
   }
 
 } //CompuestaImpl

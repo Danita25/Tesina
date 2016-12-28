@@ -60,28 +60,37 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class OracionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Oracion");
-		private final Assignment cContenidoAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cContenidoAlternatives_0 = (Alternatives)cContenidoAssignment.eContents().get(0);
-		private final RuleCall cContenidoCompuestaParserRuleCall_0_0 = (RuleCall)cContenidoAlternatives_0.eContents().get(0);
-		private final RuleCall cContenidoSimpleParserRuleCall_0_1 = (RuleCall)cContenidoAlternatives_0.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cContenidoAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cContenidoAlternatives_0_0 = (Alternatives)cContenidoAssignment_0.eContents().get(0);
+		private final RuleCall cContenidoCompuestaParserRuleCall_0_0_0 = (RuleCall)cContenidoAlternatives_0_0.eContents().get(0);
+		private final RuleCall cContenidoSimpleParserRuleCall_0_0_1 = (RuleCall)cContenidoAlternatives_0_0.eContents().get(1);
+		private final RuleCall cFinOracionParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		////Path hidden(): 
 		// //       "/" ID ("/" ID)*;		
 		// Oracion:
-		//	contenido=(Compuesta | Simple);
+		//	contenido=(Compuesta | Simple) FinOracion //	extraStr = STRING
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//contenido=(Compuesta | Simple) FinOracion
+		public Group getGroup() { return cGroup; }
+		
 		//contenido=(Compuesta | Simple)
-		public Assignment getContenidoAssignment() { return cContenidoAssignment; }
+		public Assignment getContenidoAssignment_0() { return cContenidoAssignment_0; }
 		
 		//(Compuesta | Simple)
-		public Alternatives getContenidoAlternatives_0() { return cContenidoAlternatives_0; }
+		public Alternatives getContenidoAlternatives_0_0() { return cContenidoAlternatives_0_0; }
 		
 		//Compuesta
-		public RuleCall getContenidoCompuestaParserRuleCall_0_0() { return cContenidoCompuestaParserRuleCall_0_0; }
+		public RuleCall getContenidoCompuestaParserRuleCall_0_0_0() { return cContenidoCompuestaParserRuleCall_0_0_0; }
 		
 		//Simple
-		public RuleCall getContenidoSimpleParserRuleCall_0_1() { return cContenidoSimpleParserRuleCall_0_1; }
+		public RuleCall getContenidoSimpleParserRuleCall_0_0_1() { return cContenidoSimpleParserRuleCall_0_0_1; }
+		
+		//FinOracion
+		public RuleCall getFinOracionParserRuleCall_1() { return cFinOracionParserRuleCall_1; }
 	}
 	public class SimpleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Simple");
@@ -98,22 +107,19 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOperacionOperacionParserRuleCall_4_0 = (RuleCall)cOperacionAssignment_4.eContents().get(0);
 		private final Assignment cLiteralAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cLiteralLiteralParserRuleCall_5_0 = (RuleCall)cLiteralAssignment_5.eContents().get(0);
-		private final RuleCall cFinOracionParserRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//Simple:
 		//	determinante=Determinante atributo=Atributo sintagma=SintagmaPreposicional obligacion=Obligacion operacion=Operacion
 		//	//saque el opcional
 		// literal=Literal
 		//	// solo literales por ahora para simples (literal=Literal | atributoDer=Atributo)
-		// FinOracion //	extraStr = STRING
+		// //	extraStr = STRING
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//determinante=Determinante atributo=Atributo sintagma=SintagmaPreposicional obligacion=Obligacion operacion=Operacion
 		////saque el opcional
 		// literal=Literal
-		//// solo literales por ahora para simples (literal=Literal | atributoDer=Atributo)
-		// FinOracion
 		public Group getGroup() { return cGroup; }
 		
 		//determinante=Determinante
@@ -152,10 +158,6 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Literal
 		public RuleCall getLiteralLiteralParserRuleCall_5_0() { return cLiteralLiteralParserRuleCall_5_0; }
-		
-		//// solo literales por ahora para simples (literal=Literal | atributoDer=Atributo)
-		// FinOracion
-		public RuleCall getFinOracionParserRuleCall_6() { return cFinOracionParserRuleCall_6; }
 	}
 	public class CompuestaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Compuesta");
@@ -166,14 +168,13 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNexoNexoParserRuleCall_1_0 = (RuleCall)cNexoAssignment_1.eContents().get(0);
 		private final Assignment cOracionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cOracionOracionParserRuleCall_2_0 = (RuleCall)cOracionAssignment_2.eContents().get(0);
-		private final Assignment cExtraStrAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExtraStrSTRINGTerminalRuleCall_3_0 = (RuleCall)cExtraStrAssignment_3.eContents().get(0);
 		
 		//Compuesta:
-		//	simple=Simple nexo=Nexo oracion=Oracion extraStr=STRING;
+		//	simple=Simple nexo=Nexo oracion=Oracion //	extraStr = STRING
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//simple=Simple nexo=Nexo oracion=Oracion extraStr=STRING
+		//simple=Simple nexo=Nexo oracion=Oracion
 		public Group getGroup() { return cGroup; }
 		
 		//simple=Simple
@@ -193,12 +194,6 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Oracion
 		public RuleCall getOracionOracionParserRuleCall_2_0() { return cOracionOracionParserRuleCall_2_0; }
-		
-		//extraStr=STRING
-		public Assignment getExtraStrAssignment_3() { return cExtraStrAssignment_3; }
-		
-		//STRING
-		public RuleCall getExtraStrSTRINGTerminalRuleCall_3_0() { return cExtraStrSTRINGTerminalRuleCall_3_0; }
 	}
 	public class NexoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Nexo");
@@ -546,7 +541,8 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	////Path hidden(): 
 	// //       "/" ID ("/" ID)*;		
 	// Oracion:
-	//	contenido=(Compuesta | Simple);
+	//	contenido=(Compuesta | Simple) FinOracion //	extraStr = STRING
+	//;
 	public OracionElements getOracionAccess() {
 		return pOracion;
 	}
@@ -560,7 +556,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	//	//saque el opcional
 	// literal=Literal
 	//	// solo literales por ahora para simples (literal=Literal | atributoDer=Atributo)
-	// FinOracion //	extraStr = STRING
+	// //	extraStr = STRING
 	//;
 	public SimpleElements getSimpleAccess() {
 		return pSimple;
@@ -571,7 +567,8 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Compuesta:
-	//	simple=Simple nexo=Nexo oracion=Oracion extraStr=STRING;
+	//	simple=Simple nexo=Nexo oracion=Oracion //	extraStr = STRING
+	//;
 	public CompuestaElements getCompuestaAccess() {
 		return pCompuesta;
 	}

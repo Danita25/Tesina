@@ -35,10 +35,11 @@ public class GramaticaParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getOracionAccess().getContenidoAlternatives_0(), "rule__Oracion__ContenidoAlternatives_0");
+					put(grammarAccess.getOracionAccess().getContenidoAlternatives_0_0(), "rule__Oracion__ContenidoAlternatives_0_0");
 					put(grammarAccess.getNexoAccess().getValorAlternatives_0(), "rule__Nexo__ValorAlternatives_0");
 					put(grammarAccess.getOperacionAccess().getDescripcionAlternatives_0(), "rule__Operacion__DescripcionAlternatives_0");
 					put(grammarAccess.getDocumentoAccess().getGroup(), "rule__Documento__Group__0");
+					put(grammarAccess.getOracionAccess().getGroup(), "rule__Oracion__Group__0");
 					put(grammarAccess.getSimpleAccess().getGroup(), "rule__Simple__Group__0");
 					put(grammarAccess.getCompuestaAccess().getGroup(), "rule__Compuesta__Group__0");
 					put(grammarAccess.getSintagmaPreposicionalAccess().getGroup(), "rule__SintagmaPreposicional__Group__0");
@@ -47,7 +48,7 @@ public class GramaticaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDocumentoAccess().getPathModeloAssignment_0(), "rule__Documento__PathModeloAssignment_0");
 					put(grammarAccess.getDocumentoAccess().getPathOclAssignment_1(), "rule__Documento__PathOclAssignment_1");
 					put(grammarAccess.getDocumentoAccess().getOracionesAssignment_2(), "rule__Documento__OracionesAssignment_2");
-					put(grammarAccess.getOracionAccess().getContenidoAssignment(), "rule__Oracion__ContenidoAssignment");
+					put(grammarAccess.getOracionAccess().getContenidoAssignment_0(), "rule__Oracion__ContenidoAssignment_0");
 					put(grammarAccess.getSimpleAccess().getDeterminanteAssignment_0(), "rule__Simple__DeterminanteAssignment_0");
 					put(grammarAccess.getSimpleAccess().getAtributoAssignment_1(), "rule__Simple__AtributoAssignment_1");
 					put(grammarAccess.getSimpleAccess().getSintagmaAssignment_2(), "rule__Simple__SintagmaAssignment_2");
@@ -57,7 +58,6 @@ public class GramaticaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCompuestaAccess().getSimpleAssignment_0(), "rule__Compuesta__SimpleAssignment_0");
 					put(grammarAccess.getCompuestaAccess().getNexoAssignment_1(), "rule__Compuesta__NexoAssignment_1");
 					put(grammarAccess.getCompuestaAccess().getOracionAssignment_2(), "rule__Compuesta__OracionAssignment_2");
-					put(grammarAccess.getCompuestaAccess().getExtraStrAssignment_3(), "rule__Compuesta__ExtraStrAssignment_3");
 					put(grammarAccess.getNexoAccess().getValorAssignment(), "rule__Nexo__ValorAssignment");
 					put(grammarAccess.getDeterminanteAccess().getValorAssignment(), "rule__Determinante__ValorAssignment");
 					put(grammarAccess.getAtributoAccess().getNombreAssignment(), "rule__Atributo__NombreAssignment");

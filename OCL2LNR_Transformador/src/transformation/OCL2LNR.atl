@@ -57,7 +57,17 @@ helper context OclAny def: getExpressionInOCL() : OCL!ExpressionInOCL =
 			self.refImmediateComposite().getExpressionInOCL()
 		endif
 	endif;
-			
+
+helper context OCL!PrimitiveLiteralExp def: getLiteralSymbol() : String = 
+   if (self.oclIsTypeOf(OCL!StringLiteralExp)) then 
+   		self.stringSymbol
+   else if (self.oclIsTypeOf(OCL!IntegerLiteralExp)) then
+   			self.integerSymbol.toString()
+   		else
+   			OclUndefined
+   		endif
+   endif;
+   
 -------------------------------------------------------------------------------
 -- RULES ----------------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -79,7 +89,6 @@ rule Constraint2Oracion {
 		s : OCL!Constraint
 	to 
 		t : LNR!Oracion ( 
-		--	extraStr <- s.ownedSpecification.body,
 			contenido <- s.ownedSpecification.ownedBody
 		)
 }
@@ -118,7 +127,6 @@ rule OperationCallExp2Simple {
 				determinante <- d,
 				atributo <- a,
 				sintagma <- thisModule.ExpressionInOCL2SintagmaPreposicional(s.getExpressionInOCL()), 
---				contexto <- c,
 				obligacion <- ob, 
 				operacion <- op, 
 				literal <- l 
@@ -126,7 +134,6 @@ rule OperationCallExp2Simple {
 		d: LNR!Determinante (valor <- 'El/La'),
 		a: LNR!Atributo (
 			--prefijo <- 'prefix', --+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!ReferringElement),
-			--+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!NavigationCallExp),
 			nombre <- if (s.oclIsTypeOf(OCL!OperationCallExp)) then 
 						if (s.ownedSource.oclIsTypeOf(OCL!PropertyCallExp)) then
 						     thisModule.removePrefix(s.ownedSource.referredProperty.toString())
@@ -158,12 +165,11 @@ rule OperationCallExp2Simple {
 							endif
 			),
 		l: LNR!Literal (
-			valor <- if(s.name = 'not')  or (s.name = 'and') then 
-								--'not'
-								s.ownedSource.ownedArguments.first().stringSymbol
-						   	else 
-						   		s.ownedArguments.first().stringSymbol
-						   	endif)
+			valor <- if(s.name = 'not') then 
+	 				 	s.ownedSource.ownedArguments.first().getLiteralSymbol()
+					 else 
+					 	s.ownedArguments.first().getLiteralSymbol()
+					 endif)
 			
 }	
 
@@ -173,13 +179,13 @@ rule OperationCallExp2Compuesta {
 		s: OCL!OperationCallExp (s.name = 'and' and s.name <> 'notEmpty')
 	to
 		t2: LNR!Compuesta(
-			simple <- s.ownedSource,
+			simple <- s.ownedArguments.first(),
 			nexo <- n,
 			oracion <- o
 		),
 		n: LNR!Nexo(valor <- 'y'),
 		o: LNR!Oracion (
-		  contenido <- s.ownedArguments.first()
+		  contenido <- s.ownedSource
 		)
 
 }	

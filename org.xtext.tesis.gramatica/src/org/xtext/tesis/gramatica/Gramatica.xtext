@@ -13,7 +13,7 @@ Documento:
 //       "/" ID ("/" ID)*;		
        
 Oracion:
-	contenido =   (Compuesta | Simple)
+	contenido = (Compuesta | Simple) FinOracion
 //	extraStr = STRING
 ;
 
@@ -25,15 +25,15 @@ Simple:
 	obligacion=Obligacion
 	operacion=Operacion //saque el opcional
 	literal=Literal // solo literales por ahora para simples (literal=Literal | atributoDer=Atributo)
-	FinOracion
+
 //	extraStr = STRING
 	;
 
-Compuesta: 
+Compuesta:
 	simple=Simple
 	nexo=Nexo
 	oracion=Oracion
-	extraStr = STRING
+//	extraStr = STRING
 ;
 
 Nexo: 

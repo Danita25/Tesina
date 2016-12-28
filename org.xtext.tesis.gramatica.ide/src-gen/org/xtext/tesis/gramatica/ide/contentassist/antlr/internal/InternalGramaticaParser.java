@@ -191,31 +191,31 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "ruleOracion"
-    // InternalGramatica.g:87:1: ruleOracion : ( ( rule__Oracion__ContenidoAssignment ) ) ;
+    // InternalGramatica.g:87:1: ruleOracion : ( ( rule__Oracion__Group__0 ) ) ;
     public final void ruleOracion() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:91:2: ( ( ( rule__Oracion__ContenidoAssignment ) ) )
-            // InternalGramatica.g:92:2: ( ( rule__Oracion__ContenidoAssignment ) )
+            // InternalGramatica.g:91:2: ( ( ( rule__Oracion__Group__0 ) ) )
+            // InternalGramatica.g:92:2: ( ( rule__Oracion__Group__0 ) )
             {
-            // InternalGramatica.g:92:2: ( ( rule__Oracion__ContenidoAssignment ) )
-            // InternalGramatica.g:93:3: ( rule__Oracion__ContenidoAssignment )
+            // InternalGramatica.g:92:2: ( ( rule__Oracion__Group__0 ) )
+            // InternalGramatica.g:93:3: ( rule__Oracion__Group__0 )
             {
-             before(grammarAccess.getOracionAccess().getContenidoAssignment()); 
-            // InternalGramatica.g:94:3: ( rule__Oracion__ContenidoAssignment )
-            // InternalGramatica.g:94:4: rule__Oracion__ContenidoAssignment
+             before(grammarAccess.getOracionAccess().getGroup()); 
+            // InternalGramatica.g:94:3: ( rule__Oracion__Group__0 )
+            // InternalGramatica.g:94:4: rule__Oracion__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Oracion__ContenidoAssignment();
+            rule__Oracion__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getOracionAccess().getContenidoAssignment()); 
+             after(grammarAccess.getOracionAccess().getGroup()); 
 
             }
 
@@ -1305,9 +1305,9 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
     // $ANTLR end "ruleLiteral"
 
 
-    // $ANTLR start "rule__Oracion__ContenidoAlternatives_0"
-    // InternalGramatica.g:452:1: rule__Oracion__ContenidoAlternatives_0 : ( ( ruleCompuesta ) | ( ruleSimple ) );
-    public final void rule__Oracion__ContenidoAlternatives_0() throws RecognitionException {
+    // $ANTLR start "rule__Oracion__ContenidoAlternatives_0_0"
+    // InternalGramatica.g:452:1: rule__Oracion__ContenidoAlternatives_0_0 : ( ( ruleCompuesta ) | ( ruleSimple ) );
+    public final void rule__Oracion__ContenidoAlternatives_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -1322,13 +1322,13 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
                     // InternalGramatica.g:457:2: ( ruleCompuesta )
                     // InternalGramatica.g:458:3: ruleCompuesta
                     {
-                     before(grammarAccess.getOracionAccess().getContenidoCompuestaParserRuleCall_0_0()); 
+                     before(grammarAccess.getOracionAccess().getContenidoCompuestaParserRuleCall_0_0_0()); 
                     pushFollow(FOLLOW_2);
                     ruleCompuesta();
 
                     state._fsp--;
 
-                     after(grammarAccess.getOracionAccess().getContenidoCompuestaParserRuleCall_0_0()); 
+                     after(grammarAccess.getOracionAccess().getContenidoCompuestaParserRuleCall_0_0_0()); 
 
                     }
 
@@ -1341,13 +1341,13 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
                     // InternalGramatica.g:463:2: ( ruleSimple )
                     // InternalGramatica.g:464:3: ruleSimple
                     {
-                     before(grammarAccess.getOracionAccess().getContenidoSimpleParserRuleCall_0_1()); 
+                     before(grammarAccess.getOracionAccess().getContenidoSimpleParserRuleCall_0_0_1()); 
                     pushFollow(FOLLOW_2);
                     ruleSimple();
 
                     state._fsp--;
 
-                     after(grammarAccess.getOracionAccess().getContenidoSimpleParserRuleCall_0_1()); 
+                     after(grammarAccess.getOracionAccess().getContenidoSimpleParserRuleCall_0_0_1()); 
 
                     }
 
@@ -1368,7 +1368,7 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Oracion__ContenidoAlternatives_0"
+    // $ANTLR end "rule__Oracion__ContenidoAlternatives_0_0"
 
 
     // $ANTLR start "rule__Nexo__ValorAlternatives_0"
@@ -1885,17 +1885,176 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Documento__Group__2__Impl"
 
 
+    // $ANTLR start "rule__Oracion__Group__0"
+    // InternalGramatica.g:626:1: rule__Oracion__Group__0 : rule__Oracion__Group__0__Impl rule__Oracion__Group__1 ;
+    public final void rule__Oracion__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalGramatica.g:630:1: ( rule__Oracion__Group__0__Impl rule__Oracion__Group__1 )
+            // InternalGramatica.g:631:2: rule__Oracion__Group__0__Impl rule__Oracion__Group__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__Oracion__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Oracion__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Oracion__Group__0"
+
+
+    // $ANTLR start "rule__Oracion__Group__0__Impl"
+    // InternalGramatica.g:638:1: rule__Oracion__Group__0__Impl : ( ( rule__Oracion__ContenidoAssignment_0 ) ) ;
+    public final void rule__Oracion__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalGramatica.g:642:1: ( ( ( rule__Oracion__ContenidoAssignment_0 ) ) )
+            // InternalGramatica.g:643:1: ( ( rule__Oracion__ContenidoAssignment_0 ) )
+            {
+            // InternalGramatica.g:643:1: ( ( rule__Oracion__ContenidoAssignment_0 ) )
+            // InternalGramatica.g:644:2: ( rule__Oracion__ContenidoAssignment_0 )
+            {
+             before(grammarAccess.getOracionAccess().getContenidoAssignment_0()); 
+            // InternalGramatica.g:645:2: ( rule__Oracion__ContenidoAssignment_0 )
+            // InternalGramatica.g:645:3: rule__Oracion__ContenidoAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Oracion__ContenidoAssignment_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getOracionAccess().getContenidoAssignment_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Oracion__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Oracion__Group__1"
+    // InternalGramatica.g:653:1: rule__Oracion__Group__1 : rule__Oracion__Group__1__Impl ;
+    public final void rule__Oracion__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalGramatica.g:657:1: ( rule__Oracion__Group__1__Impl )
+            // InternalGramatica.g:658:2: rule__Oracion__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Oracion__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Oracion__Group__1"
+
+
+    // $ANTLR start "rule__Oracion__Group__1__Impl"
+    // InternalGramatica.g:664:1: rule__Oracion__Group__1__Impl : ( ruleFinOracion ) ;
+    public final void rule__Oracion__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalGramatica.g:668:1: ( ( ruleFinOracion ) )
+            // InternalGramatica.g:669:1: ( ruleFinOracion )
+            {
+            // InternalGramatica.g:669:1: ( ruleFinOracion )
+            // InternalGramatica.g:670:2: ruleFinOracion
+            {
+             before(grammarAccess.getOracionAccess().getFinOracionParserRuleCall_1()); 
+            pushFollow(FOLLOW_2);
+            ruleFinOracion();
+
+            state._fsp--;
+
+             after(grammarAccess.getOracionAccess().getFinOracionParserRuleCall_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Oracion__Group__1__Impl"
+
+
     // $ANTLR start "rule__Simple__Group__0"
-    // InternalGramatica.g:626:1: rule__Simple__Group__0 : rule__Simple__Group__0__Impl rule__Simple__Group__1 ;
+    // InternalGramatica.g:680:1: rule__Simple__Group__0 : rule__Simple__Group__0__Impl rule__Simple__Group__1 ;
     public final void rule__Simple__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:630:1: ( rule__Simple__Group__0__Impl rule__Simple__Group__1 )
-            // InternalGramatica.g:631:2: rule__Simple__Group__0__Impl rule__Simple__Group__1
+            // InternalGramatica.g:684:1: ( rule__Simple__Group__0__Impl rule__Simple__Group__1 )
+            // InternalGramatica.g:685:2: rule__Simple__Group__0__Impl rule__Simple__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__Simple__Group__0__Impl();
 
             state._fsp--;
@@ -1924,21 +2083,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__0__Impl"
-    // InternalGramatica.g:638:1: rule__Simple__Group__0__Impl : ( ( rule__Simple__DeterminanteAssignment_0 ) ) ;
+    // InternalGramatica.g:692:1: rule__Simple__Group__0__Impl : ( ( rule__Simple__DeterminanteAssignment_0 ) ) ;
     public final void rule__Simple__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:642:1: ( ( ( rule__Simple__DeterminanteAssignment_0 ) ) )
-            // InternalGramatica.g:643:1: ( ( rule__Simple__DeterminanteAssignment_0 ) )
+            // InternalGramatica.g:696:1: ( ( ( rule__Simple__DeterminanteAssignment_0 ) ) )
+            // InternalGramatica.g:697:1: ( ( rule__Simple__DeterminanteAssignment_0 ) )
             {
-            // InternalGramatica.g:643:1: ( ( rule__Simple__DeterminanteAssignment_0 ) )
-            // InternalGramatica.g:644:2: ( rule__Simple__DeterminanteAssignment_0 )
+            // InternalGramatica.g:697:1: ( ( rule__Simple__DeterminanteAssignment_0 ) )
+            // InternalGramatica.g:698:2: ( rule__Simple__DeterminanteAssignment_0 )
             {
              before(grammarAccess.getSimpleAccess().getDeterminanteAssignment_0()); 
-            // InternalGramatica.g:645:2: ( rule__Simple__DeterminanteAssignment_0 )
-            // InternalGramatica.g:645:3: rule__Simple__DeterminanteAssignment_0
+            // InternalGramatica.g:699:2: ( rule__Simple__DeterminanteAssignment_0 )
+            // InternalGramatica.g:699:3: rule__Simple__DeterminanteAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Simple__DeterminanteAssignment_0();
@@ -1971,16 +2130,16 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__1"
-    // InternalGramatica.g:653:1: rule__Simple__Group__1 : rule__Simple__Group__1__Impl rule__Simple__Group__2 ;
+    // InternalGramatica.g:707:1: rule__Simple__Group__1 : rule__Simple__Group__1__Impl rule__Simple__Group__2 ;
     public final void rule__Simple__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:657:1: ( rule__Simple__Group__1__Impl rule__Simple__Group__2 )
-            // InternalGramatica.g:658:2: rule__Simple__Group__1__Impl rule__Simple__Group__2
+            // InternalGramatica.g:711:1: ( rule__Simple__Group__1__Impl rule__Simple__Group__2 )
+            // InternalGramatica.g:712:2: rule__Simple__Group__1__Impl rule__Simple__Group__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_8);
             rule__Simple__Group__1__Impl();
 
             state._fsp--;
@@ -2009,21 +2168,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__1__Impl"
-    // InternalGramatica.g:665:1: rule__Simple__Group__1__Impl : ( ( rule__Simple__AtributoAssignment_1 ) ) ;
+    // InternalGramatica.g:719:1: rule__Simple__Group__1__Impl : ( ( rule__Simple__AtributoAssignment_1 ) ) ;
     public final void rule__Simple__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:669:1: ( ( ( rule__Simple__AtributoAssignment_1 ) ) )
-            // InternalGramatica.g:670:1: ( ( rule__Simple__AtributoAssignment_1 ) )
+            // InternalGramatica.g:723:1: ( ( ( rule__Simple__AtributoAssignment_1 ) ) )
+            // InternalGramatica.g:724:1: ( ( rule__Simple__AtributoAssignment_1 ) )
             {
-            // InternalGramatica.g:670:1: ( ( rule__Simple__AtributoAssignment_1 ) )
-            // InternalGramatica.g:671:2: ( rule__Simple__AtributoAssignment_1 )
+            // InternalGramatica.g:724:1: ( ( rule__Simple__AtributoAssignment_1 ) )
+            // InternalGramatica.g:725:2: ( rule__Simple__AtributoAssignment_1 )
             {
              before(grammarAccess.getSimpleAccess().getAtributoAssignment_1()); 
-            // InternalGramatica.g:672:2: ( rule__Simple__AtributoAssignment_1 )
-            // InternalGramatica.g:672:3: rule__Simple__AtributoAssignment_1
+            // InternalGramatica.g:726:2: ( rule__Simple__AtributoAssignment_1 )
+            // InternalGramatica.g:726:3: rule__Simple__AtributoAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Simple__AtributoAssignment_1();
@@ -2056,16 +2215,16 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__2"
-    // InternalGramatica.g:680:1: rule__Simple__Group__2 : rule__Simple__Group__2__Impl rule__Simple__Group__3 ;
+    // InternalGramatica.g:734:1: rule__Simple__Group__2 : rule__Simple__Group__2__Impl rule__Simple__Group__3 ;
     public final void rule__Simple__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:684:1: ( rule__Simple__Group__2__Impl rule__Simple__Group__3 )
-            // InternalGramatica.g:685:2: rule__Simple__Group__2__Impl rule__Simple__Group__3
+            // InternalGramatica.g:738:1: ( rule__Simple__Group__2__Impl rule__Simple__Group__3 )
+            // InternalGramatica.g:739:2: rule__Simple__Group__2__Impl rule__Simple__Group__3
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__Simple__Group__2__Impl();
 
             state._fsp--;
@@ -2094,21 +2253,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__2__Impl"
-    // InternalGramatica.g:692:1: rule__Simple__Group__2__Impl : ( ( rule__Simple__SintagmaAssignment_2 ) ) ;
+    // InternalGramatica.g:746:1: rule__Simple__Group__2__Impl : ( ( rule__Simple__SintagmaAssignment_2 ) ) ;
     public final void rule__Simple__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:696:1: ( ( ( rule__Simple__SintagmaAssignment_2 ) ) )
-            // InternalGramatica.g:697:1: ( ( rule__Simple__SintagmaAssignment_2 ) )
+            // InternalGramatica.g:750:1: ( ( ( rule__Simple__SintagmaAssignment_2 ) ) )
+            // InternalGramatica.g:751:1: ( ( rule__Simple__SintagmaAssignment_2 ) )
             {
-            // InternalGramatica.g:697:1: ( ( rule__Simple__SintagmaAssignment_2 ) )
-            // InternalGramatica.g:698:2: ( rule__Simple__SintagmaAssignment_2 )
+            // InternalGramatica.g:751:1: ( ( rule__Simple__SintagmaAssignment_2 ) )
+            // InternalGramatica.g:752:2: ( rule__Simple__SintagmaAssignment_2 )
             {
              before(grammarAccess.getSimpleAccess().getSintagmaAssignment_2()); 
-            // InternalGramatica.g:699:2: ( rule__Simple__SintagmaAssignment_2 )
-            // InternalGramatica.g:699:3: rule__Simple__SintagmaAssignment_2
+            // InternalGramatica.g:753:2: ( rule__Simple__SintagmaAssignment_2 )
+            // InternalGramatica.g:753:3: rule__Simple__SintagmaAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Simple__SintagmaAssignment_2();
@@ -2141,16 +2300,16 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__3"
-    // InternalGramatica.g:707:1: rule__Simple__Group__3 : rule__Simple__Group__3__Impl rule__Simple__Group__4 ;
+    // InternalGramatica.g:761:1: rule__Simple__Group__3 : rule__Simple__Group__3__Impl rule__Simple__Group__4 ;
     public final void rule__Simple__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:711:1: ( rule__Simple__Group__3__Impl rule__Simple__Group__4 )
-            // InternalGramatica.g:712:2: rule__Simple__Group__3__Impl rule__Simple__Group__4
+            // InternalGramatica.g:765:1: ( rule__Simple__Group__3__Impl rule__Simple__Group__4 )
+            // InternalGramatica.g:766:2: rule__Simple__Group__3__Impl rule__Simple__Group__4
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Simple__Group__3__Impl();
 
             state._fsp--;
@@ -2179,21 +2338,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__3__Impl"
-    // InternalGramatica.g:719:1: rule__Simple__Group__3__Impl : ( ( rule__Simple__ObligacionAssignment_3 ) ) ;
+    // InternalGramatica.g:773:1: rule__Simple__Group__3__Impl : ( ( rule__Simple__ObligacionAssignment_3 ) ) ;
     public final void rule__Simple__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:723:1: ( ( ( rule__Simple__ObligacionAssignment_3 ) ) )
-            // InternalGramatica.g:724:1: ( ( rule__Simple__ObligacionAssignment_3 ) )
+            // InternalGramatica.g:777:1: ( ( ( rule__Simple__ObligacionAssignment_3 ) ) )
+            // InternalGramatica.g:778:1: ( ( rule__Simple__ObligacionAssignment_3 ) )
             {
-            // InternalGramatica.g:724:1: ( ( rule__Simple__ObligacionAssignment_3 ) )
-            // InternalGramatica.g:725:2: ( rule__Simple__ObligacionAssignment_3 )
+            // InternalGramatica.g:778:1: ( ( rule__Simple__ObligacionAssignment_3 ) )
+            // InternalGramatica.g:779:2: ( rule__Simple__ObligacionAssignment_3 )
             {
              before(grammarAccess.getSimpleAccess().getObligacionAssignment_3()); 
-            // InternalGramatica.g:726:2: ( rule__Simple__ObligacionAssignment_3 )
-            // InternalGramatica.g:726:3: rule__Simple__ObligacionAssignment_3
+            // InternalGramatica.g:780:2: ( rule__Simple__ObligacionAssignment_3 )
+            // InternalGramatica.g:780:3: rule__Simple__ObligacionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Simple__ObligacionAssignment_3();
@@ -2226,14 +2385,14 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__4"
-    // InternalGramatica.g:734:1: rule__Simple__Group__4 : rule__Simple__Group__4__Impl rule__Simple__Group__5 ;
+    // InternalGramatica.g:788:1: rule__Simple__Group__4 : rule__Simple__Group__4__Impl rule__Simple__Group__5 ;
     public final void rule__Simple__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:738:1: ( rule__Simple__Group__4__Impl rule__Simple__Group__5 )
-            // InternalGramatica.g:739:2: rule__Simple__Group__4__Impl rule__Simple__Group__5
+            // InternalGramatica.g:792:1: ( rule__Simple__Group__4__Impl rule__Simple__Group__5 )
+            // InternalGramatica.g:793:2: rule__Simple__Group__4__Impl rule__Simple__Group__5
             {
             pushFollow(FOLLOW_3);
             rule__Simple__Group__4__Impl();
@@ -2264,21 +2423,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__4__Impl"
-    // InternalGramatica.g:746:1: rule__Simple__Group__4__Impl : ( ( rule__Simple__OperacionAssignment_4 ) ) ;
+    // InternalGramatica.g:800:1: rule__Simple__Group__4__Impl : ( ( rule__Simple__OperacionAssignment_4 ) ) ;
     public final void rule__Simple__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:750:1: ( ( ( rule__Simple__OperacionAssignment_4 ) ) )
-            // InternalGramatica.g:751:1: ( ( rule__Simple__OperacionAssignment_4 ) )
+            // InternalGramatica.g:804:1: ( ( ( rule__Simple__OperacionAssignment_4 ) ) )
+            // InternalGramatica.g:805:1: ( ( rule__Simple__OperacionAssignment_4 ) )
             {
-            // InternalGramatica.g:751:1: ( ( rule__Simple__OperacionAssignment_4 ) )
-            // InternalGramatica.g:752:2: ( rule__Simple__OperacionAssignment_4 )
+            // InternalGramatica.g:805:1: ( ( rule__Simple__OperacionAssignment_4 ) )
+            // InternalGramatica.g:806:2: ( rule__Simple__OperacionAssignment_4 )
             {
              before(grammarAccess.getSimpleAccess().getOperacionAssignment_4()); 
-            // InternalGramatica.g:753:2: ( rule__Simple__OperacionAssignment_4 )
-            // InternalGramatica.g:753:3: rule__Simple__OperacionAssignment_4
+            // InternalGramatica.g:807:2: ( rule__Simple__OperacionAssignment_4 )
+            // InternalGramatica.g:807:3: rule__Simple__OperacionAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Simple__OperacionAssignment_4();
@@ -2311,22 +2470,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__5"
-    // InternalGramatica.g:761:1: rule__Simple__Group__5 : rule__Simple__Group__5__Impl rule__Simple__Group__6 ;
+    // InternalGramatica.g:815:1: rule__Simple__Group__5 : rule__Simple__Group__5__Impl ;
     public final void rule__Simple__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:765:1: ( rule__Simple__Group__5__Impl rule__Simple__Group__6 )
-            // InternalGramatica.g:766:2: rule__Simple__Group__5__Impl rule__Simple__Group__6
+            // InternalGramatica.g:819:1: ( rule__Simple__Group__5__Impl )
+            // InternalGramatica.g:820:2: rule__Simple__Group__5__Impl
             {
-            pushFollow(FOLLOW_10);
-            rule__Simple__Group__5__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Simple__Group__6();
+            rule__Simple__Group__5__Impl();
 
             state._fsp--;
 
@@ -2349,21 +2503,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Simple__Group__5__Impl"
-    // InternalGramatica.g:773:1: rule__Simple__Group__5__Impl : ( ( rule__Simple__LiteralAssignment_5 ) ) ;
+    // InternalGramatica.g:826:1: rule__Simple__Group__5__Impl : ( ( rule__Simple__LiteralAssignment_5 ) ) ;
     public final void rule__Simple__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:777:1: ( ( ( rule__Simple__LiteralAssignment_5 ) ) )
-            // InternalGramatica.g:778:1: ( ( rule__Simple__LiteralAssignment_5 ) )
+            // InternalGramatica.g:830:1: ( ( ( rule__Simple__LiteralAssignment_5 ) ) )
+            // InternalGramatica.g:831:1: ( ( rule__Simple__LiteralAssignment_5 ) )
             {
-            // InternalGramatica.g:778:1: ( ( rule__Simple__LiteralAssignment_5 ) )
-            // InternalGramatica.g:779:2: ( rule__Simple__LiteralAssignment_5 )
+            // InternalGramatica.g:831:1: ( ( rule__Simple__LiteralAssignment_5 ) )
+            // InternalGramatica.g:832:2: ( rule__Simple__LiteralAssignment_5 )
             {
              before(grammarAccess.getSimpleAccess().getLiteralAssignment_5()); 
-            // InternalGramatica.g:780:2: ( rule__Simple__LiteralAssignment_5 )
-            // InternalGramatica.g:780:3: rule__Simple__LiteralAssignment_5
+            // InternalGramatica.g:833:2: ( rule__Simple__LiteralAssignment_5 )
+            // InternalGramatica.g:833:3: rule__Simple__LiteralAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__Simple__LiteralAssignment_5();
@@ -2395,89 +2549,15 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Simple__Group__5__Impl"
 
 
-    // $ANTLR start "rule__Simple__Group__6"
-    // InternalGramatica.g:788:1: rule__Simple__Group__6 : rule__Simple__Group__6__Impl ;
-    public final void rule__Simple__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalGramatica.g:792:1: ( rule__Simple__Group__6__Impl )
-            // InternalGramatica.g:793:2: rule__Simple__Group__6__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Simple__Group__6__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Simple__Group__6"
-
-
-    // $ANTLR start "rule__Simple__Group__6__Impl"
-    // InternalGramatica.g:799:1: rule__Simple__Group__6__Impl : ( ruleFinOracion ) ;
-    public final void rule__Simple__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalGramatica.g:803:1: ( ( ruleFinOracion ) )
-            // InternalGramatica.g:804:1: ( ruleFinOracion )
-            {
-            // InternalGramatica.g:804:1: ( ruleFinOracion )
-            // InternalGramatica.g:805:2: ruleFinOracion
-            {
-             before(grammarAccess.getSimpleAccess().getFinOracionParserRuleCall_6()); 
-            pushFollow(FOLLOW_2);
-            ruleFinOracion();
-
-            state._fsp--;
-
-             after(grammarAccess.getSimpleAccess().getFinOracionParserRuleCall_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Simple__Group__6__Impl"
-
-
     // $ANTLR start "rule__Compuesta__Group__0"
-    // InternalGramatica.g:815:1: rule__Compuesta__Group__0 : rule__Compuesta__Group__0__Impl rule__Compuesta__Group__1 ;
+    // InternalGramatica.g:842:1: rule__Compuesta__Group__0 : rule__Compuesta__Group__0__Impl rule__Compuesta__Group__1 ;
     public final void rule__Compuesta__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:819:1: ( rule__Compuesta__Group__0__Impl rule__Compuesta__Group__1 )
-            // InternalGramatica.g:820:2: rule__Compuesta__Group__0__Impl rule__Compuesta__Group__1
+            // InternalGramatica.g:846:1: ( rule__Compuesta__Group__0__Impl rule__Compuesta__Group__1 )
+            // InternalGramatica.g:847:2: rule__Compuesta__Group__0__Impl rule__Compuesta__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__Compuesta__Group__0__Impl();
@@ -2508,21 +2588,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Compuesta__Group__0__Impl"
-    // InternalGramatica.g:827:1: rule__Compuesta__Group__0__Impl : ( ( rule__Compuesta__SimpleAssignment_0 ) ) ;
+    // InternalGramatica.g:854:1: rule__Compuesta__Group__0__Impl : ( ( rule__Compuesta__SimpleAssignment_0 ) ) ;
     public final void rule__Compuesta__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:831:1: ( ( ( rule__Compuesta__SimpleAssignment_0 ) ) )
-            // InternalGramatica.g:832:1: ( ( rule__Compuesta__SimpleAssignment_0 ) )
+            // InternalGramatica.g:858:1: ( ( ( rule__Compuesta__SimpleAssignment_0 ) ) )
+            // InternalGramatica.g:859:1: ( ( rule__Compuesta__SimpleAssignment_0 ) )
             {
-            // InternalGramatica.g:832:1: ( ( rule__Compuesta__SimpleAssignment_0 ) )
-            // InternalGramatica.g:833:2: ( rule__Compuesta__SimpleAssignment_0 )
+            // InternalGramatica.g:859:1: ( ( rule__Compuesta__SimpleAssignment_0 ) )
+            // InternalGramatica.g:860:2: ( rule__Compuesta__SimpleAssignment_0 )
             {
              before(grammarAccess.getCompuestaAccess().getSimpleAssignment_0()); 
-            // InternalGramatica.g:834:2: ( rule__Compuesta__SimpleAssignment_0 )
-            // InternalGramatica.g:834:3: rule__Compuesta__SimpleAssignment_0
+            // InternalGramatica.g:861:2: ( rule__Compuesta__SimpleAssignment_0 )
+            // InternalGramatica.g:861:3: rule__Compuesta__SimpleAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Compuesta__SimpleAssignment_0();
@@ -2555,14 +2635,14 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Compuesta__Group__1"
-    // InternalGramatica.g:842:1: rule__Compuesta__Group__1 : rule__Compuesta__Group__1__Impl rule__Compuesta__Group__2 ;
+    // InternalGramatica.g:869:1: rule__Compuesta__Group__1 : rule__Compuesta__Group__1__Impl rule__Compuesta__Group__2 ;
     public final void rule__Compuesta__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:846:1: ( rule__Compuesta__Group__1__Impl rule__Compuesta__Group__2 )
-            // InternalGramatica.g:847:2: rule__Compuesta__Group__1__Impl rule__Compuesta__Group__2
+            // InternalGramatica.g:873:1: ( rule__Compuesta__Group__1__Impl rule__Compuesta__Group__2 )
+            // InternalGramatica.g:874:2: rule__Compuesta__Group__1__Impl rule__Compuesta__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Compuesta__Group__1__Impl();
@@ -2593,21 +2673,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Compuesta__Group__1__Impl"
-    // InternalGramatica.g:854:1: rule__Compuesta__Group__1__Impl : ( ( rule__Compuesta__NexoAssignment_1 ) ) ;
+    // InternalGramatica.g:881:1: rule__Compuesta__Group__1__Impl : ( ( rule__Compuesta__NexoAssignment_1 ) ) ;
     public final void rule__Compuesta__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:858:1: ( ( ( rule__Compuesta__NexoAssignment_1 ) ) )
-            // InternalGramatica.g:859:1: ( ( rule__Compuesta__NexoAssignment_1 ) )
+            // InternalGramatica.g:885:1: ( ( ( rule__Compuesta__NexoAssignment_1 ) ) )
+            // InternalGramatica.g:886:1: ( ( rule__Compuesta__NexoAssignment_1 ) )
             {
-            // InternalGramatica.g:859:1: ( ( rule__Compuesta__NexoAssignment_1 ) )
-            // InternalGramatica.g:860:2: ( rule__Compuesta__NexoAssignment_1 )
+            // InternalGramatica.g:886:1: ( ( rule__Compuesta__NexoAssignment_1 ) )
+            // InternalGramatica.g:887:2: ( rule__Compuesta__NexoAssignment_1 )
             {
              before(grammarAccess.getCompuestaAccess().getNexoAssignment_1()); 
-            // InternalGramatica.g:861:2: ( rule__Compuesta__NexoAssignment_1 )
-            // InternalGramatica.g:861:3: rule__Compuesta__NexoAssignment_1
+            // InternalGramatica.g:888:2: ( rule__Compuesta__NexoAssignment_1 )
+            // InternalGramatica.g:888:3: rule__Compuesta__NexoAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Compuesta__NexoAssignment_1();
@@ -2640,22 +2720,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Compuesta__Group__2"
-    // InternalGramatica.g:869:1: rule__Compuesta__Group__2 : rule__Compuesta__Group__2__Impl rule__Compuesta__Group__3 ;
+    // InternalGramatica.g:896:1: rule__Compuesta__Group__2 : rule__Compuesta__Group__2__Impl ;
     public final void rule__Compuesta__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:873:1: ( rule__Compuesta__Group__2__Impl rule__Compuesta__Group__3 )
-            // InternalGramatica.g:874:2: rule__Compuesta__Group__2__Impl rule__Compuesta__Group__3
+            // InternalGramatica.g:900:1: ( rule__Compuesta__Group__2__Impl )
+            // InternalGramatica.g:901:2: rule__Compuesta__Group__2__Impl
             {
-            pushFollow(FOLLOW_3);
-            rule__Compuesta__Group__2__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Compuesta__Group__3();
+            rule__Compuesta__Group__2__Impl();
 
             state._fsp--;
 
@@ -2678,21 +2753,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Compuesta__Group__2__Impl"
-    // InternalGramatica.g:881:1: rule__Compuesta__Group__2__Impl : ( ( rule__Compuesta__OracionAssignment_2 ) ) ;
+    // InternalGramatica.g:907:1: rule__Compuesta__Group__2__Impl : ( ( rule__Compuesta__OracionAssignment_2 ) ) ;
     public final void rule__Compuesta__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:885:1: ( ( ( rule__Compuesta__OracionAssignment_2 ) ) )
-            // InternalGramatica.g:886:1: ( ( rule__Compuesta__OracionAssignment_2 ) )
+            // InternalGramatica.g:911:1: ( ( ( rule__Compuesta__OracionAssignment_2 ) ) )
+            // InternalGramatica.g:912:1: ( ( rule__Compuesta__OracionAssignment_2 ) )
             {
-            // InternalGramatica.g:886:1: ( ( rule__Compuesta__OracionAssignment_2 ) )
-            // InternalGramatica.g:887:2: ( rule__Compuesta__OracionAssignment_2 )
+            // InternalGramatica.g:912:1: ( ( rule__Compuesta__OracionAssignment_2 ) )
+            // InternalGramatica.g:913:2: ( rule__Compuesta__OracionAssignment_2 )
             {
              before(grammarAccess.getCompuestaAccess().getOracionAssignment_2()); 
-            // InternalGramatica.g:888:2: ( rule__Compuesta__OracionAssignment_2 )
-            // InternalGramatica.g:888:3: rule__Compuesta__OracionAssignment_2
+            // InternalGramatica.g:914:2: ( rule__Compuesta__OracionAssignment_2 )
+            // InternalGramatica.g:914:3: rule__Compuesta__OracionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Compuesta__OracionAssignment_2();
@@ -2722,86 +2797,6 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
         return ;
     }
     // $ANTLR end "rule__Compuesta__Group__2__Impl"
-
-
-    // $ANTLR start "rule__Compuesta__Group__3"
-    // InternalGramatica.g:896:1: rule__Compuesta__Group__3 : rule__Compuesta__Group__3__Impl ;
-    public final void rule__Compuesta__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalGramatica.g:900:1: ( rule__Compuesta__Group__3__Impl )
-            // InternalGramatica.g:901:2: rule__Compuesta__Group__3__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Compuesta__Group__3__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Compuesta__Group__3"
-
-
-    // $ANTLR start "rule__Compuesta__Group__3__Impl"
-    // InternalGramatica.g:907:1: rule__Compuesta__Group__3__Impl : ( ( rule__Compuesta__ExtraStrAssignment_3 ) ) ;
-    public final void rule__Compuesta__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalGramatica.g:911:1: ( ( ( rule__Compuesta__ExtraStrAssignment_3 ) ) )
-            // InternalGramatica.g:912:1: ( ( rule__Compuesta__ExtraStrAssignment_3 ) )
-            {
-            // InternalGramatica.g:912:1: ( ( rule__Compuesta__ExtraStrAssignment_3 ) )
-            // InternalGramatica.g:913:2: ( rule__Compuesta__ExtraStrAssignment_3 )
-            {
-             before(grammarAccess.getCompuestaAccess().getExtraStrAssignment_3()); 
-            // InternalGramatica.g:914:2: ( rule__Compuesta__ExtraStrAssignment_3 )
-            // InternalGramatica.g:914:3: rule__Compuesta__ExtraStrAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__Compuesta__ExtraStrAssignment_3();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getCompuestaAccess().getExtraStrAssignment_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Compuesta__Group__3__Impl"
 
 
     // $ANTLR start "rule__SintagmaPreposicional__Group__0"
@@ -2979,7 +2974,7 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
             // InternalGramatica.g:981:1: ( rule__Termino__Group__0__Impl rule__Termino__Group__1 )
             // InternalGramatica.g:982:2: rule__Termino__Group__0__Impl rule__Termino__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__Termino__Group__0__Impl();
 
             state._fsp--;
@@ -3144,7 +3139,7 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
             // InternalGramatica.g:1035:1: ( rule__Obligacion__Group__0__Impl rule__Obligacion__Group__1 )
             // InternalGramatica.g:1036:2: rule__Obligacion__Group__0__Impl rule__Obligacion__Group__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__Obligacion__Group__0__Impl();
 
             state._fsp--;
@@ -3425,32 +3420,32 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Documento__OracionesAssignment_2"
 
 
-    // $ANTLR start "rule__Oracion__ContenidoAssignment"
-    // InternalGramatica.g:1130:1: rule__Oracion__ContenidoAssignment : ( ( rule__Oracion__ContenidoAlternatives_0 ) ) ;
-    public final void rule__Oracion__ContenidoAssignment() throws RecognitionException {
+    // $ANTLR start "rule__Oracion__ContenidoAssignment_0"
+    // InternalGramatica.g:1130:1: rule__Oracion__ContenidoAssignment_0 : ( ( rule__Oracion__ContenidoAlternatives_0_0 ) ) ;
+    public final void rule__Oracion__ContenidoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1134:1: ( ( ( rule__Oracion__ContenidoAlternatives_0 ) ) )
-            // InternalGramatica.g:1135:2: ( ( rule__Oracion__ContenidoAlternatives_0 ) )
+            // InternalGramatica.g:1134:1: ( ( ( rule__Oracion__ContenidoAlternatives_0_0 ) ) )
+            // InternalGramatica.g:1135:2: ( ( rule__Oracion__ContenidoAlternatives_0_0 ) )
             {
-            // InternalGramatica.g:1135:2: ( ( rule__Oracion__ContenidoAlternatives_0 ) )
-            // InternalGramatica.g:1136:3: ( rule__Oracion__ContenidoAlternatives_0 )
+            // InternalGramatica.g:1135:2: ( ( rule__Oracion__ContenidoAlternatives_0_0 ) )
+            // InternalGramatica.g:1136:3: ( rule__Oracion__ContenidoAlternatives_0_0 )
             {
-             before(grammarAccess.getOracionAccess().getContenidoAlternatives_0()); 
-            // InternalGramatica.g:1137:3: ( rule__Oracion__ContenidoAlternatives_0 )
-            // InternalGramatica.g:1137:4: rule__Oracion__ContenidoAlternatives_0
+             before(grammarAccess.getOracionAccess().getContenidoAlternatives_0_0()); 
+            // InternalGramatica.g:1137:3: ( rule__Oracion__ContenidoAlternatives_0_0 )
+            // InternalGramatica.g:1137:4: rule__Oracion__ContenidoAlternatives_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__Oracion__ContenidoAlternatives_0();
+            rule__Oracion__ContenidoAlternatives_0_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getOracionAccess().getContenidoAlternatives_0()); 
+             after(grammarAccess.getOracionAccess().getContenidoAlternatives_0_0()); 
 
             }
 
@@ -3469,7 +3464,7 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Oracion__ContenidoAssignment"
+    // $ANTLR end "rule__Oracion__ContenidoAssignment_0"
 
 
     // $ANTLR start "rule__Simple__DeterminanteAssignment_0"
@@ -3841,59 +3836,22 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Compuesta__OracionAssignment_2"
 
 
-    // $ANTLR start "rule__Compuesta__ExtraStrAssignment_3"
-    // InternalGramatica.g:1280:1: rule__Compuesta__ExtraStrAssignment_3 : ( RULE_STRING ) ;
-    public final void rule__Compuesta__ExtraStrAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalGramatica.g:1284:1: ( ( RULE_STRING ) )
-            // InternalGramatica.g:1285:2: ( RULE_STRING )
-            {
-            // InternalGramatica.g:1285:2: ( RULE_STRING )
-            // InternalGramatica.g:1286:3: RULE_STRING
-            {
-             before(grammarAccess.getCompuestaAccess().getExtraStrSTRINGTerminalRuleCall_3_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getCompuestaAccess().getExtraStrSTRINGTerminalRuleCall_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Compuesta__ExtraStrAssignment_3"
-
-
     // $ANTLR start "rule__Nexo__ValorAssignment"
-    // InternalGramatica.g:1295:1: rule__Nexo__ValorAssignment : ( ( rule__Nexo__ValorAlternatives_0 ) ) ;
+    // InternalGramatica.g:1280:1: rule__Nexo__ValorAssignment : ( ( rule__Nexo__ValorAlternatives_0 ) ) ;
     public final void rule__Nexo__ValorAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1299:1: ( ( ( rule__Nexo__ValorAlternatives_0 ) ) )
-            // InternalGramatica.g:1300:2: ( ( rule__Nexo__ValorAlternatives_0 ) )
+            // InternalGramatica.g:1284:1: ( ( ( rule__Nexo__ValorAlternatives_0 ) ) )
+            // InternalGramatica.g:1285:2: ( ( rule__Nexo__ValorAlternatives_0 ) )
             {
-            // InternalGramatica.g:1300:2: ( ( rule__Nexo__ValorAlternatives_0 ) )
-            // InternalGramatica.g:1301:3: ( rule__Nexo__ValorAlternatives_0 )
+            // InternalGramatica.g:1285:2: ( ( rule__Nexo__ValorAlternatives_0 ) )
+            // InternalGramatica.g:1286:3: ( rule__Nexo__ValorAlternatives_0 )
             {
              before(grammarAccess.getNexoAccess().getValorAlternatives_0()); 
-            // InternalGramatica.g:1302:3: ( rule__Nexo__ValorAlternatives_0 )
-            // InternalGramatica.g:1302:4: rule__Nexo__ValorAlternatives_0
+            // InternalGramatica.g:1287:3: ( rule__Nexo__ValorAlternatives_0 )
+            // InternalGramatica.g:1287:4: rule__Nexo__ValorAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Nexo__ValorAlternatives_0();
@@ -3926,21 +3884,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Determinante__ValorAssignment"
-    // InternalGramatica.g:1310:1: rule__Determinante__ValorAssignment : ( ( 'El/La' ) ) ;
+    // InternalGramatica.g:1295:1: rule__Determinante__ValorAssignment : ( ( 'El/La' ) ) ;
     public final void rule__Determinante__ValorAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1314:1: ( ( ( 'El/La' ) ) )
-            // InternalGramatica.g:1315:2: ( ( 'El/La' ) )
+            // InternalGramatica.g:1299:1: ( ( ( 'El/La' ) ) )
+            // InternalGramatica.g:1300:2: ( ( 'El/La' ) )
             {
-            // InternalGramatica.g:1315:2: ( ( 'El/La' ) )
-            // InternalGramatica.g:1316:3: ( 'El/La' )
+            // InternalGramatica.g:1300:2: ( ( 'El/La' ) )
+            // InternalGramatica.g:1301:3: ( 'El/La' )
             {
              before(grammarAccess.getDeterminanteAccess().getValorElLaKeyword_0()); 
-            // InternalGramatica.g:1317:3: ( 'El/La' )
-            // InternalGramatica.g:1318:4: 'El/La'
+            // InternalGramatica.g:1302:3: ( 'El/La' )
+            // InternalGramatica.g:1303:4: 'El/La'
             {
              before(grammarAccess.getDeterminanteAccess().getValorElLaKeyword_0()); 
             match(input,21,FOLLOW_2); 
@@ -3971,17 +3929,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Atributo__NombreAssignment"
-    // InternalGramatica.g:1329:1: rule__Atributo__NombreAssignment : ( RULE_ID ) ;
+    // InternalGramatica.g:1314:1: rule__Atributo__NombreAssignment : ( RULE_ID ) ;
     public final void rule__Atributo__NombreAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1333:1: ( ( RULE_ID ) )
-            // InternalGramatica.g:1334:2: ( RULE_ID )
+            // InternalGramatica.g:1318:1: ( ( RULE_ID ) )
+            // InternalGramatica.g:1319:2: ( RULE_ID )
             {
-            // InternalGramatica.g:1334:2: ( RULE_ID )
-            // InternalGramatica.g:1335:3: RULE_ID
+            // InternalGramatica.g:1319:2: ( RULE_ID )
+            // InternalGramatica.g:1320:3: RULE_ID
             {
              before(grammarAccess.getAtributoAccess().getNombreIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4008,17 +3966,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__SintagmaPreposicional__EnlaceAssignment_0"
-    // InternalGramatica.g:1344:1: rule__SintagmaPreposicional__EnlaceAssignment_0 : ( ruleEnlace ) ;
+    // InternalGramatica.g:1329:1: rule__SintagmaPreposicional__EnlaceAssignment_0 : ( ruleEnlace ) ;
     public final void rule__SintagmaPreposicional__EnlaceAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1348:1: ( ( ruleEnlace ) )
-            // InternalGramatica.g:1349:2: ( ruleEnlace )
+            // InternalGramatica.g:1333:1: ( ( ruleEnlace ) )
+            // InternalGramatica.g:1334:2: ( ruleEnlace )
             {
-            // InternalGramatica.g:1349:2: ( ruleEnlace )
-            // InternalGramatica.g:1350:3: ruleEnlace
+            // InternalGramatica.g:1334:2: ( ruleEnlace )
+            // InternalGramatica.g:1335:3: ruleEnlace
             {
              before(grammarAccess.getSintagmaPreposicionalAccess().getEnlaceEnlaceParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4049,17 +4007,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__SintagmaPreposicional__TerminoAssignment_1"
-    // InternalGramatica.g:1359:1: rule__SintagmaPreposicional__TerminoAssignment_1 : ( ruleTermino ) ;
+    // InternalGramatica.g:1344:1: rule__SintagmaPreposicional__TerminoAssignment_1 : ( ruleTermino ) ;
     public final void rule__SintagmaPreposicional__TerminoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1363:1: ( ( ruleTermino ) )
-            // InternalGramatica.g:1364:2: ( ruleTermino )
+            // InternalGramatica.g:1348:1: ( ( ruleTermino ) )
+            // InternalGramatica.g:1349:2: ( ruleTermino )
             {
-            // InternalGramatica.g:1364:2: ( ruleTermino )
-            // InternalGramatica.g:1365:3: ruleTermino
+            // InternalGramatica.g:1349:2: ( ruleTermino )
+            // InternalGramatica.g:1350:3: ruleTermino
             {
              before(grammarAccess.getSintagmaPreposicionalAccess().getTerminoTerminoParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -4090,21 +4048,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Enlace__ValorAssignment"
-    // InternalGramatica.g:1374:1: rule__Enlace__ValorAssignment : ( ( 'de' ) ) ;
+    // InternalGramatica.g:1359:1: rule__Enlace__ValorAssignment : ( ( 'de' ) ) ;
     public final void rule__Enlace__ValorAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1378:1: ( ( ( 'de' ) ) )
-            // InternalGramatica.g:1379:2: ( ( 'de' ) )
+            // InternalGramatica.g:1363:1: ( ( ( 'de' ) ) )
+            // InternalGramatica.g:1364:2: ( ( 'de' ) )
             {
-            // InternalGramatica.g:1379:2: ( ( 'de' ) )
-            // InternalGramatica.g:1380:3: ( 'de' )
+            // InternalGramatica.g:1364:2: ( ( 'de' ) )
+            // InternalGramatica.g:1365:3: ( 'de' )
             {
              before(grammarAccess.getEnlaceAccess().getValorDeKeyword_0()); 
-            // InternalGramatica.g:1381:3: ( 'de' )
-            // InternalGramatica.g:1382:4: 'de'
+            // InternalGramatica.g:1366:3: ( 'de' )
+            // InternalGramatica.g:1367:4: 'de'
             {
              before(grammarAccess.getEnlaceAccess().getValorDeKeyword_0()); 
             match(input,22,FOLLOW_2); 
@@ -4135,17 +4093,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Termino__IndeterminanteAssignment_0"
-    // InternalGramatica.g:1393:1: rule__Termino__IndeterminanteAssignment_0 : ( ruleIndeterminante ) ;
+    // InternalGramatica.g:1378:1: rule__Termino__IndeterminanteAssignment_0 : ( ruleIndeterminante ) ;
     public final void rule__Termino__IndeterminanteAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1397:1: ( ( ruleIndeterminante ) )
-            // InternalGramatica.g:1398:2: ( ruleIndeterminante )
+            // InternalGramatica.g:1382:1: ( ( ruleIndeterminante ) )
+            // InternalGramatica.g:1383:2: ( ruleIndeterminante )
             {
-            // InternalGramatica.g:1398:2: ( ruleIndeterminante )
-            // InternalGramatica.g:1399:3: ruleIndeterminante
+            // InternalGramatica.g:1383:2: ( ruleIndeterminante )
+            // InternalGramatica.g:1384:3: ruleIndeterminante
             {
              before(grammarAccess.getTerminoAccess().getIndeterminanteIndeterminanteParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4176,17 +4134,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Termino__ContextoAssignment_1"
-    // InternalGramatica.g:1408:1: rule__Termino__ContextoAssignment_1 : ( ruleContexto ) ;
+    // InternalGramatica.g:1393:1: rule__Termino__ContextoAssignment_1 : ( ruleContexto ) ;
     public final void rule__Termino__ContextoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1412:1: ( ( ruleContexto ) )
-            // InternalGramatica.g:1413:2: ( ruleContexto )
+            // InternalGramatica.g:1397:1: ( ( ruleContexto ) )
+            // InternalGramatica.g:1398:2: ( ruleContexto )
             {
-            // InternalGramatica.g:1413:2: ( ruleContexto )
-            // InternalGramatica.g:1414:3: ruleContexto
+            // InternalGramatica.g:1398:2: ( ruleContexto )
+            // InternalGramatica.g:1399:3: ruleContexto
             {
              before(grammarAccess.getTerminoAccess().getContextoContextoParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -4217,21 +4175,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Indeterminante__ValorAssignment"
-    // InternalGramatica.g:1423:1: rule__Indeterminante__ValorAssignment : ( ( 'un/una' ) ) ;
+    // InternalGramatica.g:1408:1: rule__Indeterminante__ValorAssignment : ( ( 'un/una' ) ) ;
     public final void rule__Indeterminante__ValorAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1427:1: ( ( ( 'un/una' ) ) )
-            // InternalGramatica.g:1428:2: ( ( 'un/una' ) )
+            // InternalGramatica.g:1412:1: ( ( ( 'un/una' ) ) )
+            // InternalGramatica.g:1413:2: ( ( 'un/una' ) )
             {
-            // InternalGramatica.g:1428:2: ( ( 'un/una' ) )
-            // InternalGramatica.g:1429:3: ( 'un/una' )
+            // InternalGramatica.g:1413:2: ( ( 'un/una' ) )
+            // InternalGramatica.g:1414:3: ( 'un/una' )
             {
              before(grammarAccess.getIndeterminanteAccess().getValorUnUnaKeyword_0()); 
-            // InternalGramatica.g:1430:3: ( 'un/una' )
-            // InternalGramatica.g:1431:4: 'un/una'
+            // InternalGramatica.g:1415:3: ( 'un/una' )
+            // InternalGramatica.g:1416:4: 'un/una'
             {
              before(grammarAccess.getIndeterminanteAccess().getValorUnUnaKeyword_0()); 
             match(input,23,FOLLOW_2); 
@@ -4262,21 +4220,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Obligacion__NegacionAssignment_0"
-    // InternalGramatica.g:1442:1: rule__Obligacion__NegacionAssignment_0 : ( ( 'no' ) ) ;
+    // InternalGramatica.g:1427:1: rule__Obligacion__NegacionAssignment_0 : ( ( 'no' ) ) ;
     public final void rule__Obligacion__NegacionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1446:1: ( ( ( 'no' ) ) )
-            // InternalGramatica.g:1447:2: ( ( 'no' ) )
+            // InternalGramatica.g:1431:1: ( ( ( 'no' ) ) )
+            // InternalGramatica.g:1432:2: ( ( 'no' ) )
             {
-            // InternalGramatica.g:1447:2: ( ( 'no' ) )
-            // InternalGramatica.g:1448:3: ( 'no' )
+            // InternalGramatica.g:1432:2: ( ( 'no' ) )
+            // InternalGramatica.g:1433:3: ( 'no' )
             {
              before(grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0()); 
-            // InternalGramatica.g:1449:3: ( 'no' )
-            // InternalGramatica.g:1450:4: 'no'
+            // InternalGramatica.g:1434:3: ( 'no' )
+            // InternalGramatica.g:1435:4: 'no'
             {
              before(grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0()); 
             match(input,24,FOLLOW_2); 
@@ -4307,21 +4265,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Obligacion__ObligacionDeberAssignment_1"
-    // InternalGramatica.g:1461:1: rule__Obligacion__ObligacionDeberAssignment_1 : ( ( 'debe ser' ) ) ;
+    // InternalGramatica.g:1446:1: rule__Obligacion__ObligacionDeberAssignment_1 : ( ( 'debe ser' ) ) ;
     public final void rule__Obligacion__ObligacionDeberAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1465:1: ( ( ( 'debe ser' ) ) )
-            // InternalGramatica.g:1466:2: ( ( 'debe ser' ) )
+            // InternalGramatica.g:1450:1: ( ( ( 'debe ser' ) ) )
+            // InternalGramatica.g:1451:2: ( ( 'debe ser' ) )
             {
-            // InternalGramatica.g:1466:2: ( ( 'debe ser' ) )
-            // InternalGramatica.g:1467:3: ( 'debe ser' )
+            // InternalGramatica.g:1451:2: ( ( 'debe ser' ) )
+            // InternalGramatica.g:1452:3: ( 'debe ser' )
             {
              before(grammarAccess.getObligacionAccess().getObligacionDeberDebeSerKeyword_1_0()); 
-            // InternalGramatica.g:1468:3: ( 'debe ser' )
-            // InternalGramatica.g:1469:4: 'debe ser'
+            // InternalGramatica.g:1453:3: ( 'debe ser' )
+            // InternalGramatica.g:1454:4: 'debe ser'
             {
              before(grammarAccess.getObligacionAccess().getObligacionDeberDebeSerKeyword_1_0()); 
             match(input,25,FOLLOW_2); 
@@ -4352,21 +4310,21 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Operacion__DescripcionAssignment"
-    // InternalGramatica.g:1480:1: rule__Operacion__DescripcionAssignment : ( ( rule__Operacion__DescripcionAlternatives_0 ) ) ;
+    // InternalGramatica.g:1465:1: rule__Operacion__DescripcionAssignment : ( ( rule__Operacion__DescripcionAlternatives_0 ) ) ;
     public final void rule__Operacion__DescripcionAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1484:1: ( ( ( rule__Operacion__DescripcionAlternatives_0 ) ) )
-            // InternalGramatica.g:1485:2: ( ( rule__Operacion__DescripcionAlternatives_0 ) )
+            // InternalGramatica.g:1469:1: ( ( ( rule__Operacion__DescripcionAlternatives_0 ) ) )
+            // InternalGramatica.g:1470:2: ( ( rule__Operacion__DescripcionAlternatives_0 ) )
             {
-            // InternalGramatica.g:1485:2: ( ( rule__Operacion__DescripcionAlternatives_0 ) )
-            // InternalGramatica.g:1486:3: ( rule__Operacion__DescripcionAlternatives_0 )
+            // InternalGramatica.g:1470:2: ( ( rule__Operacion__DescripcionAlternatives_0 ) )
+            // InternalGramatica.g:1471:3: ( rule__Operacion__DescripcionAlternatives_0 )
             {
              before(grammarAccess.getOperacionAccess().getDescripcionAlternatives_0()); 
-            // InternalGramatica.g:1487:3: ( rule__Operacion__DescripcionAlternatives_0 )
-            // InternalGramatica.g:1487:4: rule__Operacion__DescripcionAlternatives_0
+            // InternalGramatica.g:1472:3: ( rule__Operacion__DescripcionAlternatives_0 )
+            // InternalGramatica.g:1472:4: rule__Operacion__DescripcionAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Operacion__DescripcionAlternatives_0();
@@ -4399,17 +4357,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Contexto__NombreAssignment"
-    // InternalGramatica.g:1495:1: rule__Contexto__NombreAssignment : ( RULE_ID ) ;
+    // InternalGramatica.g:1480:1: rule__Contexto__NombreAssignment : ( RULE_ID ) ;
     public final void rule__Contexto__NombreAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1499:1: ( ( RULE_ID ) )
-            // InternalGramatica.g:1500:2: ( RULE_ID )
+            // InternalGramatica.g:1484:1: ( ( RULE_ID ) )
+            // InternalGramatica.g:1485:2: ( RULE_ID )
             {
-            // InternalGramatica.g:1500:2: ( RULE_ID )
-            // InternalGramatica.g:1501:3: RULE_ID
+            // InternalGramatica.g:1485:2: ( RULE_ID )
+            // InternalGramatica.g:1486:3: RULE_ID
             {
              before(grammarAccess.getContextoAccess().getNombreIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4436,17 +4394,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Literal__ValorAssignment"
-    // InternalGramatica.g:1510:1: rule__Literal__ValorAssignment : ( RULE_STRING ) ;
+    // InternalGramatica.g:1495:1: rule__Literal__ValorAssignment : ( RULE_STRING ) ;
     public final void rule__Literal__ValorAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGramatica.g:1514:1: ( ( RULE_STRING ) )
-            // InternalGramatica.g:1515:2: ( RULE_STRING )
+            // InternalGramatica.g:1499:1: ( ( RULE_STRING ) )
+            // InternalGramatica.g:1500:2: ( RULE_STRING )
             {
-            // InternalGramatica.g:1515:2: ( RULE_STRING )
-            // InternalGramatica.g:1516:3: RULE_STRING
+            // InternalGramatica.g:1500:2: ( RULE_STRING )
+            // InternalGramatica.g:1501:3: RULE_STRING
             {
              before(grammarAccess.getLiteralAccess().getValorSTRINGTerminalRuleCall_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -4475,13 +4433,12 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
 
 
     protected DFA1 dfa1 = new DFA1(this);
-    static final String dfa_1s = "\23\uffff";
-    static final String dfa_2s = "\20\uffff\1\21\2\uffff";
-    static final String dfa_3s = "\1\25\1\5\1\26\1\27\1\5\1\30\1\31\1\16\7\4\1\13\1\4\2\uffff";
-    static final String dfa_4s = "\1\25\1\5\1\26\1\27\1\5\2\31\1\24\7\4\1\13\1\25\2\uffff";
-    static final String dfa_5s = "\21\uffff\1\2\1\1";
-    static final String dfa_6s = "\23\uffff}>";
-    static final String[] dfa_7s = {
+    static final String dfa_1s = "\22\uffff";
+    static final String dfa_2s = "\1\25\1\5\1\26\1\27\1\5\1\30\1\31\1\16\7\4\1\13\2\uffff";
+    static final String dfa_3s = "\1\25\1\5\1\26\1\27\1\5\2\31\1\24\7\4\1\15\2\uffff";
+    static final String dfa_4s = "\20\uffff\1\1\1\2";
+    static final String dfa_5s = "\22\uffff}>";
+    static final String[] dfa_6s = {
             "\1\1",
             "\1\2",
             "\1\3",
@@ -4497,19 +4454,17 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
             "\1\17",
             "\1\17",
             "\1\17",
-            "\1\20",
-            "\1\21\7\uffff\2\22\7\uffff\1\21",
+            "\1\21\2\20",
             "",
             ""
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
-    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
+    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
     static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
-    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
+    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
     static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
-    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
-    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
+    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
 
     class DFA1 extends DFA {
 
@@ -4517,15 +4472,15 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
             this.recognizer = recognizer;
             this.decisionNumber = 1;
             this.eot = dfa_1;
-            this.eof = dfa_2;
-            this.min = dfa_3;
-            this.max = dfa_4;
-            this.accept = dfa_5;
-            this.special = dfa_6;
-            this.transition = dfa_7;
+            this.eof = dfa_1;
+            this.min = dfa_2;
+            this.max = dfa_3;
+            this.accept = dfa_4;
+            this.special = dfa_5;
+            this.transition = dfa_6;
         }
         public String getDescription() {
-            return "452:1: rule__Oracion__ContenidoAlternatives_0 : ( ( ruleCompuesta ) | ( ruleSimple ) );";
+            return "452:1: rule__Oracion__ContenidoAlternatives_0_0 : ( ( ruleCompuesta ) | ( ruleSimple ) );";
         }
     }
  
@@ -4535,11 +4490,11 @@ public class InternalGramaticaParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000001FC000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000001FC000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000003000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000800000L});
 

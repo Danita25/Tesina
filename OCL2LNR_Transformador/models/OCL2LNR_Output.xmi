@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gramatica="http://www.xtext.org/tesis/gramatica/Gramatica">
+  <gramatica:Documento pathModelo="Tesis.Biblioteca.ecore" pathOcl="platform:/resource/OCL2LNR_Transformador/models/Biblioteca.ocl">
+    <oraciones>
+      <contenido xsi:type="gramatica:Simple">
+        <determinante valor="El/La"/>
+        <atributo nombre="titulo"/>
+        <sintagma>
+          <enlace valor="de"/>
+          <termino>
+            <indeterminante valor="un/una"/>
+            <contexto nombre="Libro"/>
+          </termino>
+        </sintagma>
+        <obligacion obligacionDeber="debe ser"/>
+        <operacion descripcion="distinto de"/>
+        <literal valor=""/>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido xsi:type="gramatica:Simple">
+        <determinante valor="El/La"/>
+        <atributo nombre="titulo"/>
+        <sintagma>
+          <enlace valor="de"/>
+          <termino>
+            <indeterminante valor="un/una"/>
+            <contexto nombre="Libro"/>
+          </termino>
+        </sintagma>
+        <obligacion negacion="no" obligacionDeber="debe ser"/>
+        <operacion descripcion="distinto de"/>
+        <literal valor=""/>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido xsi:type="gramatica:Compuesta">
+        <simple>
+          <determinante valor="El/La"/>
+          <atributo nombre="nombreCompleto"/>
+          <sintagma>
+            <enlace valor="de"/>
+            <termino>
+              <indeterminante valor="un/una"/>
+              <contexto nombre="Socio"/>
+            </termino>
+          </sintagma>
+          <obligacion obligacionDeber="debe ser"/>
+          <operacion descripcion="distinto de"/>
+          <literal valor=""/>
+        </simple>
+        <nexo valor="y"/>
+        <oracion>
+          <contenido xsi:type="gramatica:Simple">
+            <determinante valor="El/La"/>
+            <atributo nombre="direccion"/>
+            <sintagma>
+              <enlace valor="de"/>
+              <termino>
+                <indeterminante valor="un/una"/>
+                <contexto nombre="Socio"/>
+              </termino>
+            </sintagma>
+            <obligacion obligacionDeber="debe ser"/>
+            <operacion descripcion="distinto de"/>
+            <literal valor=""/>
+          </contenido>
+        </oracion>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido xsi:type="gramatica:Compuesta">
+        <simple>
+          <determinante valor="El/La"/>
+          <atributo nombre="edad"/>
+          <sintagma>
+            <enlace valor="de"/>
+            <termino>
+              <indeterminante valor="un/una"/>
+              <contexto nombre="Socio"/>
+            </termino>
+          </sintagma>
+          <obligacion obligacionDeber="debe ser"/>
+          <operacion descripcion="mayor que"/>
+          <literal valor="18"/>
+        </simple>
+        <nexo valor="y"/>
+        <oracion>
+          <contenido xsi:type="gramatica:Compuesta">
+            <simple>
+              <determinante valor="El/La"/>
+              <atributo nombre="nombreCompleto"/>
+              <sintagma>
+                <enlace valor="de"/>
+                <termino>
+                  <indeterminante valor="un/una"/>
+                  <contexto nombre="Socio"/>
+                </termino>
+              </sintagma>
+              <obligacion obligacionDeber="debe ser"/>
+              <operacion descripcion="distinto de"/>
+              <literal valor=""/>
+            </simple>
+            <nexo valor="y"/>
+            <oracion>
+              <contenido xsi:type="gramatica:Simple">
+                <determinante valor="El/La"/>
+                <atributo nombre="direccion"/>
+                <sintagma>
+                  <enlace valor="de"/>
+                  <termino>
+                    <indeterminante valor="un/una"/>
+                    <contexto nombre="Socio"/>
+                  </termino>
+                </sintagma>
+                <obligacion obligacionDeber="debe ser"/>
+                <operacion descripcion="distinto de"/>
+                <literal valor=""/>
+              </contenido>
+            </oracion>
+          </contenido>
+        </oracion>
+      </contenido>
+    </oraciones>
+  </gramatica:Documento>
+</xmi:XMI>

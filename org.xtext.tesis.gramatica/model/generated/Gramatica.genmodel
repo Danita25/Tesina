@@ -26,7 +26,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/simple"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/nexo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/oracion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Compuesta/extraStr"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Nexo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Nexo/valor"/>

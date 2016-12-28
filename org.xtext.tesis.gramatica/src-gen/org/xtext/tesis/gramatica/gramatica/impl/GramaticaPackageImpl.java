@@ -379,16 +379,6 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCompuesta_ExtraStr()
-  {
-    return (EAttribute)compuestaEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getNexo()
   {
     return nexoEClass;
@@ -684,7 +674,6 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     createEReference(compuestaEClass, COMPUESTA__SIMPLE);
     createEReference(compuestaEClass, COMPUESTA__NEXO);
     createEReference(compuestaEClass, COMPUESTA__ORACION);
-    createEAttribute(compuestaEClass, COMPUESTA__EXTRA_STR);
 
     nexoEClass = createEClass(NEXO);
     createEAttribute(nexoEClass, NEXO__VALOR);
@@ -774,7 +763,6 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
     initEReference(getCompuesta_Simple(), this.getSimple(), null, "simple", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompuesta_Nexo(), this.getNexo(), null, "nexo", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompuesta_Oracion(), this.getOracion(), null, "oracion", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCompuesta_ExtraStr(), ecorePackage.getEString(), "extraStr", null, 0, 1, Compuesta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nexoEClass, Nexo.class, "Nexo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNexo_Valor(), ecorePackage.getEString(), "valor", null, 0, 1, Nexo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -119,7 +119,7 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Compuesta returns Compuesta
 	 *
 	 * Constraint:
-	 *     (simple=Simple nexo=Nexo oracion=Oracion extraStr=STRING)
+	 *     (simple=Simple nexo=Nexo oracion=Oracion)
 	 */
 	protected void sequence_Compuesta(ISerializationContext context, Compuesta semanticObject) {
 		if (errorAcceptor != null) {
@@ -129,14 +129,11 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.COMPUESTA__NEXO));
 			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.COMPUESTA__ORACION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.COMPUESTA__ORACION));
-			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.COMPUESTA__EXTRA_STR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.COMPUESTA__EXTRA_STR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCompuestaAccess().getSimpleSimpleParserRuleCall_0_0(), semanticObject.getSimple());
 		feeder.accept(grammarAccess.getCompuestaAccess().getNexoNexoParserRuleCall_1_0(), semanticObject.getNexo());
 		feeder.accept(grammarAccess.getCompuestaAccess().getOracionOracionParserRuleCall_2_0(), semanticObject.getOracion());
-		feeder.accept(grammarAccess.getCompuestaAccess().getExtraStrSTRINGTerminalRuleCall_3_0(), semanticObject.getExtraStr());
 		feeder.finish();
 	}
 	

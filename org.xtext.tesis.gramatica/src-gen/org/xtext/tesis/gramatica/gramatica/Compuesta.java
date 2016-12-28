@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getSimple <em>Simple</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getNexo <em>Nexo</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getOracion <em>Oracion</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getExtraStr <em>Extra Str</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompuesta()
@@ -103,31 +102,5 @@ public interface Compuesta extends EObject
    * @generated
    */
   void setOracion(Oracion value);
-
-  /**
-   * Returns the value of the '<em><b>Extra Str</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Extra Str</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Extra Str</em>' attribute.
-   * @see #setExtraStr(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getCompuesta_ExtraStr()
-   * @model
-   * @generated
-   */
-  String getExtraStr();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getExtraStr <em>Extra Str</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Extra Str</em>' attribute.
-   * @see #getExtraStr()
-   * @generated
-   */
-  void setExtraStr(String value);
 
 } // Compuesta

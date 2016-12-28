@@ -152,39 +152,48 @@ ruleOracion returns [EObject current=null]
 	(
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getOracionAccess().getContenidoCompuestaParserRuleCall_0_0());
-				}
-				lv_contenido_0_1=ruleCompuesta
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getOracionRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getOracionAccess().getContenidoCompuestaParserRuleCall_0_0_0());
 					}
-					set(
-						$current,
-						"contenido",
-						lv_contenido_0_1,
-						"org.xtext.tesis.gramatica.Gramatica.Compuesta");
-					afterParserOrEnumRuleCall();
-				}
-				    |
-				{
-					newCompositeNode(grammarAccess.getOracionAccess().getContenidoSimpleParserRuleCall_0_1());
-				}
-				lv_contenido_0_2=ruleSimple
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getOracionRule());
+					lv_contenido_0_1=ruleCompuesta
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getOracionRule());
+						}
+						set(
+							$current,
+							"contenido",
+							lv_contenido_0_1,
+							"org.xtext.tesis.gramatica.Gramatica.Compuesta");
+						afterParserOrEnumRuleCall();
 					}
-					set(
-						$current,
-						"contenido",
-						lv_contenido_0_2,
-						"org.xtext.tesis.gramatica.Gramatica.Simple");
-					afterParserOrEnumRuleCall();
-				}
+					    |
+					{
+						newCompositeNode(grammarAccess.getOracionAccess().getContenidoSimpleParserRuleCall_0_0_1());
+					}
+					lv_contenido_0_2=ruleSimple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getOracionRule());
+						}
+						set(
+							$current,
+							"contenido",
+							lv_contenido_0_2,
+							"org.xtext.tesis.gramatica.Gramatica.Simple");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
+		{
+			newCompositeNode(grammarAccess.getOracionAccess().getFinOracionParserRuleCall_1());
+		}
+		ruleFinOracion
+		{
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -318,13 +327,6 @@ ruleSimple returns [EObject current=null]
 				}
 			)
 		)
-		{
-			newCompositeNode(grammarAccess.getSimpleAccess().getFinOracionParserRuleCall_6());
-		}
-		ruleFinOracion
-		{
-			afterParserOrEnumRuleCall();
-		}
 	)
 ;
 
@@ -398,24 +400,6 @@ ruleCompuesta returns [EObject current=null]
 						lv_oracion_2_0,
 						"org.xtext.tesis.gramatica.Gramatica.Oracion");
 					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				lv_extraStr_3_0=RULE_STRING
-				{
-					newLeafNode(lv_extraStr_3_0, grammarAccess.getCompuestaAccess().getExtraStrSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCompuestaRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"extraStr",
-						lv_extraStr_3_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)

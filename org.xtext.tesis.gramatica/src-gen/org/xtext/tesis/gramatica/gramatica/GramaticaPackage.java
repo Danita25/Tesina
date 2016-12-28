@@ -242,22 +242,13 @@ public interface GramaticaPackage extends EPackage
   int COMPUESTA__ORACION = 2;
 
   /**
-   * The feature id for the '<em><b>Extra Str</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPUESTA__EXTRA_STR = 3;
-
-  /**
    * The number of structural features of the '<em>Compuesta</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPUESTA_FEATURE_COUNT = 4;
+  int COMPUESTA_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.NexoImpl <em>Nexo</em>}' class.
@@ -779,17 +770,6 @@ public interface GramaticaPackage extends EPackage
   EReference getCompuesta_Oracion();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Compuesta#getExtraStr <em>Extra Str</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Extra Str</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Compuesta#getExtraStr()
-   * @see #getCompuesta()
-   * @generated
-   */
-  EAttribute getCompuesta_ExtraStr();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Nexo <em>Nexo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1219,14 +1199,6 @@ public interface GramaticaPackage extends EPackage
      * @generated
      */
     EReference COMPUESTA__ORACION = eINSTANCE.getCompuesta_Oracion();
-
-    /**
-     * The meta object literal for the '<em><b>Extra Str</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPUESTA__EXTRA_STR = eINSTANCE.getCompuesta_ExtraStr();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.NexoImpl <em>Nexo</em>}' class.

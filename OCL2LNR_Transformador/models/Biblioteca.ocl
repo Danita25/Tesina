@@ -2,16 +2,9 @@ import 'Biblioteca.ecore'
 
 package Biblioteca
 
---context Biblioteca
-
---busca todos los libros con ese titulo
---def: getLibros(titulo : String) : Set(Libro) = 
-	--libros->select(l | l.titulo = titulo)->asSet()
-
 
 context Libro
 
---	inv opcionesLibro: Libro.allInstances()->forAll(l1,l2|l1<>l2 and l1.autor<>l2.autor implies l1.titulo<>l2.titulo)
 inv tieneTitulo: self.titulo <> ''
 inv notieneTitulo: not (self.titulo <> '')
 --inv alMenosUnaCopia : self.copias->notEmpty()
@@ -22,73 +15,9 @@ inv notieneTitulo: not (self.titulo <> '')
 context Socio	
 --	inv tieneNumeroSocio: self.numeroDeSocio>0
 	inv datosCompletos: self.direccion<>'' and self.nombreCompleto<>''
+	inv datosCompletos_2: self.direccion<>'' and self.nombreCompleto<>'' and self.edad > 18 
 --	inv tieneFechaDeNacimiento:self.fechaDeNacimiento<>null
 --	inv mayorEdad: edad > 18  
 
 
-/*		
-
-
-	--los prestamos que contienen el libro
-	--def: prestamo : Prestamo = Prestamo.allInstances()->any(ejemplar->includes(self))
-
-context Copia 
-	inv numeroCopiaValida: self.numeroDeCopia > 0
-
-context Prestamo 
-	inv tieneFechaInicio : self.fechaInicio<>null
-	inv tieneSolicitante : self.solicitante<>null  
-	inv fechasSolicitudValidas : 
-		self.fechaFin.isAfter(fechaInicio)
-	--tal vez podemos pensarlo con una precondicion, indicando que es valida solo ara aquellas con fechaDeDevolucion<>null
-	inv fechaDevolucionValida : 
-		if(self.fechaDeDevolucion<>null)then
-			self.fechaDeDevolucion.isAfter(fechaInicio) and self.fechaDeDevolucion.isBefore(fechaFin)
-		else
-			true
-		endif
-		
-	inv soloCopiasEnBuenEstado :
-		ejemplar.estado = EstadoDeLaCopia::Bueno
-		
-		
-		--inv realizarPrestamo : prestamosActivos 
-
-context Multa
-	inv fechasValidas: self.fechaFin.isAfter(fechaInicio)
-	inv: self.fechaInicio.isBefore(fechaFin)
-*/
-
-/*	
-	--prestamos sin devolver. Aca podriamos pensar algo mas copado tipo que ya esten vencidos no? habria que ver de comparar con la fecha actual
-	inv devolucionesPendientes: self.prestamos->select(fechaDeDevolucion=null) ->notEmpty()
-
--- no me reconoce el let, si podes decomenta esto y proba a ver si a vos te funciona.
--- 	inv noMasDe3PrestamosActivos: 
--- 		let prestamosActivos : Integer = self.prestamos->size() in 
--- 	    if prestamosActivos > 3 then false
--- 	    else true
--- 	    endif
---	
-context Socio::solicitarEjemplar(numeroDeCopia:Integer):Prestamo
-	pre pre1: multas->isEmpty()
---	pre pre2: prestamos->size() < 3
---	post: prestamos->size() > prestamos->size()@pre --solo un ejemplo del uso del @pre no se si lo vamos a implementar 
-	
-context Socio::devolverEjemplar(numeroDeCopia:Integer, fechaActual :Date):Prestamo 
-	pre: prestamos->notEmpty()
---	body: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia and p.fechaFin.isBefore(fechaActual)).fechaDeDevolucion = fechaActual
---	post: prestamos->select( p | p.ejemplar.numeroDeCopia = numeroDeCopia).fechaDeDevolucion = fechaActual
-	
-
---para asegurar id de socio unico
---context Socio::numeroDeSocio : String init:
---	Socio::uniqueID()
-	
-
-context Autor
-	inv tieneNombre: self.nombre<>''
-	inv poseeObras: obras->notEmpty()
-
-*/
 endpackage

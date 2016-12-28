@@ -367,10 +367,10 @@ public class InternalGramaticaLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGramatica.g:949:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalGramatica.g:949:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalGramatica.g:933:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalGramatica.g:933:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalGramatica.g:949:11: ( '^' )?
+            // InternalGramatica.g:933:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -379,7 +379,7 @@ public class InternalGramaticaLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalGramatica.g:949:11: '^'
+                    // InternalGramatica.g:933:11: '^'
                     {
                     match('^'); 
 
@@ -397,7 +397,7 @@ public class InternalGramaticaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalGramatica.g:949:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalGramatica.g:933:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -446,10 +446,10 @@ public class InternalGramaticaLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGramatica.g:951:10: ( ( '0' .. '9' )+ )
-            // InternalGramatica.g:951:12: ( '0' .. '9' )+
+            // InternalGramatica.g:935:10: ( ( '0' .. '9' )+ )
+            // InternalGramatica.g:935:12: ( '0' .. '9' )+
             {
-            // InternalGramatica.g:951:12: ( '0' .. '9' )+
+            // InternalGramatica.g:935:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -463,7 +463,7 @@ public class InternalGramaticaLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalGramatica.g:951:13: '0' .. '9'
+            	    // InternalGramatica.g:935:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -495,10 +495,10 @@ public class InternalGramaticaLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGramatica.g:953:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalGramatica.g:953:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalGramatica.g:937:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalGramatica.g:937:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalGramatica.g:953:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalGramatica.g:937:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -516,10 +516,10 @@ public class InternalGramaticaLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalGramatica.g:953:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalGramatica.g:937:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalGramatica.g:953:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalGramatica.g:937:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -535,7 +535,7 @@ public class InternalGramaticaLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalGramatica.g:953:21: '\\\\' .
+                    	    // InternalGramatica.g:937:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -543,7 +543,7 @@ public class InternalGramaticaLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalGramatica.g:953:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalGramatica.g:937:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -568,10 +568,10 @@ public class InternalGramaticaLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalGramatica.g:953:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalGramatica.g:937:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalGramatica.g:953:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalGramatica.g:937:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -587,7 +587,7 @@ public class InternalGramaticaLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalGramatica.g:953:54: '\\\\' .
+                    	    // InternalGramatica.g:937:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -595,7 +595,7 @@ public class InternalGramaticaLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalGramatica.g:953:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalGramatica.g:937:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -638,12 +638,12 @@ public class InternalGramaticaLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGramatica.g:955:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalGramatica.g:955:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalGramatica.g:939:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalGramatica.g:939:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalGramatica.g:955:24: ( options {greedy=false; } : . )*
+            // InternalGramatica.g:939:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -668,7 +668,7 @@ public class InternalGramaticaLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalGramatica.g:955:52: .
+            	    // InternalGramatica.g:939:52: .
             	    {
             	    matchAny(); 
 
@@ -698,12 +698,12 @@ public class InternalGramaticaLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGramatica.g:957:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalGramatica.g:957:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalGramatica.g:941:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalGramatica.g:941:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalGramatica.g:957:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalGramatica.g:941:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -716,7 +716,7 @@ public class InternalGramaticaLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalGramatica.g:957:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalGramatica.g:941:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -736,7 +736,7 @@ public class InternalGramaticaLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalGramatica.g:957:40: ( ( '\\r' )? '\\n' )?
+            // InternalGramatica.g:941:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -745,9 +745,9 @@ public class InternalGramaticaLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalGramatica.g:957:41: ( '\\r' )? '\\n'
+                    // InternalGramatica.g:941:41: ( '\\r' )? '\\n'
                     {
-                    // InternalGramatica.g:957:41: ( '\\r' )?
+                    // InternalGramatica.g:941:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -756,7 +756,7 @@ public class InternalGramaticaLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalGramatica.g:957:41: '\\r'
+                            // InternalGramatica.g:941:41: '\\r'
                             {
                             match('\r'); 
 
@@ -788,10 +788,10 @@ public class InternalGramaticaLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGramatica.g:959:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalGramatica.g:959:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalGramatica.g:943:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalGramatica.g:943:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalGramatica.g:959:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalGramatica.g:943:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -845,8 +845,8 @@ public class InternalGramaticaLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGramatica.g:961:16: ( . )
-            // InternalGramatica.g:961:18: .
+            // InternalGramatica.g:945:16: ( . )
+            // InternalGramatica.g:945:18: .
             {
             matchAny(); 
 
