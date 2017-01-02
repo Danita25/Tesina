@@ -4,20 +4,16 @@ package Biblioteca
 
 
 context Libro
-
+--
 inv tieneTitulo: self.titulo <> ''
-inv notieneTitulo: not (self.titulo <> '')
---inv alMenosUnaCopia : self.copias->notEmpty()
+--inv notieneTitulo: not (self.titulo <> '')
 --inv tieneCopias : self.copias->size() > 0
---inv tieneTipo: self.tipo <> null	
---	inv tieneAutor: self.autor <> null	
+--inv noCopias: self.copias->isEmpty()
+--inv alMenosUnaCopia : self.copias->notEmpty()
 
-context Socio	
---	inv tieneNumeroSocio: self.numeroDeSocio>0
-	inv datosCompletos: self.direccion<>'' and self.nombreCompleto<>''
-	inv datosCompletos_2: self.direccion<>'' and self.nombreCompleto<>'' and self.edad > 18 
---	inv tieneFechaDeNacimiento:self.fechaDeNacimiento<>null
---	inv mayorEdad: edad > 18  
+--context Socio	
+--inv datosCompletos: self.direccion<>'' or self.nombreCompleto<>''
 
-
+--context Prestamo 
+--inv test1: self.solicitante.nombreCompleto <> 'Danae'
 endpackage

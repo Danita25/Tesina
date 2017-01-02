@@ -7,46 +7,46 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.tesis.gramatica.gramatica.Contenido;
+import org.xtext.tesis.gramatica.gramatica.Expresion;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
-import org.xtext.tesis.gramatica.gramatica.Oracion;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Oracion</b></em>'.
+ * An implementation of the model object '<em><b>Expresion</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.OracionImpl#getContenido <em>Contenido</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ExpresionImpl#getExpresion <em>Expresion</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
+public class ExpresionImpl extends MinimalEObjectImpl.Container implements Expresion
 {
   /**
-   * The cached value of the '{@link #getContenido() <em>Contenido</em>}' containment reference.
+   * The cached value of the '{@link #getExpresion() <em>Expresion</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContenido()
+   * @see #getExpresion()
    * @generated
    * @ordered
    */
-  protected Contenido contenido;
+  protected EObject expresion;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OracionImpl()
+  protected ExpresionImpl()
   {
     super();
   }
@@ -59,7 +59,7 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   @Override
   protected EClass eStaticClass()
   {
-    return GramaticaPackage.Literals.ORACION;
+    return GramaticaPackage.Literals.EXPRESION;
   }
 
   /**
@@ -67,9 +67,9 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
    * <!-- end-user-doc -->
    * @generated
    */
-  public Contenido getContenido()
+  public EObject getExpresion()
   {
-    return contenido;
+    return expresion;
   }
 
   /**
@@ -77,13 +77,13 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetContenido(Contenido newContenido, NotificationChain msgs)
+  public NotificationChain basicSetExpresion(EObject newExpresion, NotificationChain msgs)
   {
-    Contenido oldContenido = contenido;
-    contenido = newContenido;
+    EObject oldExpresion = expresion;
+    expresion = newExpresion;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.ORACION__CONTENIDO, oldContenido, newContenido);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.EXPRESION__EXPRESION, oldExpresion, newExpresion);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +94,20 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setContenido(Contenido newContenido)
+  public void setExpresion(EObject newExpresion)
   {
-    if (newContenido != contenido)
+    if (newExpresion != expresion)
     {
       NotificationChain msgs = null;
-      if (contenido != null)
-        msgs = ((InternalEObject)contenido).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.ORACION__CONTENIDO, null, msgs);
-      if (newContenido != null)
-        msgs = ((InternalEObject)newContenido).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.ORACION__CONTENIDO, null, msgs);
-      msgs = basicSetContenido(newContenido, msgs);
+      if (expresion != null)
+        msgs = ((InternalEObject)expresion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.EXPRESION__EXPRESION, null, msgs);
+      if (newExpresion != null)
+        msgs = ((InternalEObject)newExpresion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.EXPRESION__EXPRESION, null, msgs);
+      msgs = basicSetExpresion(newExpresion, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.ORACION__CONTENIDO, newContenido, newContenido));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.EXPRESION__EXPRESION, newExpresion, newExpresion));
   }
 
   /**
@@ -120,8 +120,8 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
-        return basicSetContenido(null, msgs);
+      case GramaticaPackage.EXPRESION__EXPRESION:
+        return basicSetExpresion(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +136,8 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
-        return getContenido();
+      case GramaticaPackage.EXPRESION__EXPRESION:
+        return getExpresion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +152,8 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
-        setContenido((Contenido)newValue);
+      case GramaticaPackage.EXPRESION__EXPRESION:
+        setExpresion((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +169,8 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
-        setContenido((Contenido)null);
+      case GramaticaPackage.EXPRESION__EXPRESION:
+        setExpresion((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +186,10 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
-        return contenido != null;
+      case GramaticaPackage.EXPRESION__EXPRESION:
+        return expresion != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //OracionImpl
+} //ExpresionImpl

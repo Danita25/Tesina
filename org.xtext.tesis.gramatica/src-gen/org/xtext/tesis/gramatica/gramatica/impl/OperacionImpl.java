@@ -21,7 +21,7 @@ import org.xtext.tesis.gramatica.gramatica.Operacion;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.OperacionImpl#getDescripcion <em>Descripcion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.OperacionImpl#getOperacion <em>Operacion</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import org.xtext.tesis.gramatica.gramatica.Operacion;
 public class OperacionImpl extends MinimalEObjectImpl.Container implements Operacion
 {
   /**
-   * The default value of the '{@link #getDescripcion() <em>Descripcion</em>}' attribute.
+   * The default value of the '{@link #getOperacion() <em>Operacion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescripcion()
+   * @see #getOperacion()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPCION_EDEFAULT = null;
+  protected static final String OPERACION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDescripcion() <em>Descripcion</em>}' attribute.
+   * The cached value of the '{@link #getOperacion() <em>Operacion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescripcion()
+   * @see #getOperacion()
    * @generated
    * @ordered
    */
-  protected String descripcion = DESCRIPCION_EDEFAULT;
+  protected String operacion = OPERACION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class OperacionImpl extends MinimalEObjectImpl.Container implements Opera
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescripcion()
+  public String getOperacion()
   {
-    return descripcion;
+    return operacion;
   }
 
   /**
@@ -84,12 +84,12 @@ public class OperacionImpl extends MinimalEObjectImpl.Container implements Opera
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescripcion(String newDescripcion)
+  public void setOperacion(String newOperacion)
   {
-    String oldDescripcion = descripcion;
-    descripcion = newDescripcion;
+    String oldOperacion = operacion;
+    operacion = newOperacion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.OPERACION__DESCRIPCION, oldDescripcion, descripcion));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.OPERACION__OPERACION, oldOperacion, operacion));
   }
 
   /**
@@ -102,8 +102,8 @@ public class OperacionImpl extends MinimalEObjectImpl.Container implements Opera
   {
     switch (featureID)
     {
-      case GramaticaPackage.OPERACION__DESCRIPCION:
-        return getDescripcion();
+      case GramaticaPackage.OPERACION__OPERACION:
+        return getOperacion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class OperacionImpl extends MinimalEObjectImpl.Container implements Opera
   {
     switch (featureID)
     {
-      case GramaticaPackage.OPERACION__DESCRIPCION:
-        setDescripcion((String)newValue);
+      case GramaticaPackage.OPERACION__OPERACION:
+        setOperacion((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class OperacionImpl extends MinimalEObjectImpl.Container implements Opera
   {
     switch (featureID)
     {
-      case GramaticaPackage.OPERACION__DESCRIPCION:
-        setDescripcion(DESCRIPCION_EDEFAULT);
+      case GramaticaPackage.OPERACION__OPERACION:
+        setOperacion(OPERACION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class OperacionImpl extends MinimalEObjectImpl.Container implements Opera
   {
     switch (featureID)
     {
-      case GramaticaPackage.OPERACION__DESCRIPCION:
-        return DESCRIPCION_EDEFAULT == null ? descripcion != null : !DESCRIPCION_EDEFAULT.equals(descripcion);
+      case GramaticaPackage.OPERACION__OPERACION:
+        return OPERACION_EDEFAULT == null ? operacion != null : !OPERACION_EDEFAULT.equals(operacion);
     }
     return super.eIsSet(featureID);
   }
@@ -169,8 +169,8 @@ public class OperacionImpl extends MinimalEObjectImpl.Container implements Opera
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (descripcion: ");
-    result.append(descripcion);
+    result.append(" (operacion: ");
+    result.append(operacion);
     result.append(')');
     return result.toString();
   }

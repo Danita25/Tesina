@@ -96,7 +96,7 @@ public class TraducirDesdeXtext {
 	
 	public static void main(String[] args) throws IOException {
 		TraducirDesdeXtext xtext = new TraducirDesdeXtext();
-		FileInputStream f = new FileInputStream("C:\\Users\\Danae\\git\\OCL2LNR_Transformador\\models\\OCL2LNR_Output.xmi");
+		FileInputStream f = new FileInputStream("C:\\Users\\Danae\\git\\OCL2LNR_Transformador\\models\\LNR_Output.xmi");
 		EObject result = xtext.parseXmi(f);
 		System.out.println(xtext.serialize(result));
 	}

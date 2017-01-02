@@ -20,54 +20,124 @@ helper def: getPackageName: String =
 -- Returns string after removing anything before ! if exists.
 -- OUT:		String
 helper def: removePrefix(str: String): String =
-	let idx : Integer = str.indexOf('!') + 2 in
-	if ( idx > 0) then
-		str.substring(idx, str.size())
-	else
-		str
-	endif;
+	let idx: Integer =
+		str.indexOf('!') + 2
+	in
+		if (idx > 0) then
+			str.substring(idx, str.size())
+		else
+			str
+		endif;
 
 -- HELPER: operationName
--- Returns string the complete name for the operation passed as param. Eg. > return 'mayor que'
+-- Returns string the complete name for the operation passed as param. Eg. > return
+		-- 'mayor que'
 -- OUT:		String
 helper def: operationName(str: String): String =
-	if ( str = '>') then 'mayor que'
-	else if ( str = '<') then 'menor que'
-		 else if ( str = '<=') then 'menor o igual a'
-		      else if ( str = '>=') then 'mayor o igual a'
-			  	   else if ( str = '=') then 'igual a'
-				   		else if ( str = '<>') then 'distinto de'
-							 else OclUndefined
-							endif
+	if (str = '>') then
+		'mayor que'
+	else
+		if (str = '<') then
+			'menor que'
+		else
+			if (str = '<=') then
+				'menor o igual a'
+			else
+				if (str = '>=') then
+					'mayor o igual a'
+				else
+					if (str = '=') then
+						'igual a'
+					else
+						if (str = '<>') then
+							'distinto de'
+						else
+							OclUndefined -- if ( str = 'size') then 'una cantidad de'
+							 	  --	else OclUndefined
+								  -- endif
+							
 						endif
 					endif
-			  endif
-		 endif
+				endif
+			endif
+		endif
 	endif;
 
-helper context OclAny def: getExpressionInOCL() : OCL!ExpressionInOCL =
---	let 
+helper context OclAny def: getExpressionInOCL(): OCL!ExpressionInOCL =
+	--	let 
 --		parent: OclAny = self.refImmediateComposite()
 --	in
 	if self.refImmediateComposite().oclIsTypeOf(OCL!ExpressionInOCL) then
 		self.refImmediateComposite()
 	else if self.refImmediateComposite().oclIsUndefined() then
 			OclUndefined
-		else 
+		else
 			self.refImmediateComposite().getExpressionInOCL()
 		endif
 	endif;
 
-helper context OCL!PrimitiveLiteralExp def: getLiteralSymbol() : String = 
-   if (self.oclIsTypeOf(OCL!StringLiteralExp)) then 
-   		self.stringSymbol
-   else if (self.oclIsTypeOf(OCL!IntegerLiteralExp)) then
-   			self.integerSymbol.toString()
-   		else
-   			OclUndefined
-   		endif
-   endif;
-   
+helper context OCL!PrimitiveLiteralExp def: getLiteralSymbol(): String =
+	if (self.oclIsTypeOf(OCL!StringLiteralExp)) then
+		self.stringSymbol
+	else
+		if (self.oclIsTypeOf(OCL!IntegerLiteralExp)) then
+			self.integerSymbol.toString()
+		else
+			OclUndefined
+		endif
+	endif;
+
+helper context OCL!OCLExpression def: getPropertyName(): String =
+	if (self.oclIsTypeOf(OCL!PropertyCallExp)) then
+		thisModule.removePrefix(self.referredProperty.toString())
+	else
+		self.ownedSource.getPropertyName()
+	endif;
+
+-- HELPER: haveCollectionExpInSources
+-- Checks if there is CollectionOperation in sources (source.source.etc) of expression.
+-- CONTEXT:	CallExp
+-- OUT:		Boolean
+helper context OCL!OperationCallExp def: haveCollectionExpInSources(): Boolean =
+	if self.oclIsTypeOf(OCL!OperationCallExp) and ( thisModule.removePrefix(self.
+			referredOperation.toString()) = 'size' or thisModule.removePrefix(self.
+			referredOperation.toString()) = 'notEmpty' or thisModule.removePrefix(self.
+			referredOperation.toString()) = 'isEmpty'
+			) then
+		true
+	else
+		if not self.ownedSource.oclIsUndefined() then
+			if self.ownedSource.oclIsKindOf(OCL!OperationCallExp) then
+				self.ownedSource.haveCollectionExpInSources()
+			else
+				false
+			endif
+		else
+			false
+		endif
+	endif;
+
+-- HELPER: haveCollectionExpInArguments
+-- Checks if there is CollectionOperation in arguments of expression.
+-- CONTEXT:	OperationCallExp
+-- OUT:		Boolean
+helper context OCL!OperationCallExp def: haveCollectionExpInArguments(): Boolean =
+	if self.argument -> asSequence() -> first().
+			oclIsTypeOf(OCL!CollectionOperationCallExp) then
+		true
+	else
+		if self.argument -> size() > 0 then
+			if self.argument -> asSequence() -> first().oclIsKindOf(OCL!OperationCallExp)
+					then
+				self.argument -> asSequence() -> first().haveCollectionExpInArguments()
+			else
+				false
+			endif
+		else
+			false
+		endif
+	endif;
+
 -------------------------------------------------------------------------------
 -- RULES ----------------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -79,113 +149,206 @@ rule Model2Documento {
 	to
 		t2: LNR!Documento (
 			pathModelo <- s.ownedPackages.first().URI,
-			pathOcl <- s.externalURI
-			, oraciones <- s.ownedPackages.first().ownedClasses->collect(e | e.ownedInvariants).flatten()
+			pathOcl <- s.externalURI,
+			oraciones <- s.ownedPackages.first().ownedClasses -> collect(e | e.
+					ownedInvariants).flatten()
 		)
 }
 
 rule Constraint2Oracion {
 	from
-		s : OCL!Constraint
-	to 
-		t : LNR!Oracion ( 
-			contenido <- s.ownedSpecification.ownedBody
+		s: OCL!Constraint
+	to
+		t: LNR!Oracion (
+			contenido <- s.ownedSpecification.ownedBody--thisModule.OperationCallExp2Contenido(s.ownedSpecification.ownedBody)
 		)
 }
 
-lazy rule ExpressionInOCL2SintagmaPreposicional {
-	from
-		s : OCL!ExpressionInOCL
-	to 
-		sp: LNR!SintagmaPreposicional ( 
-			enlace <- e, 
-			termino <- t
-		),
-		e: LNR!Enlace (
-			valor <- 'de'
-		),
-		t: LNR!Termino (
-			indeterminante <- i,
-			contexto <- c
-			),
-		i: LNR!Indeterminante (
-			valor <- 'un/una'		
-		),
-		c: LNR!Contexto (
-			nombre <- if (s.oclIsUndefined()) then OclUndefined else s.owningConstraint.context.name endif	
-		) 
-}
-		
 
-
-rule OperationCallExp2Simple {
+rule OperationCallExp2Contenido  {
 	from
-		s: OCL!OperationCallExp (s.name <> 'and' and s.name <> 'notEmpty' ) 
+		s: OCL!OperationCallExp --(s.name = 'and' or s.name = 'or' --and not s.haveCollectionExpInSources()			)
 	to
+		t2: LNR!Contenido (
+			simple <- if (s.name = 'and' or s.name = 'or') then 
+						thisModule.OperationCallExp2Simple(s.ownedArguments.first())
+					  else 
+					  	 thisModule.OperationCallExp2Simple(s)
+					  endif,
+			composicion <- OclUndefined --c
+		)
+		--,
+--		c: LNR!Composicion (
+--			nexo <- n,
+--			contenido <- s.ownedSource
+--		)
+--		,
+--		n: LNR!Nexo (
+--			valor <- 	if s.name = 'and' then 'y'
+--						else if s.name = 'or' then 'o'
+--							 else	OclUndefined
+--							endif
+--				endif
+--		)
+}
+
+
+lazy rule OperationCallExp2Simple {
+	from
+		s: OCL!OperationCallExp --(s.name <> 'and' and s.name <> 'or' 		--and not s.haveCollectionExpInSources()				)
+	to 
+--	    t: LNR!Contenido (
+--	    	simple <- t2
+--	    ),
 		t2: LNR!Simple (
-				--extraStr <- s.getBody() + s.ownedBody.name + s.ownedBody.oclIsTypeOf(OCL!OperationCallExp).toString() ,
-				determinante <- d,
-				atributo <- a,
-				sintagma <- thisModule.ExpressionInOCL2SintagmaPreposicional(s.getExpressionInOCL()), 
-				obligacion <- ob, 
-				operacion <- op, 
-				literal <- l 
-		),
-		d: LNR!Determinante (valor <- 'El/La'),
-		a: LNR!Atributo (
-			--prefijo <- 'prefix', --+ s.ownedBody.ownedSource.referredProperty.oclIsKindOf(OCL!ReferringElement),
-			nombre <- if (s.oclIsTypeOf(OCL!OperationCallExp)) then 
-						if (s.ownedSource.oclIsTypeOf(OCL!PropertyCallExp)) then
-						     thisModule.removePrefix(s.ownedSource.referredProperty.toString())
-						else --not (self.titulo <> '')) tengo que bajar un nivel para poder retornar el atributo, hay que ver que pasa con multiples niveles.
-							 if (s.ownedSource.oclIsTypeOf(OCL!OperationCallExp)) then
-						     	--'test'+s.ownedBody.ownedSource.ownedSource.referredProperty.toString()
-							 	thisModule.removePrefix(s.ownedSource.ownedSource.referredProperty.toString())
-							 else 
-							 	OclUndefined
-							 endif
-						endif
-					else
-						'no es opCall'+s.ownedSource.oclType().toString()
-					endif
+			expresion_izq <- thisModule.OCLExpression2Expresion(s.ownedSource),
+			comparacion <- c,
+			expresion_der <- thisModule.OCLExpression2Expresion(s.ownedArguments.first())
+			),
+		c: LNR!Comparacion (
+			obligacion <- ob,
+			operacion <- op	
 		),
 		ob: LNR!Obligacion (
-			negacion <- if (s.name = 'not') then 
-							'no'
-						else
-							OclUndefined
-						endif,
-			obligacionDeber <- 'debe ser' 
-			), 
-		op: LNR!Operacion(
-			descripcion <-  if(s.name = 'not')then 
-								thisModule.operationName(s.ownedSource.name)
-						   	else
-						   		thisModule.operationName(s.name)
-							endif
-			),
-		l: LNR!Literal (
-			valor <- if(s.name = 'not') then 
-	 				 	s.ownedSource.ownedArguments.first().getLiteralSymbol()
-					 else 
-					 	s.ownedArguments.first().getLiteralSymbol()
-					 endif)
-			
-}	
-
---Generar otra regla para simples donde el atributo es una coleccion. 
-rule OperationCallExp2Compuesta {
-	from
-		s: OCL!OperationCallExp (s.name = 'and' and s.name <> 'notEmpty')
-	to
-		t2: LNR!Compuesta(
-			simple <- s.ownedArguments.first(),
-			nexo <- n,
-			oracion <- o
+			negacion <- if (s.name = 'not') then
+					'no'
+				else
+					OclUndefined
+				endif,
+			obligacion <- 'debe ser'
 		),
-		n: LNR!Nexo(valor <- 'y'),
-		o: LNR!Oracion (
-		  contenido <- s.ownedSource
+		op: LNR!Operacion (
+			operacion <- if (s.name = 'not') then
+							thisModule.operationName(s.ownedSource.name)
+						else
+							thisModule.operationName(s.name)
+						endif
 		)
 
-}	
+}
+
+lazy rule OCLExpression2Expresion {
+	from
+		s: OCL!OCLExpression
+	to 
+		t : LNR!Expresion (
+			expresion <- if (s.oclIsKindOf(OCL!PrimitiveLiteralExp)) then--crear objecto literal?
+									thisModule.PrimitiveLiteralExp2Literal(s)		
+						  else if (s.oclIsTypeOf(OCL!PropertyCallExp)) then-- crear objecto propiedad
+									thisModule.PropertyCallExp2Propiedad(s)
+						  		else OclUndefined
+								endif
+						  endif
+		)
+}
+
+
+lazy rule PrimitiveLiteralExp2Literal {
+	from
+		s: OCL!PrimitiveLiteralExp
+	to 
+		t: LNR!Literal (
+			valor <- s.getLiteralSymbol())
+}
+
+lazy rule PropertyCallExp2Propiedad {
+	from
+		s: OCL!PropertyCallExp
+	to 
+		p: LNR!Propiedad (
+			atributo <- a, 
+			termino <- t
+		), 
+		a: LNR!Atributo (
+			determinante <- 'el/la', 
+			nombre <- s.getPropertyName(),
+			enlace <- 'de'
+		),
+		t: LNR!Termino (
+			indeterminante <- 'un/una',
+			contexto <-  if (s.oclIsUndefined()) then
+							OclUndefined
+						else
+							s.getExpressionInOCL().owningConstraint.context.name
+						endif
+		)
+}
+
+
+
+--
+----Colecciones operations son distintas no se pueden acceder por name.
+--lazy rule OperationCallExp2Operacion {
+--	from
+--		s: OCL!OperationCallExp
+--	to
+--		op: LNR!Operacion (
+--			descripcion <- thisModule.operationName(thisModule.removePrefix(s.
+--					referredOperation.toString()))
+--		)
+--}
+--
+--rule OperationCallExp2Coleccion {
+--	from
+--		s: OCL!OperationCallExp (
+--			thisModule.removePrefix(s.referredOperation.toString()) = 'notEmpty' or
+--					thisModule.removePrefix(s.referredOperation.toString()) = 'isEmpty'
+--					or thisModule.removePrefix(s.referredOperation.toString()) = 'size'
+--		)
+--	to
+--		t2: LNR!Coleccion (
+--			termino <- t,
+--			obligacion <- ob,
+--			operando <- ope,
+--			operacion <- if (thisModule.removePrefix(s.referredOperation.toString()) =
+--					'notEmpty' or thisModule.removePrefix(s.referredOperation.toString())
+--					= 'isEmpty') then
+--					OclUndefined
+--				else
+--					thisModule.OperationCallExp2Operacion(s)
+--				endif --		   operando2 <- if (
+--						-- thisModule.removePrefix(s.referredOperation.toString()) =
+--						-- 'notEmpty'
+----							or thisModule.removePrefix(s.referredOperation.toString())
+--		-- = 'isEmpty') 
+----						then OclUndefined
+----						else 
+----							'op2'--op
+----						endif
+----
+--			
+--		),
+--		t: LNR!Termino (
+--			indeterminante <- i,
+--			contexto <- c
+--		),
+--		i: LNR!Indeterminante (
+--			valor <- 'un/una'
+--		),
+--		c: LNR!Contexto (
+--			nombre <- if (s.getExpressionInOCL().oclIsUndefined()) then
+--					OclUndefined
+--				else
+--					if s.getExpressionInOCL().owningConstraint.oclIsUndefined() then
+--						OclUndefined
+--					else
+--						s.getExpressionInOCL().owningConstraint.context.name
+--					endif
+--				endif
+--		),
+--		ob: LNR!ObligacionColeccion (
+--			negacion <- if (thisModule.removePrefix(s.referredOperation.toString()) =
+--					'isEmpty') then
+--					'no'
+--				else
+--					OclUndefined
+--				endif,
+--			obligacionDeber <- 'debe tener'
+--		),
+--		--		op: LNR!Operacion(
+----			descripcion <-  OclUndefined
+----			),
+--		ope: LNR!Atributo (
+--			nombre <- s.ownedSource.getPropertyName()
+--		)
+--}

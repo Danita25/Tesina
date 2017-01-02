@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Atributo#getDeterminante <em>Determinante</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Atributo#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Atributo#getEnlace <em>Enlace</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getAtributo()
@@ -23,6 +25,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Atributo extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Determinante</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Determinante</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Determinante</em>' attribute.
+   * @see #setDeterminante(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getAtributo_Determinante()
+   * @model
+   * @generated
+   */
+  String getDeterminante();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Atributo#getDeterminante <em>Determinante</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Determinante</em>' attribute.
+   * @see #getDeterminante()
+   * @generated
+   */
+  void setDeterminante(String value);
+
   /**
    * Returns the value of the '<em><b>Nombre</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -48,5 +76,31 @@ public interface Atributo extends EObject
    * @generated
    */
   void setNombre(String value);
+
+  /**
+   * Returns the value of the '<em><b>Enlace</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Enlace</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Enlace</em>' attribute.
+   * @see #setEnlace(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getAtributo_Enlace()
+   * @model
+   * @generated
+   */
+  String getEnlace();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Atributo#getEnlace <em>Enlace</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Enlace</em>' attribute.
+   * @see #getEnlace()
+   * @generated
+   */
+  void setEnlace(String value);
 
 } // Atributo

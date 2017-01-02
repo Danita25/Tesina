@@ -42,6 +42,15 @@ public interface GramaticaFactory extends EFactory
   Oracion createOracion();
 
   /**
+   * Returns a new object of class '<em>Contenido</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Contenido</em>'.
+   * @generated
+   */
+  Contenido createContenido();
+
+  /**
    * Returns a new object of class '<em>Simple</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -51,13 +60,13 @@ public interface GramaticaFactory extends EFactory
   Simple createSimple();
 
   /**
-   * Returns a new object of class '<em>Compuesta</em>'.
+   * Returns a new object of class '<em>Composicion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Compuesta</em>'.
+   * @return a new object of class '<em>Composicion</em>'.
    * @generated
    */
-  Compuesta createCompuesta();
+  Composicion createComposicion();
 
   /**
    * Returns a new object of class '<em>Nexo</em>'.
@@ -69,13 +78,31 @@ public interface GramaticaFactory extends EFactory
   Nexo createNexo();
 
   /**
-   * Returns a new object of class '<em>Determinante</em>'.
+   * Returns a new object of class '<em>Expresion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Determinante</em>'.
+   * @return a new object of class '<em>Expresion</em>'.
    * @generated
    */
-  Determinante createDeterminante();
+  Expresion createExpresion();
+
+  /**
+   * Returns a new object of class '<em>Comparacion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Comparacion</em>'.
+   * @generated
+   */
+  Comparacion createComparacion();
+
+  /**
+   * Returns a new object of class '<em>Propiedad</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Propiedad</em>'.
+   * @generated
+   */
+  Propiedad createPropiedad();
 
   /**
    * Returns a new object of class '<em>Atributo</em>'.
@@ -87,24 +114,6 @@ public interface GramaticaFactory extends EFactory
   Atributo createAtributo();
 
   /**
-   * Returns a new object of class '<em>Sintagma Preposicional</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sintagma Preposicional</em>'.
-   * @generated
-   */
-  SintagmaPreposicional createSintagmaPreposicional();
-
-  /**
-   * Returns a new object of class '<em>Enlace</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enlace</em>'.
-   * @generated
-   */
-  Enlace createEnlace();
-
-  /**
    * Returns a new object of class '<em>Termino</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,15 +121,6 @@ public interface GramaticaFactory extends EFactory
    * @generated
    */
   Termino createTermino();
-
-  /**
-   * Returns a new object of class '<em>Indeterminante</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Indeterminante</em>'.
-   * @generated
-   */
-  Indeterminante createIndeterminante();
 
   /**
    * Returns a new object of class '<em>Obligacion</em>'.
@@ -139,15 +139,6 @@ public interface GramaticaFactory extends EFactory
    * @generated
    */
   Operacion createOperacion();
-
-  /**
-   * Returns a new object of class '<em>Contexto</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contexto</em>'.
-   * @generated
-   */
-  Contexto createContexto();
 
   /**
    * Returns a new object of class '<em>Literal</em>'.

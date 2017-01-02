@@ -14,51 +14,48 @@
     <genClasses ecoreClass="Gramatica.ecore#//Oracion">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Oracion/contenido"/>
     </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//Simple">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/determinante"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/atributo"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/sintagma"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/obligacion"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/operacion"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/literal"/>
+    <genClasses ecoreClass="Gramatica.ecore#//Contenido">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Contenido/simple"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Contenido/composicion"/>
     </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//Compuesta">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/simple"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/nexo"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Compuesta/oracion"/>
+    <genClasses ecoreClass="Gramatica.ecore#//Simple">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/expresion_izq"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/comparacion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Simple/expresion_der"/>
+    </genClasses>
+    <genClasses ecoreClass="Gramatica.ecore#//Composicion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Composicion/nexo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Composicion/contenido"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Nexo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Nexo/valor"/>
     </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//Determinante">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Determinante/valor"/>
+    <genClasses ecoreClass="Gramatica.ecore#//Expresion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Expresion/expresion"/>
+    </genClasses>
+    <genClasses ecoreClass="Gramatica.ecore#//Comparacion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Comparacion/obligacion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Comparacion/operacion"/>
+    </genClasses>
+    <genClasses ecoreClass="Gramatica.ecore#//Propiedad">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Propiedad/atributo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Propiedad/termino"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Atributo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Atributo/determinante"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Atributo/nombre"/>
-    </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//SintagmaPreposicional">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//SintagmaPreposicional/enlace"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//SintagmaPreposicional/termino"/>
-    </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//Enlace">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Enlace/valor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Atributo/enlace"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Termino">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Termino/indeterminante"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Termino/contexto"/>
-    </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//Indeterminante">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Indeterminante/valor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Termino/indeterminante"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Termino/contexto"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Obligacion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Obligacion/negacion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Obligacion/obligacionDeber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Obligacion/obligacion"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Operacion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Operacion/descripcion"/>
-    </genClasses>
-    <genClasses ecoreClass="Gramatica.ecore#//Contexto">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Contexto/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Operacion/operacion"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Literal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Literal/valor"/>

@@ -4,17 +4,13 @@
 package org.xtext.tesis.gramatica.gramatica.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.tesis.gramatica.gramatica.Contexto;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
-import org.xtext.tesis.gramatica.gramatica.Indeterminante;
 import org.xtext.tesis.gramatica.gramatica.Termino;
 
 /**
@@ -34,24 +30,44 @@ import org.xtext.tesis.gramatica.gramatica.Termino;
 public class TerminoImpl extends MinimalEObjectImpl.Container implements Termino
 {
   /**
-   * The cached value of the '{@link #getIndeterminante() <em>Indeterminante</em>}' containment reference.
+   * The default value of the '{@link #getIndeterminante() <em>Indeterminante</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIndeterminante()
    * @generated
    * @ordered
    */
-  protected Indeterminante indeterminante;
+  protected static final String INDETERMINANTE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getContexto() <em>Contexto</em>}' containment reference.
+   * The cached value of the '{@link #getIndeterminante() <em>Indeterminante</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIndeterminante()
+   * @generated
+   * @ordered
+   */
+  protected String indeterminante = INDETERMINANTE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getContexto() <em>Contexto</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getContexto()
    * @generated
    * @ordered
    */
-  protected Contexto contexto;
+  protected static final String CONTEXTO_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getContexto() <em>Contexto</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContexto()
+   * @generated
+   * @ordered
+   */
+  protected String contexto = CONTEXTO_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,7 +95,7 @@ public class TerminoImpl extends MinimalEObjectImpl.Container implements Termino
    * <!-- end-user-doc -->
    * @generated
    */
-  public Indeterminante getIndeterminante()
+  public String getIndeterminante()
   {
     return indeterminante;
   }
@@ -89,16 +105,12 @@ public class TerminoImpl extends MinimalEObjectImpl.Container implements Termino
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetIndeterminante(Indeterminante newIndeterminante, NotificationChain msgs)
+  public void setIndeterminante(String newIndeterminante)
   {
-    Indeterminante oldIndeterminante = indeterminante;
+    String oldIndeterminante = indeterminante;
     indeterminante = newIndeterminante;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.TERMINO__INDETERMINANTE, oldIndeterminante, newIndeterminante);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.TERMINO__INDETERMINANTE, oldIndeterminante, indeterminante));
   }
 
   /**
@@ -106,28 +118,7 @@ public class TerminoImpl extends MinimalEObjectImpl.Container implements Termino
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIndeterminante(Indeterminante newIndeterminante)
-  {
-    if (newIndeterminante != indeterminante)
-    {
-      NotificationChain msgs = null;
-      if (indeterminante != null)
-        msgs = ((InternalEObject)indeterminante).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.TERMINO__INDETERMINANTE, null, msgs);
-      if (newIndeterminante != null)
-        msgs = ((InternalEObject)newIndeterminante).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.TERMINO__INDETERMINANTE, null, msgs);
-      msgs = basicSetIndeterminante(newIndeterminante, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.TERMINO__INDETERMINANTE, newIndeterminante, newIndeterminante));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Contexto getContexto()
+  public String getContexto()
   {
     return contexto;
   }
@@ -137,55 +128,12 @@ public class TerminoImpl extends MinimalEObjectImpl.Container implements Termino
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetContexto(Contexto newContexto, NotificationChain msgs)
+  public void setContexto(String newContexto)
   {
-    Contexto oldContexto = contexto;
+    String oldContexto = contexto;
     contexto = newContexto;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.TERMINO__CONTEXTO, oldContexto, newContexto);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContexto(Contexto newContexto)
-  {
-    if (newContexto != contexto)
-    {
-      NotificationChain msgs = null;
-      if (contexto != null)
-        msgs = ((InternalEObject)contexto).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.TERMINO__CONTEXTO, null, msgs);
-      if (newContexto != null)
-        msgs = ((InternalEObject)newContexto).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.TERMINO__CONTEXTO, null, msgs);
-      msgs = basicSetContexto(newContexto, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.TERMINO__CONTEXTO, newContexto, newContexto));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case GramaticaPackage.TERMINO__INDETERMINANTE:
-        return basicSetIndeterminante(null, msgs);
-      case GramaticaPackage.TERMINO__CONTEXTO:
-        return basicSetContexto(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.TERMINO__CONTEXTO, oldContexto, contexto));
   }
 
   /**
@@ -217,10 +165,10 @@ public class TerminoImpl extends MinimalEObjectImpl.Container implements Termino
     switch (featureID)
     {
       case GramaticaPackage.TERMINO__INDETERMINANTE:
-        setIndeterminante((Indeterminante)newValue);
+        setIndeterminante((String)newValue);
         return;
       case GramaticaPackage.TERMINO__CONTEXTO:
-        setContexto((Contexto)newValue);
+        setContexto((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -237,10 +185,10 @@ public class TerminoImpl extends MinimalEObjectImpl.Container implements Termino
     switch (featureID)
     {
       case GramaticaPackage.TERMINO__INDETERMINANTE:
-        setIndeterminante((Indeterminante)null);
+        setIndeterminante(INDETERMINANTE_EDEFAULT);
         return;
       case GramaticaPackage.TERMINO__CONTEXTO:
-        setContexto((Contexto)null);
+        setContexto(CONTEXTO_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -257,11 +205,30 @@ public class TerminoImpl extends MinimalEObjectImpl.Container implements Termino
     switch (featureID)
     {
       case GramaticaPackage.TERMINO__INDETERMINANTE:
-        return indeterminante != null;
+        return INDETERMINANTE_EDEFAULT == null ? indeterminante != null : !INDETERMINANTE_EDEFAULT.equals(indeterminante);
       case GramaticaPackage.TERMINO__CONTEXTO:
-        return contexto != null;
+        return CONTEXTO_EDEFAULT == null ? contexto != null : !CONTEXTO_EDEFAULT.equals(contexto);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (indeterminante: ");
+    result.append(indeterminante);
+    result.append(", contexto: ");
+    result.append(contexto);
+    result.append(')');
+    return result.toString();
   }
 
 } //TerminoImpl

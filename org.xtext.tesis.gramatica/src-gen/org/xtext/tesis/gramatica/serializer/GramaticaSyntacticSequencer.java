@@ -32,7 +32,8 @@ public class GramaticaSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * FinOracion :	'.\r\n';
+	 * FinOracion:
+	 * 	'.\r\n';
 	 */
 	protected String getFinOracionToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

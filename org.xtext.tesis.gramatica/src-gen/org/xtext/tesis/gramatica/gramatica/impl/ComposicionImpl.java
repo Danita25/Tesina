@@ -12,25 +12,37 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.tesis.gramatica.gramatica.Composicion;
 import org.xtext.tesis.gramatica.gramatica.Contenido;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
-import org.xtext.tesis.gramatica.gramatica.Oracion;
+import org.xtext.tesis.gramatica.gramatica.Nexo;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Oracion</b></em>'.
+ * An implementation of the model object '<em><b>Composicion</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.OracionImpl#getContenido <em>Contenido</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComposicionImpl#getNexo <em>Nexo</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ComposicionImpl#getContenido <em>Contenido</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
+public class ComposicionImpl extends MinimalEObjectImpl.Container implements Composicion
 {
+  /**
+   * The cached value of the '{@link #getNexo() <em>Nexo</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNexo()
+   * @generated
+   * @ordered
+   */
+  protected Nexo nexo;
+
   /**
    * The cached value of the '{@link #getContenido() <em>Contenido</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -46,7 +58,7 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OracionImpl()
+  protected ComposicionImpl()
   {
     super();
   }
@@ -59,7 +71,55 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   @Override
   protected EClass eStaticClass()
   {
-    return GramaticaPackage.Literals.ORACION;
+    return GramaticaPackage.Literals.COMPOSICION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Nexo getNexo()
+  {
+    return nexo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetNexo(Nexo newNexo, NotificationChain msgs)
+  {
+    Nexo oldNexo = nexo;
+    nexo = newNexo;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPOSICION__NEXO, oldNexo, newNexo);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNexo(Nexo newNexo)
+  {
+    if (newNexo != nexo)
+    {
+      NotificationChain msgs = null;
+      if (nexo != null)
+        msgs = ((InternalEObject)nexo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPOSICION__NEXO, null, msgs);
+      if (newNexo != null)
+        msgs = ((InternalEObject)newNexo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPOSICION__NEXO, null, msgs);
+      msgs = basicSetNexo(newNexo, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPOSICION__NEXO, newNexo, newNexo));
   }
 
   /**
@@ -83,7 +143,7 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
     contenido = newContenido;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.ORACION__CONTENIDO, oldContenido, newContenido);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPOSICION__CONTENIDO, oldContenido, newContenido);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -100,14 +160,14 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
     {
       NotificationChain msgs = null;
       if (contenido != null)
-        msgs = ((InternalEObject)contenido).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.ORACION__CONTENIDO, null, msgs);
+        msgs = ((InternalEObject)contenido).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPOSICION__CONTENIDO, null, msgs);
       if (newContenido != null)
-        msgs = ((InternalEObject)newContenido).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.ORACION__CONTENIDO, null, msgs);
+        msgs = ((InternalEObject)newContenido).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.COMPOSICION__CONTENIDO, null, msgs);
       msgs = basicSetContenido(newContenido, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.ORACION__CONTENIDO, newContenido, newContenido));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.COMPOSICION__CONTENIDO, newContenido, newContenido));
   }
 
   /**
@@ -120,7 +180,9 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
+      case GramaticaPackage.COMPOSICION__NEXO:
+        return basicSetNexo(null, msgs);
+      case GramaticaPackage.COMPOSICION__CONTENIDO:
         return basicSetContenido(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -136,7 +198,9 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
+      case GramaticaPackage.COMPOSICION__NEXO:
+        return getNexo();
+      case GramaticaPackage.COMPOSICION__CONTENIDO:
         return getContenido();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -152,7 +216,10 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
+      case GramaticaPackage.COMPOSICION__NEXO:
+        setNexo((Nexo)newValue);
+        return;
+      case GramaticaPackage.COMPOSICION__CONTENIDO:
         setContenido((Contenido)newValue);
         return;
     }
@@ -169,7 +236,10 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
+      case GramaticaPackage.COMPOSICION__NEXO:
+        setNexo((Nexo)null);
+        return;
+      case GramaticaPackage.COMPOSICION__CONTENIDO:
         setContenido((Contenido)null);
         return;
     }
@@ -186,10 +256,12 @@ public class OracionImpl extends MinimalEObjectImpl.Container implements Oracion
   {
     switch (featureID)
     {
-      case GramaticaPackage.ORACION__CONTENIDO:
+      case GramaticaPackage.COMPOSICION__NEXO:
+        return nexo != null;
+      case GramaticaPackage.COMPOSICION__CONTENIDO:
         return contenido != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //OracionImpl
+} //ComposicionImpl

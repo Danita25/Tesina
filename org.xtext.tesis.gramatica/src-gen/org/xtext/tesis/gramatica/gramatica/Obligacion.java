@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Obligacion#getNegacion <em>Negacion</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Obligacion#getObligacionDeber <em>Obligacion Deber</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Obligacion#getObligacion <em>Obligacion</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getObligacion()
@@ -51,29 +51,29 @@ public interface Obligacion extends EObject
   void setNegacion(String value);
 
   /**
-   * Returns the value of the '<em><b>Obligacion Deber</b></em>' attribute.
+   * Returns the value of the '<em><b>Obligacion</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Obligacion Deber</em>' attribute isn't clear,
+   * If the meaning of the '<em>Obligacion</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Obligacion Deber</em>' attribute.
-   * @see #setObligacionDeber(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getObligacion_ObligacionDeber()
+   * @return the value of the '<em>Obligacion</em>' attribute.
+   * @see #setObligacion(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getObligacion_Obligacion()
    * @model
    * @generated
    */
-  String getObligacionDeber();
+  String getObligacion();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Obligacion#getObligacionDeber <em>Obligacion Deber</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Obligacion#getObligacion <em>Obligacion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Obligacion Deber</em>' attribute.
-   * @see #getObligacionDeber()
+   * @param value the new value of the '<em>Obligacion</em>' attribute.
+   * @see #getObligacion()
    * @generated
    */
-  void setObligacionDeber(String value);
+  void setObligacion(String value);
 
 } // Obligacion

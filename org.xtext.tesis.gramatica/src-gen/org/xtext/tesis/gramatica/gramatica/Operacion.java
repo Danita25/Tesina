@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Operacion#getDescripcion <em>Descripcion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Operacion#getOperacion <em>Operacion</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getOperacion()
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Operacion extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Descripcion</b></em>' attribute.
+   * Returns the value of the '<em><b>Operacion</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Descripcion</em>' attribute isn't clear,
+   * If the meaning of the '<em>Operacion</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Descripcion</em>' attribute.
-   * @see #setDescripcion(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getOperacion_Descripcion()
+   * @return the value of the '<em>Operacion</em>' attribute.
+   * @see #setOperacion(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getOperacion_Operacion()
    * @model
    * @generated
    */
-  String getDescripcion();
+  String getOperacion();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Operacion#getDescripcion <em>Descripcion</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Operacion#getOperacion <em>Operacion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Descripcion</em>' attribute.
-   * @see #getDescripcion()
+   * @param value the new value of the '<em>Operacion</em>' attribute.
+   * @see #getOperacion()
    * @generated
    */
-  void setDescripcion(String value);
+  void setOperacion(String value);
 
 } // Operacion

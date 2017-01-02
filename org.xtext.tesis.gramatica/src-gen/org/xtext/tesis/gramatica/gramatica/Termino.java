@@ -25,55 +25,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface Termino extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Indeterminante</b></em>' containment reference.
+   * Returns the value of the '<em><b>Indeterminante</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Indeterminante</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Indeterminante</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Indeterminante</em>' containment reference.
-   * @see #setIndeterminante(Indeterminante)
+   * @return the value of the '<em>Indeterminante</em>' attribute.
+   * @see #setIndeterminante(String)
    * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getTermino_Indeterminante()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Indeterminante getIndeterminante();
+  String getIndeterminante();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Termino#getIndeterminante <em>Indeterminante</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Termino#getIndeterminante <em>Indeterminante</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Indeterminante</em>' containment reference.
+   * @param value the new value of the '<em>Indeterminante</em>' attribute.
    * @see #getIndeterminante()
    * @generated
    */
-  void setIndeterminante(Indeterminante value);
+  void setIndeterminante(String value);
 
   /**
-   * Returns the value of the '<em><b>Contexto</b></em>' containment reference.
+   * Returns the value of the '<em><b>Contexto</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Contexto</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Contexto</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Contexto</em>' containment reference.
-   * @see #setContexto(Contexto)
+   * @return the value of the '<em>Contexto</em>' attribute.
+   * @see #setContexto(String)
    * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getTermino_Contexto()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Contexto getContexto();
+  String getContexto();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Termino#getContexto <em>Contexto</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Termino#getContexto <em>Contexto</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Contexto</em>' containment reference.
+   * @param value the new value of the '<em>Contexto</em>' attribute.
    * @see #getContexto()
    * @generated
    */
-  void setContexto(Contexto value);
+  void setContexto(String value);
 
 } // Termino

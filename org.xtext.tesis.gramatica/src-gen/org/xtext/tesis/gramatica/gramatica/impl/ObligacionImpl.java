@@ -22,7 +22,7 @@ import org.xtext.tesis.gramatica.gramatica.Obligacion;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ObligacionImpl#getNegacion <em>Negacion</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ObligacionImpl#getObligacionDeber <em>Obligacion Deber</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.ObligacionImpl#getObligacion <em>Obligacion</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,24 +50,24 @@ public class ObligacionImpl extends MinimalEObjectImpl.Container implements Obli
   protected String negacion = NEGACION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getObligacionDeber() <em>Obligacion Deber</em>}' attribute.
+   * The default value of the '{@link #getObligacion() <em>Obligacion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getObligacionDeber()
+   * @see #getObligacion()
    * @generated
    * @ordered
    */
-  protected static final String OBLIGACION_DEBER_EDEFAULT = null;
+  protected static final String OBLIGACION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getObligacionDeber() <em>Obligacion Deber</em>}' attribute.
+   * The cached value of the '{@link #getObligacion() <em>Obligacion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getObligacionDeber()
+   * @see #getObligacion()
    * @generated
    * @ordered
    */
-  protected String obligacionDeber = OBLIGACION_DEBER_EDEFAULT;
+  protected String obligacion = OBLIGACION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,9 +118,9 @@ public class ObligacionImpl extends MinimalEObjectImpl.Container implements Obli
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getObligacionDeber()
+  public String getObligacion()
   {
-    return obligacionDeber;
+    return obligacion;
   }
 
   /**
@@ -128,12 +128,12 @@ public class ObligacionImpl extends MinimalEObjectImpl.Container implements Obli
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setObligacionDeber(String newObligacionDeber)
+  public void setObligacion(String newObligacion)
   {
-    String oldObligacionDeber = obligacionDeber;
-    obligacionDeber = newObligacionDeber;
+    String oldObligacion = obligacion;
+    obligacion = newObligacion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.OBLIGACION__OBLIGACION_DEBER, oldObligacionDeber, obligacionDeber));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.OBLIGACION__OBLIGACION, oldObligacion, obligacion));
   }
 
   /**
@@ -148,8 +148,8 @@ public class ObligacionImpl extends MinimalEObjectImpl.Container implements Obli
     {
       case GramaticaPackage.OBLIGACION__NEGACION:
         return getNegacion();
-      case GramaticaPackage.OBLIGACION__OBLIGACION_DEBER:
-        return getObligacionDeber();
+      case GramaticaPackage.OBLIGACION__OBLIGACION:
+        return getObligacion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -167,8 +167,8 @@ public class ObligacionImpl extends MinimalEObjectImpl.Container implements Obli
       case GramaticaPackage.OBLIGACION__NEGACION:
         setNegacion((String)newValue);
         return;
-      case GramaticaPackage.OBLIGACION__OBLIGACION_DEBER:
-        setObligacionDeber((String)newValue);
+      case GramaticaPackage.OBLIGACION__OBLIGACION:
+        setObligacion((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -187,8 +187,8 @@ public class ObligacionImpl extends MinimalEObjectImpl.Container implements Obli
       case GramaticaPackage.OBLIGACION__NEGACION:
         setNegacion(NEGACION_EDEFAULT);
         return;
-      case GramaticaPackage.OBLIGACION__OBLIGACION_DEBER:
-        setObligacionDeber(OBLIGACION_DEBER_EDEFAULT);
+      case GramaticaPackage.OBLIGACION__OBLIGACION:
+        setObligacion(OBLIGACION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -206,8 +206,8 @@ public class ObligacionImpl extends MinimalEObjectImpl.Container implements Obli
     {
       case GramaticaPackage.OBLIGACION__NEGACION:
         return NEGACION_EDEFAULT == null ? negacion != null : !NEGACION_EDEFAULT.equals(negacion);
-      case GramaticaPackage.OBLIGACION__OBLIGACION_DEBER:
-        return OBLIGACION_DEBER_EDEFAULT == null ? obligacionDeber != null : !OBLIGACION_DEBER_EDEFAULT.equals(obligacionDeber);
+      case GramaticaPackage.OBLIGACION__OBLIGACION:
+        return OBLIGACION_EDEFAULT == null ? obligacion != null : !OBLIGACION_EDEFAULT.equals(obligacion);
     }
     return super.eIsSet(featureID);
   }
@@ -225,8 +225,8 @@ public class ObligacionImpl extends MinimalEObjectImpl.Container implements Obli
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (negacion: ");
     result.append(negacion);
-    result.append(", obligacionDeber: ");
-    result.append(obligacionDeber);
+    result.append(", obligacion: ");
+    result.append(obligacion);
     result.append(')');
     return result.toString();
   }

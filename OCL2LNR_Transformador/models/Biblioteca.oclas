@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://www.eclipse.org/ocl/2015/Pivot java://org.eclipse.ocl.pivot.PivotPackage" name="Biblioteca.ocl" externalURI="platform:/resource/OCL2LNR_Transformador/models/Biblioteca.ocl">
   <ownedImports importedNamespace="pivot:Model Biblioteca.ecore.oclas#/"/>
   <ownedPackages xmi:id="P.Biblioteca" name="Biblioteca" URI="Tesis.Biblioteca.ecore">
-    <ownedClasses xmi:id="T.Biblioteca.Libro" name="Libro">
+    <ownedClasses xmi:id="T.Biblioteca.Libro.0" name="Libro">
       <ownedInvariants xmi:id="ciBiblioteca.Libro.tieneTitulo" name="tieneTitulo">
         <ownedSpecification xsi:type="pivot:ExpressionInOCL" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
             body="self.titulo &lt;> ''&#xA;">
@@ -17,92 +17,6 @@
                 stringSymbol=""/>
           </ownedBody>
           <ownedContext name="self" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
-        </ownedSpecification>
-      </ownedInvariants>
-      <ownedInvariants xmi:id="ciBiblioteca.Libro.notieneTitulo" name="notieneTitulo">
-        <ownedSpecification xsi:type="pivot:ExpressionInOCL" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-            body="not (self.titulo &lt;> '')&#xA;">
-          <ownedBody xsi:type="pivot:OperationCallExp" name="not" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-              referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Boolean.not">
-            <ownedSource xsi:type="pivot:OperationCallExp" name="&lt;>" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-                referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%60%%62%..ocl.OclSelf">
-              <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                  referredProperty="Biblioteca.ecore.oclas#p.Biblioteca.Libro.titulo">
-                <ownedSource xsi:type="pivot:VariableExp" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Libro" referredVariable="#//@ownedPackages.0/@ownedClasses.0/@ownedInvariants.1/@ownedSpecification/@ownedContext"/>
-              </ownedSource>
-              <ownedArguments xsi:type="pivot:StringLiteralExp" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                  stringSymbol=""/>
-            </ownedSource>
-          </ownedBody>
-          <ownedContext name="self" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
-        </ownedSpecification>
-      </ownedInvariants>
-    </ownedClasses>
-    <ownedClasses xmi:id="T.Biblioteca.Socio" name="Socio">
-      <ownedInvariants xmi:id="ciBiblioteca.Socio.datosCompletos" name="datosCompletos">
-        <ownedSpecification xsi:type="pivot:ExpressionInOCL" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-            body="self.direccion&lt;>'' and self.nombreCompleto&lt;>''&#xA;&#x9;">
-          <ownedBody xsi:type="pivot:OperationCallExp" name="and" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-              referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Boolean.and..ocl.Boolean">
-            <ownedSource xsi:type="pivot:OperationCallExp" name="&lt;>" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-                referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%60%%62%..ocl.OclSelf">
-              <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                  referredProperty="Biblioteca.ecore.oclas#p.Biblioteca.Socio.direccion">
-                <ownedSource xsi:type="pivot:VariableExp" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Socio" referredVariable="#//@ownedPackages.0/@ownedClasses.1/@ownedInvariants.0/@ownedSpecification/@ownedContext"/>
-              </ownedSource>
-              <ownedArguments xsi:type="pivot:StringLiteralExp" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                  stringSymbol=""/>
-            </ownedSource>
-            <ownedArguments xsi:type="pivot:OperationCallExp" name="&lt;>" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-                referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%60%%62%..ocl.OclSelf">
-              <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                  referredProperty="Biblioteca.ecore.oclas#p.Biblioteca.Socio.nombreCompleto">
-                <ownedSource xsi:type="pivot:VariableExp" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Socio" referredVariable="#//@ownedPackages.0/@ownedClasses.1/@ownedInvariants.0/@ownedSpecification/@ownedContext"/>
-              </ownedSource>
-              <ownedArguments xsi:type="pivot:StringLiteralExp" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                  stringSymbol=""/>
-            </ownedArguments>
-          </ownedBody>
-          <ownedContext name="self" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Socio"/>
-        </ownedSpecification>
-      </ownedInvariants>
-      <ownedInvariants xmi:id="ciBiblioteca.Socio.datosCompletos_2" name="datosCompletos_2">
-        <ownedSpecification xsi:type="pivot:ExpressionInOCL" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-            body="self.direccion&lt;>'' and self.nombreCompleto&lt;>'' and self.edad > 18 &#xA;">
-          <ownedBody xsi:type="pivot:OperationCallExp" name="and" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-              referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Boolean.and..ocl.Boolean">
-            <ownedSource xsi:type="pivot:OperationCallExp" name="and" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-                referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Boolean.and..ocl.Boolean">
-              <ownedSource xsi:type="pivot:OperationCallExp" name="&lt;>" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-                  referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%60%%62%..ocl.OclSelf">
-                <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                    referredProperty="Biblioteca.ecore.oclas#p.Biblioteca.Socio.direccion">
-                  <ownedSource xsi:type="pivot:VariableExp" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Socio" referredVariable="#//@ownedPackages.0/@ownedClasses.1/@ownedInvariants.1/@ownedSpecification/@ownedContext"/>
-                </ownedSource>
-                <ownedArguments xsi:type="pivot:StringLiteralExp" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                    stringSymbol=""/>
-              </ownedSource>
-              <ownedArguments xsi:type="pivot:OperationCallExp" name="&lt;>" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-                  referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%60%%62%..ocl.OclSelf">
-                <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                    referredProperty="Biblioteca.ecore.oclas#p.Biblioteca.Socio.nombreCompleto">
-                  <ownedSource xsi:type="pivot:VariableExp" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Socio" referredVariable="#//@ownedPackages.0/@ownedClasses.1/@ownedInvariants.1/@ownedSpecification/@ownedContext"/>
-                </ownedSource>
-                <ownedArguments xsi:type="pivot:StringLiteralExp" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#String"
-                    stringSymbol=""/>
-              </ownedArguments>
-            </ownedSource>
-            <ownedArguments xsi:type="pivot:OperationCallExp" name=">" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"
-                referredOperation="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.OclComparable.%62%..ocl.OclSelf">
-              <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false" type="pivot:DataType http://www.eclipse.org/emf/2002/Ecore.oclas#T.ecore.EInt"
-                  referredProperty="Biblioteca.ecore.oclas#p.Biblioteca.Socio.edad">
-                <ownedSource xsi:type="pivot:VariableExp" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Socio" referredVariable="#//@ownedPackages.0/@ownedClasses.1/@ownedInvariants.1/@ownedSpecification/@ownedContext"/>
-              </ownedSource>
-              <ownedArguments xsi:type="pivot:IntegerLiteralExp" type="pivot:PrimitiveType http://www.eclipse.org/ocl/2015/Library.oclas#Integer"
-                  integerSymbol="18"/>
-            </ownedArguments>
-          </ownedBody>
-          <ownedContext name="self" type="pivot:Class Biblioteca.ecore.oclas#T.Biblioteca.Socio"/>
         </ownedSpecification>
       </ownedInvariants>
     </ownedClasses>

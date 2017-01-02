@@ -32,12 +32,12 @@ public interface Oracion extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Contenido</em>' containment reference.
-   * @see #setContenido(EObject)
+   * @see #setContenido(Contenido)
    * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getOracion_Contenido()
    * @model containment="true"
    * @generated
    */
-  EObject getContenido();
+  Contenido getContenido();
 
   /**
    * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Oracion#getContenido <em>Contenido</em>}' containment reference.
@@ -47,6 +47,6 @@ public interface Oracion extends EObject
    * @see #getContenido()
    * @generated
    */
-  void setContenido(EObject value);
+  void setContenido(Contenido value);
 
 } // Oracion

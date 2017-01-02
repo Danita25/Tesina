@@ -3,8 +3,12 @@
  */
 package org.xtext.tesis.gramatica.gramatica.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -12,36 +16,39 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.tesis.gramatica.gramatica.Enlace;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.xtext.tesis.gramatica.gramatica.Atributo;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
-import org.xtext.tesis.gramatica.gramatica.SintagmaPreposicional;
+import org.xtext.tesis.gramatica.gramatica.Propiedad;
 import org.xtext.tesis.gramatica.gramatica.Termino;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Sintagma Preposicional</b></em>'.
+ * An implementation of the model object '<em><b>Propiedad</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SintagmaPreposicionalImpl#getEnlace <em>Enlace</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.SintagmaPreposicionalImpl#getTermino <em>Termino</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.PropiedadImpl#getAtributo <em>Atributo</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.PropiedadImpl#getTermino <em>Termino</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container implements SintagmaPreposicional
+public class PropiedadImpl extends MinimalEObjectImpl.Container implements Propiedad
 {
   /**
-   * The cached value of the '{@link #getEnlace() <em>Enlace</em>}' containment reference.
+   * The cached value of the '{@link #getAtributo() <em>Atributo</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEnlace()
+   * @see #getAtributo()
    * @generated
    * @ordered
    */
-  protected Enlace enlace;
+  protected EList<Atributo> atributo;
 
   /**
    * The cached value of the '{@link #getTermino() <em>Termino</em>}' containment reference.
@@ -58,7 +65,7 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SintagmaPreposicionalImpl()
+  protected PropiedadImpl()
   {
     super();
   }
@@ -71,7 +78,7 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
   @Override
   protected EClass eStaticClass()
   {
-    return GramaticaPackage.Literals.SINTAGMA_PREPOSICIONAL;
+    return GramaticaPackage.Literals.PROPIEDAD;
   }
 
   /**
@@ -79,47 +86,13 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Enlace getEnlace()
+  public EList<Atributo> getAtributo()
   {
-    return enlace;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetEnlace(Enlace newEnlace, NotificationChain msgs)
-  {
-    Enlace oldEnlace = enlace;
-    enlace = newEnlace;
-    if (eNotificationRequired())
+    if (atributo == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE, oldEnlace, newEnlace);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      atributo = new EObjectContainmentEList<Atributo>(Atributo.class, this, GramaticaPackage.PROPIEDAD__ATRIBUTO);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setEnlace(Enlace newEnlace)
-  {
-    if (newEnlace != enlace)
-    {
-      NotificationChain msgs = null;
-      if (enlace != null)
-        msgs = ((InternalEObject)enlace).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE, null, msgs);
-      if (newEnlace != null)
-        msgs = ((InternalEObject)newEnlace).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE, null, msgs);
-      msgs = basicSetEnlace(newEnlace, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE, newEnlace, newEnlace));
+    return atributo;
   }
 
   /**
@@ -143,7 +116,7 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
     termino = newTermino;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO, oldTermino, newTermino);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GramaticaPackage.PROPIEDAD__TERMINO, oldTermino, newTermino);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -160,14 +133,14 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
     {
       NotificationChain msgs = null;
       if (termino != null)
-        msgs = ((InternalEObject)termino).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO, null, msgs);
+        msgs = ((InternalEObject)termino).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.PROPIEDAD__TERMINO, null, msgs);
       if (newTermino != null)
-        msgs = ((InternalEObject)newTermino).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO, null, msgs);
+        msgs = ((InternalEObject)newTermino).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GramaticaPackage.PROPIEDAD__TERMINO, null, msgs);
       msgs = basicSetTermino(newTermino, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO, newTermino, newTermino));
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.PROPIEDAD__TERMINO, newTermino, newTermino));
   }
 
   /**
@@ -180,9 +153,9 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE:
-        return basicSetEnlace(null, msgs);
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO:
+      case GramaticaPackage.PROPIEDAD__ATRIBUTO:
+        return ((InternalEList<?>)getAtributo()).basicRemove(otherEnd, msgs);
+      case GramaticaPackage.PROPIEDAD__TERMINO:
         return basicSetTermino(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -198,9 +171,9 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE:
-        return getEnlace();
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO:
+      case GramaticaPackage.PROPIEDAD__ATRIBUTO:
+        return getAtributo();
+      case GramaticaPackage.PROPIEDAD__TERMINO:
         return getTermino();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -211,15 +184,17 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE:
-        setEnlace((Enlace)newValue);
+      case GramaticaPackage.PROPIEDAD__ATRIBUTO:
+        getAtributo().clear();
+        getAtributo().addAll((Collection<? extends Atributo>)newValue);
         return;
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO:
+      case GramaticaPackage.PROPIEDAD__TERMINO:
         setTermino((Termino)newValue);
         return;
     }
@@ -236,10 +211,10 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE:
-        setEnlace((Enlace)null);
+      case GramaticaPackage.PROPIEDAD__ATRIBUTO:
+        getAtributo().clear();
         return;
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO:
+      case GramaticaPackage.PROPIEDAD__TERMINO:
         setTermino((Termino)null);
         return;
     }
@@ -256,12 +231,12 @@ public class SintagmaPreposicionalImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__ENLACE:
-        return enlace != null;
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL__TERMINO:
+      case GramaticaPackage.PROPIEDAD__ATRIBUTO:
+        return atributo != null && !atributo.isEmpty();
+      case GramaticaPackage.PROPIEDAD__TERMINO:
         return termino != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //SintagmaPreposicionalImpl
+} //PropiedadImpl

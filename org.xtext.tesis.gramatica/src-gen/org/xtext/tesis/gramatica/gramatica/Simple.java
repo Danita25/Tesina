@@ -14,12 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getDeterminante <em>Determinante</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getAtributo <em>Atributo</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getSintagma <em>Sintagma</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getObligacion <em>Obligacion</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getOperacion <em>Operacion</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getExpresion_izq <em>Expresion izq</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getComparacion <em>Comparacion</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Simple#getExpresion_der <em>Expresion der</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple()
@@ -29,159 +26,81 @@ import org.eclipse.emf.ecore.EObject;
 public interface Simple extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Determinante</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expresion izq</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Determinante</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Expresion izq</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Determinante</em>' containment reference.
-   * @see #setDeterminante(Determinante)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Determinante()
+   * @return the value of the '<em>Expresion izq</em>' containment reference.
+   * @see #setExpresion_izq(Expresion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Expresion_izq()
    * @model containment="true"
    * @generated
    */
-  Determinante getDeterminante();
+  Expresion getExpresion_izq();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getDeterminante <em>Determinante</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getExpresion_izq <em>Expresion izq</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Determinante</em>' containment reference.
-   * @see #getDeterminante()
+   * @param value the new value of the '<em>Expresion izq</em>' containment reference.
+   * @see #getExpresion_izq()
    * @generated
    */
-  void setDeterminante(Determinante value);
+  void setExpresion_izq(Expresion value);
 
   /**
-   * Returns the value of the '<em><b>Atributo</b></em>' containment reference.
+   * Returns the value of the '<em><b>Comparacion</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Atributo</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Comparacion</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Atributo</em>' containment reference.
-   * @see #setAtributo(Atributo)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Atributo()
+   * @return the value of the '<em>Comparacion</em>' containment reference.
+   * @see #setComparacion(Comparacion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Comparacion()
    * @model containment="true"
    * @generated
    */
-  Atributo getAtributo();
+  Comparacion getComparacion();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getAtributo <em>Atributo</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getComparacion <em>Comparacion</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Atributo</em>' containment reference.
-   * @see #getAtributo()
+   * @param value the new value of the '<em>Comparacion</em>' containment reference.
+   * @see #getComparacion()
    * @generated
    */
-  void setAtributo(Atributo value);
+  void setComparacion(Comparacion value);
 
   /**
-   * Returns the value of the '<em><b>Sintagma</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expresion der</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Sintagma</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Expresion der</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Sintagma</em>' containment reference.
-   * @see #setSintagma(SintagmaPreposicional)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Sintagma()
+   * @return the value of the '<em>Expresion der</em>' containment reference.
+   * @see #setExpresion_der(Expresion)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Expresion_der()
    * @model containment="true"
    * @generated
    */
-  SintagmaPreposicional getSintagma();
+  Expresion getExpresion_der();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getSintagma <em>Sintagma</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getExpresion_der <em>Expresion der</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Sintagma</em>' containment reference.
-   * @see #getSintagma()
+   * @param value the new value of the '<em>Expresion der</em>' containment reference.
+   * @see #getExpresion_der()
    * @generated
    */
-  void setSintagma(SintagmaPreposicional value);
-
-  /**
-   * Returns the value of the '<em><b>Obligacion</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Obligacion</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Obligacion</em>' containment reference.
-   * @see #setObligacion(Obligacion)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Obligacion()
-   * @model containment="true"
-   * @generated
-   */
-  Obligacion getObligacion();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getObligacion <em>Obligacion</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Obligacion</em>' containment reference.
-   * @see #getObligacion()
-   * @generated
-   */
-  void setObligacion(Obligacion value);
-
-  /**
-   * Returns the value of the '<em><b>Operacion</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Operacion</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Operacion</em>' containment reference.
-   * @see #setOperacion(Operacion)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Operacion()
-   * @model containment="true"
-   * @generated
-   */
-  Operacion getOperacion();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getOperacion <em>Operacion</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operacion</em>' containment reference.
-   * @see #getOperacion()
-   * @generated
-   */
-  void setOperacion(Operacion value);
-
-  /**
-   * Returns the value of the '<em><b>Literal</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Literal</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Literal</em>' containment reference.
-   * @see #setLiteral(Literal)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getSimple_Literal()
-   * @model containment="true"
-   * @generated
-   */
-  Literal getLiteral();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Simple#getLiteral <em>Literal</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Literal</em>' containment reference.
-   * @see #getLiteral()
-   * @generated
-   */
-  void setLiteral(Literal value);
+  void setExpresion_der(Expresion value);
 
 } // Simple

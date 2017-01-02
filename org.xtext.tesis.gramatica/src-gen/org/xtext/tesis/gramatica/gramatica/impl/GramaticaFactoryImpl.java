@@ -67,18 +67,17 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
     {
       case GramaticaPackage.DOCUMENTO: return createDocumento();
       case GramaticaPackage.ORACION: return createOracion();
+      case GramaticaPackage.CONTENIDO: return createContenido();
       case GramaticaPackage.SIMPLE: return createSimple();
-      case GramaticaPackage.COMPUESTA: return createCompuesta();
+      case GramaticaPackage.COMPOSICION: return createComposicion();
       case GramaticaPackage.NEXO: return createNexo();
-      case GramaticaPackage.DETERMINANTE: return createDeterminante();
+      case GramaticaPackage.EXPRESION: return createExpresion();
+      case GramaticaPackage.COMPARACION: return createComparacion();
+      case GramaticaPackage.PROPIEDAD: return createPropiedad();
       case GramaticaPackage.ATRIBUTO: return createAtributo();
-      case GramaticaPackage.SINTAGMA_PREPOSICIONAL: return createSintagmaPreposicional();
-      case GramaticaPackage.ENLACE: return createEnlace();
       case GramaticaPackage.TERMINO: return createTermino();
-      case GramaticaPackage.INDETERMINANTE: return createIndeterminante();
       case GramaticaPackage.OBLIGACION: return createObligacion();
       case GramaticaPackage.OPERACION: return createOperacion();
-      case GramaticaPackage.CONTEXTO: return createContexto();
       case GramaticaPackage.LITERAL: return createLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -112,6 +111,17 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  public Contenido createContenido()
+  {
+    ContenidoImpl contenido = new ContenidoImpl();
+    return contenido;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Simple createSimple()
   {
     SimpleImpl simple = new SimpleImpl();
@@ -123,10 +133,10 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Compuesta createCompuesta()
+  public Composicion createComposicion()
   {
-    CompuestaImpl compuesta = new CompuestaImpl();
-    return compuesta;
+    ComposicionImpl composicion = new ComposicionImpl();
+    return composicion;
   }
 
   /**
@@ -145,10 +155,32 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Determinante createDeterminante()
+  public Expresion createExpresion()
   {
-    DeterminanteImpl determinante = new DeterminanteImpl();
-    return determinante;
+    ExpresionImpl expresion = new ExpresionImpl();
+    return expresion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Comparacion createComparacion()
+  {
+    ComparacionImpl comparacion = new ComparacionImpl();
+    return comparacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Propiedad createPropiedad()
+  {
+    PropiedadImpl propiedad = new PropiedadImpl();
+    return propiedad;
   }
 
   /**
@@ -167,43 +199,10 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public SintagmaPreposicional createSintagmaPreposicional()
-  {
-    SintagmaPreposicionalImpl sintagmaPreposicional = new SintagmaPreposicionalImpl();
-    return sintagmaPreposicional;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Enlace createEnlace()
-  {
-    EnlaceImpl enlace = new EnlaceImpl();
-    return enlace;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Termino createTermino()
   {
     TerminoImpl termino = new TerminoImpl();
     return termino;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Indeterminante createIndeterminante()
-  {
-    IndeterminanteImpl indeterminante = new IndeterminanteImpl();
-    return indeterminante;
   }
 
   /**
@@ -226,17 +225,6 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
   {
     OperacionImpl operacion = new OperacionImpl();
     return operacion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Contexto createContexto()
-  {
-    ContextoImpl contexto = new ContextoImpl();
-    return contexto;
   }
 
   /**

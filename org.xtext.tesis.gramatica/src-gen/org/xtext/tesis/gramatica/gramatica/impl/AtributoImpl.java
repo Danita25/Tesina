@@ -21,13 +21,35 @@ import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getDeterminante <em>Determinante</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getEnlace <em>Enlace</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class AtributoImpl extends MinimalEObjectImpl.Container implements Atributo
 {
+  /**
+   * The default value of the '{@link #getDeterminante() <em>Determinante</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeterminante()
+   * @generated
+   * @ordered
+   */
+  protected static final String DETERMINANTE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDeterminante() <em>Determinante</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeterminante()
+   * @generated
+   * @ordered
+   */
+  protected String determinante = DETERMINANTE_EDEFAULT;
+
   /**
    * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -49,6 +71,26 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   protected String nombre = NOMBRE_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getEnlace() <em>Enlace</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEnlace()
+   * @generated
+   * @ordered
+   */
+  protected static final String ENLACE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getEnlace() <em>Enlace</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEnlace()
+   * @generated
+   * @ordered
+   */
+  protected String enlace = ENLACE_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -67,6 +109,29 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   protected EClass eStaticClass()
   {
     return GramaticaPackage.Literals.ATRIBUTO;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getDeterminante()
+  {
+    return determinante;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDeterminante(String newDeterminante)
+  {
+    String oldDeterminante = determinante;
+    determinante = newDeterminante;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.ATRIBUTO__DETERMINANTE, oldDeterminante, determinante));
   }
 
   /**
@@ -97,13 +162,40 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getEnlace()
+  {
+    return enlace;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEnlace(String newEnlace)
+  {
+    String oldEnlace = enlace;
+    enlace = newEnlace;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.ATRIBUTO__ENLACE, oldEnlace, enlace));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case GramaticaPackage.ATRIBUTO__DETERMINANTE:
+        return getDeterminante();
       case GramaticaPackage.ATRIBUTO__NOMBRE:
         return getNombre();
+      case GramaticaPackage.ATRIBUTO__ENLACE:
+        return getEnlace();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +210,14 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
+      case GramaticaPackage.ATRIBUTO__DETERMINANTE:
+        setDeterminante((String)newValue);
+        return;
       case GramaticaPackage.ATRIBUTO__NOMBRE:
         setNombre((String)newValue);
+        return;
+      case GramaticaPackage.ATRIBUTO__ENLACE:
+        setEnlace((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +233,14 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
+      case GramaticaPackage.ATRIBUTO__DETERMINANTE:
+        setDeterminante(DETERMINANTE_EDEFAULT);
+        return;
       case GramaticaPackage.ATRIBUTO__NOMBRE:
         setNombre(NOMBRE_EDEFAULT);
+        return;
+      case GramaticaPackage.ATRIBUTO__ENLACE:
+        setEnlace(ENLACE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +256,12 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   {
     switch (featureID)
     {
+      case GramaticaPackage.ATRIBUTO__DETERMINANTE:
+        return DETERMINANTE_EDEFAULT == null ? determinante != null : !DETERMINANTE_EDEFAULT.equals(determinante);
       case GramaticaPackage.ATRIBUTO__NOMBRE:
         return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
+      case GramaticaPackage.ATRIBUTO__ENLACE:
+        return ENLACE_EDEFAULT == null ? enlace != null : !ENLACE_EDEFAULT.equals(enlace);
     }
     return super.eIsSet(featureID);
   }
@@ -169,8 +277,12 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (nombre: ");
+    result.append(" (determinante: ");
+    result.append(determinante);
+    result.append(", nombre: ");
     result.append(nombre);
+    result.append(", enlace: ");
+    result.append(enlace);
     result.append(')');
     return result.toString();
   }
