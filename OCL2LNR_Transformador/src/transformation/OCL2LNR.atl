@@ -165,47 +165,50 @@ rule Constraint2Oracion {
 }
 
 
-rule OperationCallExp2Contenido  {
+rule OperationCallExp2ContenidoAndOr  {
 	from
-		s: OCL!OperationCallExp --(s.name = 'and' or s.name = 'or' --and not s.haveCollectionExpInSources()			)
+		s: OCL!OperationCallExp (s.name = 'and' or s.name = 'or')
 	to
 		t2: LNR!Contenido (
-			simple <- if (s.name = 'and' or s.name = 'or') then 
-						thisModule.OperationCallExp2Simple(s.ownedArguments.first())
-					  else 
-					  	 thisModule.OperationCallExp2Simple(s)
-					  endif,
-			composicion <- OclUndefined --c
+			simple <- thisModule.OperationCallExp2Simple(s.ownedArguments.first()),
+			composicion <- c
+		),
+		c: LNR!Composicion (
+			nexo <- n,
+			contenido <- thisModule.resolveTemp(s.ownedSource, 't1')
 		)
-		--,
---		c: LNR!Composicion (
---			nexo <- n,
---			contenido <- s.ownedSource
---		)
---		,
---		n: LNR!Nexo (
---			valor <- 	if s.name = 'and' then 'y'
---						else if s.name = 'or' then 'o'
---							 else	OclUndefined
---							endif
---				endif
---		)
+		,
+		n: LNR!Nexo (
+			valor <- 	if s.name = 'and' then 'y'
+						else if s.name = 'or' then 'o'
+							 else	OclUndefined
+							endif
+				endif
+		)
 }
 
 
+rule OperationCallExp2ContenidoSimple {
+	from
+		s: OCL!OperationCallExp (s.name <> 'and' and s.name <> 'or')
+	to 
+		t1: LNR!Contenido(simple <-  thisModule.OperationCallExp2Simple(s))
+}
+ 
 lazy rule OperationCallExp2Simple {
 	from
-		s: OCL!OperationCallExp --(s.name <> 'and' and s.name <> 'or' 		--and not s.haveCollectionExpInSources()				)
+		s: OCL!OperationCallExp
 	to 
---	    t: LNR!Contenido (
---	    	simple <- t2
---	    ),
-		t2: LNR!Simple (
-			expresion_izq <- thisModule.OCLExpression2Expresion(s.ownedSource),
-			comparacion <- c,
-			expresion_der <- thisModule.OCLExpression2Expresion(s.ownedArguments.first())
+		simple: LNR!Simple (
+			expresion_izq <- if (s.name = 'not') then thisModule.OCLExpression2Expresion(s.ownedSource.ownedSource)
+							 else thisModule.OCLExpression2Expresion(s.ownedSource)
+							 endif,
+			comparacion <- cp,
+			expresion_der <- if (s.name = 'not') then thisModule.OCLExpression2Expresion(s.ownedSource.ownedArguments.first())
+							 else thisModule.OCLExpression2Expresion(s.ownedArguments.first())
+							 endif
 			),
-		c: LNR!Comparacion (
+		cp: LNR!Comparacion (
 			obligacion <- ob,
 			operacion <- op	
 		),
