@@ -1,6 +1,7 @@
 '.\r\n'=11
-'de'=21
-'debe ser'=24
+'cantidad de'=21
+'de'=22
+'debe ser'=25
 'distinto de'=19
 'el/la'=20
 'igual a'=16
@@ -8,9 +9,9 @@
 'mayor que'=14
 'menor o igual a'=18
 'menor que'=15
-'no'=23
+'no'=24
 'o'=13
-'un/una'=22
+'un/una'=23
 'y'=12
 RULE_ANY_OTHER=10
 RULE_ID=5
@@ -33,3 +34,4 @@ T__21=21
 T__22=22
 T__23=23
 T__24=24
+T__25=25

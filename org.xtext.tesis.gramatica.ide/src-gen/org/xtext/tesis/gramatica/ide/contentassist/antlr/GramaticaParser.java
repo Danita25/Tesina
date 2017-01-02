@@ -66,8 +66,9 @@ public class GramaticaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPropiedadAccess().getAtributoAssignment_0(), "rule__Propiedad__AtributoAssignment_0");
 					put(grammarAccess.getPropiedadAccess().getTerminoAssignment_1(), "rule__Propiedad__TerminoAssignment_1");
 					put(grammarAccess.getAtributoAccess().getDeterminanteAssignment_0(), "rule__Atributo__DeterminanteAssignment_0");
-					put(grammarAccess.getAtributoAccess().getNombreAssignment_1(), "rule__Atributo__NombreAssignment_1");
-					put(grammarAccess.getAtributoAccess().getEnlaceAssignment_2(), "rule__Atributo__EnlaceAssignment_2");
+					put(grammarAccess.getAtributoAccess().getPrefijoAssignment_1(), "rule__Atributo__PrefijoAssignment_1");
+					put(grammarAccess.getAtributoAccess().getNombreAssignment_2(), "rule__Atributo__NombreAssignment_2");
+					put(grammarAccess.getAtributoAccess().getEnlaceAssignment_3(), "rule__Atributo__EnlaceAssignment_3");
 					put(grammarAccess.getTerminoAccess().getIndeterminanteAssignment_0(), "rule__Termino__IndeterminanteAssignment_0");
 					put(grammarAccess.getTerminoAccess().getContextoAssignment_1(), "rule__Termino__ContextoAssignment_1");
 					put(grammarAccess.getObligacionAccess().getNegacionAssignment_0(), "rule__Obligacion__NegacionAssignment_0");

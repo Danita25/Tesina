@@ -401,13 +401,22 @@ public interface GramaticaPackage extends EPackage
   int ATRIBUTO__DETERMINANTE = 0;
 
   /**
+   * The feature id for the '<em><b>Prefijo</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATRIBUTO__PREFIJO = 1;
+
+  /**
    * The feature id for the '<em><b>Nombre</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATRIBUTO__NOMBRE = 1;
+  int ATRIBUTO__NOMBRE = 2;
 
   /**
    * The feature id for the '<em><b>Enlace</b></em>' attribute.
@@ -416,7 +425,7 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATRIBUTO__ENLACE = 2;
+  int ATRIBUTO__ENLACE = 3;
 
   /**
    * The number of structural features of the '<em>Atributo</em>' class.
@@ -425,7 +434,7 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATRIBUTO_FEATURE_COUNT = 3;
+  int ATRIBUTO_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.TerminoImpl <em>Termino</em>}' class.
@@ -857,6 +866,17 @@ public interface GramaticaPackage extends EPackage
   EAttribute getAtributo_Determinante();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Atributo#getPrefijo <em>Prefijo</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Prefijo</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Atributo#getPrefijo()
+   * @see #getAtributo()
+   * @generated
+   */
+  EAttribute getAtributo_Prefijo();
+
+  /**
    * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Atributo#getNombre <em>Nombre</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1250,6 +1270,14 @@ public interface GramaticaPackage extends EPackage
      * @generated
      */
     EAttribute ATRIBUTO__DETERMINANTE = eINSTANCE.getAtributo_Determinante();
+
+    /**
+     * The meta object literal for the '<em><b>Prefijo</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATRIBUTO__PREFIJO = eINSTANCE.getAtributo_Prefijo();
 
     /**
      * The meta object literal for the '<em><b>Nombre</b></em>' attribute feature.

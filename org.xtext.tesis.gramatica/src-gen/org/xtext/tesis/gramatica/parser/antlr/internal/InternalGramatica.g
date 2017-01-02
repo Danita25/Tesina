@@ -635,9 +635,23 @@ ruleAtributo returns [EObject current=null]
 		)
 		(
 			(
-				lv_nombre_1_0=RULE_ID
+				lv_prefijo_1_0='cantidad de'
 				{
-					newLeafNode(lv_nombre_1_0, grammarAccess.getAtributoAccess().getNombreIDTerminalRuleCall_1_0());
+					newLeafNode(lv_prefijo_1_0, grammarAccess.getAtributoAccess().getPrefijoCantidadDeKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAtributoRule());
+					}
+					setWithLastConsumed($current, "prefijo", lv_prefijo_1_0, "cantidad de");
+				}
+			)
+		)?
+		(
+			(
+				lv_nombre_2_0=RULE_ID
+				{
+					newLeafNode(lv_nombre_2_0, grammarAccess.getAtributoAccess().getNombreIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -646,22 +660,22 @@ ruleAtributo returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"nombre",
-						lv_nombre_1_0,
+						lv_nombre_2_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
 		(
 			(
-				lv_enlace_2_0='de'
+				lv_enlace_3_0='de'
 				{
-					newLeafNode(lv_enlace_2_0, grammarAccess.getAtributoAccess().getEnlaceDeKeyword_2_0());
+					newLeafNode(lv_enlace_3_0, grammarAccess.getAtributoAccess().getEnlaceDeKeyword_3_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getAtributoRule());
 					}
-					setWithLastConsumed($current, "enlace", lv_enlace_2_0, "de");
+					setWithLastConsumed($current, "enlace", lv_enlace_3_0, "de");
 				}
 			)
 		)

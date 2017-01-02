@@ -97,22 +97,10 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Atributo returns Atributo
 	 *
 	 * Constraint:
-	 *     (determinante='el/la' nombre=ID enlace='de')
+	 *     (determinante='el/la' prefijo='cantidad de'? nombre=ID enlace='de')
 	 */
 	protected void sequence_Atributo(ISerializationContext context, Atributo semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.ATRIBUTO__DETERMINANTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.ATRIBUTO__DETERMINANTE));
-			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.ATRIBUTO__NOMBRE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.ATRIBUTO__NOMBRE));
-			if (transientValues.isValueTransient(semanticObject, GramaticaPackage.Literals.ATRIBUTO__ENLACE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GramaticaPackage.Literals.ATRIBUTO__ENLACE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtributoAccess().getDeterminanteElLaKeyword_0_0(), semanticObject.getDeterminante());
-		feeder.accept(grammarAccess.getAtributoAccess().getNombreIDTerminalRuleCall_1_0(), semanticObject.getNombre());
-		feeder.accept(grammarAccess.getAtributoAccess().getEnlaceDeKeyword_2_0(), semanticObject.getEnlace());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

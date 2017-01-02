@@ -52,10 +52,9 @@ helper def: operationName(str: String): String =
 						if (str = '<>') then
 							'distinto de'
 						else
-							OclUndefined -- if ( str = 'size') then 'una cantidad de'
-							 	  --	else OclUndefined
-								  -- endif
-							
+							if ( str = 'size') then 'cantidad'
+							 	  else OclUndefined
+							endif
 						endif
 					endif
 				endif
@@ -90,8 +89,11 @@ helper context OCL!PrimitiveLiteralExp def: getLiteralSymbol(): String =
 helper context OCL!OCLExpression def: getPropertyName(): String =
 	if (self.oclIsTypeOf(OCL!PropertyCallExp)) then
 		thisModule.removePrefix(self.referredProperty.toString())
+	else if (self.oclIsTypeOf(OCL!OperationCallExp) and not self.referredOperation.oclIsUndefined()) then
+		thisModule.operationName(thisModule.removePrefix(self.referredOperation.toString()))
 	else
 		self.ownedSource.getPropertyName()
+	endif
 	endif;
 
 -- HELPER: haveCollectionExpInSources
@@ -137,6 +139,15 @@ helper context OCL!OperationCallExp def: haveCollectionExpInArguments(): Boolean
 			false
 		endif
 	endif;
+
+helper context OCL!PropertyCallExp def: getPropertyCallExpCollection() : Sequence(OCL!PropertyCallExp) =
+let elements : Sequence(OCL!PropertyCallExp) = Sequence{} in
+		if self.ownedSource.oclIsTypeOf(OCL!PropertyCallExp) then
+			elements.append(self).union(self.ownedSource.getPropertyCallExpCollection()) 
+		else
+			elements.append(self) -- LEAF
+		endif
+	;
 
 -------------------------------------------------------------------------------
 -- RULES ----------------------------------------------------------------------
@@ -239,8 +250,11 @@ lazy rule OCLExpression2Expresion {
 									thisModule.PrimitiveLiteralExp2Literal(s)		
 						  else if (s.oclIsTypeOf(OCL!PropertyCallExp)) then-- crear objecto propiedad
 									thisModule.PropertyCallExp2Propiedad(s)
-						  		else OclUndefined
-								endif
+						  else if (s.oclIsTypeOf(OCL!OperationCallExp)) then-- crear objecto propiedad
+									thisModule.OperationCallExp2Propiedad(s)
+						  else OclUndefined
+						  endif
+						  endif
 						  endif
 		)
 }
@@ -254,19 +268,26 @@ lazy rule PrimitiveLiteralExp2Literal {
 			valor <- s.getLiteralSymbol())
 }
 
-lazy rule PropertyCallExp2Propiedad {
+lazy rule PropertyCallExp2Atributo {
 	from
 		s: OCL!PropertyCallExp
 	to 
-		p: LNR!Propiedad (
-			atributo <- a, 
-			termino <- t
-		), 
-		a: LNR!Atributo (
+		a: LNR!Atributo ( 
 			determinante <- 'el/la', 
 			nombre <- s.getPropertyName(),
 			enlace <- 'de'
-		),
+		)
+}
+
+lazy rule PropertyCallExp2Propiedad {
+	from
+		s: OCL!PropertyCallExp
+	using {children : Sequence(OCL!PropertyCallExp) = s.getPropertyCallExpCollection();}
+	to 
+		p: LNR!Propiedad (
+			atributo <- children->collect(e |  thisModule.PropertyCallExp2Atributo(e)), 
+			termino <- t
+		), 
 		t: LNR!Termino (
 			indeterminante <- 'un/una',
 			contexto <-  if (s.oclIsUndefined()) then
@@ -275,6 +296,29 @@ lazy rule PropertyCallExp2Propiedad {
 							s.getExpressionInOCL().owningConstraint.context.name
 						endif
 		)
+}
+
+
+lazy rule OperationCallExp2Propiedad {
+	from
+		s: OCL!OperationCallExp
+	using {children : Sequence(OCL!PropertyCallExp) = s.ownedSource.getPropertyCallExpCollection();}
+	to 
+		p: LNR!Propiedad (
+			atributo <- children->collect(e | thisModule.PropertyCallExp2Atributo(e)), 
+			termino <- t
+		), 
+		t: LNR!Termino (
+			indeterminante <- 'un/una',
+			contexto <-  if (s.oclIsUndefined()) then
+							OclUndefined
+						else
+							s.getExpressionInOCL().owningConstraint.context.name
+						endif
+		)
+	do {
+		p.atributo.first().prefijo <- 'cantidad de';
+	}
 }
 
 

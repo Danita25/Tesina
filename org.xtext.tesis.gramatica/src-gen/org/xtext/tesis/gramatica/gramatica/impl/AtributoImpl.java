@@ -22,6 +22,7 @@ import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getDeterminante <em>Determinante</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getPrefijo <em>Prefijo</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.AtributoImpl#getEnlace <em>Enlace</em>}</li>
  * </ul>
@@ -49,6 +50,26 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
    * @ordered
    */
   protected String determinante = DETERMINANTE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPrefijo() <em>Prefijo</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPrefijo()
+   * @generated
+   * @ordered
+   */
+  protected static final String PREFIJO_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPrefijo() <em>Prefijo</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPrefijo()
+   * @generated
+   * @ordered
+   */
+  protected String prefijo = PREFIJO_EDEFAULT;
 
   /**
    * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
@@ -139,6 +160,29 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getPrefijo()
+  {
+    return prefijo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPrefijo(String newPrefijo)
+  {
+    String oldPrefijo = prefijo;
+    prefijo = newPrefijo;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.ATRIBUTO__PREFIJO, oldPrefijo, prefijo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getNombre()
   {
     return nombre;
@@ -192,6 +236,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     {
       case GramaticaPackage.ATRIBUTO__DETERMINANTE:
         return getDeterminante();
+      case GramaticaPackage.ATRIBUTO__PREFIJO:
+        return getPrefijo();
       case GramaticaPackage.ATRIBUTO__NOMBRE:
         return getNombre();
       case GramaticaPackage.ATRIBUTO__ENLACE:
@@ -212,6 +258,9 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     {
       case GramaticaPackage.ATRIBUTO__DETERMINANTE:
         setDeterminante((String)newValue);
+        return;
+      case GramaticaPackage.ATRIBUTO__PREFIJO:
+        setPrefijo((String)newValue);
         return;
       case GramaticaPackage.ATRIBUTO__NOMBRE:
         setNombre((String)newValue);
@@ -236,6 +285,9 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
       case GramaticaPackage.ATRIBUTO__DETERMINANTE:
         setDeterminante(DETERMINANTE_EDEFAULT);
         return;
+      case GramaticaPackage.ATRIBUTO__PREFIJO:
+        setPrefijo(PREFIJO_EDEFAULT);
+        return;
       case GramaticaPackage.ATRIBUTO__NOMBRE:
         setNombre(NOMBRE_EDEFAULT);
         return;
@@ -258,6 +310,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     {
       case GramaticaPackage.ATRIBUTO__DETERMINANTE:
         return DETERMINANTE_EDEFAULT == null ? determinante != null : !DETERMINANTE_EDEFAULT.equals(determinante);
+      case GramaticaPackage.ATRIBUTO__PREFIJO:
+        return PREFIJO_EDEFAULT == null ? prefijo != null : !PREFIJO_EDEFAULT.equals(prefijo);
       case GramaticaPackage.ATRIBUTO__NOMBRE:
         return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
       case GramaticaPackage.ATRIBUTO__ENLACE:
@@ -279,6 +333,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (determinante: ");
     result.append(determinante);
+    result.append(", prefijo: ");
+    result.append(prefijo);
     result.append(", nombre: ");
     result.append(nombre);
     result.append(", enlace: ");

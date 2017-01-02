@@ -43,6 +43,7 @@
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Atributo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Atributo/determinante"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Atributo/prefijo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Atributo/nombre"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Atributo/enlace"/>
     </genClasses>

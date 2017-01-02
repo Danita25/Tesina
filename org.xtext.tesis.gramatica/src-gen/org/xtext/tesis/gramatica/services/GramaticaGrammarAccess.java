@@ -288,18 +288,20 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDeterminanteAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cDeterminanteElLaKeyword_0_0 = (Keyword)cDeterminanteAssignment_0.eContents().get(0);
-		private final Assignment cNombreAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNombreIDTerminalRuleCall_1_0 = (RuleCall)cNombreAssignment_1.eContents().get(0);
-		private final Assignment cEnlaceAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Keyword cEnlaceDeKeyword_2_0 = (Keyword)cEnlaceAssignment_2.eContents().get(0);
+		private final Assignment cPrefijoAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cPrefijoCantidadDeKeyword_1_0 = (Keyword)cPrefijoAssignment_1.eContents().get(0);
+		private final Assignment cNombreAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNombreIDTerminalRuleCall_2_0 = (RuleCall)cNombreAssignment_2.eContents().get(0);
+		private final Assignment cEnlaceAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cEnlaceDeKeyword_3_0 = (Keyword)cEnlaceAssignment_3.eContents().get(0);
 		
 		//Atributo:
 		//	determinante='el/la' //Determinante
-		// nombre=ID enlace='de';
+		// prefijo='cantidad de'? nombre=ID enlace='de';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//determinante='el/la' //Determinante
-		// nombre=ID enlace='de'
+		// prefijo='cantidad de'? nombre=ID enlace='de'
 		public Group getGroup() { return cGroup; }
 		
 		//determinante='el/la'
@@ -309,17 +311,23 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getDeterminanteElLaKeyword_0_0() { return cDeterminanteElLaKeyword_0_0; }
 		
 		////Determinante
-		// nombre=ID
-		public Assignment getNombreAssignment_1() { return cNombreAssignment_1; }
+		// prefijo='cantidad de'?
+		public Assignment getPrefijoAssignment_1() { return cPrefijoAssignment_1; }
+		
+		//'cantidad de'
+		public Keyword getPrefijoCantidadDeKeyword_1_0() { return cPrefijoCantidadDeKeyword_1_0; }
+		
+		//nombre=ID
+		public Assignment getNombreAssignment_2() { return cNombreAssignment_2; }
 		
 		//ID
-		public RuleCall getNombreIDTerminalRuleCall_1_0() { return cNombreIDTerminalRuleCall_1_0; }
+		public RuleCall getNombreIDTerminalRuleCall_2_0() { return cNombreIDTerminalRuleCall_2_0; }
 		
 		//enlace='de'
-		public Assignment getEnlaceAssignment_2() { return cEnlaceAssignment_2; }
+		public Assignment getEnlaceAssignment_3() { return cEnlaceAssignment_3; }
 		
 		//'de'
-		public Keyword getEnlaceDeKeyword_2_0() { return cEnlaceDeKeyword_2_0; }
+		public Keyword getEnlaceDeKeyword_3_0() { return cEnlaceDeKeyword_3_0; }
 	}
 	public class TerminoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Termino");
@@ -616,7 +624,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Atributo:
 	//	determinante='el/la' //Determinante
-	// nombre=ID enlace='de';
+	// prefijo='cantidad de'? nombre=ID enlace='de';
 	public AtributoElements getAtributoAccess() {
 		return pAtributo;
 	}

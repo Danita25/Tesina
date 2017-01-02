@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalGramaticaParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'y'", "'o'", "'.\\r\\n'", "'el/la'", "'de'", "'un/una'", "'no'", "'debe ser'", "'mayor que'", "'menor que'", "'igual a'", "'mayor o igual a'", "'menor o igual a'", "'distinto de'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'y'", "'o'", "'.\\r\\n'", "'el/la'", "'cantidad de'", "'de'", "'un/una'", "'no'", "'debe ser'", "'mayor que'", "'menor que'", "'igual a'", "'mayor o igual a'", "'menor o igual a'", "'distinto de'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -43,6 +43,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
     public static final int T__24=24;
+    public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -1548,23 +1549,24 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAtributo"
-    // InternalGramatica.g:614:1: ruleAtributo returns [EObject current=null] : ( ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_nombre_1_0= RULE_ID ) ) ( (lv_enlace_2_0= 'de' ) ) ) ;
+    // InternalGramatica.g:614:1: ruleAtributo returns [EObject current=null] : ( ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) ) ;
     public final EObject ruleAtributo() throws RecognitionException {
         EObject current = null;
 
         Token lv_determinante_0_0=null;
-        Token lv_nombre_1_0=null;
-        Token lv_enlace_2_0=null;
+        Token lv_prefijo_1_0=null;
+        Token lv_nombre_2_0=null;
+        Token lv_enlace_3_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalGramatica.g:620:2: ( ( ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_nombre_1_0= RULE_ID ) ) ( (lv_enlace_2_0= 'de' ) ) ) )
-            // InternalGramatica.g:621:2: ( ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_nombre_1_0= RULE_ID ) ) ( (lv_enlace_2_0= 'de' ) ) )
+            // InternalGramatica.g:620:2: ( ( ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) ) )
+            // InternalGramatica.g:621:2: ( ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) )
             {
-            // InternalGramatica.g:621:2: ( ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_nombre_1_0= RULE_ID ) ) ( (lv_enlace_2_0= 'de' ) ) )
-            // InternalGramatica.g:622:3: ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_nombre_1_0= RULE_ID ) ) ( (lv_enlace_2_0= 'de' ) )
+            // InternalGramatica.g:621:2: ( ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) )
+            // InternalGramatica.g:622:3: ( (lv_determinante_0_0= 'el/la' ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) )
             {
             // InternalGramatica.g:622:3: ( (lv_determinante_0_0= 'el/la' ) )
             // InternalGramatica.g:623:4: (lv_determinante_0_0= 'el/la' )
@@ -1588,15 +1590,48 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGramatica.g:636:3: ( (lv_nombre_1_0= RULE_ID ) )
-            // InternalGramatica.g:637:4: (lv_nombre_1_0= RULE_ID )
-            {
-            // InternalGramatica.g:637:4: (lv_nombre_1_0= RULE_ID )
-            // InternalGramatica.g:638:5: lv_nombre_1_0= RULE_ID
-            {
-            lv_nombre_1_0=(Token)match(input,RULE_ID,FOLLOW_12); 
+            // InternalGramatica.g:636:3: ( (lv_prefijo_1_0= 'cantidad de' ) )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            					newLeafNode(lv_nombre_1_0, grammarAccess.getAtributoAccess().getNombreIDTerminalRuleCall_1_0());
+            if ( (LA6_0==15) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalGramatica.g:637:4: (lv_prefijo_1_0= 'cantidad de' )
+                    {
+                    // InternalGramatica.g:637:4: (lv_prefijo_1_0= 'cantidad de' )
+                    // InternalGramatica.g:638:5: lv_prefijo_1_0= 'cantidad de'
+                    {
+                    lv_prefijo_1_0=(Token)match(input,15,FOLLOW_12); 
+
+                    					newLeafNode(lv_prefijo_1_0, grammarAccess.getAtributoAccess().getPrefijoCantidadDeKeyword_1_0());
+                    				
+
+                    					if (current==null) {
+                    						current = createModelElement(grammarAccess.getAtributoRule());
+                    					}
+                    					setWithLastConsumed(current, "prefijo", lv_prefijo_1_0, "cantidad de");
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalGramatica.g:650:3: ( (lv_nombre_2_0= RULE_ID ) )
+            // InternalGramatica.g:651:4: (lv_nombre_2_0= RULE_ID )
+            {
+            // InternalGramatica.g:651:4: (lv_nombre_2_0= RULE_ID )
+            // InternalGramatica.g:652:5: lv_nombre_2_0= RULE_ID
+            {
+            lv_nombre_2_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+
+            					newLeafNode(lv_nombre_2_0, grammarAccess.getAtributoAccess().getNombreIDTerminalRuleCall_2_0());
             				
 
             					if (current==null) {
@@ -1605,7 +1640,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"nombre",
-            						lv_nombre_1_0,
+            						lv_nombre_2_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -1614,21 +1649,21 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGramatica.g:654:3: ( (lv_enlace_2_0= 'de' ) )
-            // InternalGramatica.g:655:4: (lv_enlace_2_0= 'de' )
+            // InternalGramatica.g:668:3: ( (lv_enlace_3_0= 'de' ) )
+            // InternalGramatica.g:669:4: (lv_enlace_3_0= 'de' )
             {
-            // InternalGramatica.g:655:4: (lv_enlace_2_0= 'de' )
-            // InternalGramatica.g:656:5: lv_enlace_2_0= 'de'
+            // InternalGramatica.g:669:4: (lv_enlace_3_0= 'de' )
+            // InternalGramatica.g:670:5: lv_enlace_3_0= 'de'
             {
-            lv_enlace_2_0=(Token)match(input,15,FOLLOW_2); 
+            lv_enlace_3_0=(Token)match(input,16,FOLLOW_2); 
 
-            					newLeafNode(lv_enlace_2_0, grammarAccess.getAtributoAccess().getEnlaceDeKeyword_2_0());
+            					newLeafNode(lv_enlace_3_0, grammarAccess.getAtributoAccess().getEnlaceDeKeyword_3_0());
             				
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getAtributoRule());
             					}
-            					setWithLastConsumed(current, "enlace", lv_enlace_2_0, "de");
+            					setWithLastConsumed(current, "enlace", lv_enlace_3_0, "de");
             				
 
             }
@@ -1659,7 +1694,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTermino"
-    // InternalGramatica.g:672:1: entryRuleTermino returns [EObject current=null] : iv_ruleTermino= ruleTermino EOF ;
+    // InternalGramatica.g:686:1: entryRuleTermino returns [EObject current=null] : iv_ruleTermino= ruleTermino EOF ;
     public final EObject entryRuleTermino() throws RecognitionException {
         EObject current = null;
 
@@ -1667,8 +1702,8 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGramatica.g:672:48: (iv_ruleTermino= ruleTermino EOF )
-            // InternalGramatica.g:673:2: iv_ruleTermino= ruleTermino EOF
+            // InternalGramatica.g:686:48: (iv_ruleTermino= ruleTermino EOF )
+            // InternalGramatica.g:687:2: iv_ruleTermino= ruleTermino EOF
             {
              newCompositeNode(grammarAccess.getTerminoRule()); 
             pushFollow(FOLLOW_1);
@@ -1695,7 +1730,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTermino"
-    // InternalGramatica.g:679:1: ruleTermino returns [EObject current=null] : ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) ) ;
+    // InternalGramatica.g:693:1: ruleTermino returns [EObject current=null] : ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) ) ;
     public final EObject ruleTermino() throws RecognitionException {
         EObject current = null;
 
@@ -1706,19 +1741,19 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGramatica.g:685:2: ( ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) ) )
-            // InternalGramatica.g:686:2: ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) )
+            // InternalGramatica.g:699:2: ( ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) ) )
+            // InternalGramatica.g:700:2: ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) )
             {
-            // InternalGramatica.g:686:2: ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) )
-            // InternalGramatica.g:687:3: ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) )
+            // InternalGramatica.g:700:2: ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) )
+            // InternalGramatica.g:701:3: ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) )
             {
-            // InternalGramatica.g:687:3: ( (lv_indeterminante_0_0= 'un/una' ) )
-            // InternalGramatica.g:688:4: (lv_indeterminante_0_0= 'un/una' )
+            // InternalGramatica.g:701:3: ( (lv_indeterminante_0_0= 'un/una' ) )
+            // InternalGramatica.g:702:4: (lv_indeterminante_0_0= 'un/una' )
             {
-            // InternalGramatica.g:688:4: (lv_indeterminante_0_0= 'un/una' )
-            // InternalGramatica.g:689:5: lv_indeterminante_0_0= 'un/una'
+            // InternalGramatica.g:702:4: (lv_indeterminante_0_0= 'un/una' )
+            // InternalGramatica.g:703:5: lv_indeterminante_0_0= 'un/una'
             {
-            lv_indeterminante_0_0=(Token)match(input,16,FOLLOW_11); 
+            lv_indeterminante_0_0=(Token)match(input,17,FOLLOW_12); 
 
             					newLeafNode(lv_indeterminante_0_0, grammarAccess.getTerminoAccess().getIndeterminanteUnUnaKeyword_0_0());
             				
@@ -1734,11 +1769,11 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGramatica.g:701:3: ( (lv_contexto_1_0= RULE_ID ) )
-            // InternalGramatica.g:702:4: (lv_contexto_1_0= RULE_ID )
+            // InternalGramatica.g:715:3: ( (lv_contexto_1_0= RULE_ID ) )
+            // InternalGramatica.g:716:4: (lv_contexto_1_0= RULE_ID )
             {
-            // InternalGramatica.g:702:4: (lv_contexto_1_0= RULE_ID )
-            // InternalGramatica.g:703:5: lv_contexto_1_0= RULE_ID
+            // InternalGramatica.g:716:4: (lv_contexto_1_0= RULE_ID )
+            // InternalGramatica.g:717:5: lv_contexto_1_0= RULE_ID
             {
             lv_contexto_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1783,7 +1818,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleObligacion"
-    // InternalGramatica.g:723:1: entryRuleObligacion returns [EObject current=null] : iv_ruleObligacion= ruleObligacion EOF ;
+    // InternalGramatica.g:737:1: entryRuleObligacion returns [EObject current=null] : iv_ruleObligacion= ruleObligacion EOF ;
     public final EObject entryRuleObligacion() throws RecognitionException {
         EObject current = null;
 
@@ -1791,8 +1826,8 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGramatica.g:723:51: (iv_ruleObligacion= ruleObligacion EOF )
-            // InternalGramatica.g:724:2: iv_ruleObligacion= ruleObligacion EOF
+            // InternalGramatica.g:737:51: (iv_ruleObligacion= ruleObligacion EOF )
+            // InternalGramatica.g:738:2: iv_ruleObligacion= ruleObligacion EOF
             {
              newCompositeNode(grammarAccess.getObligacionRule()); 
             pushFollow(FOLLOW_1);
@@ -1819,7 +1854,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleObligacion"
-    // InternalGramatica.g:730:1: ruleObligacion returns [EObject current=null] : ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) ) ) ;
+    // InternalGramatica.g:744:1: ruleObligacion returns [EObject current=null] : ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) ) ) ;
     public final EObject ruleObligacion() throws RecognitionException {
         EObject current = null;
 
@@ -1830,27 +1865,27 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGramatica.g:736:2: ( ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) ) ) )
-            // InternalGramatica.g:737:2: ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) ) )
+            // InternalGramatica.g:750:2: ( ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) ) ) )
+            // InternalGramatica.g:751:2: ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) ) )
             {
-            // InternalGramatica.g:737:2: ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) ) )
-            // InternalGramatica.g:738:3: ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) )
+            // InternalGramatica.g:751:2: ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) ) )
+            // InternalGramatica.g:752:3: ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'debe ser' ) )
             {
-            // InternalGramatica.g:738:3: ( (lv_negacion_0_0= 'no' ) )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalGramatica.g:752:3: ( (lv_negacion_0_0= 'no' ) )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==17) ) {
-                alt6=1;
+            if ( (LA7_0==18) ) {
+                alt7=1;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalGramatica.g:739:4: (lv_negacion_0_0= 'no' )
+                    // InternalGramatica.g:753:4: (lv_negacion_0_0= 'no' )
                     {
-                    // InternalGramatica.g:739:4: (lv_negacion_0_0= 'no' )
-                    // InternalGramatica.g:740:5: lv_negacion_0_0= 'no'
+                    // InternalGramatica.g:753:4: (lv_negacion_0_0= 'no' )
+                    // InternalGramatica.g:754:5: lv_negacion_0_0= 'no'
                     {
-                    lv_negacion_0_0=(Token)match(input,17,FOLLOW_13); 
+                    lv_negacion_0_0=(Token)match(input,18,FOLLOW_14); 
 
                     					newLeafNode(lv_negacion_0_0, grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0());
                     				
@@ -1869,13 +1904,13 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGramatica.g:752:3: ( (lv_obligacion_1_0= 'debe ser' ) )
-            // InternalGramatica.g:753:4: (lv_obligacion_1_0= 'debe ser' )
+            // InternalGramatica.g:766:3: ( (lv_obligacion_1_0= 'debe ser' ) )
+            // InternalGramatica.g:767:4: (lv_obligacion_1_0= 'debe ser' )
             {
-            // InternalGramatica.g:753:4: (lv_obligacion_1_0= 'debe ser' )
-            // InternalGramatica.g:754:5: lv_obligacion_1_0= 'debe ser'
+            // InternalGramatica.g:767:4: (lv_obligacion_1_0= 'debe ser' )
+            // InternalGramatica.g:768:5: lv_obligacion_1_0= 'debe ser'
             {
-            lv_obligacion_1_0=(Token)match(input,18,FOLLOW_2); 
+            lv_obligacion_1_0=(Token)match(input,19,FOLLOW_2); 
 
             					newLeafNode(lv_obligacion_1_0, grammarAccess.getObligacionAccess().getObligacionDebeSerKeyword_1_0());
             				
@@ -1914,7 +1949,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOperacion"
-    // InternalGramatica.g:770:1: entryRuleOperacion returns [EObject current=null] : iv_ruleOperacion= ruleOperacion EOF ;
+    // InternalGramatica.g:784:1: entryRuleOperacion returns [EObject current=null] : iv_ruleOperacion= ruleOperacion EOF ;
     public final EObject entryRuleOperacion() throws RecognitionException {
         EObject current = null;
 
@@ -1922,8 +1957,8 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGramatica.g:770:50: (iv_ruleOperacion= ruleOperacion EOF )
-            // InternalGramatica.g:771:2: iv_ruleOperacion= ruleOperacion EOF
+            // InternalGramatica.g:784:50: (iv_ruleOperacion= ruleOperacion EOF )
+            // InternalGramatica.g:785:2: iv_ruleOperacion= ruleOperacion EOF
             {
              newCompositeNode(grammarAccess.getOperacionRule()); 
             pushFollow(FOLLOW_1);
@@ -1950,7 +1985,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOperacion"
-    // InternalGramatica.g:777:1: ruleOperacion returns [EObject current=null] : ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) ) ;
+    // InternalGramatica.g:791:1: ruleOperacion returns [EObject current=null] : ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) ) ;
     public final EObject ruleOperacion() throws RecognitionException {
         EObject current = null;
 
@@ -1965,60 +2000,60 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGramatica.g:783:2: ( ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) ) )
-            // InternalGramatica.g:784:2: ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) )
+            // InternalGramatica.g:797:2: ( ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) ) )
+            // InternalGramatica.g:798:2: ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) )
             {
-            // InternalGramatica.g:784:2: ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) )
-            // InternalGramatica.g:785:3: ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) )
+            // InternalGramatica.g:798:2: ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) )
+            // InternalGramatica.g:799:3: ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) )
             {
-            // InternalGramatica.g:785:3: ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) )
-            // InternalGramatica.g:786:4: (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' )
+            // InternalGramatica.g:799:3: ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) )
+            // InternalGramatica.g:800:4: (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' )
             {
-            // InternalGramatica.g:786:4: (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' )
-            int alt7=6;
+            // InternalGramatica.g:800:4: (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' )
+            int alt8=6;
             switch ( input.LA(1) ) {
-            case 19:
-                {
-                alt7=1;
-                }
-                break;
             case 20:
                 {
-                alt7=2;
+                alt8=1;
                 }
                 break;
             case 21:
                 {
-                alt7=3;
+                alt8=2;
                 }
                 break;
             case 22:
                 {
-                alt7=4;
+                alt8=3;
                 }
                 break;
             case 23:
                 {
-                alt7=5;
+                alt8=4;
                 }
                 break;
             case 24:
                 {
-                alt7=6;
+                alt8=5;
+                }
+                break;
+            case 25:
+                {
+                alt8=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalGramatica.g:787:5: lv_operacion_0_1= 'mayor que'
+                    // InternalGramatica.g:801:5: lv_operacion_0_1= 'mayor que'
                     {
-                    lv_operacion_0_1=(Token)match(input,19,FOLLOW_2); 
+                    lv_operacion_0_1=(Token)match(input,20,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_1, grammarAccess.getOperacionAccess().getOperacionMayorQueKeyword_0_0());
                     				
@@ -2032,9 +2067,9 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalGramatica.g:798:5: lv_operacion_0_2= 'menor que'
+                    // InternalGramatica.g:812:5: lv_operacion_0_2= 'menor que'
                     {
-                    lv_operacion_0_2=(Token)match(input,20,FOLLOW_2); 
+                    lv_operacion_0_2=(Token)match(input,21,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_2, grammarAccess.getOperacionAccess().getOperacionMenorQueKeyword_0_1());
                     				
@@ -2048,9 +2083,9 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalGramatica.g:809:5: lv_operacion_0_3= 'igual a'
+                    // InternalGramatica.g:823:5: lv_operacion_0_3= 'igual a'
                     {
-                    lv_operacion_0_3=(Token)match(input,21,FOLLOW_2); 
+                    lv_operacion_0_3=(Token)match(input,22,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_3, grammarAccess.getOperacionAccess().getOperacionIgualAKeyword_0_2());
                     				
@@ -2064,9 +2099,9 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalGramatica.g:820:5: lv_operacion_0_4= 'mayor o igual a'
+                    // InternalGramatica.g:834:5: lv_operacion_0_4= 'mayor o igual a'
                     {
-                    lv_operacion_0_4=(Token)match(input,22,FOLLOW_2); 
+                    lv_operacion_0_4=(Token)match(input,23,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_4, grammarAccess.getOperacionAccess().getOperacionMayorOIgualAKeyword_0_3());
                     				
@@ -2080,9 +2115,9 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalGramatica.g:831:5: lv_operacion_0_5= 'menor o igual a'
+                    // InternalGramatica.g:845:5: lv_operacion_0_5= 'menor o igual a'
                     {
-                    lv_operacion_0_5=(Token)match(input,23,FOLLOW_2); 
+                    lv_operacion_0_5=(Token)match(input,24,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_5, grammarAccess.getOperacionAccess().getOperacionMenorOIgualAKeyword_0_4());
                     				
@@ -2096,9 +2131,9 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalGramatica.g:842:5: lv_operacion_0_6= 'distinto de'
+                    // InternalGramatica.g:856:5: lv_operacion_0_6= 'distinto de'
                     {
-                    lv_operacion_0_6=(Token)match(input,24,FOLLOW_2); 
+                    lv_operacion_0_6=(Token)match(input,25,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_6, grammarAccess.getOperacionAccess().getOperacionDistintoDeKeyword_0_5());
                     				
@@ -2140,7 +2175,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLiteral"
-    // InternalGramatica.g:858:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
+    // InternalGramatica.g:872:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
     public final EObject entryRuleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2148,8 +2183,8 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGramatica.g:858:48: (iv_ruleLiteral= ruleLiteral EOF )
-            // InternalGramatica.g:859:2: iv_ruleLiteral= ruleLiteral EOF
+            // InternalGramatica.g:872:48: (iv_ruleLiteral= ruleLiteral EOF )
+            // InternalGramatica.g:873:2: iv_ruleLiteral= ruleLiteral EOF
             {
              newCompositeNode(grammarAccess.getLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -2176,7 +2211,7 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteral"
-    // InternalGramatica.g:865:1: ruleLiteral returns [EObject current=null] : ( (lv_valor_0_0= RULE_STRING ) ) ;
+    // InternalGramatica.g:879:1: ruleLiteral returns [EObject current=null] : ( (lv_valor_0_0= RULE_STRING ) ) ;
     public final EObject ruleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2186,14 +2221,14 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGramatica.g:871:2: ( ( (lv_valor_0_0= RULE_STRING ) ) )
-            // InternalGramatica.g:872:2: ( (lv_valor_0_0= RULE_STRING ) )
+            // InternalGramatica.g:885:2: ( ( (lv_valor_0_0= RULE_STRING ) ) )
+            // InternalGramatica.g:886:2: ( (lv_valor_0_0= RULE_STRING ) )
             {
-            // InternalGramatica.g:872:2: ( (lv_valor_0_0= RULE_STRING ) )
-            // InternalGramatica.g:873:3: (lv_valor_0_0= RULE_STRING )
+            // InternalGramatica.g:886:2: ( (lv_valor_0_0= RULE_STRING ) )
+            // InternalGramatica.g:887:3: (lv_valor_0_0= RULE_STRING )
             {
-            // InternalGramatica.g:873:3: (lv_valor_0_0= RULE_STRING )
-            // InternalGramatica.g:874:4: lv_valor_0_0= RULE_STRING
+            // InternalGramatica.g:887:3: (lv_valor_0_0= RULE_STRING )
+            // InternalGramatica.g:888:4: lv_valor_0_0= RULE_STRING
             {
             lv_valor_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -2244,12 +2279,13 @@ public class InternalGramaticaParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000004012L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001802L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000060000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000000000C0000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000001F80000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000014010L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000003F00000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000024010L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000008020L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080000L});
 
 }

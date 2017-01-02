@@ -46,6 +46,7 @@ FinOracion:
 
 Atributo:
 	determinante='el/la' //Determinante
+	prefijo = 'cantidad de'?
 	nombre=ID
 	enlace='de';
 

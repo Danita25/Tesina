@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Atributo#getDeterminante <em>Determinante</em>}</li>
+ *   <li>{@link org.xtext.tesis.gramatica.gramatica.Atributo#getPrefijo <em>Prefijo</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Atributo#getNombre <em>Nombre</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Atributo#getEnlace <em>Enlace</em>}</li>
  * </ul>
@@ -50,6 +51,32 @@ public interface Atributo extends EObject
    * @generated
    */
   void setDeterminante(String value);
+
+  /**
+   * Returns the value of the '<em><b>Prefijo</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Prefijo</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Prefijo</em>' attribute.
+   * @see #setPrefijo(String)
+   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getAtributo_Prefijo()
+   * @model
+   * @generated
+   */
+  String getPrefijo();
+
+  /**
+   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Atributo#getPrefijo <em>Prefijo</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Prefijo</em>' attribute.
+   * @see #getPrefijo()
+   * @generated
+   */
+  void setPrefijo(String value);
 
   /**
    * Returns the value of the '<em><b>Nombre</b></em>' attribute.

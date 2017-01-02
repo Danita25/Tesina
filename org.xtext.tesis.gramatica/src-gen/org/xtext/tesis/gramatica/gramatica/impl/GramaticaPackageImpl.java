@@ -481,7 +481,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAtributo_Nombre()
+  public EAttribute getAtributo_Prefijo()
   {
     return (EAttribute)atributoEClass.getEStructuralFeatures().get(1);
   }
@@ -491,9 +491,19 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAtributo_Enlace()
+  public EAttribute getAtributo_Nombre()
   {
     return (EAttribute)atributoEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAtributo_Enlace()
+  {
+    return (EAttribute)atributoEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -663,6 +673,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
 
     atributoEClass = createEClass(ATRIBUTO);
     createEAttribute(atributoEClass, ATRIBUTO__DETERMINANTE);
+    createEAttribute(atributoEClass, ATRIBUTO__PREFIJO);
     createEAttribute(atributoEClass, ATRIBUTO__NOMBRE);
     createEAttribute(atributoEClass, ATRIBUTO__ENLACE);
 
@@ -749,6 +760,7 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
 
     initEClass(atributoEClass, Atributo.class, "Atributo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAtributo_Determinante(), ecorePackage.getEString(), "determinante", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAtributo_Prefijo(), ecorePackage.getEString(), "prefijo", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAtributo_Nombre(), ecorePackage.getEString(), "nombre", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAtributo_Enlace(), ecorePackage.getEString(), "enlace", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
