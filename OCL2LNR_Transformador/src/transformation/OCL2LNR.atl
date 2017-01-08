@@ -52,8 +52,10 @@ helper def: operationName(str: String): String =
 						if (str = '<>') then
 							'distinto de'
 						else
-							if ( str = 'size') then 'cantidad'
-							 	  else OclUndefined
+							if ( str = 'isEmpty') then 'igual a'
+							else if ( str = 'notEmpty') then 'mayor que'
+								else OclUndefined
+								endif
 							endif
 						endif
 					endif
@@ -176,6 +178,15 @@ rule Constraint2Oracion {
 }
 
 
+
+--Operation Call Exp
+rule OperationCallExp2ContenidoSimple {
+	from
+		s: OCL!OperationCallExp (s.name <> 'and' and s.name <> 'or')
+	to 
+		t1: LNR!Contenido(simple <-  thisModule.OperationCallExp2Simple(s))
+}
+
 rule OperationCallExp2ContenidoAndOr  {
 	from
 		s: OCL!OperationCallExp (s.name = 'and' or s.name = 'or')
@@ -198,27 +209,29 @@ rule OperationCallExp2ContenidoAndOr  {
 		)
 }
 
-
-rule OperationCallExp2ContenidoSimple {
-	from
-		s: OCL!OperationCallExp (s.name <> 'and' and s.name <> 'or')
-	to 
-		t1: LNR!Contenido(simple <-  thisModule.OperationCallExp2Simple(s))
-}
- 
 lazy rule OperationCallExp2Simple {
 	from
 		s: OCL!OperationCallExp
 	to 
 		simple: LNR!Simple (
 			expresion_izq <- if (s.name = 'not') then thisModule.OCLExpression2Expresion(s.ownedSource.ownedSource)
-							 else thisModule.OCLExpression2Expresion(s.ownedSource)
-							 endif,
+							 else if (thisModule.removePrefix(s.referredOperation.toString()) = 'isEmpty') 
+							 			or (thisModule.removePrefix(s.referredOperation.toString()) = 'notEmpty') then --ver si se puede hacer preguntando por s.name undefined, no porque afecta al size
+							 			thisModule.OCLExpression2Expresion(s) -- call with parent para poder generar la comparacion
+								 else thisModule.OCLExpression2Expresion(s.ownedSource)
+								 endif
+							endif,
 			comparacion <- cp,
 			expresion_der <- if (s.name = 'not') then thisModule.OCLExpression2Expresion(s.ownedSource.ownedArguments.first())
-							 else thisModule.OCLExpression2Expresion(s.ownedArguments.first())
-							 endif
+							 else if (thisModule.removePrefix(s.referredOperation.toString()) = 'isEmpty') 
+							 			or (thisModule.removePrefix(s.referredOperation.toString()) = 'notEmpty') then --ver si se puede hacer preguntando por s.name undefined, no porque afecta al size
+							 			zero --Exp_der es 0 ya que si es isEmpty sera = 0 y si es not empty sera > 0. 
+							 	else thisModule.OCLExpression2Expresion(s.ownedArguments.first())
+							 		endif
+							endif
 			),
+		zero: LNR!Expresion(expresion <- zeroLit),
+		zeroLit: LNR!Literal(valor <- '0'),
 		cp: LNR!Comparacion (
 			obligacion <- ob,
 			operacion <- op	
@@ -234,8 +247,10 @@ lazy rule OperationCallExp2Simple {
 		op: LNR!Operacion (
 			operacion <- if (s.name = 'not') then
 							thisModule.operationName(s.ownedSource.name)
-						else
-							thisModule.operationName(s.name)
+						else if ( s.name.oclIsUndefined()) then  --si es undefined es porque es una operacion de colecciones como size, empty, not empty
+								thisModule.operationName(thisModule.removePrefix(s.referredOperation.toString()))
+							else	thisModule.operationName(s.name)
+							endif
 						endif
 		)
 
@@ -248,11 +263,15 @@ lazy rule OCLExpression2Expresion {
 		t : LNR!Expresion (
 			expresion <- if (s.oclIsKindOf(OCL!PrimitiveLiteralExp)) then--crear objecto literal?
 									thisModule.PrimitiveLiteralExp2Literal(s)		
-						  else if (s.oclIsTypeOf(OCL!PropertyCallExp)) then-- crear objecto propiedad
+--						  else if (thisModule.removePrefix(s.referredOperation.toString()) = 'isEmpty')
+--						  		or  (thisModule.removePrefix(s.referredOperation.toString()) = 'notEmpty') then 
+--								    thisModule.PrimitiveLiteralExp2Literal(s)	
+						  else if (s.oclIsTypeOf(OCL!PropertyCallExp)) then-- crear objeto propiedad
 									thisModule.PropertyCallExp2Propiedad(s)
-						  else if (s.oclIsTypeOf(OCL!OperationCallExp)) then-- crear objecto propiedad
+						  else if (s.oclIsTypeOf(OCL!OperationCallExp)) then-- crear objeto propiedad
 									thisModule.OperationCallExp2Propiedad(s)
 						  else OclUndefined
+--						  endif
 						  endif
 						  endif
 						  endif

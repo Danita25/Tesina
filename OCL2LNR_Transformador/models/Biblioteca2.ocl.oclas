@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pivot="http://www.eclipse.org/ocl/2015/Pivot"
+    xsi:schemaLocation="http://www.eclipse.org/ocl/2015/Pivot java://org.eclipse.ocl.pivot.PivotPackage">
+  <pivot:Model name="Biblioteca.ocl" externalURI="platform:/resource/OCL2LNR_Transformador/models/Biblioteca.ocl">
+    <ownedImports>
+      <importedNamespace xsi:type="pivot:Model" href="Biblioteca.ecore.oclas#/"/>
+    </ownedImports>
+    <ownedPackages xmi:id="P.Biblioteca" name="Biblioteca" URI="Tesis.Biblioteca.ecore">
+      <ownedClasses xmi:id="T.Biblioteca.Libro" name="Libro">
+        <ownedInvariants xmi:id="ciBiblioteca.Libro.tieneCopias" name="tieneCopias">
+          <ownedSpecification xsi:type="pivot:ExpressionInOCL" body="self.copias->size() > 0&#xA;">
+            <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"/>
+            <ownedBody xsi:type="pivot:OperationCallExp" name=">">
+              <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"/>
+              <ownedSource xsi:type="pivot:OperationCallExp">
+                <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Integer"/>
+                <ownedSource xsi:type="pivot:PropertyCallExp" type="/0/@ownedPackages.1/@ownedClasses.0">
+                  <ownedSource xsi:type="pivot:VariableExp" referredVariable="/0/@ownedPackages.0/@ownedClasses.0/@ownedInvariants.0/@ownedSpecification/@ownedContext">
+                    <type xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
+                  </ownedSource>
+                  <referredProperty href="Biblioteca.ecore.oclas#p.Biblioteca.Libro.copias"/>
+                </ownedSource>
+                <referredOperation href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Collection.size"/>
+              </ownedSource>
+              <ownedArguments xsi:type="pivot:IntegerLiteralExp" integerSymbol="0">
+                <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Integer"/>
+              </ownedArguments>
+              <referredOperation href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.OclComparable.%62%..ocl.OclSelf"/>
+            </ownedBody>
+            <ownedContext name="self">
+              <type xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
+            </ownedContext>
+          </ownedSpecification>
+        </ownedInvariants>
+        <ownedInvariants xmi:id="ciBiblioteca.Libro.noCopias" name="noCopias">
+          <ownedSpecification xsi:type="pivot:ExpressionInOCL" body="self.copias->isEmpty()&#xA;">
+            <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"/>
+            <ownedBody xsi:type="pivot:OperationCallExp" referredOperation="o.%61%">
+              <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"/>
+              <ownedSource xsi:type="pivot:OperationCallExp" referredOperation="o.-null-element-">
+                <ownedSource xsi:type="pivot:PropertyCallExp" type="/0/@ownedPackages.1/@ownedClasses.0">
+                  <ownedSource xsi:type="pivot:VariableExp" referredVariable="/0/@ownedPackages.0/@ownedClasses.0/@ownedInvariants.1/@ownedSpecification/@ownedContext">
+                    <type xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
+                  </ownedSource>
+                  <referredProperty href="Biblioteca.ecore.oclas#p.Biblioteca.Libro.copias"/>
+                </ownedSource>
+              </ownedSource>
+              <ownedArguments xsi:type="pivot:IntegerLiteralExp" integerSymbol="0"/>
+            </ownedBody>
+            <ownedContext name="self">
+              <type xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
+            </ownedContext>
+          </ownedSpecification>
+        </ownedInvariants>
+        <ownedInvariants xmi:id="ciBiblioteca.Libro.alMenosUnaCopia" name="alMenosUnaCopia">
+          <ownedSpecification xsi:type="pivot:ExpressionInOCL" body="self.copias->notEmpty()&#xA;&#xA;">
+            <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"/>
+            <ownedBody xsi:type="pivot:OperationCallExp">
+              <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"/>
+              <ownedSource xsi:type="pivot:PropertyCallExp" type="/0/@ownedPackages.1/@ownedClasses.0">
+                <ownedSource xsi:type="pivot:VariableExp" referredVariable="/0/@ownedPackages.0/@ownedClasses.0/@ownedInvariants.2/@ownedSpecification/@ownedContext">
+                  <type xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
+                </ownedSource>
+                <referredProperty href="Biblioteca.ecore.oclas#p.Biblioteca.Libro.copias"/>
+              </ownedSource>
+              <referredOperation href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Collection.notEmpty"/>
+            </ownedBody>
+            <ownedContext name="self">
+              <type xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Libro"/>
+            </ownedContext>
+          </ownedSpecification>
+        </ownedInvariants>
+      </ownedClasses>
+    </ownedPackages>
+    <ownedPackages xmi:id="P.$$" name="$$" URI="http://www.eclipse.org/ocl/2015/Orphanage" nsPrefix="orphanage">
+      <ownedClasses xsi:type="pivot:SetType" name="Set" superClasses="/0/@ownedPackages.1/@ownedClasses.1" isNullFree="true">
+        <ownedBindings>
+          <ownedSubstitutions>
+            <actual xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Copia"/>
+            <formal href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..SetT"/>
+          </ownedSubstitutions>
+        </ownedBindings>
+        <elementType xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Copia"/>
+      </ownedClasses>
+      <ownedClasses xsi:type="pivot:CollectionType" name="UniqueCollection" superClasses="/0/@ownedPackages.1/@ownedClasses.2">
+        <ownedBindings>
+          <ownedSubstitutions>
+            <actual xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Copia"/>
+            <formal href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..UniqueCollectionT"/>
+          </ownedSubstitutions>
+        </ownedBindings>
+        <elementType xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Copia"/>
+      </ownedClasses>
+      <ownedClasses xsi:type="pivot:CollectionType" name="Collection">
+        <ownedBindings>
+          <ownedSubstitutions>
+            <actual xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Copia"/>
+            <formal href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..CollectionT"/>
+          </ownedSubstitutions>
+        </ownedBindings>
+        <superClasses href="http://www.eclipse.org/ocl/2015/Library.oclas#T.ocl.OclAny"/>
+        <elementType xsi:type="pivot:Class" href="Biblioteca.ecore.oclas#T.Biblioteca.Copia"/>
+      </ownedClasses>
+    </ownedPackages>
+  </pivot:Model>
+  <pivot:Operation xmi:id="o.%61%" name="="/>
+  <pivot:Operation xmi:id="o.-null-element-"/>
+</xmi:XMI>
