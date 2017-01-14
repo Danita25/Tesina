@@ -33,12 +33,12 @@ public interface Contenido extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Simple</em>' containment reference.
-   * @see #setSimple(Simple)
+   * @see #setSimple(EObject)
    * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getContenido_Simple()
    * @model containment="true"
    * @generated
    */
-  Simple getSimple();
+  EObject getSimple();
 
   /**
    * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Contenido#getSimple <em>Simple</em>}' containment reference.
@@ -48,7 +48,7 @@ public interface Contenido extends EObject
    * @see #getSimple()
    * @generated
    */
-  void setSimple(Simple value);
+  void setSimple(EObject value);
 
   /**
    * Returns the value of the '<em><b>Composicion</b></em>' containment reference.

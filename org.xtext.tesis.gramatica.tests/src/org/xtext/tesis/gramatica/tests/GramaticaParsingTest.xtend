@@ -30,19 +30,20 @@ class GramaticaParsingTest{
 	def void loadModel() {
 
 		val result = parseHelper.parse('''
-			pathModelo:'/modelo/pathname'
-			pathOcl: '/ocl/pathOcl'
-			El/La edad de un/una Socio debe ser mayor o igual a 18.
-			El/La edad de un/una Socio no debe ser menor que 18.
-			El/La nombreCompleto de un/una Socio debe ser distinto de 'vacio'.
-			El/La direccion de un/una Bibliotecta debe ser distinto de 'vacio'.
-			Los/Las copias de un/una Libro debe ser mayor que 0.
-			El/La cantidadDeEmpleados de un/una Compania debe ser mayor que 50.
-			Los/Las empleadores de un/una Persona debe ser menor o igual a 3.
-			El/La precioDeLaAccion de un/una Compania debe ser mayor que 0.
-			El/La administrador de un/una Compania no debe estar 'desempleado'.
-			El/La Coleccion de Empleados de un/una Compania debe ser mayor que 0.
-			Los/Las Empleados de un/una Compania debe ser al menos 1.
+«««			pathModelo:'/modelo/pathname'
+«««			pathOcl: '/ocl/pathOcl'
+			el/la cantidad de empleados de un/una Compania tal que el/la edad debe ser mayor que 18.
+			el/la edad de un/una Socio debe ser mayor o igual a 18.
+«««			el/la edad de un/una Socio no debe ser menor que 18.
+«««			El/La nombreCompleto de un/una Socio debe ser distinto de 'vacio'.
+«««			El/La direccion de un/una Bibliotecta debe ser distinto de 'vacio'.
+«««			Los/Las copias de un/una Libro debe ser mayor que 0.
+«««			El/La cantidadDeEmpleados de un/una Compania debe ser mayor que 50.
+«««			Los/Las empleadores de un/una Persona debe ser menor o igual a 3.
+«««			El/La precioDeLaAccion de un/una Compania debe ser mayor que 0.
+«««			El/La administrador de un/una Compania no debe estar 'desempleado'.
+«««			El/La Coleccion de Empleados de un/una Compania debe ser mayor que 0.
+«««			Los/Las Empleados de un/una Compania debe ser al menos 1.
 		''')
 		println(EmfFormatter.objToStr(result))
 		println("    ============        ")

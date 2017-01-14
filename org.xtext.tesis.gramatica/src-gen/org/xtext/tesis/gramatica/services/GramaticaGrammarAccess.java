@@ -24,39 +24,21 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class DocumentoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Documento");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cPathModeloAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cPathModeloSTRINGTerminalRuleCall_0_0 = (RuleCall)cPathModeloAssignment_0.eContents().get(0);
-		private final Assignment cPathOclAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPathOclSTRINGTerminalRuleCall_1_0 = (RuleCall)cPathOclAssignment_1.eContents().get(0);
-		private final Assignment cOracionesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cOracionesOracionParserRuleCall_2_0 = (RuleCall)cOracionesAssignment_2.eContents().get(0);
+		private final Assignment cOracionesAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cOracionesOracionParserRuleCall_0 = (RuleCall)cOracionesAssignment.eContents().get(0);
 		
 		//Documento:
-		//	pathModelo=STRING pathOcl=STRING oraciones+=Oracion* //		extraStr = STRING
+		//	oraciones+=Oracion* //		extraStr = STRING
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//pathModelo=STRING pathOcl=STRING oraciones+=Oracion*
-		public Group getGroup() { return cGroup; }
-		
-		//pathModelo=STRING
-		public Assignment getPathModeloAssignment_0() { return cPathModeloAssignment_0; }
-		
-		//STRING
-		public RuleCall getPathModeloSTRINGTerminalRuleCall_0_0() { return cPathModeloSTRINGTerminalRuleCall_0_0; }
-		
-		//pathOcl=STRING
-		public Assignment getPathOclAssignment_1() { return cPathOclAssignment_1; }
-		
-		//STRING
-		public RuleCall getPathOclSTRINGTerminalRuleCall_1_0() { return cPathOclSTRINGTerminalRuleCall_1_0; }
-		
-		//oraciones+=Oracion*
-		public Assignment getOracionesAssignment_2() { return cOracionesAssignment_2; }
+		////	pathModelo=STRING
+		// //	pathOcl=STRING
+		// oraciones+=Oracion*
+		public Assignment getOracionesAssignment() { return cOracionesAssignment; }
 		
 		//Oracion
-		public RuleCall getOracionesOracionParserRuleCall_2_0() { return cOracionesOracionParserRuleCall_2_0; }
+		public RuleCall getOracionesOracionParserRuleCall_0() { return cOracionesOracionParserRuleCall_0; }
 	}
 	public class OracionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Oracion");
@@ -83,26 +65,90 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		//FinOracion
 		public RuleCall getFinOracionParserRuleCall_1() { return cFinOracionParserRuleCall_1; }
 	}
+	public class IteracionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Iteracion");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPropiedadAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cPropiedadPropiedadParserRuleCall_0_0 = (RuleCall)cPropiedadAssignment_0.eContents().get(0);
+		private final Assignment cConectorAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cConectorTalQueKeyword_1_0 = (Keyword)cConectorAssignment_1.eContents().get(0);
+		private final Assignment cContenidoAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cContenidoContenidoParserRuleCall_2_0 = (RuleCall)cContenidoAssignment_2.eContents().get(0);
+		private final Assignment cComparacionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cComparacionComparacionParserRuleCall_3_0 = (RuleCall)cComparacionAssignment_3.eContents().get(0);
+		private final Assignment cExpresionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cExpresionExpresionParserRuleCall_4_0 = (RuleCall)cExpresionAssignment_4.eContents().get(0);
+		
+		//Iteracion:
+		//	propiedad=Propiedad conector='tal que' contenido=Contenido comparacion=Comparacion?
+		//	//como armo las comparaciones si no agrego comparacion, expresion
+		// expresion=Expresion?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//propiedad=Propiedad conector='tal que' contenido=Contenido comparacion=Comparacion?
+		////como armo las comparaciones si no agrego comparacion, expresion
+		// expresion=Expresion?
+		public Group getGroup() { return cGroup; }
+		
+		//propiedad=Propiedad
+		public Assignment getPropiedadAssignment_0() { return cPropiedadAssignment_0; }
+		
+		//Propiedad
+		public RuleCall getPropiedadPropiedadParserRuleCall_0_0() { return cPropiedadPropiedadParserRuleCall_0_0; }
+		
+		//conector='tal que'
+		public Assignment getConectorAssignment_1() { return cConectorAssignment_1; }
+		
+		//'tal que'
+		public Keyword getConectorTalQueKeyword_1_0() { return cConectorTalQueKeyword_1_0; }
+		
+		//contenido=Contenido
+		public Assignment getContenidoAssignment_2() { return cContenidoAssignment_2; }
+		
+		//Contenido
+		public RuleCall getContenidoContenidoParserRuleCall_2_0() { return cContenidoContenidoParserRuleCall_2_0; }
+		
+		//comparacion=Comparacion?
+		public Assignment getComparacionAssignment_3() { return cComparacionAssignment_3; }
+		
+		//Comparacion
+		public RuleCall getComparacionComparacionParserRuleCall_3_0() { return cComparacionComparacionParserRuleCall_3_0; }
+		
+		////como armo las comparaciones si no agrego comparacion, expresion
+		// expresion=Expresion?
+		public Assignment getExpresionAssignment_4() { return cExpresionAssignment_4; }
+		
+		//Expresion
+		public RuleCall getExpresionExpresionParserRuleCall_4_0() { return cExpresionExpresionParserRuleCall_4_0; }
+	}
 	public class ContenidoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesis.gramatica.Gramatica.Contenido");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSimpleAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cSimpleSimpleParserRuleCall_0_0 = (RuleCall)cSimpleAssignment_0.eContents().get(0);
+		private final Alternatives cSimpleAlternatives_0_0 = (Alternatives)cSimpleAssignment_0.eContents().get(0);
+		private final RuleCall cSimpleSimpleParserRuleCall_0_0_0 = (RuleCall)cSimpleAlternatives_0_0.eContents().get(0);
+		private final RuleCall cSimpleIteracionParserRuleCall_0_0_1 = (RuleCall)cSimpleAlternatives_0_0.eContents().get(1);
 		private final Assignment cComposicionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cComposicionComposicionParserRuleCall_1_0 = (RuleCall)cComposicionAssignment_1.eContents().get(0);
 		
 		//Contenido:
-		//	simple=Simple composicion=Composicion?;
+		//	simple=(Simple | Iteracion) composicion=Composicion?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//simple=Simple composicion=Composicion?
+		//simple=(Simple | Iteracion) composicion=Composicion?
 		public Group getGroup() { return cGroup; }
 		
-		//simple=Simple
+		//simple=(Simple | Iteracion)
 		public Assignment getSimpleAssignment_0() { return cSimpleAssignment_0; }
 		
+		//(Simple | Iteracion)
+		public Alternatives getSimpleAlternatives_0_0() { return cSimpleAlternatives_0_0; }
+		
 		//Simple
-		public RuleCall getSimpleSimpleParserRuleCall_0_0() { return cSimpleSimpleParserRuleCall_0_0; }
+		public RuleCall getSimpleSimpleParserRuleCall_0_0_0() { return cSimpleSimpleParserRuleCall_0_0_0; }
+		
+		//Iteracion
+		public RuleCall getSimpleIteracionParserRuleCall_0_0_1() { return cSimpleIteracionParserRuleCall_0_0_1; }
 		
 		//composicion=Composicion?
 		public Assignment getComposicionAssignment_1() { return cComposicionAssignment_1; }
@@ -254,10 +300,10 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTerminoTerminoParserRuleCall_1_0 = (RuleCall)cTerminoAssignment_1.eContents().get(0);
 		
 		//Propiedad:
-		//	atributo+=Atributo+ termino=Termino;
+		//	atributo+=Atributo+ termino=Termino?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//atributo+=Atributo+ termino=Termino
+		//atributo+=Atributo+ termino=Termino?
 		public Group getGroup() { return cGroup; }
 		
 		//atributo+=Atributo+
@@ -266,7 +312,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		//Atributo
 		public RuleCall getAtributoAtributoParserRuleCall_0_0() { return cAtributoAtributoParserRuleCall_0_0; }
 		
-		//termino=Termino
+		//termino=Termino?
 		public Assignment getTerminoAssignment_1() { return cTerminoAssignment_1; }
 		
 		//Termino
@@ -289,7 +335,9 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDeterminanteAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cDeterminanteElLaKeyword_0_0 = (Keyword)cDeterminanteAssignment_0.eContents().get(0);
 		private final Assignment cPrefijoAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cPrefijoCantidadDeKeyword_1_0 = (Keyword)cPrefijoAssignment_1.eContents().get(0);
+		private final Alternatives cPrefijoAlternatives_1_0 = (Alternatives)cPrefijoAssignment_1.eContents().get(0);
+		private final Keyword cPrefijoCantidadDeKeyword_1_0_0 = (Keyword)cPrefijoAlternatives_1_0.eContents().get(0);
+		private final Keyword cPrefijoSeleccionDeKeyword_1_0_1 = (Keyword)cPrefijoAlternatives_1_0.eContents().get(1);
 		private final Assignment cNombreAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNombreIDTerminalRuleCall_2_0 = (RuleCall)cNombreAssignment_2.eContents().get(0);
 		private final Assignment cEnlaceAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -297,11 +345,11 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Atributo:
 		//	determinante='el/la' //Determinante
-		// prefijo='cantidad de'? nombre=ID enlace='de';
+		// prefijo=('cantidad de' | 'seleccion de')? nombre=ID enlace='de';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//determinante='el/la' //Determinante
-		// prefijo='cantidad de'? nombre=ID enlace='de'
+		// prefijo=('cantidad de' | 'seleccion de')? nombre=ID enlace='de'
 		public Group getGroup() { return cGroup; }
 		
 		//determinante='el/la'
@@ -311,11 +359,17 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getDeterminanteElLaKeyword_0_0() { return cDeterminanteElLaKeyword_0_0; }
 		
 		////Determinante
-		// prefijo='cantidad de'?
+		// prefijo=('cantidad de' | 'seleccion de')?
 		public Assignment getPrefijoAssignment_1() { return cPrefijoAssignment_1; }
 		
+		//('cantidad de' | 'seleccion de')
+		public Alternatives getPrefijoAlternatives_1_0() { return cPrefijoAlternatives_1_0; }
+		
 		//'cantidad de'
-		public Keyword getPrefijoCantidadDeKeyword_1_0() { return cPrefijoCantidadDeKeyword_1_0; }
+		public Keyword getPrefijoCantidadDeKeyword_1_0_0() { return cPrefijoCantidadDeKeyword_1_0_0; }
+		
+		//'seleccion de'
+		public Keyword getPrefijoSeleccionDeKeyword_1_0_1() { return cPrefijoSeleccionDeKeyword_1_0_1; }
 		
 		//nombre=ID
 		public Assignment getNombreAssignment_2() { return cNombreAssignment_2; }
@@ -452,6 +506,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final DocumentoElements pDocumento;
 	private final OracionElements pOracion;
+	private final IteracionElements pIteracion;
 	private final ContenidoElements pContenido;
 	private final SimpleElements pSimple;
 	private final ComposicionElements pComposicion;
@@ -477,6 +532,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pDocumento = new DocumentoElements();
 		this.pOracion = new OracionElements();
+		this.pIteracion = new IteracionElements();
 		this.pContenido = new ContenidoElements();
 		this.pSimple = new SimpleElements();
 		this.pComposicion = new ComposicionElements();
@@ -520,7 +576,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Documento:
-	//	pathModelo=STRING pathOcl=STRING oraciones+=Oracion* //		extraStr = STRING
+	//	oraciones+=Oracion* //		extraStr = STRING
 	//;
 	public DocumentoElements getDocumentoAccess() {
 		return pDocumento;
@@ -542,8 +598,20 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 		return getOracionAccess().getRule();
 	}
 	
+	//Iteracion:
+	//	propiedad=Propiedad conector='tal que' contenido=Contenido comparacion=Comparacion?
+	//	//como armo las comparaciones si no agrego comparacion, expresion
+	// expresion=Expresion?;
+	public IteracionElements getIteracionAccess() {
+		return pIteracion;
+	}
+	
+	public ParserRule getIteracionRule() {
+		return getIteracionAccess().getRule();
+	}
+	
 	//Contenido:
-	//	simple=Simple composicion=Composicion?;
+	//	simple=(Simple | Iteracion) composicion=Composicion?;
 	public ContenidoElements getContenidoAccess() {
 		return pContenido;
 	}
@@ -603,7 +671,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Propiedad:
-	//	atributo+=Atributo+ termino=Termino;
+	//	atributo+=Atributo+ termino=Termino?;
 	public PropiedadElements getPropiedadAccess() {
 		return pPropiedad;
 	}
@@ -624,7 +692,7 @@ public class GramaticaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Atributo:
 	//	determinante='el/la' //Determinante
-	// prefijo='cantidad de'? nombre=ID enlace='de';
+	// prefijo=('cantidad de' | 'seleccion de')? nombre=ID enlace='de';
 	public AtributoElements getAtributoAccess() {
 		return pAtributo;
 	}

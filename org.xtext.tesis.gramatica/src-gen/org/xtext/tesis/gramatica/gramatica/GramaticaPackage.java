@@ -68,31 +68,13 @@ public interface GramaticaPackage extends EPackage
   int DOCUMENTO = 0;
 
   /**
-   * The feature id for the '<em><b>Path Modelo</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOCUMENTO__PATH_MODELO = 0;
-
-  /**
-   * The feature id for the '<em><b>Path Ocl</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOCUMENTO__PATH_OCL = 1;
-
-  /**
    * The feature id for the '<em><b>Oraciones</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOCUMENTO__ORACIONES = 2;
+  int DOCUMENTO__ORACIONES = 0;
 
   /**
    * The number of structural features of the '<em>Documento</em>' class.
@@ -101,7 +83,7 @@ public interface GramaticaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOCUMENTO_FEATURE_COUNT = 3;
+  int DOCUMENTO_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.OracionImpl <em>Oracion</em>}' class.
@@ -132,6 +114,70 @@ public interface GramaticaPackage extends EPackage
   int ORACION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.IteracionImpl <em>Iteracion</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.tesis.gramatica.gramatica.impl.IteracionImpl
+   * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getIteracion()
+   * @generated
+   */
+  int ITERACION = 2;
+
+  /**
+   * The feature id for the '<em><b>Propiedad</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERACION__PROPIEDAD = 0;
+
+  /**
+   * The feature id for the '<em><b>Conector</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERACION__CONECTOR = 1;
+
+  /**
+   * The feature id for the '<em><b>Contenido</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERACION__CONTENIDO = 2;
+
+  /**
+   * The feature id for the '<em><b>Comparacion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERACION__COMPARACION = 3;
+
+  /**
+   * The feature id for the '<em><b>Expresion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERACION__EXPRESION = 4;
+
+  /**
+   * The number of structural features of the '<em>Iteracion</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERACION_FEATURE_COUNT = 5;
+
+  /**
    * The meta object id for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ContenidoImpl <em>Contenido</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -139,7 +185,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getContenido()
    * @generated
    */
-  int CONTENIDO = 2;
+  int CONTENIDO = 3;
 
   /**
    * The feature id for the '<em><b>Simple</b></em>' containment reference.
@@ -176,7 +222,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getSimple()
    * @generated
    */
-  int SIMPLE = 3;
+  int SIMPLE = 4;
 
   /**
    * The feature id for the '<em><b>Expresion izq</b></em>' containment reference.
@@ -222,7 +268,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getComposicion()
    * @generated
    */
-  int COMPOSICION = 4;
+  int COMPOSICION = 5;
 
   /**
    * The feature id for the '<em><b>Nexo</b></em>' containment reference.
@@ -259,7 +305,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getNexo()
    * @generated
    */
-  int NEXO = 5;
+  int NEXO = 6;
 
   /**
    * The feature id for the '<em><b>Valor</b></em>' attribute.
@@ -287,7 +333,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getExpresion()
    * @generated
    */
-  int EXPRESION = 6;
+  int EXPRESION = 7;
 
   /**
    * The feature id for the '<em><b>Expresion</b></em>' containment reference.
@@ -315,7 +361,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getComparacion()
    * @generated
    */
-  int COMPARACION = 7;
+  int COMPARACION = 8;
 
   /**
    * The feature id for the '<em><b>Obligacion</b></em>' containment reference.
@@ -352,7 +398,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getPropiedad()
    * @generated
    */
-  int PROPIEDAD = 8;
+  int PROPIEDAD = 9;
 
   /**
    * The feature id for the '<em><b>Atributo</b></em>' containment reference list.
@@ -389,7 +435,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getAtributo()
    * @generated
    */
-  int ATRIBUTO = 9;
+  int ATRIBUTO = 10;
 
   /**
    * The feature id for the '<em><b>Determinante</b></em>' attribute.
@@ -444,7 +490,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getTermino()
    * @generated
    */
-  int TERMINO = 10;
+  int TERMINO = 11;
 
   /**
    * The feature id for the '<em><b>Indeterminante</b></em>' attribute.
@@ -481,7 +527,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getObligacion()
    * @generated
    */
-  int OBLIGACION = 11;
+  int OBLIGACION = 12;
 
   /**
    * The feature id for the '<em><b>Negacion</b></em>' attribute.
@@ -518,7 +564,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getOperacion()
    * @generated
    */
-  int OPERACION = 12;
+  int OPERACION = 13;
 
   /**
    * The feature id for the '<em><b>Operacion</b></em>' attribute.
@@ -546,7 +592,7 @@ public interface GramaticaPackage extends EPackage
    * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getLiteral()
    * @generated
    */
-  int LITERAL = 13;
+  int LITERAL = 14;
 
   /**
    * The feature id for the '<em><b>Valor</b></em>' attribute.
@@ -576,28 +622,6 @@ public interface GramaticaPackage extends EPackage
    * @generated
    */
   EClass getDocumento();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo <em>Path Modelo</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Path Modelo</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo()
-   * @see #getDocumento()
-   * @generated
-   */
-  EAttribute getDocumento_PathModelo();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl <em>Path Ocl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Path Ocl</em>'.
-   * @see org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl()
-   * @see #getDocumento()
-   * @generated
-   */
-  EAttribute getDocumento_PathOcl();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.tesis.gramatica.gramatica.Documento#getOraciones <em>Oraciones</em>}'.
@@ -630,6 +654,71 @@ public interface GramaticaPackage extends EPackage
    * @generated
    */
   EReference getOracion_Contenido();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Iteracion <em>Iteracion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Iteracion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Iteracion
+   * @generated
+   */
+  EClass getIteracion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Iteracion#getPropiedad <em>Propiedad</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Propiedad</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Iteracion#getPropiedad()
+   * @see #getIteracion()
+   * @generated
+   */
+  EReference getIteracion_Propiedad();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.tesis.gramatica.gramatica.Iteracion#getConector <em>Conector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Conector</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Iteracion#getConector()
+   * @see #getIteracion()
+   * @generated
+   */
+  EAttribute getIteracion_Conector();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Iteracion#getContenido <em>Contenido</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Contenido</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Iteracion#getContenido()
+   * @see #getIteracion()
+   * @generated
+   */
+  EReference getIteracion_Contenido();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Iteracion#getComparacion <em>Comparacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Comparacion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Iteracion#getComparacion()
+   * @see #getIteracion()
+   * @generated
+   */
+  EReference getIteracion_Comparacion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.tesis.gramatica.gramatica.Iteracion#getExpresion <em>Expresion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expresion</em>'.
+   * @see org.xtext.tesis.gramatica.gramatica.Iteracion#getExpresion()
+   * @see #getIteracion()
+   * @generated
+   */
+  EReference getIteracion_Expresion();
 
   /**
    * Returns the meta object for class '{@link org.xtext.tesis.gramatica.gramatica.Contenido <em>Contenido</em>}'.
@@ -1038,22 +1127,6 @@ public interface GramaticaPackage extends EPackage
     EClass DOCUMENTO = eINSTANCE.getDocumento();
 
     /**
-     * The meta object literal for the '<em><b>Path Modelo</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DOCUMENTO__PATH_MODELO = eINSTANCE.getDocumento_PathModelo();
-
-    /**
-     * The meta object literal for the '<em><b>Path Ocl</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DOCUMENTO__PATH_OCL = eINSTANCE.getDocumento_PathOcl();
-
-    /**
      * The meta object literal for the '<em><b>Oraciones</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1078,6 +1151,56 @@ public interface GramaticaPackage extends EPackage
      * @generated
      */
     EReference ORACION__CONTENIDO = eINSTANCE.getOracion_Contenido();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.IteracionImpl <em>Iteracion</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.tesis.gramatica.gramatica.impl.IteracionImpl
+     * @see org.xtext.tesis.gramatica.gramatica.impl.GramaticaPackageImpl#getIteracion()
+     * @generated
+     */
+    EClass ITERACION = eINSTANCE.getIteracion();
+
+    /**
+     * The meta object literal for the '<em><b>Propiedad</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ITERACION__PROPIEDAD = eINSTANCE.getIteracion_Propiedad();
+
+    /**
+     * The meta object literal for the '<em><b>Conector</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ITERACION__CONECTOR = eINSTANCE.getIteracion_Conector();
+
+    /**
+     * The meta object literal for the '<em><b>Contenido</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ITERACION__CONTENIDO = eINSTANCE.getIteracion_Contenido();
+
+    /**
+     * The meta object literal for the '<em><b>Comparacion</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ITERACION__COMPARACION = eINSTANCE.getIteracion_Comparacion();
+
+    /**
+     * The meta object literal for the '<em><b>Expresion</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ITERACION__EXPRESION = eINSTANCE.getIteracion_Expresion();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesis.gramatica.gramatica.impl.ContenidoImpl <em>Contenido</em>}' class.

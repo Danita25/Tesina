@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -15,7 +16,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.xtext.tesis.gramatica.gramatica.Composicion;
 import org.xtext.tesis.gramatica.gramatica.Contenido;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
-import org.xtext.tesis.gramatica.gramatica.Simple;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +41,7 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
    * @generated
    * @ordered
    */
-  protected Simple simple;
+  protected EObject simple;
 
   /**
    * The cached value of the '{@link #getComposicion() <em>Composicion</em>}' containment reference.
@@ -79,7 +79,7 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
    * <!-- end-user-doc -->
    * @generated
    */
-  public Simple getSimple()
+  public EObject getSimple()
   {
     return simple;
   }
@@ -89,9 +89,9 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSimple(Simple newSimple, NotificationChain msgs)
+  public NotificationChain basicSetSimple(EObject newSimple, NotificationChain msgs)
   {
-    Simple oldSimple = simple;
+    EObject oldSimple = simple;
     simple = newSimple;
     if (eNotificationRequired())
     {
@@ -106,7 +106,7 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSimple(Simple newSimple)
+  public void setSimple(EObject newSimple)
   {
     if (newSimple != simple)
     {
@@ -217,7 +217,7 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
     switch (featureID)
     {
       case GramaticaPackage.CONTENIDO__SIMPLE:
-        setSimple((Simple)newValue);
+        setSimple((EObject)newValue);
         return;
       case GramaticaPackage.CONTENIDO__COMPOSICION:
         setComposicion((Composicion)newValue);
@@ -237,7 +237,7 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
     switch (featureID)
     {
       case GramaticaPackage.CONTENIDO__SIMPLE:
-        setSimple((Simple)null);
+        setSimple((EObject)null);
         return;
       case GramaticaPackage.CONTENIDO__COMPOSICION:
         setComposicion((Composicion)null);

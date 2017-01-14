@@ -42,6 +42,15 @@ public interface GramaticaFactory extends EFactory
   Oracion createOracion();
 
   /**
+   * Returns a new object of class '<em>Iteracion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Iteracion</em>'.
+   * @generated
+   */
+  Iteracion createIteracion();
+
+  /**
    * Returns a new object of class '<em>Contenido</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -67,6 +67,7 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
     {
       case GramaticaPackage.DOCUMENTO: return createDocumento();
       case GramaticaPackage.ORACION: return createOracion();
+      case GramaticaPackage.ITERACION: return createIteracion();
       case GramaticaPackage.CONTENIDO: return createContenido();
       case GramaticaPackage.SIMPLE: return createSimple();
       case GramaticaPackage.COMPOSICION: return createComposicion();
@@ -104,6 +105,17 @@ public class GramaticaFactoryImpl extends EFactoryImpl implements GramaticaFacto
   {
     OracionImpl oracion = new OracionImpl();
     return oracion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Iteracion createIteracion()
+  {
+    IteracionImpl iteracion = new IteracionImpl();
+    return iteracion;
   }
 
   /**

@@ -35,11 +35,13 @@ public class GramaticaParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getContenidoAccess().getSimpleAlternatives_0_0(), "rule__Contenido__SimpleAlternatives_0_0");
 					put(grammarAccess.getNexoAccess().getValorAlternatives_0(), "rule__Nexo__ValorAlternatives_0");
 					put(grammarAccess.getExpresionAccess().getExpresionAlternatives_0(), "rule__Expresion__ExpresionAlternatives_0");
+					put(grammarAccess.getAtributoAccess().getPrefijoAlternatives_1_0(), "rule__Atributo__PrefijoAlternatives_1_0");
 					put(grammarAccess.getOperacionAccess().getOperacionAlternatives_0(), "rule__Operacion__OperacionAlternatives_0");
-					put(grammarAccess.getDocumentoAccess().getGroup(), "rule__Documento__Group__0");
 					put(grammarAccess.getOracionAccess().getGroup(), "rule__Oracion__Group__0");
+					put(grammarAccess.getIteracionAccess().getGroup(), "rule__Iteracion__Group__0");
 					put(grammarAccess.getContenidoAccess().getGroup(), "rule__Contenido__Group__0");
 					put(grammarAccess.getSimpleAccess().getGroup(), "rule__Simple__Group__0");
 					put(grammarAccess.getComposicionAccess().getGroup(), "rule__Composicion__Group__0");
@@ -48,10 +50,13 @@ public class GramaticaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAtributoAccess().getGroup(), "rule__Atributo__Group__0");
 					put(grammarAccess.getTerminoAccess().getGroup(), "rule__Termino__Group__0");
 					put(grammarAccess.getObligacionAccess().getGroup(), "rule__Obligacion__Group__0");
-					put(grammarAccess.getDocumentoAccess().getPathModeloAssignment_0(), "rule__Documento__PathModeloAssignment_0");
-					put(grammarAccess.getDocumentoAccess().getPathOclAssignment_1(), "rule__Documento__PathOclAssignment_1");
-					put(grammarAccess.getDocumentoAccess().getOracionesAssignment_2(), "rule__Documento__OracionesAssignment_2");
+					put(grammarAccess.getDocumentoAccess().getOracionesAssignment(), "rule__Documento__OracionesAssignment");
 					put(grammarAccess.getOracionAccess().getContenidoAssignment_0(), "rule__Oracion__ContenidoAssignment_0");
+					put(grammarAccess.getIteracionAccess().getPropiedadAssignment_0(), "rule__Iteracion__PropiedadAssignment_0");
+					put(grammarAccess.getIteracionAccess().getConectorAssignment_1(), "rule__Iteracion__ConectorAssignment_1");
+					put(grammarAccess.getIteracionAccess().getContenidoAssignment_2(), "rule__Iteracion__ContenidoAssignment_2");
+					put(grammarAccess.getIteracionAccess().getComparacionAssignment_3(), "rule__Iteracion__ComparacionAssignment_3");
+					put(grammarAccess.getIteracionAccess().getExpresionAssignment_4(), "rule__Iteracion__ExpresionAssignment_4");
 					put(grammarAccess.getContenidoAccess().getSimpleAssignment_0(), "rule__Contenido__SimpleAssignment_0");
 					put(grammarAccess.getContenidoAccess().getComposicionAssignment_1(), "rule__Contenido__ComposicionAssignment_1");
 					put(grammarAccess.getSimpleAccess().getExpresion_izqAssignment_0(), "rule__Simple__Expresion_izqAssignment_0");

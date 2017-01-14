@@ -16,8 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo <em>Path Modelo</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl <em>Path Ocl</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.Documento#getOraciones <em>Oraciones</em>}</li>
  * </ul>
  *
@@ -27,58 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Documento extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Path Modelo</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Path Modelo</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Path Modelo</em>' attribute.
-   * @see #setPathModelo(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getDocumento_PathModelo()
-   * @model
-   * @generated
-   */
-  String getPathModelo();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathModelo <em>Path Modelo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path Modelo</em>' attribute.
-   * @see #getPathModelo()
-   * @generated
-   */
-  void setPathModelo(String value);
-
-  /**
-   * Returns the value of the '<em><b>Path Ocl</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Path Ocl</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Path Ocl</em>' attribute.
-   * @see #setPathOcl(String)
-   * @see org.xtext.tesis.gramatica.gramatica.GramaticaPackage#getDocumento_PathOcl()
-   * @model
-   * @generated
-   */
-  String getPathOcl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.tesis.gramatica.gramatica.Documento#getPathOcl <em>Path Ocl</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path Ocl</em>' attribute.
-   * @see #getPathOcl()
-   * @generated
-   */
-  void setPathOcl(String value);
-
   /**
    * Returns the value of the '<em><b>Oraciones</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.tesis.gramatica.gramatica.Oracion}.

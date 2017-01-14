@@ -1,26 +1,60 @@
+
 import 'Biblioteca.ecore'
 
 package Biblioteca
 
---
---context Biblioteca
---inv libroElPrincipito: self.libros->exists(l| l.titulo = 'El Principito')
---existe un/una de los/las libros tal que el/la titulo es igual a ''
---El/la cantidad libros de un/una biblioteca tal que el/la titulo es igual a '', es mayor que 0 
-context Libro
-----
---inv tieneTitulo: self.titulo <> ''
---inv notieneTitulo: not (self.titulo <> '')
-inv tieneCopias : self.copias->size() > 0
-inv noCopias: self.copias->isEmpty()
-inv alMenosUnaCopia : self.copias->notEmpty()
+	context Biblioteca
 
---context Socio	
+	inv libroElPrincipito:
+	self.libros->exists(l | l.titulo = 'El Principito')
 
---inv datosCompletos: self.direccion<>'' or self.nombreCompleto<>''
---inv nMultas: self.multas->size() <= self.prestamos->size()
---
---context Prestamo 
---inv test1: self.solicitante.nombreCompleto <> 'Danae'
---inv test2: self.solicitante.prestamos->size() >= 1
+	inv libroElPrincipito2:
+	self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
+
+	inv libro2:
+	self.libros->exists(l | l.titulo = 'El Principito') and self.libros->exists(l | l.titulo = 'Harry potter') --	inv nolibroElPrincipito: not self.libros->exists(l| l.titulo = 'El Principito')  -- No anda 
+--inv t1: self.libros->select(l | l.titulo = 'El Alquimista')->size() = 1
+--El/la cantidad de libros de un/una biblioteca tal que el/la titulo es igual a '', es al menos 1
+
+
+	context Libro
+
+		inv tieneTitulo:
+			self.titulo <> '' ----inv notieneTitulo: not (self.titulo <> '')
+
+
+		inv tieneCopias:
+			self.copias->size() > 0
+	
+		inv noCopias:
+			self.copias->isEmpty()
+	
+		inv alMenosUnaCopia:
+			self.copias->notEmpty()
+
+	context Socio
+
+		inv datosCompletos:
+			self.direccion <> '' or self.nombreCompleto <> ''
+	
+		inv datosCompletos2:
+			self.direccion <> '' and self.nombreCompleto <> ''
+	
+		inv nMultas:
+			self.multas->size() <= self.prestamos->size()
+
+	context Prestamo
+
+	inv test2:
+		self.solicitante.prestamos->size() >= 1
+
 endpackage
+
+
+
+
+
+
+
+
+

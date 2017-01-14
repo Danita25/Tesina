@@ -18,6 +18,7 @@ import org.xtext.tesis.gramatica.gramatica.Documento;
 import org.xtext.tesis.gramatica.gramatica.Expresion;
 import org.xtext.tesis.gramatica.gramatica.GramaticaFactory;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
+import org.xtext.tesis.gramatica.gramatica.Iteracion;
 import org.xtext.tesis.gramatica.gramatica.Literal;
 import org.xtext.tesis.gramatica.gramatica.Nexo;
 import org.xtext.tesis.gramatica.gramatica.Obligacion;
@@ -48,6 +49,13 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * @generated
    */
   private EClass oracionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass iteracionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,29 +219,9 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDocumento_PathModelo()
-  {
-    return (EAttribute)documentoEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getDocumento_PathOcl()
-  {
-    return (EAttribute)documentoEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getDocumento_Oraciones()
   {
-    return (EReference)documentoEClass.getEStructuralFeatures().get(2);
+    return (EReference)documentoEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -254,6 +242,66 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
   public EReference getOracion_Contenido()
   {
     return (EReference)oracionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIteracion()
+  {
+    return iteracionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIteracion_Propiedad()
+  {
+    return (EReference)iteracionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIteracion_Conector()
+  {
+    return (EAttribute)iteracionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIteracion_Contenido()
+  {
+    return (EReference)iteracionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIteracion_Comparacion()
+  {
+    return (EReference)iteracionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIteracion_Expresion()
+  {
+    return (EReference)iteracionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -637,12 +685,17 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
 
     // Create classes and their features
     documentoEClass = createEClass(DOCUMENTO);
-    createEAttribute(documentoEClass, DOCUMENTO__PATH_MODELO);
-    createEAttribute(documentoEClass, DOCUMENTO__PATH_OCL);
     createEReference(documentoEClass, DOCUMENTO__ORACIONES);
 
     oracionEClass = createEClass(ORACION);
     createEReference(oracionEClass, ORACION__CONTENIDO);
+
+    iteracionEClass = createEClass(ITERACION);
+    createEReference(iteracionEClass, ITERACION__PROPIEDAD);
+    createEAttribute(iteracionEClass, ITERACION__CONECTOR);
+    createEReference(iteracionEClass, ITERACION__CONTENIDO);
+    createEReference(iteracionEClass, ITERACION__COMPARACION);
+    createEReference(iteracionEClass, ITERACION__EXPRESION);
 
     contenidoEClass = createEClass(CONTENIDO);
     createEReference(contenidoEClass, CONTENIDO__SIMPLE);
@@ -724,15 +777,20 @@ public class GramaticaPackageImpl extends EPackageImpl implements GramaticaPacka
 
     // Initialize classes and features; add operations and parameters
     initEClass(documentoEClass, Documento.class, "Documento", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDocumento_PathModelo(), ecorePackage.getEString(), "pathModelo", null, 0, 1, Documento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDocumento_PathOcl(), ecorePackage.getEString(), "pathOcl", null, 0, 1, Documento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDocumento_Oraciones(), this.getOracion(), null, "oraciones", null, 0, -1, Documento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(oracionEClass, Oracion.class, "Oracion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOracion_Contenido(), this.getContenido(), null, "contenido", null, 0, 1, Oracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(iteracionEClass, Iteracion.class, "Iteracion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIteracion_Propiedad(), this.getPropiedad(), null, "propiedad", null, 0, 1, Iteracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIteracion_Conector(), ecorePackage.getEString(), "conector", null, 0, 1, Iteracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIteracion_Contenido(), this.getContenido(), null, "contenido", null, 0, 1, Iteracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIteracion_Comparacion(), this.getComparacion(), null, "comparacion", null, 0, 1, Iteracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIteracion_Expresion(), this.getExpresion(), null, "expresion", null, 0, 1, Iteracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(contenidoEClass, Contenido.class, "Contenido", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getContenido_Simple(), this.getSimple(), null, "simple", null, 0, 1, Contenido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContenido_Simple(), ecorePackage.getEObject(), null, "simple", null, 0, 1, Contenido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContenido_Composicion(), this.getComposicion(), null, "composicion", null, 0, 1, Contenido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(simpleEClass, Simple.class, "Simple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

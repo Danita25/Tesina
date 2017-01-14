@@ -7,12 +7,17 @@
   <genPackages prefix="Gramatica" basePackage="org.xtext.tesis.gramatica" disposableProviderFactory="true"
       fileExtensions="gramatica" ecorePackage="Gramatica.ecore#/">
     <genClasses ecoreClass="Gramatica.ecore#//Documento">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Documento/pathModelo"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Documento/pathOcl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Documento/oraciones"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Oracion">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Oracion/contenido"/>
+    </genClasses>
+    <genClasses ecoreClass="Gramatica.ecore#//Iteracion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Iteracion/propiedad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gramatica.ecore#//Iteracion/conector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Iteracion/contenido"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Iteracion/comparacion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Iteracion/expresion"/>
     </genClasses>
     <genClasses ecoreClass="Gramatica.ecore#//Contenido">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gramatica.ecore#//Contenido/simple"/>

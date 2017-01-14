@@ -5,7 +5,6 @@ package org.xtext.tesis.gramatica.gramatica.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -31,8 +29,6 @@ import org.xtext.tesis.gramatica.gramatica.Oracion;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.DocumentoImpl#getPathModelo <em>Path Modelo</em>}</li>
- *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.DocumentoImpl#getPathOcl <em>Path Ocl</em>}</li>
  *   <li>{@link org.xtext.tesis.gramatica.gramatica.impl.DocumentoImpl#getOraciones <em>Oraciones</em>}</li>
  * </ul>
  *
@@ -40,46 +36,6 @@ import org.xtext.tesis.gramatica.gramatica.Oracion;
  */
 public class DocumentoImpl extends MinimalEObjectImpl.Container implements Documento
 {
-  /**
-   * The default value of the '{@link #getPathModelo() <em>Path Modelo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPathModelo()
-   * @generated
-   * @ordered
-   */
-  protected static final String PATH_MODELO_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPathModelo() <em>Path Modelo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPathModelo()
-   * @generated
-   * @ordered
-   */
-  protected String pathModelo = PATH_MODELO_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getPathOcl() <em>Path Ocl</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPathOcl()
-   * @generated
-   * @ordered
-   */
-  protected static final String PATH_OCL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPathOcl() <em>Path Ocl</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPathOcl()
-   * @generated
-   * @ordered
-   */
-  protected String pathOcl = PATH_OCL_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getOraciones() <em>Oraciones</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -109,52 +65,6 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
   protected EClass eStaticClass()
   {
     return GramaticaPackage.Literals.DOCUMENTO;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getPathModelo()
-  {
-    return pathModelo;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPathModelo(String newPathModelo)
-  {
-    String oldPathModelo = pathModelo;
-    pathModelo = newPathModelo;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.DOCUMENTO__PATH_MODELO, oldPathModelo, pathModelo));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getPathOcl()
-  {
-    return pathOcl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPathOcl(String newPathOcl)
-  {
-    String oldPathOcl = pathOcl;
-    pathOcl = newPathOcl;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GramaticaPackage.DOCUMENTO__PATH_OCL, oldPathOcl, pathOcl));
   }
 
   /**
@@ -197,10 +107,6 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
   {
     switch (featureID)
     {
-      case GramaticaPackage.DOCUMENTO__PATH_MODELO:
-        return getPathModelo();
-      case GramaticaPackage.DOCUMENTO__PATH_OCL:
-        return getPathOcl();
       case GramaticaPackage.DOCUMENTO__ORACIONES:
         return getOraciones();
     }
@@ -218,12 +124,6 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
   {
     switch (featureID)
     {
-      case GramaticaPackage.DOCUMENTO__PATH_MODELO:
-        setPathModelo((String)newValue);
-        return;
-      case GramaticaPackage.DOCUMENTO__PATH_OCL:
-        setPathOcl((String)newValue);
-        return;
       case GramaticaPackage.DOCUMENTO__ORACIONES:
         getOraciones().clear();
         getOraciones().addAll((Collection<? extends Oracion>)newValue);
@@ -242,12 +142,6 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
   {
     switch (featureID)
     {
-      case GramaticaPackage.DOCUMENTO__PATH_MODELO:
-        setPathModelo(PATH_MODELO_EDEFAULT);
-        return;
-      case GramaticaPackage.DOCUMENTO__PATH_OCL:
-        setPathOcl(PATH_OCL_EDEFAULT);
-        return;
       case GramaticaPackage.DOCUMENTO__ORACIONES:
         getOraciones().clear();
         return;
@@ -265,33 +159,10 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
   {
     switch (featureID)
     {
-      case GramaticaPackage.DOCUMENTO__PATH_MODELO:
-        return PATH_MODELO_EDEFAULT == null ? pathModelo != null : !PATH_MODELO_EDEFAULT.equals(pathModelo);
-      case GramaticaPackage.DOCUMENTO__PATH_OCL:
-        return PATH_OCL_EDEFAULT == null ? pathOcl != null : !PATH_OCL_EDEFAULT.equals(pathOcl);
       case GramaticaPackage.DOCUMENTO__ORACIONES:
         return oraciones != null && !oraciones.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (pathModelo: ");
-    result.append(pathModelo);
-    result.append(", pathOcl: ");
-    result.append(pathOcl);
-    result.append(')');
-    return result.toString();
   }
 
 } //DocumentoImpl

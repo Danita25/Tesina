@@ -21,6 +21,7 @@ import org.xtext.tesis.gramatica.gramatica.Contenido;
 import org.xtext.tesis.gramatica.gramatica.Documento;
 import org.xtext.tesis.gramatica.gramatica.Expresion;
 import org.xtext.tesis.gramatica.gramatica.GramaticaPackage;
+import org.xtext.tesis.gramatica.gramatica.Iteracion;
 import org.xtext.tesis.gramatica.gramatica.Literal;
 import org.xtext.tesis.gramatica.gramatica.Nexo;
 import org.xtext.tesis.gramatica.gramatica.Obligacion;
@@ -63,6 +64,9 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case GramaticaPackage.EXPRESION:
 				sequence_Expresion(context, (Expresion) semanticObject); 
 				return; 
+			case GramaticaPackage.ITERACION:
+				sequence_Iteracion(context, (Iteracion) semanticObject); 
+				return; 
 			case GramaticaPackage.LITERAL:
 				sequence_Literal(context, (Literal) semanticObject); 
 				return; 
@@ -97,7 +101,7 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Atributo returns Atributo
 	 *
 	 * Constraint:
-	 *     (determinante='el/la' prefijo='cantidad de'? nombre=ID enlace='de')
+	 *     (determinante='el/la' (prefijo='cantidad de' | prefijo='seleccion de')? nombre=ID enlace='de')
 	 */
 	protected void sequence_Atributo(ISerializationContext context, Atributo semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -151,7 +155,7 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Contenido returns Contenido
 	 *
 	 * Constraint:
-	 *     (simple=Simple composicion=Composicion?)
+	 *     ((simple=Simple | simple=Iteracion) composicion=Composicion?)
 	 */
 	protected void sequence_Contenido(ISerializationContext context, Contenido semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -163,7 +167,7 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Documento returns Documento
 	 *
 	 * Constraint:
-	 *     (pathModelo=STRING pathOcl=STRING oraciones+=Oracion*)
+	 *     oraciones+=Oracion+
 	 */
 	protected void sequence_Documento(ISerializationContext context, Documento semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -178,6 +182,18 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (expresion=Literal | expresion=Propiedad)
 	 */
 	protected void sequence_Expresion(ISerializationContext context, Expresion semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Iteracion returns Iteracion
+	 *
+	 * Constraint:
+	 *     (propiedad=Propiedad conector='tal que' contenido=Contenido comparacion=Comparacion? expresion=Expresion?)
+	 */
+	protected void sequence_Iteracion(ISerializationContext context, Iteracion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -266,7 +282,7 @@ public class GramaticaSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Propiedad returns Propiedad
 	 *
 	 * Constraint:
-	 *     (atributo+=Atributo+ termino=Termino)
+	 *     (atributo+=Atributo+ termino=Termino?)
 	 */
 	protected void sequence_Propiedad(ISerializationContext context, Propiedad semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

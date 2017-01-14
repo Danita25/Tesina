@@ -86,6 +86,11 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
         return createOracionAdapter();
       }
       @Override
+      public Adapter caseIteracion(Iteracion object)
+      {
+        return createIteracionAdapter();
+      }
+      @Override
       public Adapter caseContenido(Contenido object)
       {
         return createContenidoAdapter();
@@ -193,6 +198,21 @@ public class GramaticaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOracionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.tesis.gramatica.gramatica.Iteracion <em>Iteracion</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.tesis.gramatica.gramatica.Iteracion
+   * @generated
+   */
+  public Adapter createIteracionAdapter()
   {
     return null;
   }

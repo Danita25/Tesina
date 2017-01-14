@@ -3,8 +3,8 @@ grammar org.xtext.tesis.gramatica.Gramatica with org.eclipse.xtext.common.Termin
 generate gramatica "http://www.xtext.org/tesis/gramatica/Gramatica"
 
 Documento:
-	pathModelo=STRING
-	pathOcl=STRING
+//	pathModelo=STRING
+//	pathOcl=STRING
 	oraciones+=Oracion*
 	//		extraStr = STRING
 ;
@@ -12,15 +12,24 @@ Documento:
 //Path hidden(): 
 //       "/" ID ("/" ID)*;		
 Oracion:
-	contenido=Contenido FinOracion;
+	contenido= Contenido FinOracion;
+
+Iteracion: 
+	propiedad = Propiedad 
+	conector = 'tal que'
+	contenido = Contenido 
+	comparacion=Comparacion? //como armo las comparaciones si no agrego comparacion, expresion
+	expresion=Expresion?
+ ;
 
 Contenido:
-	simple=Simple
-	composicion = Composicion?;
+	simple=(Simple|Iteracion)
+	composicion = Composicion?
+;
 
 Simple:
 	expresion_izq=Expresion
-	comparacion=Comparacion
+ 	comparacion=Comparacion
 	expresion_der=Expresion;
 
 Composicion:
@@ -28,7 +37,7 @@ Composicion:
 	contenido = Contenido;
 
 Nexo:
-	valor=('y' | 'o');
+	valor=('y' | 'o' );
 
 Expresion:
 	expresion = (Literal | Propiedad);
@@ -39,14 +48,14 @@ Comparacion:
 
 Propiedad:
 	atributo+=(Atributo)+
-	termino=Termino;
+	termino=(Termino)?;
 
 FinOracion:
 	'.\r\n';
 
 Atributo:
 	determinante='el/la' //Determinante
-	prefijo = 'cantidad de'?
+	prefijo = ('cantidad de'| 'seleccion de')?
 	nombre=ID
 	enlace='de';
 

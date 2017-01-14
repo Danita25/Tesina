@@ -3,8 +3,6 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gramatica" nsURI="http://www.xtext.org/tesis/gramatica/Gramatica"
     nsPrefix="gramatica">
   <eClassifiers xsi:type="ecore:EClass" name="Documento">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathModelo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathOcl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="oraciones" upperBound="-1"
         eType="#//Oracion" containment="true"/>
   </eClassifiers>
@@ -12,8 +10,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contenido" eType="#//Contenido"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Iteracion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propiedad" eType="#//Propiedad"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="conector" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contenido" eType="#//Contenido"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comparacion" eType="#//Comparacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expresion" eType="#//Expresion"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contenido">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="simple" eType="#//Simple"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simple" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="composicion" eType="#//Composicion"
         containment="true"/>
