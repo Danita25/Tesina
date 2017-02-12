@@ -4,10 +4,10 @@ import 'Biblioteca.ecore'
 package Biblioteca
 
 	context Biblioteca
-
-
+		inv t00:
+			self.libros->select(l | l.titulo = 'El Alquimista' implies l.autor.nombre = 'Paulo Coelho')->size() > 1
 	inv t1: self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
-	inv t2: self.libros->forAll(l| l.anioDeEdicion > 1900)
+	inv t2: self.libros->forAll(l | l.anioDeEdicion > 1900)
 --El/la cantidad de libros de un/una biblioteca tal que el/la titulo es igual a '', es al menos 1
 --
 	inv libroElPrincipito:
@@ -22,6 +22,10 @@ package Biblioteca
 --
 
 	context Libro
+		inv t0:
+				self.titulo = 'El Alquimista' implies self.autor.nombre = 'Paulo Coelho'
+	
+
 		inv tieneTitulo:
 				self.titulo <> '' ----inv notieneTitulo: not (self.titulo <> '')
 

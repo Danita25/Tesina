@@ -270,7 +270,7 @@ lazy rule Iterator2Iteracion{
 rule OperationCallExp2ContenidoSimple {
 	from
 		s: OCL!OperationCallExp (
-			s.name <> 'and' and s.name <> 'or' 
+			s.name <> 'and' and s.name <> 'or' and s.name <> 'implies'
 		)
 	to
 		t1: LNR!Contenido (
@@ -281,20 +281,20 @@ rule OperationCallExp2ContenidoSimple {
 rule OperationCallExp2ContenidoAndOr {
 	from
 		s: OCL!OperationCallExp (
-			s.name = 'and' or s.name = 'or'
+			s.name = 'and' or s.name = 'or' or s.name = 'implies'
 		)
 	to
 		t2: LNR!Contenido (
-			simple <- 		if(s.ownedSource.oclIsTypeOf(OCL!IteratorExp))then 
-									thisModule.Iterator2Iteracion(s.ownedSource)
+			simple <- 		if(s.name = 'implies')then 
+									 thisModule.OperationCallExp2Simple(s.ownedSource)
 							else thisModule.OperationCallExp2Simple(s.ownedArguments.first()) 
 							endif,
 			composicion <- c
 		),
 		c: LNR!Composicion (
 			nexo <- n,
-			contenido <- if(s.ownedArguments.first().oclIsTypeOf(OCL!IteratorExp))then
-								thisModule.resolveTemp(s.ownedArguments.first(), 'c1')
+			contenido <- if(s.name = 'implies')then
+								thisModule.resolveTemp(s.ownedArguments.first(), 't1')
 						  else thisModule.resolveTemp(s.ownedSource, 't1')
 						  endif
 		),
@@ -305,7 +305,11 @@ rule OperationCallExp2ContenidoAndOr {
 					if s.name = 'or' then
 						'o'
 					else
-						OclUndefined
+						if s.name = 'implies' then 
+							'implica que'
+						else
+							OclUndefined
+						endif
 					endif
 				endif
 		)
