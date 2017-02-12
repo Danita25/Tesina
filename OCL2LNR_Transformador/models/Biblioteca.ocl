@@ -4,30 +4,43 @@ import 'Biblioteca.ecore'
 package Biblioteca
 
 	context Biblioteca
-		inv t00:
+				
+		inv Select_Size: 
+			self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
+
+		inv Select_And_Size:
+			self.libros->select(l | l.titulo = 'El Alquimista' and l.autor.nombre = 'Paulo Coelho')->size() > 1			
+			
+		inv Select_Implies_Size:
 			self.libros->select(l | l.titulo = 'El Alquimista' implies l.autor.nombre = 'Paulo Coelho')->size() > 1
-	inv t1: self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
-	inv t2: self.libros->forAll(l | l.anioDeEdicion > 1900)
---El/la cantidad de libros de un/una biblioteca tal que el/la titulo es igual a '', es al menos 1
---
-	inv libroElPrincipito:
-	self.libros->exists(l | l.titulo = 'El Principito')
 
---	inv libroElPrincipito2:
---	self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
---
---	inv libro2:
---	self.libros->exists(l | l.titulo = 'El Principito') and self.libros->exists(l | l.titulo = 'Harry potter') --	inv nolibroElPrincipito: not self.libros->exists(l| l.titulo = 'El Principito')  -- No anda 
---	
---
+		
+		inv forAll:
+			self.libros->forAll(l | l.anioDeEdicion > 1900)
 
-	context Libro
-		inv t0:
-				self.titulo = 'El Alquimista' implies self.autor.nombre = 'Paulo Coelho'
+		inv exist:
+			self.libros->exists(l | l.titulo = 'El Principito')
+
+		inv exist_And_Condition:
+			self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
+
+		inv exist_And_exist:
+			self.libros->exists(l | l.titulo = 'El Principito') 
+				and
+			self.libros->exists(l | l.titulo = 'Harry potter') 
 	
 
-		inv tieneTitulo:
-				self.titulo <> '' ----inv notieneTitulo: not (self.titulo <> '')
+		inv select_isEmpty: self.libros->select(l| l.titulo = 'El caballero de la armadura oxidada')->isEmpty()
+
+	context Libro
+		inv property_distinto:
+				self.titulo <> '' 
+		
+		inv negacion: not (self.titulo = '')
+		
+		inv condition_implies_condition:
+				self.titulo = 'El Alquimista' implies self.autor.nombre = 'Paulo Coelho'
+	
 
         inv tieneTitulo2:
         		'' <> self.titulo
@@ -57,18 +70,27 @@ package Biblioteca
 	inv test2:
 		self.solicitante.prestamos->size() >= 1
 		
---	inv test3:
---		self.solicitante.prestamos->select(p | p.fechaFin <> null)->size() >= 1
---		
---	inv test4:
---		self.solicitante.prestamos->select(p | p.fechaFin <> null)->forAll(p| p.fechaInicio <> null)
+	inv test3:
+		self.solicitante.prestamos->select(p | p.fechaFin <> 1980)->size() >= 1
+		
+
+
+
+	--Casos que la gramatica no son posibles de traducir.
+	context Biblioteca 
+--		inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
+		inv select_exist: self.libros->select(l| l.autor.nombre = 'Paulo Coelho' and l.titulo = 'Veronica decide morir')->size() > 0
+--	inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
+		inv select_forAll: self.libros->forAll(l| l.autor.nombre = 'Paulo Coelho' implies l.editorial = 'Planeta')
+
+	context Libro
+
+		--inv activo_invalida: self.activo
+		inv activo_valida: self.activo = true --tener cuidado a veces no traduce bien el nombre de la propieda y hace que la traduccion falle.
+
+		--inv not_and: not (self.editorial = '' and self.titulo = '')
+		inv not_and_DeMorgan: not (self.editorial = '') or not (self.titulo = '')
+		
+
+--	inv nolibroElPrincipito: not self.libros->exists(l| l.titulo = 'El Principito')  -- No anda 
 endpackage
-
-
-
-
-
-
-
-
-

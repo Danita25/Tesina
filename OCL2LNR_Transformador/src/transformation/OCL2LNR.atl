@@ -96,7 +96,10 @@ helper context OCL!PrimitiveLiteralExp def: getLiteralSymbol(): String =
 		if (self.oclIsTypeOf(OCL!IntegerLiteralExp)) then
 			self.integerSymbol.toString()
 		else
-			OclUndefined
+			if (self.oclIsTypeOf(OCL!BooleanLiteralExp)) then
+				self.booleanSymbol.toString()
+			else OclUndefined
+			endif
 		endif
 	endif;
 
@@ -287,7 +290,11 @@ rule OperationCallExp2ContenidoAndOr {
 		t2: LNR!Contenido (
 			simple <- 		if(s.name = 'implies')then 
 									 thisModule.OperationCallExp2Simple(s.ownedSource)
-							else thisModule.OperationCallExp2Simple(s.ownedArguments.first()) 
+							else
+						    	if(s.ownedSource.oclIsTypeOf(OCL!IteratorExp))then 
+									thisModule.Iterator2Iteracion(s.ownedSource)
+								else thisModule.OperationCallExp2Simple(s.ownedArguments.first()) 
+								endif
 							endif,
 			composicion <- c
 		),
@@ -295,8 +302,12 @@ rule OperationCallExp2ContenidoAndOr {
 			nexo <- n,
 			contenido <- if(s.name = 'implies')then
 								thisModule.resolveTemp(s.ownedArguments.first(), 't1')
-						  else thisModule.resolveTemp(s.ownedSource, 't1')
-						  endif
+						  else 
+						  	if(s.ownedArguments.first().oclIsTypeOf(OCL!IteratorExp))then
+								thisModule.resolveTemp(s.ownedArguments.first(), 'c1')
+						  	else thisModule.resolveTemp(s.ownedSource, 't1')
+							endif  
+						endif
 		),
 		n: LNR!Nexo (
 			valor <- if s.name = 'and' then
@@ -306,7 +317,7 @@ rule OperationCallExp2ContenidoAndOr {
 						'o'
 					else
 						if s.name = 'implies' then 
-							'implica que'
+							'lo que implica que'
 						else
 							OclUndefined
 						endif
