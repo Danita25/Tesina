@@ -7,12 +7,12 @@ package Biblioteca
 
 
 	inv t1: self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
---	inv t2: self.libros->forAll(l| l.anioDeEdicion > 1900)
+	inv t2: self.libros->forAll(l| l.anioDeEdicion > 1900)
 --El/la cantidad de libros de un/una biblioteca tal que el/la titulo es igual a '', es al menos 1
 --
---	inv libroElPrincipito:
---	self.libros->exists(l | l.titulo = 'El Principito')
---
+	inv libroElPrincipito:
+	self.libros->exists(l | l.titulo = 'El Principito')
+
 --	inv libroElPrincipito2:
 --	self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
 --
@@ -29,7 +29,7 @@ package Biblioteca
         		'' <> self.titulo
 
 		inv tieneCopias:
-			self.copias->size() > 0
+			self.copias->size() > 6
 	
 		inv noCopias:
 			self.copias->isEmpty()

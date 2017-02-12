@@ -61,11 +61,11 @@ helper def: operationName(str: String): String =
 									if (str = 'exists') then
 										'mayor que'
 									else
-										if (str = 'notExists') then
-											'igual a'
-										else
+--										if (str = 'notExists') then
+--											'igual a'
+--										else
 											OclUndefined
-										endif
+--										endif
 									endif
 								endif
 							endif
@@ -213,19 +213,58 @@ lazy rule String2LiteralExp {
 		)
 }
 
-----Iterator Exp
---rule IteratorExp2Contenido {
---	from
---		s: OCL!IteratorExp
---	to
---		c1: LNR!Contenido (
---			simple <- sp,--thisModule.Iterator2Iteracion(s),
---			composicion <- OclUndefined 
---		), 
---		sp: LNR!Simple (
---				expresion_izq <- )
---}
 
+--Iterator Exp
+rule IteratorExp2Contenido {
+	from
+		s: OCL!IteratorExp
+	to
+		c1: LNR!Contenido (
+			simple <- thisModule.Iterator2Iteracion(s),
+			composicion <- OclUndefined 
+		)
+}
+
+lazy rule Iterator2Iteracion{
+	from
+		s: OCL!IteratorExp
+	to  sp: LNR!Simple (
+			expresion_izq <- exp_izq,
+			expresion_der <- if (s.referredIteration.name = 'exists') then exp_der else OclUndefined endif
+	)
+	, 
+	exp_izq: LNR!Expresion(
+		expresion <- thisModule.IteratorExp2Propiedad(s)
+		) ,
+	exp_der: LNR!ExpresionDerecha(
+		comparacion <- cp,
+		expresion <- e), 
+--	it: LNR!Iteracion (
+--			propiedad <- thisModule.PropertyCallExp2Propiedad(s.ownedSource),
+--			conector <- 'tal que',
+--			contenido <- s.ownedBody,
+--			comparacion <- if thisModule.removePrefix(s.referredIteration.name) = 'exists' then cp
+--						   else OclUndefined endif,
+--			expresion <- if thisModule.removePrefix(s.referredIteration.name) = 'exists' then e
+--						   else OclUndefined endif
+--		),
+		cp: LNR!Comparacion (
+			obligacion <- ob,
+			operacion <- op
+		),
+		ob: LNR!Obligacion (
+			obligacion <- 'debe ser'
+		),
+		op: LNR!Operacion (
+			operacion <- thisModule.operationName(thisModule.removePrefix(s.referredIteration.name))
+		),
+		e: LNR!Expresion (
+			expresion <- lit
+		),
+		lit: LNR!Literal (
+			valor <- '0'
+		)	
+}
 
 --Operation Call Exp
 rule OperationCallExp2ContenidoSimple {
@@ -390,10 +429,28 @@ lazy rule PropertyCallExp2Propiedad {
 		p: LNR!Propiedad (
 			atributo <- children->collect(e | thisModule.PropertyCallExp2Atributo(e)),  --add select ->select(e| e.oclIsTypeOf(OCL!PropertyCallExp)) to avoid checks in fns by iterator exp/
 			termino <- t
+			--,
+--			iteracion <- if (s.getExpressionInOCL().oclIsTypeOf(OCL!IteratorExp))--(s.ownedSource.oclIsTypeOf(OCL!IteratorExp)) then 
+--						 then	it
+--						else OclUndefined
+--						endif
 		),
 		t: LNR!Termino (
 			indeterminante <- 'un/una' --,
 		)
+--		,
+--		it: LNR!Iteracion (	
+--			conector <-
+--						if (parentIteratorName = 'exists') then 
+--							'tal que'
+--						else OclUndefined
+--						endif
+--						, 
+--			contenido <- if (parentIteratorName = 'exists') then 
+--							s.getExpressionInOCL().ownedBody
+--						else OclUndefined
+--						endif
+--			)
 	do {
 		if(not parentIteratorName.oclIsUndefined()) { --translate exists as size
 		  if(parentIteratorName = 'exists') {
@@ -450,3 +507,43 @@ lazy rule OperationCallExp2Propiedad {
 			p.atributo.first().prefijo <- 'cantidad de';
 	}
 }
+
+
+lazy rule IteratorExp2Propiedad {
+	from
+		s: OCL!IteratorExp
+	using {
+		children: Sequence(OCL!PropertyCallExp) = s.ownedSource.
+				getPropertyCallExpCollection();
+	}
+	to
+		p: LNR!Propiedad (
+			atributo <- children->collect(e | thisModule.PropertyCallExp2Atributo(e)),
+			termino <- t,
+			iteracion <- it
+
+		),
+		t: LNR!Termino (
+			indeterminante <- 'un/una',
+			contexto <- if (s.oclIsUndefined()) then
+					OclUndefined
+				else
+					s.getExpressionInOCL().owningConstraint.context.name
+							--thisModule.removePrefix(s.ownedSource.type.toString())
+					
+				endif
+		)
+		,
+		it: LNR!Iteracion (	
+			conector <- if (s.referredIteration.name = 'exists') then 'tal que' else 'satisfacen que' endif, 
+			contenido <- s.ownedBody
+			)
+	do {
+		if (s.referredIteration.name = 'exists') {
+			p.atributo.first().prefijo <- 'cantidad de';
+		} else {
+			p.atributo.first().determinante <- 'todos los/las';
+		}
+	}
+}
+
