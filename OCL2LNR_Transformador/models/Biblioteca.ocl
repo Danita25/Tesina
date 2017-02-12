@@ -5,23 +5,28 @@ package Biblioteca
 
 	context Biblioteca
 
-	inv libroElPrincipito:
-	self.libros->exists(l | l.titulo = 'El Principito')
 
-	inv libroElPrincipito2:
-	self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
-
-	inv libro2:
-	self.libros->exists(l | l.titulo = 'El Principito') and self.libros->exists(l | l.titulo = 'Harry potter') --	inv nolibroElPrincipito: not self.libros->exists(l| l.titulo = 'El Principito')  -- No anda 
---inv t1: self.libros->select(l | l.titulo = 'El Alquimista')->size() = 1
+	inv t1: self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
+--	inv t2: self.libros->forAll(l| l.anioDeEdicion > 1900)
 --El/la cantidad de libros de un/una biblioteca tal que el/la titulo es igual a '', es al menos 1
-
+--
+--	inv libroElPrincipito:
+--	self.libros->exists(l | l.titulo = 'El Principito')
+--
+--	inv libroElPrincipito2:
+--	self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
+--
+--	inv libro2:
+--	self.libros->exists(l | l.titulo = 'El Principito') and self.libros->exists(l | l.titulo = 'Harry potter') --	inv nolibroElPrincipito: not self.libros->exists(l| l.titulo = 'El Principito')  -- No anda 
+--	
+--
 
 	context Libro
-
 		inv tieneTitulo:
-			self.titulo <> '' ----inv notieneTitulo: not (self.titulo <> '')
+				self.titulo <> '' ----inv notieneTitulo: not (self.titulo <> '')
 
+        inv tieneTitulo2:
+        		'' <> self.titulo
 
 		inv tieneCopias:
 			self.copias->size() > 0
@@ -47,7 +52,12 @@ package Biblioteca
 
 	inv test2:
 		self.solicitante.prestamos->size() >= 1
-
+		
+--	inv test3:
+--		self.solicitante.prestamos->select(p | p.fechaFin <> null)->size() >= 1
+--		
+--	inv test4:
+--		self.solicitante.prestamos->select(p | p.fechaFin <> null)->forAll(p| p.fechaInicio <> null)
 endpackage
 
 

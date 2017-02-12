@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lenguajeNaturalReducido="http://www.xtext.org/tesina/LenguajeNaturalReducido">
+  <lenguajeNaturalReducido:Documento>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Iteracion" conector="tal que">
+          <propiedad>
+            <atributo determinante="el/la" prefijo="cantidad de" nombre="libros" enlace="de"/>
+            <termino indeterminante="un/una" contexto="Biblioteca"/>
+          </propiedad>
+          <contenido>
+            <simple xsi:type="lenguajeNaturalReducido:Simple">
+              <expresion_izq>
+                <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+                  <atributo determinante="el/la" nombre="titulo" enlace="de"/>
+                  <termino indeterminante="un/una" contexto="Libro"/>
+                </expresion>
+              </expresion_izq>
+              <comparacion>
+                <obligacion obligacion="debe ser"/>
+                <operacion operacion="igual a"/>
+              </comparacion>
+              <expresion_der>
+                <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="El Principito"/>
+              </expresion_der>
+            </simple>
+          </contenido>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="mayor que"/>
+          </comparacion>
+          <expresion>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+          </expresion>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Iteracion" conector="tal que">
+          <propiedad>
+            <atributo determinante="el/la" prefijo="cantidad de" nombre="libros" enlace="de"/>
+            <termino indeterminante="un/una" contexto="Biblioteca"/>
+          </propiedad>
+          <contenido>
+            <simple xsi:type="lenguajeNaturalReducido:Simple">
+              <expresion_izq>
+                <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+                  <atributo determinante="el/la" nombre="nombre" enlace="de"/>
+                  <atributo determinante="el/la" nombre="autor" enlace="de"/>
+                  <termino indeterminante="un/una" contexto="Libro"/>
+                </expresion>
+              </expresion_izq>
+              <comparacion>
+                <obligacion obligacion="debe ser"/>
+                <operacion operacion="igual a"/>
+              </comparacion>
+              <expresion_der>
+                <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=" Antoine de Saint-Exupery"/>
+              </expresion_der>
+            </simple>
+            <composicion>
+              <nexo valor="y"/>
+              <contenido>
+                <simple xsi:type="lenguajeNaturalReducido:Simple">
+                  <expresion_izq>
+                    <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+                      <atributo determinante="el/la" nombre="titulo" enlace="de"/>
+                      <termino indeterminante="un/una" contexto="Libro"/>
+                    </expresion>
+                  </expresion_izq>
+                  <comparacion>
+                    <obligacion obligacion="debe ser"/>
+                    <operacion operacion="igual a"/>
+                  </comparacion>
+                  <expresion_der>
+                    <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="El Principito"/>
+                  </expresion_der>
+                </simple>
+              </contenido>
+            </composicion>
+          </contenido>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="mayor que"/>
+          </comparacion>
+          <expresion>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+          </expresion>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Iteracion" conector="tal que">
+          <propiedad>
+            <atributo determinante="el/la" prefijo="cantidad de" nombre="libros" enlace="de"/>
+            <termino indeterminante="un/una" contexto="Biblioteca"/>
+          </propiedad>
+          <contenido>
+            <simple xsi:type="lenguajeNaturalReducido:Simple">
+              <expresion_izq>
+                <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+                  <atributo determinante="el/la" nombre="titulo" enlace="de"/>
+                  <termino indeterminante="un/una" contexto="Libro"/>
+                </expresion>
+              </expresion_izq>
+              <comparacion>
+                <obligacion obligacion="debe ser"/>
+                <operacion operacion="igual a"/>
+              </comparacion>
+              <expresion_der>
+                <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="El Principito"/>
+              </expresion_der>
+            </simple>
+          </contenido>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="mayor que"/>
+          </comparacion>
+          <expresion>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+          </expresion>
+        </simple>
+        <composicion>
+          <nexo valor="y"/>
+          <contenido>
+            <simple xsi:type="lenguajeNaturalReducido:Iteracion" conector="tal que">
+              <propiedad>
+                <atributo determinante="el/la" prefijo="cantidad de" nombre="libros" enlace="de"/>
+                <termino indeterminante="un/una" contexto="Biblioteca"/>
+              </propiedad>
+              <contenido>
+                <simple xsi:type="lenguajeNaturalReducido:Simple">
+                  <expresion_izq>
+                    <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+                      <atributo determinante="el/la" nombre="titulo" enlace="de"/>
+                      <termino indeterminante="un/una" contexto="Libro"/>
+                    </expresion>
+                  </expresion_izq>
+                  <comparacion>
+                    <obligacion obligacion="debe ser"/>
+                    <operacion operacion="igual a"/>
+                  </comparacion>
+                  <expresion_der>
+                    <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="Harry potter"/>
+                  </expresion_der>
+                </simple>
+              </contenido>
+              <comparacion>
+                <obligacion obligacion="debe ser"/>
+                <operacion operacion="mayor que"/>
+              </comparacion>
+              <expresion>
+                <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+              </expresion>
+            </simple>
+          </contenido>
+        </composicion>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Iteracion" conector="tal que">
+          <propiedad>
+            <atributo determinante="el/la" prefijo="seleccion de" nombre="libros" enlace="de"/>
+            <termino indeterminante="un/una" contexto="Biblioteca"/>
+          </propiedad>
+          <contenido>
+            <simple xsi:type="lenguajeNaturalReducido:Simple">
+              <expresion_izq>
+                <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+                  <atributo determinante="el/la" nombre="titulo" enlace="de"/>
+                  <termino indeterminante="un/una" contexto="Libro"/>
+                </expresion>
+              </expresion_izq>
+              <comparacion>
+                <obligacion obligacion="debe ser"/>
+                <operacion operacion="igual a"/>
+              </comparacion>
+              <expresion_der>
+                <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="El Alquimista"/>
+              </expresion_der>
+            </simple>
+          </contenido>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" nombre="titulo" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Libro"/>
+            </expresion>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="distinto de"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=""/>
+          </expresion_der>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=""/>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="distinto de"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" nombre="titulo" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Libro"/>
+            </expresion>
+          </expresion_der>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" prefijo="cantidad de" nombre="copias" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Libro"/>
+            </expresion>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="mayor que"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+          </expresion_der>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" prefijo="cantidad de" nombre="copias" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Libro"/>
+            </expresion>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="igual a"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+          </expresion_der>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" prefijo="cantidad de" nombre="copias" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Libro"/>
+            </expresion>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="mayor que"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+          </expresion_der>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" prefijo="cantidad de" nombre="prestamos" enlace="de"/>
+              <atributo determinante="el/la" nombre="solicitante" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Prestamo"/>
+            </expresion>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="mayor o igual a"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="1"/>
+          </expresion_der>
+        </simple>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" nombre="nombreCompleto" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Socio"/>
+            </expresion>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="distinto de"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=""/>
+          </expresion_der>
+        </simple>
+        <composicion>
+          <nexo valor="o"/>
+          <contenido>
+            <simple xsi:type="lenguajeNaturalReducido:Simple">
+              <expresion_izq>
+                <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+                  <atributo determinante="el/la" nombre="direccion" enlace="de"/>
+                  <termino indeterminante="un/una" contexto="Socio"/>
+                </expresion>
+              </expresion_izq>
+              <comparacion>
+                <obligacion obligacion="debe ser"/>
+                <operacion operacion="distinto de"/>
+              </comparacion>
+              <expresion_der>
+                <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=""/>
+              </expresion_der>
+            </simple>
+          </contenido>
+        </composicion>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" nombre="nombreCompleto" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Socio"/>
+            </expresion>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="distinto de"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=""/>
+          </expresion_der>
+        </simple>
+        <composicion>
+          <nexo valor="y"/>
+          <contenido>
+            <simple xsi:type="lenguajeNaturalReducido:Simple">
+              <expresion_izq>
+                <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+                  <atributo determinante="el/la" nombre="direccion" enlace="de"/>
+                  <termino indeterminante="un/una" contexto="Socio"/>
+                </expresion>
+              </expresion_izq>
+              <comparacion>
+                <obligacion obligacion="debe ser"/>
+                <operacion operacion="distinto de"/>
+              </comparacion>
+              <expresion_der>
+                <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=""/>
+              </expresion_der>
+            </simple>
+          </contenido>
+        </composicion>
+      </contenido>
+    </oraciones>
+    <oraciones>
+      <contenido>
+        <simple xsi:type="lenguajeNaturalReducido:Simple">
+          <expresion_izq>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" prefijo="cantidad de" nombre="multas" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Socio"/>
+            </expresion>
+          </expresion_izq>
+          <comparacion>
+            <obligacion obligacion="debe ser"/>
+            <operacion operacion="menor o igual a"/>
+          </comparacion>
+          <expresion_der>
+            <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+              <atributo determinante="el/la" prefijo="cantidad de" nombre="prestamos" enlace="de"/>
+              <termino indeterminante="un/una" contexto="Socio"/>
+            </expresion>
+          </expresion_der>
+        </simple>
+      </contenido>
+    </oraciones>
+  </lenguajeNaturalReducido:Documento>
+  <lenguajeNaturalReducido:Contenido>
+    <simple xsi:type="lenguajeNaturalReducido:Iteracion" conector="tal que">
+      <propiedad>
+        <atributo determinante="el/la" prefijo="cantidad de" nombre="libros" enlace="de"/>
+        <termino indeterminante="un/una" contexto="Biblioteca"/>
+      </propiedad>
+      <comparacion>
+        <obligacion obligacion="debe ser"/>
+        <operacion operacion="mayor que"/>
+      </comparacion>
+      <expresion>
+        <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+      </expresion>
+    </simple>
+  </lenguajeNaturalReducido:Contenido>
+  <lenguajeNaturalReducido:Contenido>
+    <simple xsi:type="lenguajeNaturalReducido:Simple">
+      <expresion_izq>
+        <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+          <atributo determinante="el/la" nombre="nombre" enlace="de"/>
+          <atributo determinante="el/la" nombre="autor" enlace="de"/>
+          <termino indeterminante="un/una" contexto="Libro"/>
+        </expresion>
+      </expresion_izq>
+      <comparacion>
+        <obligacion obligacion="debe ser"/>
+        <operacion operacion="igual a"/>
+      </comparacion>
+      <expresion_der>
+        <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=" Antoine de Saint-Exupery"/>
+      </expresion_der>
+    </simple>
+  </lenguajeNaturalReducido:Contenido>
+  <lenguajeNaturalReducido:Contenido>
+    <simple xsi:type="lenguajeNaturalReducido:Simple">
+      <expresion_izq>
+        <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+          <atributo determinante="el/la" nombre="copias" enlace="de"/>
+          <termino indeterminante="un/una" contexto="Libro"/>
+        </expresion>
+      </expresion_izq>
+      <comparacion>
+        <obligacion obligacion="debe ser"/>
+        <operacion/>
+      </comparacion>
+      <expresion_der/>
+    </simple>
+  </lenguajeNaturalReducido:Contenido>
+  <lenguajeNaturalReducido:Contenido>
+    <simple xsi:type="lenguajeNaturalReducido:Simple">
+      <expresion_izq>
+        <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+          <atributo determinante="el/la" nombre="prestamos" enlace="de"/>
+          <atributo determinante="el/la" nombre="solicitante" enlace="de"/>
+          <termino indeterminante="un/una" contexto="Prestamo"/>
+        </expresion>
+      </expresion_izq>
+      <comparacion>
+        <obligacion obligacion="debe ser"/>
+        <operacion/>
+      </comparacion>
+      <expresion_der/>
+    </simple>
+  </lenguajeNaturalReducido:Contenido>
+  <lenguajeNaturalReducido:Contenido>
+    <simple xsi:type="lenguajeNaturalReducido:Simple">
+      <expresion_izq>
+        <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+          <atributo determinante="el/la" nombre="nombreCompleto" enlace="de"/>
+          <termino indeterminante="un/una" contexto="Socio"/>
+        </expresion>
+      </expresion_izq>
+      <comparacion>
+        <obligacion obligacion="debe ser"/>
+        <operacion operacion="distinto de"/>
+      </comparacion>
+      <expresion_der>
+        <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=""/>
+      </expresion_der>
+    </simple>
+  </lenguajeNaturalReducido:Contenido>
+  <lenguajeNaturalReducido:Contenido>
+    <simple xsi:type="lenguajeNaturalReducido:Simple">
+      <expresion_izq>
+        <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+          <atributo determinante="el/la" nombre="nombreCompleto" enlace="de"/>
+          <termino indeterminante="un/una" contexto="Socio"/>
+        </expresion>
+      </expresion_izq>
+      <comparacion>
+        <obligacion obligacion="debe ser"/>
+        <operacion operacion="distinto de"/>
+      </comparacion>
+      <expresion_der>
+        <expresion xsi:type="lenguajeNaturalReducido:Literal" valor=""/>
+      </expresion_der>
+    </simple>
+  </lenguajeNaturalReducido:Contenido>
+  <lenguajeNaturalReducido:Contenido>
+    <simple xsi:type="lenguajeNaturalReducido:Simple">
+      <expresion_izq>
+        <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+          <atributo determinante="el/la" nombre="multas" enlace="de"/>
+          <termino indeterminante="un/una" contexto="Socio"/>
+        </expresion>
+      </expresion_izq>
+      <comparacion>
+        <obligacion obligacion="debe ser"/>
+        <operacion/>
+      </comparacion>
+      <expresion_der/>
+    </simple>
+  </lenguajeNaturalReducido:Contenido>
+  <lenguajeNaturalReducido:Contenido>
+    <simple xsi:type="lenguajeNaturalReducido:Simple">
+      <expresion_izq>
+        <expresion xsi:type="lenguajeNaturalReducido:Propiedad">
+          <atributo determinante="el/la" nombre="prestamos" enlace="de"/>
+          <termino indeterminante="un/una" contexto="Socio"/>
+        </expresion>
+      </expresion_izq>
+      <comparacion>
+        <obligacion obligacion="debe ser"/>
+        <operacion/>
+      </comparacion>
+      <expresion_der/>
+    </simple>
+  </lenguajeNaturalReducido:Contenido>
+  <lenguajeNaturalReducido:Comparacion>
+    <obligacion obligacion="debe ser"/>
+    <operacion/>
+  </lenguajeNaturalReducido:Comparacion>
+  <lenguajeNaturalReducido:Expresion>
+    <expresion xsi:type="lenguajeNaturalReducido:Literal" valor="0"/>
+  </lenguajeNaturalReducido:Expresion>
+</xmi:XMI>

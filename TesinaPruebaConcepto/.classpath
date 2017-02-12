@@ -5,10 +5,10 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Danae/.p2/pool/plugins/com.google.inject_3.0.0.v201605172100.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/OCL2LNR_Transformador"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.xtext.tesis.gramatica"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.xtext.tesis.gramatica.ide"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.xtext.tesis.gramatica.ui"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.xtext.tesis.gramatica.tests"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.xtext.tesis.gramatica.ui.tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.xtext.tesina.LenguajeNaturalReducido"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.xtext.tesina.LenguajeNaturalReducido.ide"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.xtext.tesina.LenguajeNaturalReducido.tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.xtext.tesina.LenguajeNaturalReducido.ui"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.xtext.tesina.LenguajeNaturalReducido.ui.tests"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

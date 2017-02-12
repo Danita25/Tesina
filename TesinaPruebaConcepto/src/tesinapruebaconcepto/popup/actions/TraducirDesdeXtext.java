@@ -18,8 +18,7 @@ import org.eclipse.xtext.parser.ParseException;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.serializer.ISerializer;
-import org.xtext.tesis.gramatica.GramaticaStandaloneSetup;
-
+import org.xtext.tesina.LenguajeNaturalReducidoStandaloneSetup;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
@@ -38,7 +37,7 @@ public class TraducirDesdeXtext {
 	}
 
 	private void setupParser() {
-		Injector injector = new GramaticaStandaloneSetup().createInjectorAndDoEMFRegistration();
+		Injector injector = new LenguajeNaturalReducidoStandaloneSetup().createInjectorAndDoEMFRegistration();
 		injector.injectMembers(this);
 	}
 	
@@ -61,7 +60,7 @@ public class TraducirDesdeXtext {
 
 	public void writeLnr(OutputStream os, EObject content) throws IOException {
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
-		Resource resource = resourceSet.createResource(URI.createURI("dummy:/example.gramatica"));
+		Resource resource = resourceSet.createResource(URI.createURI("dummy:/example.lnr"));
 		EList<EObject> contents = resource.getContents();
 		contents.add(content);
 		resource.save(os, null);

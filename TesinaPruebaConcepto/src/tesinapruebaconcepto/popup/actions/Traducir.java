@@ -1,7 +1,6 @@
 package tesinapruebaconcepto.popup.actions;
 
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,14 +13,8 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Shell;
@@ -62,35 +55,30 @@ public class Traducir implements IObjectActionDelegate {
 				.getActivePage().getActiveEditor();
 		IEditorInput input= editor.getEditorInput();
 		IFile sourceFile = input.getAdapter(IFile.class);
-	
-		
-		//Source File info
-		//String sourceFileName = sourceFile.getName().replace("."+sourceFile.getFileExtension(), "");
-		String ecoreFileName = sourceFile.getLocation().toString().split(".ocl")[0].concat(".ecore");
-		//String ecoreFileName = sourceFile.getLocation().removeLastSegments(1).append(sourceFile.getName().replace("."+sourceFile.getFileExtension(), ".ecore")).toString();
-		System.out.println("eCore File Name: "+ecoreFileName);
+
+		//En base al archivo siendo editado, obtenemos el .ecore (usuario debe generar ecore, ocl and ocl.oclas con el mismo nombre base)
+		//String ecoreFileName = sourceFile.getLocation().toString().split(".ocl")[0].concat(".ecore");
+		//System.out.println("eCore File Name: "+ecoreFileName);
 		
 		
-		//Get Active Project
+		//Obtener nomber del projecto activo.
 		IProject myProject = sourceFile.getProject();
-		System.out.println("My Project: "+myProject.getName());
+		//System.out.println("My Project: "+myProject.getName());
 		
-		//Create Traducciones folder (if does not exist)
+		//Crear carpeta Traducciones (solo si no existe)
 		IFolder filesFolder = myProject.getFolder("Traducciones");
 		if (!filesFolder.exists()){
 			try {
 				filesFolder.create(false, true, null);
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				System.out.println("Folder Creation Fail");
+				System.out.println("Creacion de carpeta Traducciones ha fallado.");
 				e.printStackTrace();
 			}
 		}
 		try {
-	//		this.parseOCL2(ecoreFileName, sourceFile);
+			//this.parseOCL2(ecoreFileName, sourceFile);
 			this.parseOCL(sourceFile);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -106,7 +94,7 @@ public class Traducir implements IObjectActionDelegate {
 	//Recibe el .ocl file de entrada, deberia generar el oclas para pasarselo de entrada a  la trasformacion ATL
 	public void parseOCL(IFile sourceFile) throws Exception {
 		
-		copyRequiredFiles(sourceFile); //copies .ocl.oclas and .ecore to models folder into the transformador project.
+		copyRequiredFiles(sourceFile); //Copia los archivos .ocl.oclas y .ecore a la carpeta models que se encuentra en el projecto Transformador.
 
 		//Transformacion en ATL 
 		OCL2LNR.run("file://"+getATLModelsURL() + sourceFile.getName().replace("ocl.", ""), "file://"+getATLModelsURL()+"OCL2LNR_Output.xmi");
@@ -117,23 +105,23 @@ public class Traducir implements IObjectActionDelegate {
 		EObject result = xtext.parseXmi(f);
 		System.out.println(xtext.serialize(result));
 		String srcDir = (sourceFile.getLocation().removeLastSegments(1).toString())+"/";
-		String outputFileName = srcDir + sourceFile.getName().replace("ocl.", "").replace(".oclas", ".gramatica");
+		String outputFileName = srcDir + sourceFile.getName().replace("ocl.", "").replace(".oclas", ".lnr");
 		FileOutputStream os = new FileOutputStream(outputFileName);
 		xtext.writeLnr(os, result);
 	}
 
 	private void copyRequiredFiles(IFile sourceFile) throws IOException
 	{ 
-		/*Determinar path del proyecto de transformacion ATL*/
+		//Determinar path del proyecto de transformacion ATL
 		String destDir = getATLModelsURL();
 	
-		/*Determinar path del projecto que contiene el archivo .ocl.oclas*/
+		//Determinar path del projecto que contiene el archivo .ocl.oclas
 		String srcDir = (sourceFile.getLocation().removeLastSegments(1).toString())+"/";
 		
-		/*Move ocl.oclas file*/
+		//Mover el archivo ocl.oclas
 		Files.copy(Paths.get(srcDir + sourceFile.getName()), Paths.get(destDir + sourceFile.getName().replace("ocl.", "")) , StandardCopyOption.REPLACE_EXISTING);
 
-		/*move .ecore mismo nombre que ocl.oclas*/
+		//mover el archivo .ecore  que posee el mismo nombre que el archivo ocl.oclas
 		String sourceStr = sourceFile.getName().split(".ocl")[0].concat(".ecore");
 		Files.copy( Paths.get(srcDir + sourceStr),  Paths.get(destDir + sourceStr) , StandardCopyOption.REPLACE_EXISTING);
 	}
