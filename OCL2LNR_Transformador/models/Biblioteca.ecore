@@ -26,6 +26,10 @@
         ordered="false"
         upperBound="-1"
         eType="#//Libro"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="fechaDeApertura"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -64,6 +68,13 @@
         name="activo"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="fechaDeEscritura"
+        ordered="false"
+        unique="false"
+        lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -90,6 +101,10 @@
         name="estado"
         lowerBound="1"
         eType="#//EstadoDeLaCopia"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="fechaDeAdquisicion"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"

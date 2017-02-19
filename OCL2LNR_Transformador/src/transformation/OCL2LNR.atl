@@ -156,6 +156,17 @@ helper context OCL!CallExp def: getPropertyCallExpCollection(): -- DL change con
 			endif	
 	endif;
 
+helper context OCL!IteratorExp def: getIteratorExpCollection(): 
+		Sequence(OCL!IteratorExp) =
+	let elements: Sequence(OCL!IteratorExp) =
+		Sequence{}
+	in
+			if self.ownedSource.oclIsTypeOf(OCL!IteratorExp) then
+				elements.union(self.ownedSource.getIteratorExpCollection()).append(self)
+			else
+				elements.append(self) -- LEAF
+			endif;
+	
 helper context OCL!PropertyCallExp def: isParentAnIterator(): Boolean =
 	if self.refImmediateComposite().oclIsTypeOf(OCL!OperationCallExp) then
 		false
@@ -190,6 +201,7 @@ rule Model2Documento {
 		t2: LNR!Documento (
 			--			pathModelo <- s.ownedPackages.first().URI,
 --			pathOcl <- s.externalURI,
+			encabezado <- 'Las siguientes afirmaciones deben ser verdaderas en el sistema:',
 			oraciones <- s.ownedPackages.first().ownedClasses -> collect(e | e.
 					ownedInvariants).flatten()
 		)
@@ -200,7 +212,9 @@ rule Constraint2Oracion {
 		s: OCL!Constraint
 	to
 		t: LNR!Oracion (
-			contenido <- s.ownedSpecification.ownedBody
+			contenido <- if (s.ownedSpecification.ownedBody.oclIsTypeOf(OCL!IteratorExp)) then 
+							thisModule.IteratorExp2Contenido(s.ownedSpecification.ownedBody ) 
+						else s.ownedSpecification.ownedBody endif
 		)
 }
 
@@ -218,55 +232,47 @@ lazy rule String2LiteralExp {
 
 
 --Iterator Exp
-rule IteratorExp2Contenido {
+lazy rule IteratorExp2Contenido {
 	from
 		s: OCL!IteratorExp
 	to
 		c1: LNR!Contenido (
-			simple <- thisModule.Iterator2Iteracion(s),
+			simple <- thisModule.Iterator2Simple(s),
 			composicion <- OclUndefined 
 		)
 }
 
-lazy rule Iterator2Iteracion{
+lazy rule Iterator2Simple{
 	from
 		s: OCL!IteratorExp
 	to  sp: LNR!Simple (
 			expresion_izq <- exp_izq,
-			expresion_der <- if (s.referredIteration.name = 'exists') then exp_der else OclUndefined endif
+			expresion_der <- OclUndefined--if (s.referredIteration.name = 'exists') then exp_der else OclUndefined endif
 	)
 	, 
 	exp_izq: LNR!Expresion(
 		expresion <- thisModule.IteratorExp2Propiedad(s)
-		) ,
-	exp_der: LNR!ExpresionDerecha(
-		comparacion <- cp,
-		expresion <- e), 
---	it: LNR!Iteracion (
---			propiedad <- thisModule.PropertyCallExp2Propiedad(s.ownedSource),
---			conector <- 'tal que',
---			contenido <- s.ownedBody,
---			comparacion <- if thisModule.removePrefix(s.referredIteration.name) = 'exists' then cp
---						   else OclUndefined endif,
---			expresion <- if thisModule.removePrefix(s.referredIteration.name) = 'exists' then e
---						   else OclUndefined endif
+		)
+		--,
+--	exp_der: LNR!ExpresionDerecha(
+--		comparacion <- cp,
+--		expresion <- e), 
+--		cp: LNR!Comparacion (
+--			obligacion <- ob,
+--			operacion <- op
 --		),
-		cp: LNR!Comparacion (
-			obligacion <- ob,
-			operacion <- op
-		),
-		ob: LNR!Obligacion (
-			obligacion <- 'debe ser'
-		),
-		op: LNR!Operacion (
-			operacion <- thisModule.operationName(thisModule.removePrefix(s.referredIteration.name))
-		),
-		e: LNR!Expresion (
-			expresion <- lit
-		),
-		lit: LNR!Literal (
-			valor <- '0'
-		)	
+--		ob: LNR!Obligacion (
+--			obligacion <- 'es'
+--		),
+--		op: LNR!Operacion (
+--			operacion <- thisModule.operationName(thisModule.removePrefix(s.referredIteration.name))
+--		),
+--		e: LNR!Expresion (
+--			expresion <- lit
+--		),
+--		lit: LNR!Literal (
+--			valor <- '0'
+--		)	
 }
 
 --Operation Call Exp
@@ -288,11 +294,15 @@ rule OperationCallExp2ContenidoAndOr {
 		)
 	to
 		t2: LNR!Contenido (
-			simple <- 		if(s.name = 'implies')then 
+			prefijo <- if(s.name = 'implies')then 
+							'si'
+						else OclUndefined
+						endif,
+			simple <- if(s.name = 'implies')then 
 									 thisModule.OperationCallExp2Simple(s.ownedSource)
 							else
 						    	if(s.ownedSource.oclIsTypeOf(OCL!IteratorExp))then 
-									thisModule.Iterator2Iteracion(s.ownedSource)
+									thisModule.Iterator2Simple(s.ownedSource)
 								else thisModule.OperationCallExp2Simple(s.ownedArguments.first()) 
 								endif
 							endif,
@@ -304,7 +314,7 @@ rule OperationCallExp2ContenidoAndOr {
 								thisModule.resolveTemp(s.ownedArguments.first(), 't1')
 						  else 
 						  	if(s.ownedArguments.first().oclIsTypeOf(OCL!IteratorExp))then
-								thisModule.resolveTemp(s.ownedArguments.first(), 'c1')
+								thisModule.IteratorExp2Contenido(s.ownedArguments.first())
 						  	else thisModule.resolveTemp(s.ownedSource, 't1')
 							endif  
 						endif
@@ -317,7 +327,7 @@ rule OperationCallExp2ContenidoAndOr {
 						'o'
 					else
 						if s.name = 'implies' then 
-							'lo que implica que'
+							'entonces'
 						else
 							OclUndefined
 						endif
@@ -351,8 +361,6 @@ lazy rule OperationCallExp2Simple {
 					if (thisModule.removePrefix(s.referredOperation.toString()) =
 							'isEmpty') or (thisModule.removePrefix(s.referredOperation.
 							toString()) = 'notEmpty') then
-						--ver si se puede hacer preguntando por s.name undefined, no
-								-- porque afecta al size
 						thisModule.String2LiteralExp('0') --Exp_der es 0 ya que si es
 								-- isEmpty sera = 0 y si es not empty sera > 0.
 						
@@ -371,7 +379,7 @@ lazy rule OperationCallExp2Simple {
 				else
 					OclUndefined
 				endif,
-			obligacion <- 'debe ser'
+			obligacion <- 'es'
 		),
 		op: LNR!Operacion (
 			operacion <- if (s.name = 'not') then
@@ -442,37 +450,17 @@ lazy rule PropertyCallExp2Propiedad {
 	}
 	to
 		p: LNR!Propiedad (
-			atributo <- children->collect(e | thisModule.PropertyCallExp2Atributo(e)),  --add select ->select(e| e.oclIsTypeOf(OCL!PropertyCallExp)) to avoid checks in fns by iterator exp/
+			atributo <- children->collect(e | thisModule.PropertyCallExp2Atributo(e)),  
 			termino <- t
-			--,
---			iteracion <- if (s.getExpressionInOCL().oclIsTypeOf(OCL!IteratorExp))--(s.ownedSource.oclIsTypeOf(OCL!IteratorExp)) then 
---						 then	it
---						else OclUndefined
---						endif
 		),
 		t: LNR!Termino (
 			indeterminante <- 'un/una' --,
 		)
---		,
---		it: LNR!Iteracion (	
---			conector <-
---						if (parentIteratorName = 'exists') then 
---							'tal que'
---						else OclUndefined
---						endif
---						, 
---			contenido <- if (parentIteratorName = 'exists') then 
---							s.getExpressionInOCL().ownedBody
---						else OclUndefined
---						endif
---			)
 	do {
 		if(not parentIteratorName.oclIsUndefined()) { --translate exists as size
 		  if(parentIteratorName = 'exists') {
 			p.atributo.first().prefijo <- 'cantidad de'	;
 		  } 
---		  if (parentIteratorName = 'select'){
---		  	p.atributo.first().prefijo <- 'seleccion de'	;}
 		 }
 		t.contexto <- thisModule.removePrefix(children.last().ownedSource.type.
 				toString());
@@ -488,8 +476,8 @@ lazy rule OperationCallExp2Propiedad {
 	}
 	to
 		p: LNR!Propiedad (
-			atributo <- children->collect(e | thisModule.PropertyCallExp2Atributo(e)),
-			termino <- t,
+			atributo  <- children->collect(e | thisModule.PropertyCallExp2Atributo(e)),
+			termino   <- t,
 			iteracion <- if (s.ownedSource.oclIsTypeOf(OCL!IteratorExp)) then 
 							it
 						else OclUndefined
@@ -501,8 +489,6 @@ lazy rule OperationCallExp2Propiedad {
 					OclUndefined
 				else
 					s.getExpressionInOCL().owningConstraint.context.name
-							--thisModule.removePrefix(s.ownedSource.type.toString())
-					
 				endif
 		)
 		,
@@ -530,12 +516,13 @@ lazy rule IteratorExp2Propiedad {
 	using {
 		children: Sequence(OCL!PropertyCallExp) = s.ownedSource.
 				getPropertyCallExpCollection();
+		iterators: Sequence(OCL!IteratorExp) = s.getIteratorExpCollection();
 	}
 	to
 		p: LNR!Propiedad (
 			atributo <- children->collect(e | thisModule.PropertyCallExp2Atributo(e)),
 			termino <- t,
-			iteracion <- it
+			iteracion <- iterators->collect(e | thisModule.IteratorExp2Iteracion(e))
 
 		),
 		t: LNR!Termino (
@@ -544,21 +531,25 @@ lazy rule IteratorExp2Propiedad {
 					OclUndefined
 				else
 					s.getExpressionInOCL().owningConstraint.context.name
-							--thisModule.removePrefix(s.ownedSource.type.toString())
-					
 				endif
 		)
-		,
-		it: LNR!Iteracion (	
-			conector <- if (s.referredIteration.name = 'exists') then 'tal que' else 'satisfacen que' endif, 
-			contenido <- s.ownedBody
-			)
+
 	do {
 		if (s.referredIteration.name = 'exists') {
-			p.atributo.first().prefijo <- 'cantidad de';
+			p.atributo.first().determinante <- 'existe un';
 		} else {
 			p.atributo.first().determinante <- 'todos los/las';
 		}
 	}
 }
 
+
+lazy rule IteratorExp2Iteracion{
+from
+		s: OCL!IteratorExp
+	to
+		it: LNR!Iteracion (	
+			conector <- if (s.referredIteration.name = 'forAll') then 'satisfacen que' else 'tal que' endif, 
+			contenido <- s.ownedBody
+			)
+	}
