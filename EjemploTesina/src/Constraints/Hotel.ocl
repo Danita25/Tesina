@@ -38,6 +38,12 @@ context Habitacion
 	else 
 	 	false
 	endif	
+	
+
+context Habitacion inv:
+	let estaReservado : Boolean = self.disponible
+		in estaReservado implies (self.listadoReservas -> 
+							select(p1| p1.fechaFin=null))->size()=1	
   
 context Hotel 
 inv:self.listadoHabitaciones-> forAll(h:Habitacion | h.disponible)
@@ -59,6 +65,9 @@ context Hotel:: numeroHabitacion(): Collection
 
 context Hotel:: numeroHabitacion():Collection
 	body:self.listadoHabitaciones->collect(numero)->asSet()
+
+context Hotel:: numeroHabitacion():Collection
+	body:self.listadoHabitaciones.numero	
 
 
 context Hotel 
