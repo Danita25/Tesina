@@ -65,6 +65,7 @@ package Biblioteca
 		inv nMultas:
 			self.multas->size() <= self.prestamos->size()
 
+
 	context Prestamo
 
 	inv test2:
