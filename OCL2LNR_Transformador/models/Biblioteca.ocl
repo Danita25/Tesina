@@ -80,17 +80,17 @@ package Biblioteca
 --	--Casos que la gramatica no son posibles de traducir.
 	context Biblioteca 
 		inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
-		inv select_exist: self.libros->select(l| l.autor.nombre = 'Paulo Coelho' and l.titulo = 'Veronica decide morir')->size() > 0
-		inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
-		inv select_forAll: self.libros->forAll(l| l.autor.nombre = 'Paulo Coelho' implies l.editorial = 'Planeta')
+--		inv select_exist: self.libros->select(l| l.autor.nombre = 'Paulo Coelho' and l.titulo = 'Veronica decide morir')->size() > 0
+--		inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
+--		inv select_forAll: self.libros->forAll(l| l.autor.nombre = 'Paulo Coelho' implies l.editorial = 'Planeta')
 
-	context Libro
+--	context Libro
 
 		--inv activo_invalida: self.activo
-		inv activo_valida: self.activo = true --tener cuidado a veces no traduce bien el nombre de la propieda y hace que la traduccion falle.
+		--inv activo_valida: self.activo = true --tener cuidado a veces no traduce bien el nombre de la propieda y hace que la traduccion falle.
 
 		--inv not_and: not (self.editorial = '' and self.titulo = '')
-		inv not_and_DeMorgan: not (self.editorial = '') or not (self.titulo = '')
+		--inv not_and_DeMorgan: not (self.editorial = '') or not (self.titulo = '')
 		
 
 --	inv nolibroElPrincipito: not self.libros->exists(l| l.titulo = 'El Principito')  -- No anda 
