@@ -7,10 +7,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
@@ -56,11 +60,6 @@ public class Traducir implements IObjectActionDelegate {
 		IEditorInput input= editor.getEditorInput();
 		IFile sourceFile = input.getAdapter(IFile.class);
 
-		//En base al archivo siendo editado, obtenemos el .ecore (usuario debe generar ecore, ocl and ocl.oclas con el mismo nombre base)
-		//String ecoreFileName = sourceFile.getLocation().toString().split(".ocl")[0].concat(".ecore");
-		//System.out.println("eCore File Name: "+ecoreFileName);
-		
-		
 		//Obtener nomber del projecto activo.
 		IProject myProject = sourceFile.getProject();
 		//System.out.println("My Project: "+myProject.getName());
@@ -76,8 +75,7 @@ public class Traducir implements IObjectActionDelegate {
 			}
 		}
 		try {
-			//this.parseOCL2(ecoreFileName, sourceFile);
-			this.parseOCL(sourceFile);
+			this.traducirOCL(sourceFile);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -92,22 +90,36 @@ public class Traducir implements IObjectActionDelegate {
 	}
 	
 	//Recibe el .ocl file de entrada, deberia generar el oclas para pasarselo de entrada a  la trasformacion ATL
-	public void parseOCL(IFile sourceFile) throws Exception {
+	public void traducirOCL(IFile sourceFile) throws Exception {
 		
 		copyRequiredFiles(sourceFile); //Copia los archivos .ocl.oclas y .ecore a la carpeta models que se encuentra en el projecto Transformador.
 
 		//Transformacion en ATL 
-		OCL2LNR.run("file://"+getATLModelsURL() + sourceFile.getName().replace("ocl.", ""), "file://"+getATLModelsURL()+"OCL2LNR_Output.xmi");
+		String FilePathXmiStr = getATLModelsURL()+"OCL2LNR_Output.xmi";
+		String FilePathOclasStr = getATLModelsURL() + sourceFile.getName().replace("ocl.", ""); //por alguna razon remueve el .ocl del .ocl.oclas
+		
+		OCL2LNR.run("file://"+FilePathOclasStr, "file://"+FilePathXmiStr);
 	
 		//Traducir XMI usando Xtext
 		TraducirDesdeXtext xtext = new TraducirDesdeXtext();
-		FileInputStream f = new FileInputStream( getATLModelsURL()+"OCL2LNR_Output.xmi");
+		FileInputStream f = new FileInputStream(FilePathXmiStr);
 		EObject result = xtext.parseXmi(f);
 		System.out.println(xtext.serialize(result));
-		String srcDir = (sourceFile.getLocation().removeLastSegments(1).toString())+"/";
-		String outputFileName = srcDir + sourceFile.getName().replace("ocl.", "").replace(".oclas", ".lnr");
+		String srcDir = (sourceFile.getLocation().removeLastSegments(2).toString())+"/";
+	    DateFormat df = new SimpleDateFormat("dd-MM-yy-HHmmss");
+		String now = df.format(new Date()).toString();
+		String outputFileName = srcDir +"Traducciones/"+ sourceFile.getName().replace(".ocl.oclas", "_"+now)+ ".lnr";
 		FileOutputStream os = new FileOutputStream(outputFileName);
 		xtext.writeLnr(os, result);
+		
+		//Remover archivos movidos al proyecto transformador (.ocl, .ecore, .xmi)
+		//Files.delete(Paths.get(getATLModelsURL()+"OCL2LNR_Output.xmi"));
+		Files.deleteIfExists(Paths.get(FilePathXmiStr));
+		Files.deleteIfExists(Paths.get(FilePathOclasStr));
+		Files.deleteIfExists(Paths.get(getATLModelsURL() + sourceFile.getName().replace("ocl.", "")));
+		
+		//Refresh del projecto de usuaio para mostrar el nuevo archivo generado.
+		sourceFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
 	}
 
 	private void copyRequiredFiles(IFile sourceFile) throws IOException
@@ -128,98 +140,7 @@ public class Traducir implements IObjectActionDelegate {
 
 	private String getATLModelsURL() {
 		return Platform.getBundle("OCL2LNR_Transformador").getLocation().replaceAll("reference:file:/", "").concat("models/");
-		//return Platform.getBundle("OCL2LNR_Transformador").getLocation().replaceAll("reference:", "").concat("models/");
 	}
-//	public void parseOCL2 (String ecoreFileName, IFile file) throws IOException, ParserException {
-//		EPackage.Registry registry = new EPackageRegistryImpl();
-//		//EPackage ePackage = EcoreFactory.eINSTANCE.createEPackage();
-//		//ePackage.setName("RandL");
-//		
-//		//registry.put()
-//		EPackage ePackage = loadPackage(ecoreFileName);
-//
-//		registry.put(ePackage.getName(), ePackage);
-//		EcoreEnvironmentFactory environmentFactory = new EcoreEnvironmentFactory(registry); //param registry
-//		OCL ocl = OCL.newInstance(environmentFactory);
-//
-//		// get an OCL text file via some hypothetical API
-//;
-//		InputStream in = null;
-//		try {
-//			in = file.getContents();
-//		} catch (CoreException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		Map<String, Constraint> constraintMap = new HashMap<String, Constraint>();
-//
-//		// parse the contents as an OCL document
-//		try {
-//		    OCLInput document = new OCLInput(in);
-//		    
-//		    List<Constraint> constraints = ocl.parse(document);
-//		    for (Constraint next : constraints) {
-//		        constraintMap.put(next.getName(), next);
-//		     //   System.out.println(next.getSpecification().getContextVariable());
-//		        OCLExpression<EClassifier> body = next.getSpecification().getBodyExpression();
-//		    //    System.out.printf("%s: %s%n", next.getName(), body);
-//		            }
-//		} finally {
-//		    in.close();
-//		}
-//
-//		try {
-//			in = file.getContents();
-//		} catch (CoreException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		OCLInput document = new OCLInput(in);
-//		 List<Constraint>  constraints =  ocl.parse(document);
-//		 
-//		Visitor v = new StringTraducirVisitor();
-//		for (Constraint c : constraints)
-//		{ 
-//			c.getSpecification().accept(v);
-//			//System.out.println("Spec es " + c.getSpecification().accept(v));
-///*			ExpressionInOCL<EClassifier, EParameter> expr = c.getSpecification();
-//			System.out.println("Context => "+expr.getContextVariable());
-//			System.out.println("Body => "+expr.getBodyExpression());
-//			System.out.println("Result => "+expr.getResultVariable());
-//			System.out.println("Generted Type => "+expr.getGeneratedType());
-//			System.out.println("Parameter => "+expr.getParameterVariable());
-//			System.out.println("Body Expression Type => "+expr.getBodyExpression().getType());
-//			System.out.println(c.eClass()); //Constraint
-//			ExpressionInOCL e = (ExpressionInOCL) c; //Expression in OCL
-//			e.getBodyExpression(); //OclExpression
-//*/		}
-///*        //Creando un helper
-//        OCLHelper helper = ocl.createOCLHelper();
-//        ocl.*/
-//	}
-
-//	private EPackage loadPackage(String ecoreFileName) {
-//		// Create a resource set. 
-//		ResourceSet resourceSet = new ResourceSetImpl(); 
-//
-//		// Register the default resource factory -- only needed for stand-alone! 
-//		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put( 
-//		"ecore", new EcoreResourceFactoryImpl()); 
-//
-//		setEcorePackage(EcorePackage.eINSTANCE); 
-//
-//		// Get the URI of the model file. 
-//		URI fileURI = URI.createFileURI(new File(ecoreFileName).getAbsolutePath()); 
-//
-//		// Demand load the resource for this file. 
-//		Resource resource = resourceSet.getResource(fileURI, true); 
-// 
-//		// Print the contents of the resource to System.out. 
-//		return (EPackage) resource.getContents().get(0);
-//	}
-//	
 
 	public Shell getShell() {
 		return shell;
