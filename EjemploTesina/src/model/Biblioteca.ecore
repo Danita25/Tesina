@@ -6,79 +6,80 @@
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Biblioteca">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direccion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="libros" ordered="false"
-        upperBound="-1" eType="#//Libro" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="autores" ordered="false"
-        upperBound="-1" eType="#//Autor" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="socios" ordered="false"
-        upperBound="-1" eType="#//Socio" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="prestamos" ordered="false"
-        upperBound="-1" eType="#//Prestamo" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="multas" ordered="false"
-        upperBound="-1" eType="#//Multa" containment="true">
-      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
-        <details key="nullFree" value="false"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="socios" upperBound="-1"
+        eType="#//Socio"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libros" upperBound="-1"
+        eType="#//Libro"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Libro">
-    <eOperations name="uniqueID"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="codigo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="titulo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="editorial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="anioDeEdicion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipoLibro" eType="#//TipoLibro"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="autor" eType="#//Autor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TipoDeLibro" eType="#//TipoDeLibro"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="autor" eType="#//Autor"
+        eOpposite="#//Autor/obras"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copias" upperBound="-1"
+        eType="#//Copia"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Prestamo">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaInicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaFin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeDevolucion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="libro" eType="#//Libro"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="socio" eType="#//Socio"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Copia">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroDeCopia" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estadoDeLaCopia" eType="#//EstadoDeLaCopia"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Autor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreCompleto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nacionalidad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeNacimiento" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="obras" lowerBound="1" upperBound="-1"
-        eType="#//Libro"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EstadoDeLaCopia">
+    <eLiterals name="Bueno"/>
+    <eLiterals name="Regular" value="1"/>
+    <eLiterals name="Malo" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Socio">
-    <eOperations name="existeSocio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
-      <eParameters name="nombreSocio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="solicitarEjemplar" eType="#//Prestamo">
-      <eParameters name="codigo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
-    <eOperations name="devolverEjemplar" eType="#//Prestamo">
-      <eParameters name="codigo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters name="fechaActual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    </eOperations>
-    <eOperations name="generarMulta" eType="#//Multa">
-      <eParameters name="prestamo" eType="#//Prestamo"/>
-    </eOperations>
-    <eOperations name="uniqueID"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroSocio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreCompleto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="telefono" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direccion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="edad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Multa">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaInicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaFin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="prestamo" eType="#//Prestamo"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TipoLibro">
+  <eClassifiers xsi:type="ecore:EEnum" name="TipoDeLibro">
     <eLiterals name="Lirico"/>
     <eLiterals name="Epico" value="1"/>
     <eLiterals name="Narrativo" value="2"/>
     <eLiterals name="Dramatico" value="3"/>
     <eLiterals name="Didactico" value="4"/>
     <eLiterals name="Terror" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Autor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nacionalidad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeNacimiento" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obras" upperBound="-1"
+        eType="#//Libro" eOpposite="#//Libro/autor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Prestamo">
+    <eOperations name="finalizarPrestamo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="fechaDeDevolucion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeInicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeFin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeDevolucion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copia" eType="#//Copia"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Socio">
+    <eOperations name="solicitarPrestamo" eType="#//Prestamo">
+      <eParameters name="libro" eType="#//Libro"/>
+    </eOperations>
+    <eOperations name="generarMulta" eType="#//Multa">
+      <eParameters name="prestamo" eType="#//Prestamo"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroDeSocio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreCompleto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direccion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="telefono" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeNacimiento" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prestamos" upperBound="-1"
+        eType="#//Prestamo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multas" upperBound="-1"
+        eType="#//Multa"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Multa">
+    <eOperations name="finalizarMulta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="fechaCierre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeInicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeFin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prestamo" eType="#//Prestamo"
+        transient="true"/>
   </eClassifiers>
 </ecore:EPackage>

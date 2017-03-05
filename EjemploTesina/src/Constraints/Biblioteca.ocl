@@ -3,78 +3,42 @@ import Biblioteca: '../model/Biblioteca.ecore'
 package Biblioteca
 
 context Biblioteca
-	inv poseeDireccion: direccion<>''
-	inv poseeLibros: libros->select(l| l.activo=true)->notEmpty()
-	inv librosNoRepetidos: libros->forAll(l1,l2|l1<>l2 and l1.autor=l2.autor implies l1.titulo<>l2.titulo) 
-	inv autoresNoRepetidos: autores->forAll(a1,a2|a1<>a2 implies a1.nombreCompleto<>a2.nombreCompleto) 
-	
-context Libro 
-	inv poseeCopias: copias>0
-	inv tieneAutor: autor <> null	
-	inv suficientesCopias: (Prestamo.allInstances()->select(p1| p1.fechaDeDevolucion=null and p1.libro=self))->size()<= copias
-	
-
-context Prestamo 
-	inv tieneFechaInicio : fechaInicio<>null
-	inv tieneFechaFin : fechaFin<>null
-	inv tieneSocio : socio<>null  
-	inv tieneLibro : libro<>null
---	inv fechaValidas: fechaInicio<=fechaFin
-	inv fechasSolicitudValidas : 
-		if(fechaInicio<>null and fechaFin<>null)then
-				fechaInicio<=fechaFin
-		else
-			true
-		endif
+	inv direccionObligatoria: direccion<>''
+	inv hayLibros: self.libros->size()>0
+	inv librosMinimoAutor: self.libros->select(l|l.autor.nombre='Paulo Coelho')->size()>2
+	inv libroAutor: self.libros->select(l|l.titulo='Hija de la fortuna' and l.autor.nombre='Isabel Allende')->size()=1
+	inv librosEdicion: self.libros->forAll(l|l.anioDeEdicion>1900)
+	inv existeLibro: self.libros->exists(l|l.titulo='El principito')
+	--inv existeLibroAutor: self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
+	--inv existenLibros: self.libros->exists(l | l.titulo = 'El Principito') and self.libros->exists(l | l.titulo = 'Harry potter') 
+	--inv select_isEmpty: self.libros->select(l| l.titulo = 'El caballero de la armadura oxidada')->isEmpty()
+	--inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
+	--inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
 		
-	
-context Multa
-	inv tienePrestamo:prestamo<>null
-	inv fechaInicio : fechaInicio<>null
-	
-	
-context Socio	
-	--Obtener todos los prestamos del socio activos y no activos
-	def: getAllPrestamosSocio() : Set(Prestamo) = Prestamo.allInstances()->select(p| p.socio=self)->asSet()
-	--Obtener todos las multas del socio activas y no activas ordenadas.
-	def:getAllMultas() : OrderedSet(Multa) = Multa.allInstances()->select(m|m.prestamo.socio=self)->asOrderedSet()
-	inv mayorEdad: edad > 18  
-	inv tieneNumeroSocio: numeroSocio>0
-	inv tieneNombreCompleto: nombreCompleto<>''
-	--el socio al menos tiene que haber realizo un prestamo, sino no existe el socio
-	inv poseePrestamo:getAllPrestamosSocio()->size()>0
-	inv prestamosActivos: let prestamos:Boolean = (getAllPrestamosSocio()->select(p1| p1.fechaDeDevolucion=null))->size()<=3 in
-	if prestamos then 
-		true
-	 else 
-	 	false
-	 endif
+context Libro 
+	inv tituloObligatorio: not (titulo='')
+	inv tituloPorAutor: titulo= 'El Alquimista' implies autor.nombre = 'Paulo Coelho'
+	inv numeroDeCopiasMinimo: self.copias->size() > 6
 
-context Socio::devolverEjemplar(codigo:Integer, fechaActual :ecore::EDate) : Prestamo
-	pre: Prestamo.allInstances()->select(p1| p1.fechaDeDevolucion=null and p1.socio=self)->notEmpty()
-	post: Prestamo.allInstances()->select( p | p.libro.codigo = codigo and p.socio=self and p.fechaDeDevolucion=null).fechaDeDevolucion = fechaActual
-	
-
-context Socio::existeSocio(numeroDeSocio:String):Boolean
-	body: Socio.allInstances()->exists(numeroDeSocio=numeroDeSocio)
-
---para asegurar id de socio unico
-context Socio::numeroSocio : String init:
-	Socio::uniqueID()
-
-context Libro::codigo : String init:
-	Libro::uniqueID()
-	
+context Copia
+	inv numeroDeCopiaObligatorio:self.numeroDeCopia<>''	
 
 context Autor
-	inv tieneNombre: nombreCompleto<>''
-	inv poseeObras: not obras->isEmpty()
+	inv nombreObligatorio: ''<> nombre
+	inv datosCompletos: not (nombre = '') or not (nacionalidad= '')
+	
+context Socio
+	inv socioSinMultas: self.multas->isEmpty()
+	inv socioTienePrestamo: self.prestamos->notEmpty()
+	inv datosIncompletos: self.nombreCompleto='' or self.direccion=''
+	inv numValidoMultas: self.multas->size()<=self.prestamos->size()
+	inv tienePrestamoActivo: self.prestamos->select(p|p.fechaDeDevolucion=null)->size()>=1
+	inv prestamosCopiasCorrectas: self.prestamos->select(p|p.fechaDeDevolucion='' implies p.copia.estadoDeLaCopia='malo')->size()=0
+	
+context Prestamo
+	inv fechaObligatorias: self.fechaDeInicio<>'' and self.fechaDeFin<>''
+	
+context Multa
+	inv prestamoObligatorio: self.prestamo<>''
 
-
-context Socio::solicitarEjemplar(libro:Libro):Prestamo
-	pre noPoseeMultas: getAllMultas()->select(m| m.fechaFin=null)->isEmpty()
-	pre poseeLimiteXPrestamo: (getAllPrestamosSocio()->select(p1| p1.fechaDeDevolucion=null))->size()<3
-	pre libroActivo: libro.activo
-	pre libroDisponible: (Prestamo.allInstances()->select(p|p.fechaDeDevolucion=null and p.libro=libro)->size()<libro.copias)
-	post prestamosPost: getAllPrestamosSocio()->size() > getAllPrestamosSocio()->size()@pre
 endpackage
