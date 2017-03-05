@@ -514,14 +514,13 @@ lazy rule IteratorExp2Propiedad {
 
 	do { 
 		
-		if (iterators.first().referredIteration.name = 'select'){ 
-				p.atributo.first().determinante <- 'entre los';
+		if (iterators.first().referredIteration.name = 'select' or iterators.first().referredIteration.name = 'exists'){ 
+			if(iterators->exists(it| it.referredIteration.name = 'forAll'))
+			{	p.atributo.first().determinante <- 'todos los/las';	}
+			else{	p.atributo.first().determinante <- 'entre los';}
 		} else {
-				if (iterators.first().referredIteration.name = 'exists') {
-					p.atributo.first().determinante <- 'existe un';
-				} else {
-					p.atributo.first().determinante <- 'todos los/las';
-					}
+					p.atributo.first().determinante <- 'todos los/las'; 
+
 			}
 		}
 }
