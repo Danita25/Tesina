@@ -199,8 +199,6 @@ rule Model2Documento {
 		)
 	to
 		t2: LNR!Documento (
-			--			pathModelo <- s.ownedPackages.first().URI,
---			pathOcl <- s.externalURI,
 			encabezado <- 'Las siguientes afirmaciones deben ser verdaderas en el sistema:',
 			oraciones <- s.ownedPackages.first().ownedClasses -> collect(e | e.
 					ownedInvariants).flatten()
@@ -253,26 +251,6 @@ lazy rule Iterator2Simple{
 	exp_izq: LNR!Expresion(
 		expresion <- thisModule.IteratorExp2Propiedad(s)
 		)
-		--,
---	exp_der: LNR!ExpresionDerecha(
---		comparacion <- cp,
---		expresion <- e), 
---		cp: LNR!Comparacion (
---			obligacion <- ob,
---			operacion <- op
---		),
---		ob: LNR!Obligacion (
---			obligacion <- 'es'
---		),
---		op: LNR!Operacion (
---			operacion <- thisModule.operationName(thisModule.removePrefix(s.referredIteration.name))
---		),
---		e: LNR!Expresion (
---			expresion <- lit
---		),
---		lit: LNR!Literal (
---			valor <- '0'
---		)	
 }
 
 --Operation Call Exp
@@ -534,13 +512,17 @@ lazy rule IteratorExp2Propiedad {
 				endif
 		)
 
-	do {
-		if (s.referredIteration.name = 'exists') {
-			p.atributo.first().determinante <- 'existe un';
+	do { 
+		
+		if (iterators.first().referredIteration.name = 'select' or iterators.first().referredIteration.name = 'exists'){ 
+			if(iterators->exists(it| it.referredIteration.name = 'forAll'))
+			{	p.atributo.first().determinante <- 'todos los/las';	}
+			else{	p.atributo.first().determinante <- 'entre los';}
 		} else {
-			p.atributo.first().determinante <- 'todos los/las';
+					p.atributo.first().determinante <- 'todos los/las'; 
+
+			}
 		}
-	}
 }
 
 
@@ -549,7 +531,11 @@ from
 		s: OCL!IteratorExp
 	to
 		it: LNR!Iteracion (	
-			conector <- if (s.referredIteration.name = 'forAll') then 'satisfacen que' else 'tal que' endif, 
+			conector <- if (s.referredIteration.name = 'forAll') then 'satisfacen que' 
+						else if (s.referredIteration.name = 'exists') then 'existe uno tal que' 
+							 else 'tal que'
+							 endif	 
+						endif, 
 			contenido <- s.ownedBody
 			)
 	}
