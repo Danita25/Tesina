@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.tesina.LenguajeNaturalReducido
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.tesina.LenguajeNaturalReducido; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.tesina.services,
+ org.xtext.tesina.lenguajeNaturalReducido.impl,
+ org.xtext.tesina.lenguajeNaturalReducido,
+ org.xtext.tesina.generator,
+ org.xtext.tesina,
+ org.xtext.tesina.parser.antlr,
+ org.xtext.tesina.serializer,
+ org.xtext.tesina.lenguajeNaturalReducido.util,
+ org.xtext.tesina.validation,
+ org.xtext.tesina.scoping,
+ org.xtext.tesina.parser.antlr.internal
+Import-Package: org.apache.log4j,
+ org.xtext.tesina.generator
