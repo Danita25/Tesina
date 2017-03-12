@@ -12,6 +12,7 @@ import org.eclipse.xtext.util.EmfFormatter
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.xtext.tesina.lenguajeNaturalReducido.Documento
+import org.junit.Assert
 
 @RunWith(XtextRunner)
 @InjectWith(LenguajeNaturalReducidoInjectorProvider)
@@ -24,12 +25,486 @@ class LenguajeNaturalReducidoParsingTest{
 	
 	@Test 
 	def void loadModel() {
-		val result = parseHelper.parse('''
-			el/la seleccion de libros  de un/una biblioteca tal que el/la titulo de un/una libro es igual a 'El Alquimista'		''')
+		val parsedOCL = parseHelper.parse('''
+
+import 'Biblioteca.ecore'
+--OCL del usuario
+package Biblioteca
+
+	context Biblioteca
+				
+		inv Select_Size: 
+			self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
+
+		inv Select_And_Size:
+			self.libros->select(l | l.titulo = 'El Alquimista' and l.autor.nombre = 'Paulo Coelho')->size() > 1			
+			
+		inv Select_Implies_Size:
+			self.libros->select(l | l.titulo = 'El Alquimista' implies l.autor.nombre = 'Paulo Coelho')->size() > 1
+
+		
+		inv forAll:
+			self.libros->forAll(l | l.anioDeEdicion > 1900)
+
+		inv exist:
+			self.libros->exists(l | l.titulo = 'El Principito')
+
+		inv exist_And_Condition:
+			self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
+
+		inv exist_And_exist:
+			self.libros->exists(l | l.titulo = 'El Principito') 
+				and
+			self.libros->exists(l | l.titulo = 'Harry potter') 
+	
+
+		inv select_isEmpty: self.libros->select(l| l.titulo = 'El caballero de la armadura oxidada')->isEmpty()
+
+	context Libro
+		inv property_distinto:
+				self.titulo <> '' 
+		
+		inv negacion: not (self.titulo = '')
+		
+		inv condition_implies_condition:
+				self.titulo = 'El Alquimista' implies self.autor.nombre = 'Paulo Coelho'
+--	
+
+        inv tieneTitulo2:
+        		'' <> self.titulo
+
+		inv tieneCopias:
+			self.copias->size() > 6
+	
+		inv noCopias:
+			self.copias->isEmpty()
+	
+		inv alMenosUnaCopia:
+			self.copias->notEmpty()
+
+	context Socio
+
+		inv datosCompletos:
+			self.direccion <> '' or self.nombreCompleto <> ''
+	
+		inv datosCompletos2:
+			self.direccion <> '' and self.nombreCompleto <> ''
+	
+		inv nMultas:
+			self.multas->size() <= self.prestamos->size()
+
+
+	context Prestamo
+
+	inv test2:
+		self.solicitante.prestamos->size() >= 1
+		
+	inv test3:
+		self.solicitante.prestamos->select(p | p.fechaFin <> 1980)->size() >= 1
+		
+
+
+
+--	--Casos que la gramatica no son posibles de traducir.
+	context Biblioteca 
+		inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
+		inv select_exist: self.libros->select(l| l.autor.nombre = 'Paulo Coelho' and l.titulo = 'Veronica decide morir')->size() > 0
+		inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
+		inv select_forAll: self.libros->forAll(l| l.autor.nombre = 'Paulo Coelho' implies l.editorial = 'Planeta')
+
+--	context Libro
+
+		--inv activo_invalida: self.activo
+		--inv activo_valida: self.activo = true --tener cuidado a veces no traduce bien el nombre de la propieda y hace que la traduccion falle.
+
+		--inv not_and: not (self.editorial = '' and self.titulo = '')
+		--inv not_and_DeMorgan: not (self.editorial = '') or not (self.titulo = '')
+		
+
+--	inv nolibroElPrincipito: not self.libros->exists(l| l.titulo = 'El Principito')  -- No anda 
+
+--Ejemplos con mas sentido 
+--context Autor
+--	inv Autor_0: 
+--		self.obras->forAll(o| o.fechaDeEscritura > self.fechaDeNacimiento)
+		
+endpackage''')
 		//Assert.assertNotNull(result))
-		println(EmfFormatter.objToStr(result))
-		println("    ============        ")
-		println(serializer.serialize(result))
+	println(EmfFormatter.objToStr(parsedOCL))		
+//		println("    ============        ")
+//		println(serializer.serialize(parsedOCL))
+
+   val expected = 
+"Documento {
+    attr EString encabezado 'Biblioteca.ecore'
+    cref Oracion oraciones [
+        0 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El Alquimista'
+                        }
+                    }
+                }
+            }
+        }
+        1 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El Alquimista'
+                        }
+                    }
+                }
+            }
+        }
+        2 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Paulo Coelho'
+                        }
+                    }
+                }
+            }
+        }
+        3 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El Alquimista'
+                        }
+                    }
+                }
+            }
+        }
+        4 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Paulo Coelho'
+                        }
+                    }
+                }
+            }
+        }
+        5 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El Principito'
+                        }
+                    }
+                }
+            }
+        }
+        6 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El Principito'
+                        }
+                    }
+                }
+            }
+        }
+        7 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ' Antoine de Saint-Exupery'
+                        }
+                    }
+                }
+            }
+        }
+        8 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El Principito'
+                        }
+                    }
+                }
+            }
+        }
+        9 : Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Harry potter'
+                        }
+                    }
+                }
+            }
+        }
+        10: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El caballero de la armadura oxidada'
+                        }
+                    }
+                }
+            }
+        }
+        11: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        12: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        13: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El Alquimista'
+                        }
+                    }
+                }
+            }
+        }
+        14: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Paulo Coelho'
+                        }
+                    }
+                }
+            }
+        }
+        15: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        16: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        17: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        18: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        19: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        20: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Paulo Coelho'
+                        }
+                    }
+                }
+            }
+        }
+        21: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Veronica decide morir'
+                        }
+                    }
+                }
+            }
+        }
+        22: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Paulo Coelho'
+                        }
+                    }
+                }
+            }
+        }
+        23: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Veronica decide morir'
+                        }
+                    }
+                }
+            }
+        }
+        24: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Paulo Coelho'
+                        }
+                    }
+                }
+            }
+        }
+        25: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Planeta'
+                        }
+                    }
+                }
+            }
+        }
+        26: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Paulo Coelho'
+                        }
+                    }
+                }
+            }
+        }
+        27: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'Planeta'
+                        }
+                    }
+                }
+            }
+        }
+        28: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        29: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        30: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        31: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor ''
+                        }
+                    }
+                }
+            }
+        }
+        32: Oracion {
+            cref Contenido contenido Contenido {
+                cref Simple simple Simple {
+                    cref Expresion expresion_izq Expresion {
+                        cref EObject expresion Literal {
+                            attr EString valor 'El Principito'
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}"
+	println(expected.equals(EmfFormatter.objToStr(parsedOCL)));
+	Assert.assertEquals(expected, EmfFormatter.objToStr(parsedOCL));
 	}
 
 }

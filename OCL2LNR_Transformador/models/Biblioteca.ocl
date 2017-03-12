@@ -1,6 +1,6 @@
 
 import 'Biblioteca.ecore'
-
+--OCL del usuario
 package Biblioteca
 
 	context Biblioteca
@@ -80,9 +80,9 @@ package Biblioteca
 --	--Casos que la gramatica no son posibles de traducir.
 	context Biblioteca 
 		inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
---		inv select_exist: self.libros->select(l| l.autor.nombre = 'Paulo Coelho' and l.titulo = 'Veronica decide morir')->size() > 0
---		inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
---		inv select_forAll: self.libros->forAll(l| l.autor.nombre = 'Paulo Coelho' implies l.editorial = 'Planeta')
+		inv select_exist: self.libros->select(l| l.autor.nombre = 'Paulo Coelho' and l.titulo = 'Veronica decide morir')->size() > 0
+		inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
+		inv select_forAll: self.libros->forAll(l| l.autor.nombre = 'Paulo Coelho' implies l.editorial = 'Planeta')
 
 --	context Libro
 

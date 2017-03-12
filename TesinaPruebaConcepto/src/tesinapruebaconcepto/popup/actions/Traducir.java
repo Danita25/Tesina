@@ -104,7 +104,9 @@ public class Traducir implements IObjectActionDelegate {
 		TraducirDesdeXtext xtext = new TraducirDesdeXtext();
 		FileInputStream f = new FileInputStream(FilePathXmiStr);
 		EObject result = xtext.parseXmi(f);
-		System.out.println(xtext.serialize(result));
+		String traduccion = xtext.serialize(result);
+		System.out.println("TEST PASSED ==>"+xtext.testOutput(traduccion));
+		System.out.println(traduccion);
 		String srcDir = (sourceFile.getLocation().removeLastSegments(2).toString())+"/";
 	    DateFormat df = new SimpleDateFormat("dd-MM-yy-HHmmss");
 		String now = df.format(new Date()).toString();
@@ -120,6 +122,7 @@ public class Traducir implements IObjectActionDelegate {
 		
 		//Refresh del projecto de usuaio para mostrar el nuevo archivo generado.
 		sourceFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
+
 	}
 
 	private void copyRequiredFiles(IFile sourceFile) throws IOException
@@ -159,4 +162,5 @@ public class Traducir implements IObjectActionDelegate {
 		this.ecorePackage = ecorePackage;
 	}
 	
+
 }
