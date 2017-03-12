@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getObligacion <em>Obligacion</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getAfirmacion <em>Afirmacion</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getOperacion <em>Operacion</em>}</li>
  * </ul>
  *
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Comparacion extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Obligacion</b></em>' containment reference.
+   * Returns the value of the '<em><b>Afirmacion</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Obligacion</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Afirmacion</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Obligacion</em>' containment reference.
-   * @see #setObligacion(Obligacion)
-   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getComparacion_Obligacion()
+   * @return the value of the '<em>Afirmacion</em>' containment reference.
+   * @see #setAfirmacion(Afirmacion)
+   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getComparacion_Afirmacion()
    * @model containment="true"
    * @generated
    */
-  Obligacion getObligacion();
+  Afirmacion getAfirmacion();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getObligacion <em>Obligacion</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getAfirmacion <em>Afirmacion</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Obligacion</em>' containment reference.
-   * @see #getObligacion()
+   * @param value the new value of the '<em>Afirmacion</em>' containment reference.
+   * @see #getAfirmacion()
    * @generated
    */
-  void setObligacion(Obligacion value);
+  void setAfirmacion(Afirmacion value);
 
   /**
    * Returns the value of the '<em><b>Operacion</b></em>' containment reference.

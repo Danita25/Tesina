@@ -21,7 +21,7 @@ import org.xtext.tesina.lenguajeNaturalReducido.Literal;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.LiteralImpl#getValor <em>Valor</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.LiteralImpl#getLiteral <em>Literal</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import org.xtext.tesina.lenguajeNaturalReducido.Literal;
 public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
 {
   /**
-   * The default value of the '{@link #getValor() <em>Valor</em>}' attribute.
+   * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValor()
+   * @see #getLiteral()
    * @generated
    * @ordered
    */
-  protected static final String VALOR_EDEFAULT = null;
+  protected static final String LITERAL_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getValor() <em>Valor</em>}' attribute.
+   * The cached value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValor()
+   * @see #getLiteral()
    * @generated
    * @ordered
    */
-  protected String valor = VALOR_EDEFAULT;
+  protected String literal = LITERAL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValor()
+  public String getLiteral()
   {
-    return valor;
+    return literal;
   }
 
   /**
@@ -84,12 +84,12 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValor(String newValor)
+  public void setLiteral(String newLiteral)
   {
-    String oldValor = valor;
-    valor = newValor;
+    String oldLiteral = literal;
+    literal = newLiteral;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.LITERAL__VALOR, oldValor, valor));
+      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.LITERAL__LITERAL, oldLiteral, literal));
   }
 
   /**
@@ -102,8 +102,8 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.LITERAL__VALOR:
-        return getValor();
+      case LenguajeNaturalReducidoPackage.LITERAL__LITERAL:
+        return getLiteral();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.LITERAL__VALOR:
-        setValor((String)newValue);
+      case LenguajeNaturalReducidoPackage.LITERAL__LITERAL:
+        setLiteral((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.LITERAL__VALOR:
-        setValor(VALOR_EDEFAULT);
+      case LenguajeNaturalReducidoPackage.LITERAL__LITERAL:
+        setLiteral(LITERAL_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.LITERAL__VALOR:
-        return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
+      case LenguajeNaturalReducidoPackage.LITERAL__LITERAL:
+        return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
     }
     return super.eIsSet(featureID);
   }
@@ -169,8 +169,8 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (valor: ");
-    result.append(valor);
+    result.append(" (literal: ");
+    result.append(literal);
     result.append(')');
     return result.toString();
   }

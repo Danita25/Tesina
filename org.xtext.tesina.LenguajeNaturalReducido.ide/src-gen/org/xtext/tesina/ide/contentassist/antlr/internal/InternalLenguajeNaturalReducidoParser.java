@@ -22,9 +22,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLenguajeNaturalReducidoParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.\\r\\n'", "'y'", "'o'", "'entonces'", "'tal que'", "'satisfacen que'", "'existe uno tal que'", "'el/la'", "'todos los/las'", "'existe un'", "'entre los'", "'mayor que'", "'menor que'", "'igual a'", "'mayor o igual a'", "'menor o igual a'", "'distinto de'", "'si'", "'cantidad de'", "'de'", "'un/una'", "'no'", "'es'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.\\r\\n'", "'y'", "'o'", "'entonces'", "'tal que'", "'satisfacen que'", "'existe uno/una tal que'", "'el/la'", "'todos los/las'", "'entre los/las'", "'mayor que'", "'menor que'", "'igual a'", "'mayor o igual a'", "'menor o igual a'", "'distinto de'", "'si'", "'cantidad de'", "'de'", "'un/una'", "'no'", "'es'"
     };
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -32,7 +32,6 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int T__33=33;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
@@ -40,7 +39,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
@@ -651,31 +650,31 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "ruleNexo"
-    // InternalLenguajeNaturalReducido.g:237:1: ruleNexo : ( ( rule__Nexo__ValorAssignment ) ) ;
+    // InternalLenguajeNaturalReducido.g:237:1: ruleNexo : ( ( rule__Nexo__NexoAssignment ) ) ;
     public final void ruleNexo() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:241:2: ( ( ( rule__Nexo__ValorAssignment ) ) )
-            // InternalLenguajeNaturalReducido.g:242:2: ( ( rule__Nexo__ValorAssignment ) )
+            // InternalLenguajeNaturalReducido.g:241:2: ( ( ( rule__Nexo__NexoAssignment ) ) )
+            // InternalLenguajeNaturalReducido.g:242:2: ( ( rule__Nexo__NexoAssignment ) )
             {
-            // InternalLenguajeNaturalReducido.g:242:2: ( ( rule__Nexo__ValorAssignment ) )
-            // InternalLenguajeNaturalReducido.g:243:3: ( rule__Nexo__ValorAssignment )
+            // InternalLenguajeNaturalReducido.g:242:2: ( ( rule__Nexo__NexoAssignment ) )
+            // InternalLenguajeNaturalReducido.g:243:3: ( rule__Nexo__NexoAssignment )
             {
-             before(grammarAccess.getNexoAccess().getValorAssignment()); 
-            // InternalLenguajeNaturalReducido.g:244:3: ( rule__Nexo__ValorAssignment )
-            // InternalLenguajeNaturalReducido.g:244:4: rule__Nexo__ValorAssignment
+             before(grammarAccess.getNexoAccess().getNexoAssignment()); 
+            // InternalLenguajeNaturalReducido.g:244:3: ( rule__Nexo__NexoAssignment )
+            // InternalLenguajeNaturalReducido.g:244:4: rule__Nexo__NexoAssignment
             {
             pushFollow(FOLLOW_2);
-            rule__Nexo__ValorAssignment();
+            rule__Nexo__NexoAssignment();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getNexoAccess().getValorAssignment()); 
+             after(grammarAccess.getNexoAccess().getNexoAssignment()); 
 
             }
 
@@ -1159,20 +1158,20 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "ruleTermino"
 
 
-    // $ANTLR start "entryRuleObligacion"
-    // InternalLenguajeNaturalReducido.g:403:1: entryRuleObligacion : ruleObligacion EOF ;
-    public final void entryRuleObligacion() throws RecognitionException {
+    // $ANTLR start "entryRuleAfirmacion"
+    // InternalLenguajeNaturalReducido.g:403:1: entryRuleAfirmacion : ruleAfirmacion EOF ;
+    public final void entryRuleAfirmacion() throws RecognitionException {
         try {
-            // InternalLenguajeNaturalReducido.g:404:1: ( ruleObligacion EOF )
-            // InternalLenguajeNaturalReducido.g:405:1: ruleObligacion EOF
+            // InternalLenguajeNaturalReducido.g:404:1: ( ruleAfirmacion EOF )
+            // InternalLenguajeNaturalReducido.g:405:1: ruleAfirmacion EOF
             {
-             before(grammarAccess.getObligacionRule()); 
+             before(grammarAccess.getAfirmacionRule()); 
             pushFollow(FOLLOW_1);
-            ruleObligacion();
+            ruleAfirmacion();
 
             state._fsp--;
 
-             after(grammarAccess.getObligacionRule()); 
+             after(grammarAccess.getAfirmacionRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1186,35 +1185,35 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "entryRuleObligacion"
+    // $ANTLR end "entryRuleAfirmacion"
 
 
-    // $ANTLR start "ruleObligacion"
-    // InternalLenguajeNaturalReducido.g:412:1: ruleObligacion : ( ( rule__Obligacion__Group__0 ) ) ;
-    public final void ruleObligacion() throws RecognitionException {
+    // $ANTLR start "ruleAfirmacion"
+    // InternalLenguajeNaturalReducido.g:412:1: ruleAfirmacion : ( ( rule__Afirmacion__Group__0 ) ) ;
+    public final void ruleAfirmacion() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:416:2: ( ( ( rule__Obligacion__Group__0 ) ) )
-            // InternalLenguajeNaturalReducido.g:417:2: ( ( rule__Obligacion__Group__0 ) )
+            // InternalLenguajeNaturalReducido.g:416:2: ( ( ( rule__Afirmacion__Group__0 ) ) )
+            // InternalLenguajeNaturalReducido.g:417:2: ( ( rule__Afirmacion__Group__0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:417:2: ( ( rule__Obligacion__Group__0 ) )
-            // InternalLenguajeNaturalReducido.g:418:3: ( rule__Obligacion__Group__0 )
+            // InternalLenguajeNaturalReducido.g:417:2: ( ( rule__Afirmacion__Group__0 ) )
+            // InternalLenguajeNaturalReducido.g:418:3: ( rule__Afirmacion__Group__0 )
             {
-             before(grammarAccess.getObligacionAccess().getGroup()); 
-            // InternalLenguajeNaturalReducido.g:419:3: ( rule__Obligacion__Group__0 )
-            // InternalLenguajeNaturalReducido.g:419:4: rule__Obligacion__Group__0
+             before(grammarAccess.getAfirmacionAccess().getGroup()); 
+            // InternalLenguajeNaturalReducido.g:419:3: ( rule__Afirmacion__Group__0 )
+            // InternalLenguajeNaturalReducido.g:419:4: rule__Afirmacion__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Obligacion__Group__0();
+            rule__Afirmacion__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getObligacionAccess().getGroup()); 
+             after(grammarAccess.getAfirmacionAccess().getGroup()); 
 
             }
 
@@ -1233,7 +1232,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "ruleObligacion"
+    // $ANTLR end "ruleAfirmacion"
 
 
     // $ANTLR start "entryRuleOperacion"
@@ -1344,31 +1343,31 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "ruleLiteral"
-    // InternalLenguajeNaturalReducido.g:462:1: ruleLiteral : ( ( rule__Literal__ValorAssignment ) ) ;
+    // InternalLenguajeNaturalReducido.g:462:1: ruleLiteral : ( ( rule__Literal__LiteralAssignment ) ) ;
     public final void ruleLiteral() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:466:2: ( ( ( rule__Literal__ValorAssignment ) ) )
-            // InternalLenguajeNaturalReducido.g:467:2: ( ( rule__Literal__ValorAssignment ) )
+            // InternalLenguajeNaturalReducido.g:466:2: ( ( ( rule__Literal__LiteralAssignment ) ) )
+            // InternalLenguajeNaturalReducido.g:467:2: ( ( rule__Literal__LiteralAssignment ) )
             {
-            // InternalLenguajeNaturalReducido.g:467:2: ( ( rule__Literal__ValorAssignment ) )
-            // InternalLenguajeNaturalReducido.g:468:3: ( rule__Literal__ValorAssignment )
+            // InternalLenguajeNaturalReducido.g:467:2: ( ( rule__Literal__LiteralAssignment ) )
+            // InternalLenguajeNaturalReducido.g:468:3: ( rule__Literal__LiteralAssignment )
             {
-             before(grammarAccess.getLiteralAccess().getValorAssignment()); 
-            // InternalLenguajeNaturalReducido.g:469:3: ( rule__Literal__ValorAssignment )
-            // InternalLenguajeNaturalReducido.g:469:4: rule__Literal__ValorAssignment
+             before(grammarAccess.getLiteralAccess().getLiteralAssignment()); 
+            // InternalLenguajeNaturalReducido.g:469:3: ( rule__Literal__LiteralAssignment )
+            // InternalLenguajeNaturalReducido.g:469:4: rule__Literal__LiteralAssignment
             {
             pushFollow(FOLLOW_2);
-            rule__Literal__ValorAssignment();
+            rule__Literal__LiteralAssignment();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getLiteralAccess().getValorAssignment()); 
+             after(grammarAccess.getLiteralAccess().getLiteralAssignment()); 
 
             }
 
@@ -1390,9 +1389,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "ruleLiteral"
 
 
-    // $ANTLR start "rule__Nexo__ValorAlternatives_0"
-    // InternalLenguajeNaturalReducido.g:477:1: rule__Nexo__ValorAlternatives_0 : ( ( 'y' ) | ( 'o' ) | ( 'entonces' ) );
-    public final void rule__Nexo__ValorAlternatives_0() throws RecognitionException {
+    // $ANTLR start "rule__Nexo__NexoAlternatives_0"
+    // InternalLenguajeNaturalReducido.g:477:1: rule__Nexo__NexoAlternatives_0 : ( ( 'y' ) | ( 'o' ) | ( 'entonces' ) );
+    public final void rule__Nexo__NexoAlternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -1429,9 +1428,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     // InternalLenguajeNaturalReducido.g:482:2: ( 'y' )
                     // InternalLenguajeNaturalReducido.g:483:3: 'y'
                     {
-                     before(grammarAccess.getNexoAccess().getValorYKeyword_0_0()); 
+                     before(grammarAccess.getNexoAccess().getNexoYKeyword_0_0()); 
                     match(input,12,FOLLOW_2); 
-                     after(grammarAccess.getNexoAccess().getValorYKeyword_0_0()); 
+                     after(grammarAccess.getNexoAccess().getNexoYKeyword_0_0()); 
 
                     }
 
@@ -1444,9 +1443,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     // InternalLenguajeNaturalReducido.g:488:2: ( 'o' )
                     // InternalLenguajeNaturalReducido.g:489:3: 'o'
                     {
-                     before(grammarAccess.getNexoAccess().getValorOKeyword_0_1()); 
+                     before(grammarAccess.getNexoAccess().getNexoOKeyword_0_1()); 
                     match(input,13,FOLLOW_2); 
-                     after(grammarAccess.getNexoAccess().getValorOKeyword_0_1()); 
+                     after(grammarAccess.getNexoAccess().getNexoOKeyword_0_1()); 
 
                     }
 
@@ -1459,9 +1458,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     // InternalLenguajeNaturalReducido.g:494:2: ( 'entonces' )
                     // InternalLenguajeNaturalReducido.g:495:3: 'entonces'
                     {
-                     before(grammarAccess.getNexoAccess().getValorEntoncesKeyword_0_2()); 
+                     before(grammarAccess.getNexoAccess().getNexoEntoncesKeyword_0_2()); 
                     match(input,14,FOLLOW_2); 
-                     after(grammarAccess.getNexoAccess().getValorEntoncesKeyword_0_2()); 
+                     after(grammarAccess.getNexoAccess().getNexoEntoncesKeyword_0_2()); 
 
                     }
 
@@ -1482,7 +1481,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Nexo__ValorAlternatives_0"
+    // $ANTLR end "rule__Nexo__NexoAlternatives_0"
 
 
     // $ANTLR start "rule__Expresion__ExpresionAlternatives_0"
@@ -1499,7 +1498,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
             if ( (LA2_0==RULE_STRING) ) {
                 alt2=1;
             }
-            else if ( ((LA2_0>=18 && LA2_0<=21)) ) {
+            else if ( ((LA2_0>=18 && LA2_0<=20)) ) {
                 alt2=2;
             }
             else {
@@ -1564,14 +1563,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Expresion__ExpresionAlternatives_0"
 
 
-    // $ANTLR start "rule__Iteracion__ConectorAlternatives_0_0"
-    // InternalLenguajeNaturalReducido.g:525:1: rule__Iteracion__ConectorAlternatives_0_0 : ( ( 'tal que' ) | ( 'satisfacen que' ) | ( 'existe uno tal que' ) );
-    public final void rule__Iteracion__ConectorAlternatives_0_0() throws RecognitionException {
+    // $ANTLR start "rule__Iteracion__CondicionAlternatives_0_0"
+    // InternalLenguajeNaturalReducido.g:525:1: rule__Iteracion__CondicionAlternatives_0_0 : ( ( 'tal que' ) | ( 'satisfacen que' ) | ( 'existe uno/una tal que' ) );
+    public final void rule__Iteracion__CondicionAlternatives_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:529:1: ( ( 'tal que' ) | ( 'satisfacen que' ) | ( 'existe uno tal que' ) )
+            // InternalLenguajeNaturalReducido.g:529:1: ( ( 'tal que' ) | ( 'satisfacen que' ) | ( 'existe uno/una tal que' ) )
             int alt3=3;
             switch ( input.LA(1) ) {
             case 15:
@@ -1603,9 +1602,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     // InternalLenguajeNaturalReducido.g:530:2: ( 'tal que' )
                     // InternalLenguajeNaturalReducido.g:531:3: 'tal que'
                     {
-                     before(grammarAccess.getIteracionAccess().getConectorTalQueKeyword_0_0_0()); 
+                     before(grammarAccess.getIteracionAccess().getCondicionTalQueKeyword_0_0_0()); 
                     match(input,15,FOLLOW_2); 
-                     after(grammarAccess.getIteracionAccess().getConectorTalQueKeyword_0_0_0()); 
+                     after(grammarAccess.getIteracionAccess().getCondicionTalQueKeyword_0_0_0()); 
 
                     }
 
@@ -1618,9 +1617,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     // InternalLenguajeNaturalReducido.g:536:2: ( 'satisfacen que' )
                     // InternalLenguajeNaturalReducido.g:537:3: 'satisfacen que'
                     {
-                     before(grammarAccess.getIteracionAccess().getConectorSatisfacenQueKeyword_0_0_1()); 
+                     before(grammarAccess.getIteracionAccess().getCondicionSatisfacenQueKeyword_0_0_1()); 
                     match(input,16,FOLLOW_2); 
-                     after(grammarAccess.getIteracionAccess().getConectorSatisfacenQueKeyword_0_0_1()); 
+                     after(grammarAccess.getIteracionAccess().getCondicionSatisfacenQueKeyword_0_0_1()); 
 
                     }
 
@@ -1628,14 +1627,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     }
                     break;
                 case 3 :
-                    // InternalLenguajeNaturalReducido.g:542:2: ( 'existe uno tal que' )
+                    // InternalLenguajeNaturalReducido.g:542:2: ( 'existe uno/una tal que' )
                     {
-                    // InternalLenguajeNaturalReducido.g:542:2: ( 'existe uno tal que' )
-                    // InternalLenguajeNaturalReducido.g:543:3: 'existe uno tal que'
+                    // InternalLenguajeNaturalReducido.g:542:2: ( 'existe uno/una tal que' )
+                    // InternalLenguajeNaturalReducido.g:543:3: 'existe uno/una tal que'
                     {
-                     before(grammarAccess.getIteracionAccess().getConectorExisteUnoTalQueKeyword_0_0_2()); 
+                     before(grammarAccess.getIteracionAccess().getCondicionExisteUnoUnaTalQueKeyword_0_0_2()); 
                     match(input,17,FOLLOW_2); 
-                     after(grammarAccess.getIteracionAccess().getConectorExisteUnoTalQueKeyword_0_0_2()); 
+                     after(grammarAccess.getIteracionAccess().getCondicionExisteUnoUnaTalQueKeyword_0_0_2()); 
 
                     }
 
@@ -1656,18 +1655,18 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Iteracion__ConectorAlternatives_0_0"
+    // $ANTLR end "rule__Iteracion__CondicionAlternatives_0_0"
 
 
     // $ANTLR start "rule__Atributo__DeterminanteAlternatives_0_0"
-    // InternalLenguajeNaturalReducido.g:552:1: rule__Atributo__DeterminanteAlternatives_0_0 : ( ( 'el/la' ) | ( 'todos los/las' ) | ( 'existe un' ) | ( 'entre los' ) );
+    // InternalLenguajeNaturalReducido.g:552:1: rule__Atributo__DeterminanteAlternatives_0_0 : ( ( 'el/la' ) | ( 'todos los/las' ) | ( 'entre los/las' ) );
     public final void rule__Atributo__DeterminanteAlternatives_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:556:1: ( ( 'el/la' ) | ( 'todos los/las' ) | ( 'existe un' ) | ( 'entre los' ) )
-            int alt4=4;
+            // InternalLenguajeNaturalReducido.g:556:1: ( ( 'el/la' ) | ( 'todos los/las' ) | ( 'entre los/las' ) )
+            int alt4=3;
             switch ( input.LA(1) ) {
             case 18:
                 {
@@ -1682,11 +1681,6 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
             case 20:
                 {
                 alt4=3;
-                }
-                break;
-            case 21:
-                {
-                alt4=4;
                 }
                 break;
             default:
@@ -1728,29 +1722,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     }
                     break;
                 case 3 :
-                    // InternalLenguajeNaturalReducido.g:569:2: ( 'existe un' )
+                    // InternalLenguajeNaturalReducido.g:569:2: ( 'entre los/las' )
                     {
-                    // InternalLenguajeNaturalReducido.g:569:2: ( 'existe un' )
-                    // InternalLenguajeNaturalReducido.g:570:3: 'existe un'
+                    // InternalLenguajeNaturalReducido.g:569:2: ( 'entre los/las' )
+                    // InternalLenguajeNaturalReducido.g:570:3: 'entre los/las'
                     {
-                     before(grammarAccess.getAtributoAccess().getDeterminanteExisteUnKeyword_0_0_2()); 
+                     before(grammarAccess.getAtributoAccess().getDeterminanteEntreLosLasKeyword_0_0_2()); 
                     match(input,20,FOLLOW_2); 
-                     after(grammarAccess.getAtributoAccess().getDeterminanteExisteUnKeyword_0_0_2()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalLenguajeNaturalReducido.g:575:2: ( 'entre los' )
-                    {
-                    // InternalLenguajeNaturalReducido.g:575:2: ( 'entre los' )
-                    // InternalLenguajeNaturalReducido.g:576:3: 'entre los'
-                    {
-                     before(grammarAccess.getAtributoAccess().getDeterminanteEntreLosKeyword_0_0_3()); 
-                    match(input,21,FOLLOW_2); 
-                     after(grammarAccess.getAtributoAccess().getDeterminanteEntreLosKeyword_0_0_3()); 
+                     after(grammarAccess.getAtributoAccess().getDeterminanteEntreLosLasKeyword_0_0_2()); 
 
                     }
 
@@ -1775,41 +1754,41 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Operacion__OperacionAlternatives_0"
-    // InternalLenguajeNaturalReducido.g:585:1: rule__Operacion__OperacionAlternatives_0 : ( ( 'mayor que' ) | ( 'menor que' ) | ( 'igual a' ) | ( 'mayor o igual a' ) | ( 'menor o igual a' ) | ( 'distinto de' ) );
+    // InternalLenguajeNaturalReducido.g:579:1: rule__Operacion__OperacionAlternatives_0 : ( ( 'mayor que' ) | ( 'menor que' ) | ( 'igual a' ) | ( 'mayor o igual a' ) | ( 'menor o igual a' ) | ( 'distinto de' ) );
     public final void rule__Operacion__OperacionAlternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:589:1: ( ( 'mayor que' ) | ( 'menor que' ) | ( 'igual a' ) | ( 'mayor o igual a' ) | ( 'menor o igual a' ) | ( 'distinto de' ) )
+            // InternalLenguajeNaturalReducido.g:583:1: ( ( 'mayor que' ) | ( 'menor que' ) | ( 'igual a' ) | ( 'mayor o igual a' ) | ( 'menor o igual a' ) | ( 'distinto de' ) )
             int alt5=6;
             switch ( input.LA(1) ) {
-            case 22:
+            case 21:
                 {
                 alt5=1;
                 }
                 break;
-            case 23:
+            case 22:
                 {
                 alt5=2;
                 }
                 break;
-            case 24:
+            case 23:
                 {
                 alt5=3;
                 }
                 break;
-            case 25:
+            case 24:
                 {
                 alt5=4;
                 }
                 break;
-            case 26:
+            case 25:
                 {
                 alt5=5;
                 }
                 break;
-            case 27:
+            case 26:
                 {
                 alt5=6;
                 }
@@ -1823,13 +1802,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
             switch (alt5) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:590:2: ( 'mayor que' )
+                    // InternalLenguajeNaturalReducido.g:584:2: ( 'mayor que' )
                     {
-                    // InternalLenguajeNaturalReducido.g:590:2: ( 'mayor que' )
-                    // InternalLenguajeNaturalReducido.g:591:3: 'mayor que'
+                    // InternalLenguajeNaturalReducido.g:584:2: ( 'mayor que' )
+                    // InternalLenguajeNaturalReducido.g:585:3: 'mayor que'
                     {
                      before(grammarAccess.getOperacionAccess().getOperacionMayorQueKeyword_0_0()); 
-                    match(input,22,FOLLOW_2); 
+                    match(input,21,FOLLOW_2); 
                      after(grammarAccess.getOperacionAccess().getOperacionMayorQueKeyword_0_0()); 
 
                     }
@@ -1838,13 +1817,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     }
                     break;
                 case 2 :
-                    // InternalLenguajeNaturalReducido.g:596:2: ( 'menor que' )
+                    // InternalLenguajeNaturalReducido.g:590:2: ( 'menor que' )
                     {
-                    // InternalLenguajeNaturalReducido.g:596:2: ( 'menor que' )
-                    // InternalLenguajeNaturalReducido.g:597:3: 'menor que'
+                    // InternalLenguajeNaturalReducido.g:590:2: ( 'menor que' )
+                    // InternalLenguajeNaturalReducido.g:591:3: 'menor que'
                     {
                      before(grammarAccess.getOperacionAccess().getOperacionMenorQueKeyword_0_1()); 
-                    match(input,23,FOLLOW_2); 
+                    match(input,22,FOLLOW_2); 
                      after(grammarAccess.getOperacionAccess().getOperacionMenorQueKeyword_0_1()); 
 
                     }
@@ -1853,13 +1832,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     }
                     break;
                 case 3 :
-                    // InternalLenguajeNaturalReducido.g:602:2: ( 'igual a' )
+                    // InternalLenguajeNaturalReducido.g:596:2: ( 'igual a' )
                     {
-                    // InternalLenguajeNaturalReducido.g:602:2: ( 'igual a' )
-                    // InternalLenguajeNaturalReducido.g:603:3: 'igual a'
+                    // InternalLenguajeNaturalReducido.g:596:2: ( 'igual a' )
+                    // InternalLenguajeNaturalReducido.g:597:3: 'igual a'
                     {
                      before(grammarAccess.getOperacionAccess().getOperacionIgualAKeyword_0_2()); 
-                    match(input,24,FOLLOW_2); 
+                    match(input,23,FOLLOW_2); 
                      after(grammarAccess.getOperacionAccess().getOperacionIgualAKeyword_0_2()); 
 
                     }
@@ -1868,13 +1847,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     }
                     break;
                 case 4 :
-                    // InternalLenguajeNaturalReducido.g:608:2: ( 'mayor o igual a' )
+                    // InternalLenguajeNaturalReducido.g:602:2: ( 'mayor o igual a' )
                     {
-                    // InternalLenguajeNaturalReducido.g:608:2: ( 'mayor o igual a' )
-                    // InternalLenguajeNaturalReducido.g:609:3: 'mayor o igual a'
+                    // InternalLenguajeNaturalReducido.g:602:2: ( 'mayor o igual a' )
+                    // InternalLenguajeNaturalReducido.g:603:3: 'mayor o igual a'
                     {
                      before(grammarAccess.getOperacionAccess().getOperacionMayorOIgualAKeyword_0_3()); 
-                    match(input,25,FOLLOW_2); 
+                    match(input,24,FOLLOW_2); 
                      after(grammarAccess.getOperacionAccess().getOperacionMayorOIgualAKeyword_0_3()); 
 
                     }
@@ -1883,13 +1862,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     }
                     break;
                 case 5 :
-                    // InternalLenguajeNaturalReducido.g:614:2: ( 'menor o igual a' )
+                    // InternalLenguajeNaturalReducido.g:608:2: ( 'menor o igual a' )
                     {
-                    // InternalLenguajeNaturalReducido.g:614:2: ( 'menor o igual a' )
-                    // InternalLenguajeNaturalReducido.g:615:3: 'menor o igual a'
+                    // InternalLenguajeNaturalReducido.g:608:2: ( 'menor o igual a' )
+                    // InternalLenguajeNaturalReducido.g:609:3: 'menor o igual a'
                     {
                      before(grammarAccess.getOperacionAccess().getOperacionMenorOIgualAKeyword_0_4()); 
-                    match(input,26,FOLLOW_2); 
+                    match(input,25,FOLLOW_2); 
                      after(grammarAccess.getOperacionAccess().getOperacionMenorOIgualAKeyword_0_4()); 
 
                     }
@@ -1898,13 +1877,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
                     }
                     break;
                 case 6 :
-                    // InternalLenguajeNaturalReducido.g:620:2: ( 'distinto de' )
+                    // InternalLenguajeNaturalReducido.g:614:2: ( 'distinto de' )
                     {
-                    // InternalLenguajeNaturalReducido.g:620:2: ( 'distinto de' )
-                    // InternalLenguajeNaturalReducido.g:621:3: 'distinto de'
+                    // InternalLenguajeNaturalReducido.g:614:2: ( 'distinto de' )
+                    // InternalLenguajeNaturalReducido.g:615:3: 'distinto de'
                     {
                      before(grammarAccess.getOperacionAccess().getOperacionDistintoDeKeyword_0_5()); 
-                    match(input,27,FOLLOW_2); 
+                    match(input,26,FOLLOW_2); 
                      after(grammarAccess.getOperacionAccess().getOperacionDistintoDeKeyword_0_5()); 
 
                     }
@@ -1930,14 +1909,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Documento__Group__0"
-    // InternalLenguajeNaturalReducido.g:630:1: rule__Documento__Group__0 : rule__Documento__Group__0__Impl rule__Documento__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:624:1: rule__Documento__Group__0 : rule__Documento__Group__0__Impl rule__Documento__Group__1 ;
     public final void rule__Documento__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:634:1: ( rule__Documento__Group__0__Impl rule__Documento__Group__1 )
-            // InternalLenguajeNaturalReducido.g:635:2: rule__Documento__Group__0__Impl rule__Documento__Group__1
+            // InternalLenguajeNaturalReducido.g:628:1: ( rule__Documento__Group__0__Impl rule__Documento__Group__1 )
+            // InternalLenguajeNaturalReducido.g:629:2: rule__Documento__Group__0__Impl rule__Documento__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Documento__Group__0__Impl();
@@ -1968,21 +1947,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Documento__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:642:1: rule__Documento__Group__0__Impl : ( ( rule__Documento__EncabezadoAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:636:1: rule__Documento__Group__0__Impl : ( ( rule__Documento__EncabezadoAssignment_0 ) ) ;
     public final void rule__Documento__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:646:1: ( ( ( rule__Documento__EncabezadoAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:647:1: ( ( rule__Documento__EncabezadoAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:640:1: ( ( ( rule__Documento__EncabezadoAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:641:1: ( ( rule__Documento__EncabezadoAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:647:1: ( ( rule__Documento__EncabezadoAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:648:2: ( rule__Documento__EncabezadoAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:641:1: ( ( rule__Documento__EncabezadoAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:642:2: ( rule__Documento__EncabezadoAssignment_0 )
             {
              before(grammarAccess.getDocumentoAccess().getEncabezadoAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:649:2: ( rule__Documento__EncabezadoAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:649:3: rule__Documento__EncabezadoAssignment_0
+            // InternalLenguajeNaturalReducido.g:643:2: ( rule__Documento__EncabezadoAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:643:3: rule__Documento__EncabezadoAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Documento__EncabezadoAssignment_0();
@@ -2015,14 +1994,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Documento__Group__1"
-    // InternalLenguajeNaturalReducido.g:657:1: rule__Documento__Group__1 : rule__Documento__Group__1__Impl rule__Documento__Group__2 ;
+    // InternalLenguajeNaturalReducido.g:651:1: rule__Documento__Group__1 : rule__Documento__Group__1__Impl rule__Documento__Group__2 ;
     public final void rule__Documento__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:661:1: ( rule__Documento__Group__1__Impl rule__Documento__Group__2 )
-            // InternalLenguajeNaturalReducido.g:662:2: rule__Documento__Group__1__Impl rule__Documento__Group__2
+            // InternalLenguajeNaturalReducido.g:655:1: ( rule__Documento__Group__1__Impl rule__Documento__Group__2 )
+            // InternalLenguajeNaturalReducido.g:656:2: rule__Documento__Group__1__Impl rule__Documento__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Documento__Group__1__Impl();
@@ -2053,17 +2032,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Documento__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:669:1: rule__Documento__Group__1__Impl : ( ruleFinOracion ) ;
+    // InternalLenguajeNaturalReducido.g:663:1: rule__Documento__Group__1__Impl : ( ruleFinOracion ) ;
     public final void rule__Documento__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:673:1: ( ( ruleFinOracion ) )
-            // InternalLenguajeNaturalReducido.g:674:1: ( ruleFinOracion )
+            // InternalLenguajeNaturalReducido.g:667:1: ( ( ruleFinOracion ) )
+            // InternalLenguajeNaturalReducido.g:668:1: ( ruleFinOracion )
             {
-            // InternalLenguajeNaturalReducido.g:674:1: ( ruleFinOracion )
-            // InternalLenguajeNaturalReducido.g:675:2: ruleFinOracion
+            // InternalLenguajeNaturalReducido.g:668:1: ( ruleFinOracion )
+            // InternalLenguajeNaturalReducido.g:669:2: ruleFinOracion
             {
              before(grammarAccess.getDocumentoAccess().getFinOracionParserRuleCall_1()); 
             pushFollow(FOLLOW_2);
@@ -2094,14 +2073,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Documento__Group__2"
-    // InternalLenguajeNaturalReducido.g:684:1: rule__Documento__Group__2 : rule__Documento__Group__2__Impl ;
+    // InternalLenguajeNaturalReducido.g:678:1: rule__Documento__Group__2 : rule__Documento__Group__2__Impl ;
     public final void rule__Documento__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:688:1: ( rule__Documento__Group__2__Impl )
-            // InternalLenguajeNaturalReducido.g:689:2: rule__Documento__Group__2__Impl
+            // InternalLenguajeNaturalReducido.g:682:1: ( rule__Documento__Group__2__Impl )
+            // InternalLenguajeNaturalReducido.g:683:2: rule__Documento__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Documento__Group__2__Impl();
@@ -2127,33 +2106,33 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Documento__Group__2__Impl"
-    // InternalLenguajeNaturalReducido.g:695:1: rule__Documento__Group__2__Impl : ( ( rule__Documento__OracionesAssignment_2 )* ) ;
+    // InternalLenguajeNaturalReducido.g:689:1: rule__Documento__Group__2__Impl : ( ( rule__Documento__OracionesAssignment_2 )* ) ;
     public final void rule__Documento__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:699:1: ( ( ( rule__Documento__OracionesAssignment_2 )* ) )
-            // InternalLenguajeNaturalReducido.g:700:1: ( ( rule__Documento__OracionesAssignment_2 )* )
+            // InternalLenguajeNaturalReducido.g:693:1: ( ( ( rule__Documento__OracionesAssignment_2 )* ) )
+            // InternalLenguajeNaturalReducido.g:694:1: ( ( rule__Documento__OracionesAssignment_2 )* )
             {
-            // InternalLenguajeNaturalReducido.g:700:1: ( ( rule__Documento__OracionesAssignment_2 )* )
-            // InternalLenguajeNaturalReducido.g:701:2: ( rule__Documento__OracionesAssignment_2 )*
+            // InternalLenguajeNaturalReducido.g:694:1: ( ( rule__Documento__OracionesAssignment_2 )* )
+            // InternalLenguajeNaturalReducido.g:695:2: ( rule__Documento__OracionesAssignment_2 )*
             {
              before(grammarAccess.getDocumentoAccess().getOracionesAssignment_2()); 
-            // InternalLenguajeNaturalReducido.g:702:2: ( rule__Documento__OracionesAssignment_2 )*
+            // InternalLenguajeNaturalReducido.g:696:2: ( rule__Documento__OracionesAssignment_2 )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==RULE_STRING||(LA6_0>=18 && LA6_0<=21)||LA6_0==28) ) {
+                if ( (LA6_0==RULE_STRING||(LA6_0>=18 && LA6_0<=20)||LA6_0==27) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalLenguajeNaturalReducido.g:702:3: rule__Documento__OracionesAssignment_2
+            	    // InternalLenguajeNaturalReducido.g:696:3: rule__Documento__OracionesAssignment_2
             	    {
             	    pushFollow(FOLLOW_5);
             	    rule__Documento__OracionesAssignment_2();
@@ -2192,14 +2171,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Oracion__Group__0"
-    // InternalLenguajeNaturalReducido.g:711:1: rule__Oracion__Group__0 : rule__Oracion__Group__0__Impl rule__Oracion__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:705:1: rule__Oracion__Group__0 : rule__Oracion__Group__0__Impl rule__Oracion__Group__1 ;
     public final void rule__Oracion__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:715:1: ( rule__Oracion__Group__0__Impl rule__Oracion__Group__1 )
-            // InternalLenguajeNaturalReducido.g:716:2: rule__Oracion__Group__0__Impl rule__Oracion__Group__1
+            // InternalLenguajeNaturalReducido.g:709:1: ( rule__Oracion__Group__0__Impl rule__Oracion__Group__1 )
+            // InternalLenguajeNaturalReducido.g:710:2: rule__Oracion__Group__0__Impl rule__Oracion__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Oracion__Group__0__Impl();
@@ -2230,21 +2209,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Oracion__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:723:1: rule__Oracion__Group__0__Impl : ( ( rule__Oracion__ContenidoAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:717:1: rule__Oracion__Group__0__Impl : ( ( rule__Oracion__ContenidoAssignment_0 ) ) ;
     public final void rule__Oracion__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:727:1: ( ( ( rule__Oracion__ContenidoAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:728:1: ( ( rule__Oracion__ContenidoAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:721:1: ( ( ( rule__Oracion__ContenidoAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:722:1: ( ( rule__Oracion__ContenidoAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:728:1: ( ( rule__Oracion__ContenidoAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:729:2: ( rule__Oracion__ContenidoAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:722:1: ( ( rule__Oracion__ContenidoAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:723:2: ( rule__Oracion__ContenidoAssignment_0 )
             {
              before(grammarAccess.getOracionAccess().getContenidoAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:730:2: ( rule__Oracion__ContenidoAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:730:3: rule__Oracion__ContenidoAssignment_0
+            // InternalLenguajeNaturalReducido.g:724:2: ( rule__Oracion__ContenidoAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:724:3: rule__Oracion__ContenidoAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Oracion__ContenidoAssignment_0();
@@ -2277,14 +2256,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Oracion__Group__1"
-    // InternalLenguajeNaturalReducido.g:738:1: rule__Oracion__Group__1 : rule__Oracion__Group__1__Impl ;
+    // InternalLenguajeNaturalReducido.g:732:1: rule__Oracion__Group__1 : rule__Oracion__Group__1__Impl ;
     public final void rule__Oracion__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:742:1: ( rule__Oracion__Group__1__Impl )
-            // InternalLenguajeNaturalReducido.g:743:2: rule__Oracion__Group__1__Impl
+            // InternalLenguajeNaturalReducido.g:736:1: ( rule__Oracion__Group__1__Impl )
+            // InternalLenguajeNaturalReducido.g:737:2: rule__Oracion__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Oracion__Group__1__Impl();
@@ -2310,17 +2289,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Oracion__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:749:1: rule__Oracion__Group__1__Impl : ( ruleFinOracion ) ;
+    // InternalLenguajeNaturalReducido.g:743:1: rule__Oracion__Group__1__Impl : ( ruleFinOracion ) ;
     public final void rule__Oracion__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:753:1: ( ( ruleFinOracion ) )
-            // InternalLenguajeNaturalReducido.g:754:1: ( ruleFinOracion )
+            // InternalLenguajeNaturalReducido.g:747:1: ( ( ruleFinOracion ) )
+            // InternalLenguajeNaturalReducido.g:748:1: ( ruleFinOracion )
             {
-            // InternalLenguajeNaturalReducido.g:754:1: ( ruleFinOracion )
-            // InternalLenguajeNaturalReducido.g:755:2: ruleFinOracion
+            // InternalLenguajeNaturalReducido.g:748:1: ( ruleFinOracion )
+            // InternalLenguajeNaturalReducido.g:749:2: ruleFinOracion
             {
              before(grammarAccess.getOracionAccess().getFinOracionParserRuleCall_1()); 
             pushFollow(FOLLOW_2);
@@ -2351,14 +2330,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Contenido__Group__0"
-    // InternalLenguajeNaturalReducido.g:765:1: rule__Contenido__Group__0 : rule__Contenido__Group__0__Impl rule__Contenido__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:759:1: rule__Contenido__Group__0 : rule__Contenido__Group__0__Impl rule__Contenido__Group__1 ;
     public final void rule__Contenido__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:769:1: ( rule__Contenido__Group__0__Impl rule__Contenido__Group__1 )
-            // InternalLenguajeNaturalReducido.g:770:2: rule__Contenido__Group__0__Impl rule__Contenido__Group__1
+            // InternalLenguajeNaturalReducido.g:763:1: ( rule__Contenido__Group__0__Impl rule__Contenido__Group__1 )
+            // InternalLenguajeNaturalReducido.g:764:2: rule__Contenido__Group__0__Impl rule__Contenido__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Contenido__Group__0__Impl();
@@ -2389,32 +2368,32 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Contenido__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:777:1: rule__Contenido__Group__0__Impl : ( ( rule__Contenido__PrefijoAssignment_0 )? ) ;
+    // InternalLenguajeNaturalReducido.g:771:1: rule__Contenido__Group__0__Impl : ( ( rule__Contenido__CondicionalAssignment_0 )? ) ;
     public final void rule__Contenido__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:781:1: ( ( ( rule__Contenido__PrefijoAssignment_0 )? ) )
-            // InternalLenguajeNaturalReducido.g:782:1: ( ( rule__Contenido__PrefijoAssignment_0 )? )
+            // InternalLenguajeNaturalReducido.g:775:1: ( ( ( rule__Contenido__CondicionalAssignment_0 )? ) )
+            // InternalLenguajeNaturalReducido.g:776:1: ( ( rule__Contenido__CondicionalAssignment_0 )? )
             {
-            // InternalLenguajeNaturalReducido.g:782:1: ( ( rule__Contenido__PrefijoAssignment_0 )? )
-            // InternalLenguajeNaturalReducido.g:783:2: ( rule__Contenido__PrefijoAssignment_0 )?
+            // InternalLenguajeNaturalReducido.g:776:1: ( ( rule__Contenido__CondicionalAssignment_0 )? )
+            // InternalLenguajeNaturalReducido.g:777:2: ( rule__Contenido__CondicionalAssignment_0 )?
             {
-             before(grammarAccess.getContenidoAccess().getPrefijoAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:784:2: ( rule__Contenido__PrefijoAssignment_0 )?
+             before(grammarAccess.getContenidoAccess().getCondicionalAssignment_0()); 
+            // InternalLenguajeNaturalReducido.g:778:2: ( rule__Contenido__CondicionalAssignment_0 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==28) ) {
+            if ( (LA7_0==27) ) {
                 alt7=1;
             }
             switch (alt7) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:784:3: rule__Contenido__PrefijoAssignment_0
+                    // InternalLenguajeNaturalReducido.g:778:3: rule__Contenido__CondicionalAssignment_0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Contenido__PrefijoAssignment_0();
+                    rule__Contenido__CondicionalAssignment_0();
 
                     state._fsp--;
 
@@ -2424,7 +2403,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
             }
 
-             after(grammarAccess.getContenidoAccess().getPrefijoAssignment_0()); 
+             after(grammarAccess.getContenidoAccess().getCondicionalAssignment_0()); 
 
             }
 
@@ -2447,14 +2426,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Contenido__Group__1"
-    // InternalLenguajeNaturalReducido.g:792:1: rule__Contenido__Group__1 : rule__Contenido__Group__1__Impl rule__Contenido__Group__2 ;
+    // InternalLenguajeNaturalReducido.g:786:1: rule__Contenido__Group__1 : rule__Contenido__Group__1__Impl rule__Contenido__Group__2 ;
     public final void rule__Contenido__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:796:1: ( rule__Contenido__Group__1__Impl rule__Contenido__Group__2 )
-            // InternalLenguajeNaturalReducido.g:797:2: rule__Contenido__Group__1__Impl rule__Contenido__Group__2
+            // InternalLenguajeNaturalReducido.g:790:1: ( rule__Contenido__Group__1__Impl rule__Contenido__Group__2 )
+            // InternalLenguajeNaturalReducido.g:791:2: rule__Contenido__Group__1__Impl rule__Contenido__Group__2
             {
             pushFollow(FOLLOW_6);
             rule__Contenido__Group__1__Impl();
@@ -2485,21 +2464,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Contenido__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:804:1: rule__Contenido__Group__1__Impl : ( ( rule__Contenido__SimpleAssignment_1 ) ) ;
+    // InternalLenguajeNaturalReducido.g:798:1: rule__Contenido__Group__1__Impl : ( ( rule__Contenido__SimpleAssignment_1 ) ) ;
     public final void rule__Contenido__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:808:1: ( ( ( rule__Contenido__SimpleAssignment_1 ) ) )
-            // InternalLenguajeNaturalReducido.g:809:1: ( ( rule__Contenido__SimpleAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:802:1: ( ( ( rule__Contenido__SimpleAssignment_1 ) ) )
+            // InternalLenguajeNaturalReducido.g:803:1: ( ( rule__Contenido__SimpleAssignment_1 ) )
             {
-            // InternalLenguajeNaturalReducido.g:809:1: ( ( rule__Contenido__SimpleAssignment_1 ) )
-            // InternalLenguajeNaturalReducido.g:810:2: ( rule__Contenido__SimpleAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:803:1: ( ( rule__Contenido__SimpleAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:804:2: ( rule__Contenido__SimpleAssignment_1 )
             {
              before(grammarAccess.getContenidoAccess().getSimpleAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:811:2: ( rule__Contenido__SimpleAssignment_1 )
-            // InternalLenguajeNaturalReducido.g:811:3: rule__Contenido__SimpleAssignment_1
+            // InternalLenguajeNaturalReducido.g:805:2: ( rule__Contenido__SimpleAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:805:3: rule__Contenido__SimpleAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Contenido__SimpleAssignment_1();
@@ -2532,14 +2511,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Contenido__Group__2"
-    // InternalLenguajeNaturalReducido.g:819:1: rule__Contenido__Group__2 : rule__Contenido__Group__2__Impl ;
+    // InternalLenguajeNaturalReducido.g:813:1: rule__Contenido__Group__2 : rule__Contenido__Group__2__Impl ;
     public final void rule__Contenido__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:823:1: ( rule__Contenido__Group__2__Impl )
-            // InternalLenguajeNaturalReducido.g:824:2: rule__Contenido__Group__2__Impl
+            // InternalLenguajeNaturalReducido.g:817:1: ( rule__Contenido__Group__2__Impl )
+            // InternalLenguajeNaturalReducido.g:818:2: rule__Contenido__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Contenido__Group__2__Impl();
@@ -2565,20 +2544,20 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Contenido__Group__2__Impl"
-    // InternalLenguajeNaturalReducido.g:830:1: rule__Contenido__Group__2__Impl : ( ( rule__Contenido__ComposicionAssignment_2 )? ) ;
+    // InternalLenguajeNaturalReducido.g:824:1: rule__Contenido__Group__2__Impl : ( ( rule__Contenido__ComposicionAssignment_2 )? ) ;
     public final void rule__Contenido__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:834:1: ( ( ( rule__Contenido__ComposicionAssignment_2 )? ) )
-            // InternalLenguajeNaturalReducido.g:835:1: ( ( rule__Contenido__ComposicionAssignment_2 )? )
+            // InternalLenguajeNaturalReducido.g:828:1: ( ( ( rule__Contenido__ComposicionAssignment_2 )? ) )
+            // InternalLenguajeNaturalReducido.g:829:1: ( ( rule__Contenido__ComposicionAssignment_2 )? )
             {
-            // InternalLenguajeNaturalReducido.g:835:1: ( ( rule__Contenido__ComposicionAssignment_2 )? )
-            // InternalLenguajeNaturalReducido.g:836:2: ( rule__Contenido__ComposicionAssignment_2 )?
+            // InternalLenguajeNaturalReducido.g:829:1: ( ( rule__Contenido__ComposicionAssignment_2 )? )
+            // InternalLenguajeNaturalReducido.g:830:2: ( rule__Contenido__ComposicionAssignment_2 )?
             {
              before(grammarAccess.getContenidoAccess().getComposicionAssignment_2()); 
-            // InternalLenguajeNaturalReducido.g:837:2: ( rule__Contenido__ComposicionAssignment_2 )?
+            // InternalLenguajeNaturalReducido.g:831:2: ( rule__Contenido__ComposicionAssignment_2 )?
             int alt8=2;
             switch ( input.LA(1) ) {
                 case 12:
@@ -2600,7 +2579,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
             switch (alt8) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:837:3: rule__Contenido__ComposicionAssignment_2
+                    // InternalLenguajeNaturalReducido.g:831:3: rule__Contenido__ComposicionAssignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__Contenido__ComposicionAssignment_2();
@@ -2636,14 +2615,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Simple__Group__0"
-    // InternalLenguajeNaturalReducido.g:846:1: rule__Simple__Group__0 : rule__Simple__Group__0__Impl rule__Simple__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:840:1: rule__Simple__Group__0 : rule__Simple__Group__0__Impl rule__Simple__Group__1 ;
     public final void rule__Simple__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:850:1: ( rule__Simple__Group__0__Impl rule__Simple__Group__1 )
-            // InternalLenguajeNaturalReducido.g:851:2: rule__Simple__Group__0__Impl rule__Simple__Group__1
+            // InternalLenguajeNaturalReducido.g:844:1: ( rule__Simple__Group__0__Impl rule__Simple__Group__1 )
+            // InternalLenguajeNaturalReducido.g:845:2: rule__Simple__Group__0__Impl rule__Simple__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Simple__Group__0__Impl();
@@ -2674,21 +2653,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Simple__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:858:1: rule__Simple__Group__0__Impl : ( ( rule__Simple__Expresion_izqAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:852:1: rule__Simple__Group__0__Impl : ( ( rule__Simple__Expresion_izqAssignment_0 ) ) ;
     public final void rule__Simple__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:862:1: ( ( ( rule__Simple__Expresion_izqAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:863:1: ( ( rule__Simple__Expresion_izqAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:856:1: ( ( ( rule__Simple__Expresion_izqAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:857:1: ( ( rule__Simple__Expresion_izqAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:863:1: ( ( rule__Simple__Expresion_izqAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:864:2: ( rule__Simple__Expresion_izqAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:857:1: ( ( rule__Simple__Expresion_izqAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:858:2: ( rule__Simple__Expresion_izqAssignment_0 )
             {
              before(grammarAccess.getSimpleAccess().getExpresion_izqAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:865:2: ( rule__Simple__Expresion_izqAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:865:3: rule__Simple__Expresion_izqAssignment_0
+            // InternalLenguajeNaturalReducido.g:859:2: ( rule__Simple__Expresion_izqAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:859:3: rule__Simple__Expresion_izqAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Simple__Expresion_izqAssignment_0();
@@ -2721,14 +2700,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Simple__Group__1"
-    // InternalLenguajeNaturalReducido.g:873:1: rule__Simple__Group__1 : rule__Simple__Group__1__Impl ;
+    // InternalLenguajeNaturalReducido.g:867:1: rule__Simple__Group__1 : rule__Simple__Group__1__Impl ;
     public final void rule__Simple__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:877:1: ( rule__Simple__Group__1__Impl )
-            // InternalLenguajeNaturalReducido.g:878:2: rule__Simple__Group__1__Impl
+            // InternalLenguajeNaturalReducido.g:871:1: ( rule__Simple__Group__1__Impl )
+            // InternalLenguajeNaturalReducido.g:872:2: rule__Simple__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Simple__Group__1__Impl();
@@ -2754,32 +2733,32 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Simple__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:884:1: rule__Simple__Group__1__Impl : ( ( rule__Simple__Expresion_derAssignment_1 )? ) ;
+    // InternalLenguajeNaturalReducido.g:878:1: rule__Simple__Group__1__Impl : ( ( rule__Simple__Expresion_derAssignment_1 )? ) ;
     public final void rule__Simple__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:888:1: ( ( ( rule__Simple__Expresion_derAssignment_1 )? ) )
-            // InternalLenguajeNaturalReducido.g:889:1: ( ( rule__Simple__Expresion_derAssignment_1 )? )
+            // InternalLenguajeNaturalReducido.g:882:1: ( ( ( rule__Simple__Expresion_derAssignment_1 )? ) )
+            // InternalLenguajeNaturalReducido.g:883:1: ( ( rule__Simple__Expresion_derAssignment_1 )? )
             {
-            // InternalLenguajeNaturalReducido.g:889:1: ( ( rule__Simple__Expresion_derAssignment_1 )? )
-            // InternalLenguajeNaturalReducido.g:890:2: ( rule__Simple__Expresion_derAssignment_1 )?
+            // InternalLenguajeNaturalReducido.g:883:1: ( ( rule__Simple__Expresion_derAssignment_1 )? )
+            // InternalLenguajeNaturalReducido.g:884:2: ( rule__Simple__Expresion_derAssignment_1 )?
             {
              before(grammarAccess.getSimpleAccess().getExpresion_derAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:891:2: ( rule__Simple__Expresion_derAssignment_1 )?
+            // InternalLenguajeNaturalReducido.g:885:2: ( rule__Simple__Expresion_derAssignment_1 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==32) ) {
+            if ( (LA9_0==31) ) {
                 alt9=1;
             }
-            else if ( (LA9_0==33) ) {
+            else if ( (LA9_0==32) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:891:3: rule__Simple__Expresion_derAssignment_1
+                    // InternalLenguajeNaturalReducido.g:885:3: rule__Simple__Expresion_derAssignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__Simple__Expresion_derAssignment_1();
@@ -2815,14 +2794,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__ExpresionDerecha__Group__0"
-    // InternalLenguajeNaturalReducido.g:900:1: rule__ExpresionDerecha__Group__0 : rule__ExpresionDerecha__Group__0__Impl rule__ExpresionDerecha__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:894:1: rule__ExpresionDerecha__Group__0 : rule__ExpresionDerecha__Group__0__Impl rule__ExpresionDerecha__Group__1 ;
     public final void rule__ExpresionDerecha__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:904:1: ( rule__ExpresionDerecha__Group__0__Impl rule__ExpresionDerecha__Group__1 )
-            // InternalLenguajeNaturalReducido.g:905:2: rule__ExpresionDerecha__Group__0__Impl rule__ExpresionDerecha__Group__1
+            // InternalLenguajeNaturalReducido.g:898:1: ( rule__ExpresionDerecha__Group__0__Impl rule__ExpresionDerecha__Group__1 )
+            // InternalLenguajeNaturalReducido.g:899:2: rule__ExpresionDerecha__Group__0__Impl rule__ExpresionDerecha__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__ExpresionDerecha__Group__0__Impl();
@@ -2853,21 +2832,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__ExpresionDerecha__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:912:1: rule__ExpresionDerecha__Group__0__Impl : ( ( rule__ExpresionDerecha__ComparacionAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:906:1: rule__ExpresionDerecha__Group__0__Impl : ( ( rule__ExpresionDerecha__ComparacionAssignment_0 ) ) ;
     public final void rule__ExpresionDerecha__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:916:1: ( ( ( rule__ExpresionDerecha__ComparacionAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:917:1: ( ( rule__ExpresionDerecha__ComparacionAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:910:1: ( ( ( rule__ExpresionDerecha__ComparacionAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:911:1: ( ( rule__ExpresionDerecha__ComparacionAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:917:1: ( ( rule__ExpresionDerecha__ComparacionAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:918:2: ( rule__ExpresionDerecha__ComparacionAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:911:1: ( ( rule__ExpresionDerecha__ComparacionAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:912:2: ( rule__ExpresionDerecha__ComparacionAssignment_0 )
             {
              before(grammarAccess.getExpresionDerechaAccess().getComparacionAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:919:2: ( rule__ExpresionDerecha__ComparacionAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:919:3: rule__ExpresionDerecha__ComparacionAssignment_0
+            // InternalLenguajeNaturalReducido.g:913:2: ( rule__ExpresionDerecha__ComparacionAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:913:3: rule__ExpresionDerecha__ComparacionAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__ExpresionDerecha__ComparacionAssignment_0();
@@ -2900,14 +2879,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__ExpresionDerecha__Group__1"
-    // InternalLenguajeNaturalReducido.g:927:1: rule__ExpresionDerecha__Group__1 : rule__ExpresionDerecha__Group__1__Impl ;
+    // InternalLenguajeNaturalReducido.g:921:1: rule__ExpresionDerecha__Group__1 : rule__ExpresionDerecha__Group__1__Impl ;
     public final void rule__ExpresionDerecha__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:931:1: ( rule__ExpresionDerecha__Group__1__Impl )
-            // InternalLenguajeNaturalReducido.g:932:2: rule__ExpresionDerecha__Group__1__Impl
+            // InternalLenguajeNaturalReducido.g:925:1: ( rule__ExpresionDerecha__Group__1__Impl )
+            // InternalLenguajeNaturalReducido.g:926:2: rule__ExpresionDerecha__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExpresionDerecha__Group__1__Impl();
@@ -2933,21 +2912,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__ExpresionDerecha__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:938:1: rule__ExpresionDerecha__Group__1__Impl : ( ( rule__ExpresionDerecha__ExpresionAssignment_1 ) ) ;
+    // InternalLenguajeNaturalReducido.g:932:1: rule__ExpresionDerecha__Group__1__Impl : ( ( rule__ExpresionDerecha__ExpresionAssignment_1 ) ) ;
     public final void rule__ExpresionDerecha__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:942:1: ( ( ( rule__ExpresionDerecha__ExpresionAssignment_1 ) ) )
-            // InternalLenguajeNaturalReducido.g:943:1: ( ( rule__ExpresionDerecha__ExpresionAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:936:1: ( ( ( rule__ExpresionDerecha__ExpresionAssignment_1 ) ) )
+            // InternalLenguajeNaturalReducido.g:937:1: ( ( rule__ExpresionDerecha__ExpresionAssignment_1 ) )
             {
-            // InternalLenguajeNaturalReducido.g:943:1: ( ( rule__ExpresionDerecha__ExpresionAssignment_1 ) )
-            // InternalLenguajeNaturalReducido.g:944:2: ( rule__ExpresionDerecha__ExpresionAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:937:1: ( ( rule__ExpresionDerecha__ExpresionAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:938:2: ( rule__ExpresionDerecha__ExpresionAssignment_1 )
             {
              before(grammarAccess.getExpresionDerechaAccess().getExpresionAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:945:2: ( rule__ExpresionDerecha__ExpresionAssignment_1 )
-            // InternalLenguajeNaturalReducido.g:945:3: rule__ExpresionDerecha__ExpresionAssignment_1
+            // InternalLenguajeNaturalReducido.g:939:2: ( rule__ExpresionDerecha__ExpresionAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:939:3: rule__ExpresionDerecha__ExpresionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ExpresionDerecha__ExpresionAssignment_1();
@@ -2980,14 +2959,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Composicion__Group__0"
-    // InternalLenguajeNaturalReducido.g:954:1: rule__Composicion__Group__0 : rule__Composicion__Group__0__Impl rule__Composicion__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:948:1: rule__Composicion__Group__0 : rule__Composicion__Group__0__Impl rule__Composicion__Group__1 ;
     public final void rule__Composicion__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:958:1: ( rule__Composicion__Group__0__Impl rule__Composicion__Group__1 )
-            // InternalLenguajeNaturalReducido.g:959:2: rule__Composicion__Group__0__Impl rule__Composicion__Group__1
+            // InternalLenguajeNaturalReducido.g:952:1: ( rule__Composicion__Group__0__Impl rule__Composicion__Group__1 )
+            // InternalLenguajeNaturalReducido.g:953:2: rule__Composicion__Group__0__Impl rule__Composicion__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Composicion__Group__0__Impl();
@@ -3018,21 +2997,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Composicion__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:966:1: rule__Composicion__Group__0__Impl : ( ( rule__Composicion__NexoAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:960:1: rule__Composicion__Group__0__Impl : ( ( rule__Composicion__NexoAssignment_0 ) ) ;
     public final void rule__Composicion__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:970:1: ( ( ( rule__Composicion__NexoAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:971:1: ( ( rule__Composicion__NexoAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:964:1: ( ( ( rule__Composicion__NexoAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:965:1: ( ( rule__Composicion__NexoAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:971:1: ( ( rule__Composicion__NexoAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:972:2: ( rule__Composicion__NexoAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:965:1: ( ( rule__Composicion__NexoAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:966:2: ( rule__Composicion__NexoAssignment_0 )
             {
              before(grammarAccess.getComposicionAccess().getNexoAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:973:2: ( rule__Composicion__NexoAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:973:3: rule__Composicion__NexoAssignment_0
+            // InternalLenguajeNaturalReducido.g:967:2: ( rule__Composicion__NexoAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:967:3: rule__Composicion__NexoAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Composicion__NexoAssignment_0();
@@ -3065,14 +3044,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Composicion__Group__1"
-    // InternalLenguajeNaturalReducido.g:981:1: rule__Composicion__Group__1 : rule__Composicion__Group__1__Impl ;
+    // InternalLenguajeNaturalReducido.g:975:1: rule__Composicion__Group__1 : rule__Composicion__Group__1__Impl ;
     public final void rule__Composicion__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:985:1: ( rule__Composicion__Group__1__Impl )
-            // InternalLenguajeNaturalReducido.g:986:2: rule__Composicion__Group__1__Impl
+            // InternalLenguajeNaturalReducido.g:979:1: ( rule__Composicion__Group__1__Impl )
+            // InternalLenguajeNaturalReducido.g:980:2: rule__Composicion__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Composicion__Group__1__Impl();
@@ -3098,21 +3077,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Composicion__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:992:1: rule__Composicion__Group__1__Impl : ( ( rule__Composicion__ContenidoAssignment_1 ) ) ;
+    // InternalLenguajeNaturalReducido.g:986:1: rule__Composicion__Group__1__Impl : ( ( rule__Composicion__ContenidoAssignment_1 ) ) ;
     public final void rule__Composicion__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:996:1: ( ( ( rule__Composicion__ContenidoAssignment_1 ) ) )
-            // InternalLenguajeNaturalReducido.g:997:1: ( ( rule__Composicion__ContenidoAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:990:1: ( ( ( rule__Composicion__ContenidoAssignment_1 ) ) )
+            // InternalLenguajeNaturalReducido.g:991:1: ( ( rule__Composicion__ContenidoAssignment_1 ) )
             {
-            // InternalLenguajeNaturalReducido.g:997:1: ( ( rule__Composicion__ContenidoAssignment_1 ) )
-            // InternalLenguajeNaturalReducido.g:998:2: ( rule__Composicion__ContenidoAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:991:1: ( ( rule__Composicion__ContenidoAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:992:2: ( rule__Composicion__ContenidoAssignment_1 )
             {
              before(grammarAccess.getComposicionAccess().getContenidoAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:999:2: ( rule__Composicion__ContenidoAssignment_1 )
-            // InternalLenguajeNaturalReducido.g:999:3: rule__Composicion__ContenidoAssignment_1
+            // InternalLenguajeNaturalReducido.g:993:2: ( rule__Composicion__ContenidoAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:993:3: rule__Composicion__ContenidoAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Composicion__ContenidoAssignment_1();
@@ -3145,14 +3124,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Comparacion__Group__0"
-    // InternalLenguajeNaturalReducido.g:1008:1: rule__Comparacion__Group__0 : rule__Comparacion__Group__0__Impl rule__Comparacion__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:1002:1: rule__Comparacion__Group__0 : rule__Comparacion__Group__0__Impl rule__Comparacion__Group__1 ;
     public final void rule__Comparacion__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1012:1: ( rule__Comparacion__Group__0__Impl rule__Comparacion__Group__1 )
-            // InternalLenguajeNaturalReducido.g:1013:2: rule__Comparacion__Group__0__Impl rule__Comparacion__Group__1
+            // InternalLenguajeNaturalReducido.g:1006:1: ( rule__Comparacion__Group__0__Impl rule__Comparacion__Group__1 )
+            // InternalLenguajeNaturalReducido.g:1007:2: rule__Comparacion__Group__0__Impl rule__Comparacion__Group__1
             {
             pushFollow(FOLLOW_8);
             rule__Comparacion__Group__0__Impl();
@@ -3183,31 +3162,31 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Comparacion__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:1020:1: rule__Comparacion__Group__0__Impl : ( ( rule__Comparacion__ObligacionAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1014:1: rule__Comparacion__Group__0__Impl : ( ( rule__Comparacion__AfirmacionAssignment_0 ) ) ;
     public final void rule__Comparacion__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1024:1: ( ( ( rule__Comparacion__ObligacionAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1025:1: ( ( rule__Comparacion__ObligacionAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1018:1: ( ( ( rule__Comparacion__AfirmacionAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1019:1: ( ( rule__Comparacion__AfirmacionAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1025:1: ( ( rule__Comparacion__ObligacionAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:1026:2: ( rule__Comparacion__ObligacionAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1019:1: ( ( rule__Comparacion__AfirmacionAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1020:2: ( rule__Comparacion__AfirmacionAssignment_0 )
             {
-             before(grammarAccess.getComparacionAccess().getObligacionAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:1027:2: ( rule__Comparacion__ObligacionAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:1027:3: rule__Comparacion__ObligacionAssignment_0
+             before(grammarAccess.getComparacionAccess().getAfirmacionAssignment_0()); 
+            // InternalLenguajeNaturalReducido.g:1021:2: ( rule__Comparacion__AfirmacionAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1021:3: rule__Comparacion__AfirmacionAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__Comparacion__ObligacionAssignment_0();
+            rule__Comparacion__AfirmacionAssignment_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getComparacionAccess().getObligacionAssignment_0()); 
+             after(grammarAccess.getComparacionAccess().getAfirmacionAssignment_0()); 
 
             }
 
@@ -3230,14 +3209,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Comparacion__Group__1"
-    // InternalLenguajeNaturalReducido.g:1035:1: rule__Comparacion__Group__1 : rule__Comparacion__Group__1__Impl ;
+    // InternalLenguajeNaturalReducido.g:1029:1: rule__Comparacion__Group__1 : rule__Comparacion__Group__1__Impl ;
     public final void rule__Comparacion__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1039:1: ( rule__Comparacion__Group__1__Impl )
-            // InternalLenguajeNaturalReducido.g:1040:2: rule__Comparacion__Group__1__Impl
+            // InternalLenguajeNaturalReducido.g:1033:1: ( rule__Comparacion__Group__1__Impl )
+            // InternalLenguajeNaturalReducido.g:1034:2: rule__Comparacion__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Comparacion__Group__1__Impl();
@@ -3263,21 +3242,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Comparacion__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:1046:1: rule__Comparacion__Group__1__Impl : ( ( rule__Comparacion__OperacionAssignment_1 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1040:1: rule__Comparacion__Group__1__Impl : ( ( rule__Comparacion__OperacionAssignment_1 ) ) ;
     public final void rule__Comparacion__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1050:1: ( ( ( rule__Comparacion__OperacionAssignment_1 ) ) )
-            // InternalLenguajeNaturalReducido.g:1051:1: ( ( rule__Comparacion__OperacionAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:1044:1: ( ( ( rule__Comparacion__OperacionAssignment_1 ) ) )
+            // InternalLenguajeNaturalReducido.g:1045:1: ( ( rule__Comparacion__OperacionAssignment_1 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1051:1: ( ( rule__Comparacion__OperacionAssignment_1 ) )
-            // InternalLenguajeNaturalReducido.g:1052:2: ( rule__Comparacion__OperacionAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:1045:1: ( ( rule__Comparacion__OperacionAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:1046:2: ( rule__Comparacion__OperacionAssignment_1 )
             {
              before(grammarAccess.getComparacionAccess().getOperacionAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:1053:2: ( rule__Comparacion__OperacionAssignment_1 )
-            // InternalLenguajeNaturalReducido.g:1053:3: rule__Comparacion__OperacionAssignment_1
+            // InternalLenguajeNaturalReducido.g:1047:2: ( rule__Comparacion__OperacionAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:1047:3: rule__Comparacion__OperacionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Comparacion__OperacionAssignment_1();
@@ -3310,14 +3289,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__Group__0"
-    // InternalLenguajeNaturalReducido.g:1062:1: rule__Propiedad__Group__0 : rule__Propiedad__Group__0__Impl rule__Propiedad__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:1056:1: rule__Propiedad__Group__0 : rule__Propiedad__Group__0__Impl rule__Propiedad__Group__1 ;
     public final void rule__Propiedad__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1066:1: ( rule__Propiedad__Group__0__Impl rule__Propiedad__Group__1 )
-            // InternalLenguajeNaturalReducido.g:1067:2: rule__Propiedad__Group__0__Impl rule__Propiedad__Group__1
+            // InternalLenguajeNaturalReducido.g:1060:1: ( rule__Propiedad__Group__0__Impl rule__Propiedad__Group__1 )
+            // InternalLenguajeNaturalReducido.g:1061:2: rule__Propiedad__Group__0__Impl rule__Propiedad__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__Propiedad__Group__0__Impl();
@@ -3348,24 +3327,24 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:1074:1: rule__Propiedad__Group__0__Impl : ( ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* ) ) ;
+    // InternalLenguajeNaturalReducido.g:1068:1: rule__Propiedad__Group__0__Impl : ( ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* ) ) ;
     public final void rule__Propiedad__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1078:1: ( ( ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* ) ) )
-            // InternalLenguajeNaturalReducido.g:1079:1: ( ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* ) )
+            // InternalLenguajeNaturalReducido.g:1072:1: ( ( ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* ) ) )
+            // InternalLenguajeNaturalReducido.g:1073:1: ( ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* ) )
             {
-            // InternalLenguajeNaturalReducido.g:1079:1: ( ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* ) )
-            // InternalLenguajeNaturalReducido.g:1080:2: ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* )
+            // InternalLenguajeNaturalReducido.g:1073:1: ( ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* ) )
+            // InternalLenguajeNaturalReducido.g:1074:2: ( ( rule__Propiedad__AtributoAssignment_0 ) ) ( ( rule__Propiedad__AtributoAssignment_0 )* )
             {
-            // InternalLenguajeNaturalReducido.g:1080:2: ( ( rule__Propiedad__AtributoAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:1081:3: ( rule__Propiedad__AtributoAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1074:2: ( ( rule__Propiedad__AtributoAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1075:3: ( rule__Propiedad__AtributoAssignment_0 )
             {
              before(grammarAccess.getPropiedadAccess().getAtributoAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:1082:3: ( rule__Propiedad__AtributoAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:1082:4: rule__Propiedad__AtributoAssignment_0
+            // InternalLenguajeNaturalReducido.g:1076:3: ( rule__Propiedad__AtributoAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1076:4: rule__Propiedad__AtributoAssignment_0
             {
             pushFollow(FOLLOW_5);
             rule__Propiedad__AtributoAssignment_0();
@@ -3379,24 +3358,24 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
             }
 
-            // InternalLenguajeNaturalReducido.g:1085:2: ( ( rule__Propiedad__AtributoAssignment_0 )* )
-            // InternalLenguajeNaturalReducido.g:1086:3: ( rule__Propiedad__AtributoAssignment_0 )*
+            // InternalLenguajeNaturalReducido.g:1079:2: ( ( rule__Propiedad__AtributoAssignment_0 )* )
+            // InternalLenguajeNaturalReducido.g:1080:3: ( rule__Propiedad__AtributoAssignment_0 )*
             {
              before(grammarAccess.getPropiedadAccess().getAtributoAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:1087:3: ( rule__Propiedad__AtributoAssignment_0 )*
+            // InternalLenguajeNaturalReducido.g:1081:3: ( rule__Propiedad__AtributoAssignment_0 )*
             loop10:
             do {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( ((LA10_0>=18 && LA10_0<=21)) ) {
+                if ( ((LA10_0>=18 && LA10_0<=20)) ) {
                     alt10=1;
                 }
 
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalLenguajeNaturalReducido.g:1087:4: rule__Propiedad__AtributoAssignment_0
+            	    // InternalLenguajeNaturalReducido.g:1081:4: rule__Propiedad__AtributoAssignment_0
             	    {
             	    pushFollow(FOLLOW_5);
             	    rule__Propiedad__AtributoAssignment_0();
@@ -3438,14 +3417,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__Group__1"
-    // InternalLenguajeNaturalReducido.g:1096:1: rule__Propiedad__Group__1 : rule__Propiedad__Group__1__Impl rule__Propiedad__Group__2 ;
+    // InternalLenguajeNaturalReducido.g:1090:1: rule__Propiedad__Group__1 : rule__Propiedad__Group__1__Impl rule__Propiedad__Group__2 ;
     public final void rule__Propiedad__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1100:1: ( rule__Propiedad__Group__1__Impl rule__Propiedad__Group__2 )
-            // InternalLenguajeNaturalReducido.g:1101:2: rule__Propiedad__Group__1__Impl rule__Propiedad__Group__2
+            // InternalLenguajeNaturalReducido.g:1094:1: ( rule__Propiedad__Group__1__Impl rule__Propiedad__Group__2 )
+            // InternalLenguajeNaturalReducido.g:1095:2: rule__Propiedad__Group__1__Impl rule__Propiedad__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__Propiedad__Group__1__Impl();
@@ -3476,29 +3455,29 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:1108:1: rule__Propiedad__Group__1__Impl : ( ( rule__Propiedad__TerminoAssignment_1 )? ) ;
+    // InternalLenguajeNaturalReducido.g:1102:1: rule__Propiedad__Group__1__Impl : ( ( rule__Propiedad__TerminoAssignment_1 )? ) ;
     public final void rule__Propiedad__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1112:1: ( ( ( rule__Propiedad__TerminoAssignment_1 )? ) )
-            // InternalLenguajeNaturalReducido.g:1113:1: ( ( rule__Propiedad__TerminoAssignment_1 )? )
+            // InternalLenguajeNaturalReducido.g:1106:1: ( ( ( rule__Propiedad__TerminoAssignment_1 )? ) )
+            // InternalLenguajeNaturalReducido.g:1107:1: ( ( rule__Propiedad__TerminoAssignment_1 )? )
             {
-            // InternalLenguajeNaturalReducido.g:1113:1: ( ( rule__Propiedad__TerminoAssignment_1 )? )
-            // InternalLenguajeNaturalReducido.g:1114:2: ( rule__Propiedad__TerminoAssignment_1 )?
+            // InternalLenguajeNaturalReducido.g:1107:1: ( ( rule__Propiedad__TerminoAssignment_1 )? )
+            // InternalLenguajeNaturalReducido.g:1108:2: ( rule__Propiedad__TerminoAssignment_1 )?
             {
              before(grammarAccess.getPropiedadAccess().getTerminoAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:1115:2: ( rule__Propiedad__TerminoAssignment_1 )?
+            // InternalLenguajeNaturalReducido.g:1109:2: ( rule__Propiedad__TerminoAssignment_1 )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==31) ) {
+            if ( (LA11_0==30) ) {
                 alt11=1;
             }
             switch (alt11) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:1115:3: rule__Propiedad__TerminoAssignment_1
+                    // InternalLenguajeNaturalReducido.g:1109:3: rule__Propiedad__TerminoAssignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__Propiedad__TerminoAssignment_1();
@@ -3534,14 +3513,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__Group__2"
-    // InternalLenguajeNaturalReducido.g:1123:1: rule__Propiedad__Group__2 : rule__Propiedad__Group__2__Impl ;
+    // InternalLenguajeNaturalReducido.g:1117:1: rule__Propiedad__Group__2 : rule__Propiedad__Group__2__Impl ;
     public final void rule__Propiedad__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1127:1: ( rule__Propiedad__Group__2__Impl )
-            // InternalLenguajeNaturalReducido.g:1128:2: rule__Propiedad__Group__2__Impl
+            // InternalLenguajeNaturalReducido.g:1121:1: ( rule__Propiedad__Group__2__Impl )
+            // InternalLenguajeNaturalReducido.g:1122:2: rule__Propiedad__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Propiedad__Group__2__Impl();
@@ -3567,20 +3546,20 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__Group__2__Impl"
-    // InternalLenguajeNaturalReducido.g:1134:1: rule__Propiedad__Group__2__Impl : ( ( rule__Propiedad__IteracionAssignment_2 )* ) ;
+    // InternalLenguajeNaturalReducido.g:1128:1: rule__Propiedad__Group__2__Impl : ( ( rule__Propiedad__IteracionAssignment_2 )* ) ;
     public final void rule__Propiedad__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1138:1: ( ( ( rule__Propiedad__IteracionAssignment_2 )* ) )
-            // InternalLenguajeNaturalReducido.g:1139:1: ( ( rule__Propiedad__IteracionAssignment_2 )* )
+            // InternalLenguajeNaturalReducido.g:1132:1: ( ( ( rule__Propiedad__IteracionAssignment_2 )* ) )
+            // InternalLenguajeNaturalReducido.g:1133:1: ( ( rule__Propiedad__IteracionAssignment_2 )* )
             {
-            // InternalLenguajeNaturalReducido.g:1139:1: ( ( rule__Propiedad__IteracionAssignment_2 )* )
-            // InternalLenguajeNaturalReducido.g:1140:2: ( rule__Propiedad__IteracionAssignment_2 )*
+            // InternalLenguajeNaturalReducido.g:1133:1: ( ( rule__Propiedad__IteracionAssignment_2 )* )
+            // InternalLenguajeNaturalReducido.g:1134:2: ( rule__Propiedad__IteracionAssignment_2 )*
             {
              before(grammarAccess.getPropiedadAccess().getIteracionAssignment_2()); 
-            // InternalLenguajeNaturalReducido.g:1141:2: ( rule__Propiedad__IteracionAssignment_2 )*
+            // InternalLenguajeNaturalReducido.g:1135:2: ( rule__Propiedad__IteracionAssignment_2 )*
             loop12:
             do {
                 int alt12=2;
@@ -3605,7 +3584,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalLenguajeNaturalReducido.g:1141:3: rule__Propiedad__IteracionAssignment_2
+            	    // InternalLenguajeNaturalReducido.g:1135:3: rule__Propiedad__IteracionAssignment_2
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__Propiedad__IteracionAssignment_2();
@@ -3644,14 +3623,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Iteracion__Group__0"
-    // InternalLenguajeNaturalReducido.g:1150:1: rule__Iteracion__Group__0 : rule__Iteracion__Group__0__Impl rule__Iteracion__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:1144:1: rule__Iteracion__Group__0 : rule__Iteracion__Group__0__Impl rule__Iteracion__Group__1 ;
     public final void rule__Iteracion__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1154:1: ( rule__Iteracion__Group__0__Impl rule__Iteracion__Group__1 )
-            // InternalLenguajeNaturalReducido.g:1155:2: rule__Iteracion__Group__0__Impl rule__Iteracion__Group__1
+            // InternalLenguajeNaturalReducido.g:1148:1: ( rule__Iteracion__Group__0__Impl rule__Iteracion__Group__1 )
+            // InternalLenguajeNaturalReducido.g:1149:2: rule__Iteracion__Group__0__Impl rule__Iteracion__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Iteracion__Group__0__Impl();
@@ -3682,31 +3661,31 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Iteracion__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:1162:1: rule__Iteracion__Group__0__Impl : ( ( rule__Iteracion__ConectorAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1156:1: rule__Iteracion__Group__0__Impl : ( ( rule__Iteracion__CondicionAssignment_0 ) ) ;
     public final void rule__Iteracion__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1166:1: ( ( ( rule__Iteracion__ConectorAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1167:1: ( ( rule__Iteracion__ConectorAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1160:1: ( ( ( rule__Iteracion__CondicionAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1161:1: ( ( rule__Iteracion__CondicionAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1167:1: ( ( rule__Iteracion__ConectorAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:1168:2: ( rule__Iteracion__ConectorAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1161:1: ( ( rule__Iteracion__CondicionAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1162:2: ( rule__Iteracion__CondicionAssignment_0 )
             {
-             before(grammarAccess.getIteracionAccess().getConectorAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:1169:2: ( rule__Iteracion__ConectorAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:1169:3: rule__Iteracion__ConectorAssignment_0
+             before(grammarAccess.getIteracionAccess().getCondicionAssignment_0()); 
+            // InternalLenguajeNaturalReducido.g:1163:2: ( rule__Iteracion__CondicionAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1163:3: rule__Iteracion__CondicionAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__Iteracion__ConectorAssignment_0();
+            rule__Iteracion__CondicionAssignment_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getIteracionAccess().getConectorAssignment_0()); 
+             after(grammarAccess.getIteracionAccess().getCondicionAssignment_0()); 
 
             }
 
@@ -3729,14 +3708,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Iteracion__Group__1"
-    // InternalLenguajeNaturalReducido.g:1177:1: rule__Iteracion__Group__1 : rule__Iteracion__Group__1__Impl ;
+    // InternalLenguajeNaturalReducido.g:1171:1: rule__Iteracion__Group__1 : rule__Iteracion__Group__1__Impl ;
     public final void rule__Iteracion__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1181:1: ( rule__Iteracion__Group__1__Impl )
-            // InternalLenguajeNaturalReducido.g:1182:2: rule__Iteracion__Group__1__Impl
+            // InternalLenguajeNaturalReducido.g:1175:1: ( rule__Iteracion__Group__1__Impl )
+            // InternalLenguajeNaturalReducido.g:1176:2: rule__Iteracion__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Iteracion__Group__1__Impl();
@@ -3762,21 +3741,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Iteracion__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:1188:1: rule__Iteracion__Group__1__Impl : ( ( rule__Iteracion__ContenidoAssignment_1 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1182:1: rule__Iteracion__Group__1__Impl : ( ( rule__Iteracion__ContenidoAssignment_1 ) ) ;
     public final void rule__Iteracion__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1192:1: ( ( ( rule__Iteracion__ContenidoAssignment_1 ) ) )
-            // InternalLenguajeNaturalReducido.g:1193:1: ( ( rule__Iteracion__ContenidoAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:1186:1: ( ( ( rule__Iteracion__ContenidoAssignment_1 ) ) )
+            // InternalLenguajeNaturalReducido.g:1187:1: ( ( rule__Iteracion__ContenidoAssignment_1 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1193:1: ( ( rule__Iteracion__ContenidoAssignment_1 ) )
-            // InternalLenguajeNaturalReducido.g:1194:2: ( rule__Iteracion__ContenidoAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:1187:1: ( ( rule__Iteracion__ContenidoAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:1188:2: ( rule__Iteracion__ContenidoAssignment_1 )
             {
              before(grammarAccess.getIteracionAccess().getContenidoAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:1195:2: ( rule__Iteracion__ContenidoAssignment_1 )
-            // InternalLenguajeNaturalReducido.g:1195:3: rule__Iteracion__ContenidoAssignment_1
+            // InternalLenguajeNaturalReducido.g:1189:2: ( rule__Iteracion__ContenidoAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:1189:3: rule__Iteracion__ContenidoAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Iteracion__ContenidoAssignment_1();
@@ -3809,14 +3788,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__Group__0"
-    // InternalLenguajeNaturalReducido.g:1204:1: rule__Atributo__Group__0 : rule__Atributo__Group__0__Impl rule__Atributo__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:1198:1: rule__Atributo__Group__0 : rule__Atributo__Group__0__Impl rule__Atributo__Group__1 ;
     public final void rule__Atributo__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1208:1: ( rule__Atributo__Group__0__Impl rule__Atributo__Group__1 )
-            // InternalLenguajeNaturalReducido.g:1209:2: rule__Atributo__Group__0__Impl rule__Atributo__Group__1
+            // InternalLenguajeNaturalReducido.g:1202:1: ( rule__Atributo__Group__0__Impl rule__Atributo__Group__1 )
+            // InternalLenguajeNaturalReducido.g:1203:2: rule__Atributo__Group__0__Impl rule__Atributo__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__Atributo__Group__0__Impl();
@@ -3847,21 +3826,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:1216:1: rule__Atributo__Group__0__Impl : ( ( rule__Atributo__DeterminanteAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1210:1: rule__Atributo__Group__0__Impl : ( ( rule__Atributo__DeterminanteAssignment_0 ) ) ;
     public final void rule__Atributo__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1220:1: ( ( ( rule__Atributo__DeterminanteAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1221:1: ( ( rule__Atributo__DeterminanteAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1214:1: ( ( ( rule__Atributo__DeterminanteAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1215:1: ( ( rule__Atributo__DeterminanteAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1221:1: ( ( rule__Atributo__DeterminanteAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:1222:2: ( rule__Atributo__DeterminanteAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1215:1: ( ( rule__Atributo__DeterminanteAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1216:2: ( rule__Atributo__DeterminanteAssignment_0 )
             {
              before(grammarAccess.getAtributoAccess().getDeterminanteAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:1223:2: ( rule__Atributo__DeterminanteAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:1223:3: rule__Atributo__DeterminanteAssignment_0
+            // InternalLenguajeNaturalReducido.g:1217:2: ( rule__Atributo__DeterminanteAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1217:3: rule__Atributo__DeterminanteAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Atributo__DeterminanteAssignment_0();
@@ -3894,14 +3873,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__Group__1"
-    // InternalLenguajeNaturalReducido.g:1231:1: rule__Atributo__Group__1 : rule__Atributo__Group__1__Impl rule__Atributo__Group__2 ;
+    // InternalLenguajeNaturalReducido.g:1225:1: rule__Atributo__Group__1 : rule__Atributo__Group__1__Impl rule__Atributo__Group__2 ;
     public final void rule__Atributo__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1235:1: ( rule__Atributo__Group__1__Impl rule__Atributo__Group__2 )
-            // InternalLenguajeNaturalReducido.g:1236:2: rule__Atributo__Group__1__Impl rule__Atributo__Group__2
+            // InternalLenguajeNaturalReducido.g:1229:1: ( rule__Atributo__Group__1__Impl rule__Atributo__Group__2 )
+            // InternalLenguajeNaturalReducido.g:1230:2: rule__Atributo__Group__1__Impl rule__Atributo__Group__2
             {
             pushFollow(FOLLOW_11);
             rule__Atributo__Group__1__Impl();
@@ -3932,32 +3911,32 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:1243:1: rule__Atributo__Group__1__Impl : ( ( rule__Atributo__PrefijoAssignment_1 )? ) ;
+    // InternalLenguajeNaturalReducido.g:1237:1: rule__Atributo__Group__1__Impl : ( ( rule__Atributo__CuantitativoAssignment_1 )? ) ;
     public final void rule__Atributo__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1247:1: ( ( ( rule__Atributo__PrefijoAssignment_1 )? ) )
-            // InternalLenguajeNaturalReducido.g:1248:1: ( ( rule__Atributo__PrefijoAssignment_1 )? )
+            // InternalLenguajeNaturalReducido.g:1241:1: ( ( ( rule__Atributo__CuantitativoAssignment_1 )? ) )
+            // InternalLenguajeNaturalReducido.g:1242:1: ( ( rule__Atributo__CuantitativoAssignment_1 )? )
             {
-            // InternalLenguajeNaturalReducido.g:1248:1: ( ( rule__Atributo__PrefijoAssignment_1 )? )
-            // InternalLenguajeNaturalReducido.g:1249:2: ( rule__Atributo__PrefijoAssignment_1 )?
+            // InternalLenguajeNaturalReducido.g:1242:1: ( ( rule__Atributo__CuantitativoAssignment_1 )? )
+            // InternalLenguajeNaturalReducido.g:1243:2: ( rule__Atributo__CuantitativoAssignment_1 )?
             {
-             before(grammarAccess.getAtributoAccess().getPrefijoAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:1250:2: ( rule__Atributo__PrefijoAssignment_1 )?
+             before(grammarAccess.getAtributoAccess().getCuantitativoAssignment_1()); 
+            // InternalLenguajeNaturalReducido.g:1244:2: ( rule__Atributo__CuantitativoAssignment_1 )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==29) ) {
+            if ( (LA13_0==28) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:1250:3: rule__Atributo__PrefijoAssignment_1
+                    // InternalLenguajeNaturalReducido.g:1244:3: rule__Atributo__CuantitativoAssignment_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Atributo__PrefijoAssignment_1();
+                    rule__Atributo__CuantitativoAssignment_1();
 
                     state._fsp--;
 
@@ -3967,7 +3946,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
             }
 
-             after(grammarAccess.getAtributoAccess().getPrefijoAssignment_1()); 
+             after(grammarAccess.getAtributoAccess().getCuantitativoAssignment_1()); 
 
             }
 
@@ -3990,14 +3969,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__Group__2"
-    // InternalLenguajeNaturalReducido.g:1258:1: rule__Atributo__Group__2 : rule__Atributo__Group__2__Impl rule__Atributo__Group__3 ;
+    // InternalLenguajeNaturalReducido.g:1252:1: rule__Atributo__Group__2 : rule__Atributo__Group__2__Impl rule__Atributo__Group__3 ;
     public final void rule__Atributo__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1262:1: ( rule__Atributo__Group__2__Impl rule__Atributo__Group__3 )
-            // InternalLenguajeNaturalReducido.g:1263:2: rule__Atributo__Group__2__Impl rule__Atributo__Group__3
+            // InternalLenguajeNaturalReducido.g:1256:1: ( rule__Atributo__Group__2__Impl rule__Atributo__Group__3 )
+            // InternalLenguajeNaturalReducido.g:1257:2: rule__Atributo__Group__2__Impl rule__Atributo__Group__3
             {
             pushFollow(FOLLOW_12);
             rule__Atributo__Group__2__Impl();
@@ -4028,21 +4007,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__Group__2__Impl"
-    // InternalLenguajeNaturalReducido.g:1270:1: rule__Atributo__Group__2__Impl : ( ( rule__Atributo__NombreAssignment_2 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1264:1: rule__Atributo__Group__2__Impl : ( ( rule__Atributo__NombreAssignment_2 ) ) ;
     public final void rule__Atributo__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1274:1: ( ( ( rule__Atributo__NombreAssignment_2 ) ) )
-            // InternalLenguajeNaturalReducido.g:1275:1: ( ( rule__Atributo__NombreAssignment_2 ) )
+            // InternalLenguajeNaturalReducido.g:1268:1: ( ( ( rule__Atributo__NombreAssignment_2 ) ) )
+            // InternalLenguajeNaturalReducido.g:1269:1: ( ( rule__Atributo__NombreAssignment_2 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1275:1: ( ( rule__Atributo__NombreAssignment_2 ) )
-            // InternalLenguajeNaturalReducido.g:1276:2: ( rule__Atributo__NombreAssignment_2 )
+            // InternalLenguajeNaturalReducido.g:1269:1: ( ( rule__Atributo__NombreAssignment_2 ) )
+            // InternalLenguajeNaturalReducido.g:1270:2: ( rule__Atributo__NombreAssignment_2 )
             {
              before(grammarAccess.getAtributoAccess().getNombreAssignment_2()); 
-            // InternalLenguajeNaturalReducido.g:1277:2: ( rule__Atributo__NombreAssignment_2 )
-            // InternalLenguajeNaturalReducido.g:1277:3: rule__Atributo__NombreAssignment_2
+            // InternalLenguajeNaturalReducido.g:1271:2: ( rule__Atributo__NombreAssignment_2 )
+            // InternalLenguajeNaturalReducido.g:1271:3: rule__Atributo__NombreAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Atributo__NombreAssignment_2();
@@ -4075,14 +4054,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__Group__3"
-    // InternalLenguajeNaturalReducido.g:1285:1: rule__Atributo__Group__3 : rule__Atributo__Group__3__Impl ;
+    // InternalLenguajeNaturalReducido.g:1279:1: rule__Atributo__Group__3 : rule__Atributo__Group__3__Impl ;
     public final void rule__Atributo__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1289:1: ( rule__Atributo__Group__3__Impl )
-            // InternalLenguajeNaturalReducido.g:1290:2: rule__Atributo__Group__3__Impl
+            // InternalLenguajeNaturalReducido.g:1283:1: ( rule__Atributo__Group__3__Impl )
+            // InternalLenguajeNaturalReducido.g:1284:2: rule__Atributo__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Atributo__Group__3__Impl();
@@ -4108,21 +4087,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__Group__3__Impl"
-    // InternalLenguajeNaturalReducido.g:1296:1: rule__Atributo__Group__3__Impl : ( ( rule__Atributo__EnlaceAssignment_3 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1290:1: rule__Atributo__Group__3__Impl : ( ( rule__Atributo__EnlaceAssignment_3 ) ) ;
     public final void rule__Atributo__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1300:1: ( ( ( rule__Atributo__EnlaceAssignment_3 ) ) )
-            // InternalLenguajeNaturalReducido.g:1301:1: ( ( rule__Atributo__EnlaceAssignment_3 ) )
+            // InternalLenguajeNaturalReducido.g:1294:1: ( ( ( rule__Atributo__EnlaceAssignment_3 ) ) )
+            // InternalLenguajeNaturalReducido.g:1295:1: ( ( rule__Atributo__EnlaceAssignment_3 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1301:1: ( ( rule__Atributo__EnlaceAssignment_3 ) )
-            // InternalLenguajeNaturalReducido.g:1302:2: ( rule__Atributo__EnlaceAssignment_3 )
+            // InternalLenguajeNaturalReducido.g:1295:1: ( ( rule__Atributo__EnlaceAssignment_3 ) )
+            // InternalLenguajeNaturalReducido.g:1296:2: ( rule__Atributo__EnlaceAssignment_3 )
             {
              before(grammarAccess.getAtributoAccess().getEnlaceAssignment_3()); 
-            // InternalLenguajeNaturalReducido.g:1303:2: ( rule__Atributo__EnlaceAssignment_3 )
-            // InternalLenguajeNaturalReducido.g:1303:3: rule__Atributo__EnlaceAssignment_3
+            // InternalLenguajeNaturalReducido.g:1297:2: ( rule__Atributo__EnlaceAssignment_3 )
+            // InternalLenguajeNaturalReducido.g:1297:3: rule__Atributo__EnlaceAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Atributo__EnlaceAssignment_3();
@@ -4155,14 +4134,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Termino__Group__0"
-    // InternalLenguajeNaturalReducido.g:1312:1: rule__Termino__Group__0 : rule__Termino__Group__0__Impl rule__Termino__Group__1 ;
+    // InternalLenguajeNaturalReducido.g:1306:1: rule__Termino__Group__0 : rule__Termino__Group__0__Impl rule__Termino__Group__1 ;
     public final void rule__Termino__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1316:1: ( rule__Termino__Group__0__Impl rule__Termino__Group__1 )
-            // InternalLenguajeNaturalReducido.g:1317:2: rule__Termino__Group__0__Impl rule__Termino__Group__1
+            // InternalLenguajeNaturalReducido.g:1310:1: ( rule__Termino__Group__0__Impl rule__Termino__Group__1 )
+            // InternalLenguajeNaturalReducido.g:1311:2: rule__Termino__Group__0__Impl rule__Termino__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__Termino__Group__0__Impl();
@@ -4193,21 +4172,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Termino__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:1324:1: rule__Termino__Group__0__Impl : ( ( rule__Termino__IndeterminanteAssignment_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1318:1: rule__Termino__Group__0__Impl : ( ( rule__Termino__IndeterminanteAssignment_0 ) ) ;
     public final void rule__Termino__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1328:1: ( ( ( rule__Termino__IndeterminanteAssignment_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1329:1: ( ( rule__Termino__IndeterminanteAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1322:1: ( ( ( rule__Termino__IndeterminanteAssignment_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1323:1: ( ( rule__Termino__IndeterminanteAssignment_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1329:1: ( ( rule__Termino__IndeterminanteAssignment_0 ) )
-            // InternalLenguajeNaturalReducido.g:1330:2: ( rule__Termino__IndeterminanteAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1323:1: ( ( rule__Termino__IndeterminanteAssignment_0 ) )
+            // InternalLenguajeNaturalReducido.g:1324:2: ( rule__Termino__IndeterminanteAssignment_0 )
             {
              before(grammarAccess.getTerminoAccess().getIndeterminanteAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:1331:2: ( rule__Termino__IndeterminanteAssignment_0 )
-            // InternalLenguajeNaturalReducido.g:1331:3: rule__Termino__IndeterminanteAssignment_0
+            // InternalLenguajeNaturalReducido.g:1325:2: ( rule__Termino__IndeterminanteAssignment_0 )
+            // InternalLenguajeNaturalReducido.g:1325:3: rule__Termino__IndeterminanteAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Termino__IndeterminanteAssignment_0();
@@ -4240,14 +4219,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Termino__Group__1"
-    // InternalLenguajeNaturalReducido.g:1339:1: rule__Termino__Group__1 : rule__Termino__Group__1__Impl ;
+    // InternalLenguajeNaturalReducido.g:1333:1: rule__Termino__Group__1 : rule__Termino__Group__1__Impl ;
     public final void rule__Termino__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1343:1: ( rule__Termino__Group__1__Impl )
-            // InternalLenguajeNaturalReducido.g:1344:2: rule__Termino__Group__1__Impl
+            // InternalLenguajeNaturalReducido.g:1337:1: ( rule__Termino__Group__1__Impl )
+            // InternalLenguajeNaturalReducido.g:1338:2: rule__Termino__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Termino__Group__1__Impl();
@@ -4273,21 +4252,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Termino__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:1350:1: rule__Termino__Group__1__Impl : ( ( rule__Termino__ContextoAssignment_1 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1344:1: rule__Termino__Group__1__Impl : ( ( rule__Termino__ContextoAssignment_1 ) ) ;
     public final void rule__Termino__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1354:1: ( ( ( rule__Termino__ContextoAssignment_1 ) ) )
-            // InternalLenguajeNaturalReducido.g:1355:1: ( ( rule__Termino__ContextoAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:1348:1: ( ( ( rule__Termino__ContextoAssignment_1 ) ) )
+            // InternalLenguajeNaturalReducido.g:1349:1: ( ( rule__Termino__ContextoAssignment_1 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1355:1: ( ( rule__Termino__ContextoAssignment_1 ) )
-            // InternalLenguajeNaturalReducido.g:1356:2: ( rule__Termino__ContextoAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:1349:1: ( ( rule__Termino__ContextoAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:1350:2: ( rule__Termino__ContextoAssignment_1 )
             {
              before(grammarAccess.getTerminoAccess().getContextoAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:1357:2: ( rule__Termino__ContextoAssignment_1 )
-            // InternalLenguajeNaturalReducido.g:1357:3: rule__Termino__ContextoAssignment_1
+            // InternalLenguajeNaturalReducido.g:1351:2: ( rule__Termino__ContextoAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:1351:3: rule__Termino__ContextoAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Termino__ContextoAssignment_1();
@@ -4319,23 +4298,23 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Termino__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Obligacion__Group__0"
-    // InternalLenguajeNaturalReducido.g:1366:1: rule__Obligacion__Group__0 : rule__Obligacion__Group__0__Impl rule__Obligacion__Group__1 ;
-    public final void rule__Obligacion__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__Afirmacion__Group__0"
+    // InternalLenguajeNaturalReducido.g:1360:1: rule__Afirmacion__Group__0 : rule__Afirmacion__Group__0__Impl rule__Afirmacion__Group__1 ;
+    public final void rule__Afirmacion__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1370:1: ( rule__Obligacion__Group__0__Impl rule__Obligacion__Group__1 )
-            // InternalLenguajeNaturalReducido.g:1371:2: rule__Obligacion__Group__0__Impl rule__Obligacion__Group__1
+            // InternalLenguajeNaturalReducido.g:1364:1: ( rule__Afirmacion__Group__0__Impl rule__Afirmacion__Group__1 )
+            // InternalLenguajeNaturalReducido.g:1365:2: rule__Afirmacion__Group__0__Impl rule__Afirmacion__Group__1
             {
             pushFollow(FOLLOW_7);
-            rule__Obligacion__Group__0__Impl();
+            rule__Afirmacion__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Obligacion__Group__1();
+            rule__Afirmacion__Group__1();
 
             state._fsp--;
 
@@ -4354,36 +4333,36 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Obligacion__Group__0"
+    // $ANTLR end "rule__Afirmacion__Group__0"
 
 
-    // $ANTLR start "rule__Obligacion__Group__0__Impl"
-    // InternalLenguajeNaturalReducido.g:1378:1: rule__Obligacion__Group__0__Impl : ( ( rule__Obligacion__NegacionAssignment_0 )? ) ;
-    public final void rule__Obligacion__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Afirmacion__Group__0__Impl"
+    // InternalLenguajeNaturalReducido.g:1372:1: rule__Afirmacion__Group__0__Impl : ( ( rule__Afirmacion__NegacionAssignment_0 )? ) ;
+    public final void rule__Afirmacion__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1382:1: ( ( ( rule__Obligacion__NegacionAssignment_0 )? ) )
-            // InternalLenguajeNaturalReducido.g:1383:1: ( ( rule__Obligacion__NegacionAssignment_0 )? )
+            // InternalLenguajeNaturalReducido.g:1376:1: ( ( ( rule__Afirmacion__NegacionAssignment_0 )? ) )
+            // InternalLenguajeNaturalReducido.g:1377:1: ( ( rule__Afirmacion__NegacionAssignment_0 )? )
             {
-            // InternalLenguajeNaturalReducido.g:1383:1: ( ( rule__Obligacion__NegacionAssignment_0 )? )
-            // InternalLenguajeNaturalReducido.g:1384:2: ( rule__Obligacion__NegacionAssignment_0 )?
+            // InternalLenguajeNaturalReducido.g:1377:1: ( ( rule__Afirmacion__NegacionAssignment_0 )? )
+            // InternalLenguajeNaturalReducido.g:1378:2: ( rule__Afirmacion__NegacionAssignment_0 )?
             {
-             before(grammarAccess.getObligacionAccess().getNegacionAssignment_0()); 
-            // InternalLenguajeNaturalReducido.g:1385:2: ( rule__Obligacion__NegacionAssignment_0 )?
+             before(grammarAccess.getAfirmacionAccess().getNegacionAssignment_0()); 
+            // InternalLenguajeNaturalReducido.g:1379:2: ( rule__Afirmacion__NegacionAssignment_0 )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==32) ) {
+            if ( (LA14_0==31) ) {
                 alt14=1;
             }
             switch (alt14) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:1385:3: rule__Obligacion__NegacionAssignment_0
+                    // InternalLenguajeNaturalReducido.g:1379:3: rule__Afirmacion__NegacionAssignment_0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Obligacion__NegacionAssignment_0();
+                    rule__Afirmacion__NegacionAssignment_0();
 
                     state._fsp--;
 
@@ -4393,7 +4372,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
             }
 
-             after(grammarAccess.getObligacionAccess().getNegacionAssignment_0()); 
+             after(grammarAccess.getAfirmacionAccess().getNegacionAssignment_0()); 
 
             }
 
@@ -4412,21 +4391,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Obligacion__Group__0__Impl"
+    // $ANTLR end "rule__Afirmacion__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Obligacion__Group__1"
-    // InternalLenguajeNaturalReducido.g:1393:1: rule__Obligacion__Group__1 : rule__Obligacion__Group__1__Impl ;
-    public final void rule__Obligacion__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__Afirmacion__Group__1"
+    // InternalLenguajeNaturalReducido.g:1387:1: rule__Afirmacion__Group__1 : rule__Afirmacion__Group__1__Impl ;
+    public final void rule__Afirmacion__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1397:1: ( rule__Obligacion__Group__1__Impl )
-            // InternalLenguajeNaturalReducido.g:1398:2: rule__Obligacion__Group__1__Impl
+            // InternalLenguajeNaturalReducido.g:1391:1: ( rule__Afirmacion__Group__1__Impl )
+            // InternalLenguajeNaturalReducido.g:1392:2: rule__Afirmacion__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Obligacion__Group__1__Impl();
+            rule__Afirmacion__Group__1__Impl();
 
             state._fsp--;
 
@@ -4445,35 +4424,35 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Obligacion__Group__1"
+    // $ANTLR end "rule__Afirmacion__Group__1"
 
 
-    // $ANTLR start "rule__Obligacion__Group__1__Impl"
-    // InternalLenguajeNaturalReducido.g:1404:1: rule__Obligacion__Group__1__Impl : ( ( rule__Obligacion__ObligacionAssignment_1 ) ) ;
-    public final void rule__Obligacion__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Afirmacion__Group__1__Impl"
+    // InternalLenguajeNaturalReducido.g:1398:1: rule__Afirmacion__Group__1__Impl : ( ( rule__Afirmacion__AfirmacionAssignment_1 ) ) ;
+    public final void rule__Afirmacion__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1408:1: ( ( ( rule__Obligacion__ObligacionAssignment_1 ) ) )
-            // InternalLenguajeNaturalReducido.g:1409:1: ( ( rule__Obligacion__ObligacionAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:1402:1: ( ( ( rule__Afirmacion__AfirmacionAssignment_1 ) ) )
+            // InternalLenguajeNaturalReducido.g:1403:1: ( ( rule__Afirmacion__AfirmacionAssignment_1 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1409:1: ( ( rule__Obligacion__ObligacionAssignment_1 ) )
-            // InternalLenguajeNaturalReducido.g:1410:2: ( rule__Obligacion__ObligacionAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:1403:1: ( ( rule__Afirmacion__AfirmacionAssignment_1 ) )
+            // InternalLenguajeNaturalReducido.g:1404:2: ( rule__Afirmacion__AfirmacionAssignment_1 )
             {
-             before(grammarAccess.getObligacionAccess().getObligacionAssignment_1()); 
-            // InternalLenguajeNaturalReducido.g:1411:2: ( rule__Obligacion__ObligacionAssignment_1 )
-            // InternalLenguajeNaturalReducido.g:1411:3: rule__Obligacion__ObligacionAssignment_1
+             before(grammarAccess.getAfirmacionAccess().getAfirmacionAssignment_1()); 
+            // InternalLenguajeNaturalReducido.g:1405:2: ( rule__Afirmacion__AfirmacionAssignment_1 )
+            // InternalLenguajeNaturalReducido.g:1405:3: rule__Afirmacion__AfirmacionAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Obligacion__ObligacionAssignment_1();
+            rule__Afirmacion__AfirmacionAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getObligacionAccess().getObligacionAssignment_1()); 
+             after(grammarAccess.getAfirmacionAccess().getAfirmacionAssignment_1()); 
 
             }
 
@@ -4492,25 +4471,29 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Obligacion__Group__1__Impl"
+    // $ANTLR end "rule__Afirmacion__Group__1__Impl"
 
 
     // $ANTLR start "rule__Documento__EncabezadoAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1420:1: rule__Documento__EncabezadoAssignment_0 : ( RULE_STRING ) ;
+    // InternalLenguajeNaturalReducido.g:1414:1: rule__Documento__EncabezadoAssignment_0 : ( ruleLiteral ) ;
     public final void rule__Documento__EncabezadoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1424:1: ( ( RULE_STRING ) )
-            // InternalLenguajeNaturalReducido.g:1425:2: ( RULE_STRING )
+            // InternalLenguajeNaturalReducido.g:1418:1: ( ( ruleLiteral ) )
+            // InternalLenguajeNaturalReducido.g:1419:2: ( ruleLiteral )
             {
-            // InternalLenguajeNaturalReducido.g:1425:2: ( RULE_STRING )
-            // InternalLenguajeNaturalReducido.g:1426:3: RULE_STRING
+            // InternalLenguajeNaturalReducido.g:1419:2: ( ruleLiteral )
+            // InternalLenguajeNaturalReducido.g:1420:3: ruleLiteral
             {
-             before(grammarAccess.getDocumentoAccess().getEncabezadoSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getDocumentoAccess().getEncabezadoSTRINGTerminalRuleCall_0_0()); 
+             before(grammarAccess.getDocumentoAccess().getEncabezadoLiteralParserRuleCall_0_0()); 
+            pushFollow(FOLLOW_2);
+            ruleLiteral();
+
+            state._fsp--;
+
+             after(grammarAccess.getDocumentoAccess().getEncabezadoLiteralParserRuleCall_0_0()); 
 
             }
 
@@ -4533,17 +4516,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Documento__OracionesAssignment_2"
-    // InternalLenguajeNaturalReducido.g:1435:1: rule__Documento__OracionesAssignment_2 : ( ruleOracion ) ;
+    // InternalLenguajeNaturalReducido.g:1429:1: rule__Documento__OracionesAssignment_2 : ( ruleOracion ) ;
     public final void rule__Documento__OracionesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1439:1: ( ( ruleOracion ) )
-            // InternalLenguajeNaturalReducido.g:1440:2: ( ruleOracion )
+            // InternalLenguajeNaturalReducido.g:1433:1: ( ( ruleOracion ) )
+            // InternalLenguajeNaturalReducido.g:1434:2: ( ruleOracion )
             {
-            // InternalLenguajeNaturalReducido.g:1440:2: ( ruleOracion )
-            // InternalLenguajeNaturalReducido.g:1441:3: ruleOracion
+            // InternalLenguajeNaturalReducido.g:1434:2: ( ruleOracion )
+            // InternalLenguajeNaturalReducido.g:1435:3: ruleOracion
             {
              before(grammarAccess.getDocumentoAccess().getOracionesOracionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4574,17 +4557,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Oracion__ContenidoAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1450:1: rule__Oracion__ContenidoAssignment_0 : ( ruleContenido ) ;
+    // InternalLenguajeNaturalReducido.g:1444:1: rule__Oracion__ContenidoAssignment_0 : ( ruleContenido ) ;
     public final void rule__Oracion__ContenidoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1454:1: ( ( ruleContenido ) )
-            // InternalLenguajeNaturalReducido.g:1455:2: ( ruleContenido )
+            // InternalLenguajeNaturalReducido.g:1448:1: ( ( ruleContenido ) )
+            // InternalLenguajeNaturalReducido.g:1449:2: ( ruleContenido )
             {
-            // InternalLenguajeNaturalReducido.g:1455:2: ( ruleContenido )
-            // InternalLenguajeNaturalReducido.g:1456:3: ruleContenido
+            // InternalLenguajeNaturalReducido.g:1449:2: ( ruleContenido )
+            // InternalLenguajeNaturalReducido.g:1450:3: ruleContenido
             {
              before(grammarAccess.getOracionAccess().getContenidoContenidoParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4614,30 +4597,30 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Oracion__ContenidoAssignment_0"
 
 
-    // $ANTLR start "rule__Contenido__PrefijoAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1465:1: rule__Contenido__PrefijoAssignment_0 : ( ( 'si' ) ) ;
-    public final void rule__Contenido__PrefijoAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Contenido__CondicionalAssignment_0"
+    // InternalLenguajeNaturalReducido.g:1459:1: rule__Contenido__CondicionalAssignment_0 : ( ( 'si' ) ) ;
+    public final void rule__Contenido__CondicionalAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1469:1: ( ( ( 'si' ) ) )
-            // InternalLenguajeNaturalReducido.g:1470:2: ( ( 'si' ) )
+            // InternalLenguajeNaturalReducido.g:1463:1: ( ( ( 'si' ) ) )
+            // InternalLenguajeNaturalReducido.g:1464:2: ( ( 'si' ) )
             {
-            // InternalLenguajeNaturalReducido.g:1470:2: ( ( 'si' ) )
-            // InternalLenguajeNaturalReducido.g:1471:3: ( 'si' )
+            // InternalLenguajeNaturalReducido.g:1464:2: ( ( 'si' ) )
+            // InternalLenguajeNaturalReducido.g:1465:3: ( 'si' )
             {
-             before(grammarAccess.getContenidoAccess().getPrefijoSiKeyword_0_0()); 
-            // InternalLenguajeNaturalReducido.g:1472:3: ( 'si' )
-            // InternalLenguajeNaturalReducido.g:1473:4: 'si'
+             before(grammarAccess.getContenidoAccess().getCondicionalSiKeyword_0_0()); 
+            // InternalLenguajeNaturalReducido.g:1466:3: ( 'si' )
+            // InternalLenguajeNaturalReducido.g:1467:4: 'si'
             {
-             before(grammarAccess.getContenidoAccess().getPrefijoSiKeyword_0_0()); 
-            match(input,28,FOLLOW_2); 
-             after(grammarAccess.getContenidoAccess().getPrefijoSiKeyword_0_0()); 
+             before(grammarAccess.getContenidoAccess().getCondicionalSiKeyword_0_0()); 
+            match(input,27,FOLLOW_2); 
+             after(grammarAccess.getContenidoAccess().getCondicionalSiKeyword_0_0()); 
 
             }
 
-             after(grammarAccess.getContenidoAccess().getPrefijoSiKeyword_0_0()); 
+             after(grammarAccess.getContenidoAccess().getCondicionalSiKeyword_0_0()); 
 
             }
 
@@ -4656,21 +4639,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Contenido__PrefijoAssignment_0"
+    // $ANTLR end "rule__Contenido__CondicionalAssignment_0"
 
 
     // $ANTLR start "rule__Contenido__SimpleAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1484:1: rule__Contenido__SimpleAssignment_1 : ( ruleSimple ) ;
+    // InternalLenguajeNaturalReducido.g:1478:1: rule__Contenido__SimpleAssignment_1 : ( ruleSimple ) ;
     public final void rule__Contenido__SimpleAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1488:1: ( ( ruleSimple ) )
-            // InternalLenguajeNaturalReducido.g:1489:2: ( ruleSimple )
+            // InternalLenguajeNaturalReducido.g:1482:1: ( ( ruleSimple ) )
+            // InternalLenguajeNaturalReducido.g:1483:2: ( ruleSimple )
             {
-            // InternalLenguajeNaturalReducido.g:1489:2: ( ruleSimple )
-            // InternalLenguajeNaturalReducido.g:1490:3: ruleSimple
+            // InternalLenguajeNaturalReducido.g:1483:2: ( ruleSimple )
+            // InternalLenguajeNaturalReducido.g:1484:3: ruleSimple
             {
              before(grammarAccess.getContenidoAccess().getSimpleSimpleParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -4701,17 +4684,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Contenido__ComposicionAssignment_2"
-    // InternalLenguajeNaturalReducido.g:1499:1: rule__Contenido__ComposicionAssignment_2 : ( ruleComposicion ) ;
+    // InternalLenguajeNaturalReducido.g:1493:1: rule__Contenido__ComposicionAssignment_2 : ( ruleComposicion ) ;
     public final void rule__Contenido__ComposicionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1503:1: ( ( ruleComposicion ) )
-            // InternalLenguajeNaturalReducido.g:1504:2: ( ruleComposicion )
+            // InternalLenguajeNaturalReducido.g:1497:1: ( ( ruleComposicion ) )
+            // InternalLenguajeNaturalReducido.g:1498:2: ( ruleComposicion )
             {
-            // InternalLenguajeNaturalReducido.g:1504:2: ( ruleComposicion )
-            // InternalLenguajeNaturalReducido.g:1505:3: ruleComposicion
+            // InternalLenguajeNaturalReducido.g:1498:2: ( ruleComposicion )
+            // InternalLenguajeNaturalReducido.g:1499:3: ruleComposicion
             {
              before(grammarAccess.getContenidoAccess().getComposicionComposicionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4742,17 +4725,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Simple__Expresion_izqAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1514:1: rule__Simple__Expresion_izqAssignment_0 : ( ruleExpresion ) ;
+    // InternalLenguajeNaturalReducido.g:1508:1: rule__Simple__Expresion_izqAssignment_0 : ( ruleExpresion ) ;
     public final void rule__Simple__Expresion_izqAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1518:1: ( ( ruleExpresion ) )
-            // InternalLenguajeNaturalReducido.g:1519:2: ( ruleExpresion )
+            // InternalLenguajeNaturalReducido.g:1512:1: ( ( ruleExpresion ) )
+            // InternalLenguajeNaturalReducido.g:1513:2: ( ruleExpresion )
             {
-            // InternalLenguajeNaturalReducido.g:1519:2: ( ruleExpresion )
-            // InternalLenguajeNaturalReducido.g:1520:3: ruleExpresion
+            // InternalLenguajeNaturalReducido.g:1513:2: ( ruleExpresion )
+            // InternalLenguajeNaturalReducido.g:1514:3: ruleExpresion
             {
              before(grammarAccess.getSimpleAccess().getExpresion_izqExpresionParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4783,17 +4766,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Simple__Expresion_derAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1529:1: rule__Simple__Expresion_derAssignment_1 : ( ruleExpresionDerecha ) ;
+    // InternalLenguajeNaturalReducido.g:1523:1: rule__Simple__Expresion_derAssignment_1 : ( ruleExpresionDerecha ) ;
     public final void rule__Simple__Expresion_derAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1533:1: ( ( ruleExpresionDerecha ) )
-            // InternalLenguajeNaturalReducido.g:1534:2: ( ruleExpresionDerecha )
+            // InternalLenguajeNaturalReducido.g:1527:1: ( ( ruleExpresionDerecha ) )
+            // InternalLenguajeNaturalReducido.g:1528:2: ( ruleExpresionDerecha )
             {
-            // InternalLenguajeNaturalReducido.g:1534:2: ( ruleExpresionDerecha )
-            // InternalLenguajeNaturalReducido.g:1535:3: ruleExpresionDerecha
+            // InternalLenguajeNaturalReducido.g:1528:2: ( ruleExpresionDerecha )
+            // InternalLenguajeNaturalReducido.g:1529:3: ruleExpresionDerecha
             {
              before(grammarAccess.getSimpleAccess().getExpresion_derExpresionDerechaParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -4824,17 +4807,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__ExpresionDerecha__ComparacionAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1544:1: rule__ExpresionDerecha__ComparacionAssignment_0 : ( ruleComparacion ) ;
+    // InternalLenguajeNaturalReducido.g:1538:1: rule__ExpresionDerecha__ComparacionAssignment_0 : ( ruleComparacion ) ;
     public final void rule__ExpresionDerecha__ComparacionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1548:1: ( ( ruleComparacion ) )
-            // InternalLenguajeNaturalReducido.g:1549:2: ( ruleComparacion )
+            // InternalLenguajeNaturalReducido.g:1542:1: ( ( ruleComparacion ) )
+            // InternalLenguajeNaturalReducido.g:1543:2: ( ruleComparacion )
             {
-            // InternalLenguajeNaturalReducido.g:1549:2: ( ruleComparacion )
-            // InternalLenguajeNaturalReducido.g:1550:3: ruleComparacion
+            // InternalLenguajeNaturalReducido.g:1543:2: ( ruleComparacion )
+            // InternalLenguajeNaturalReducido.g:1544:3: ruleComparacion
             {
              before(grammarAccess.getExpresionDerechaAccess().getComparacionComparacionParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4865,17 +4848,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__ExpresionDerecha__ExpresionAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1559:1: rule__ExpresionDerecha__ExpresionAssignment_1 : ( ruleExpresion ) ;
+    // InternalLenguajeNaturalReducido.g:1553:1: rule__ExpresionDerecha__ExpresionAssignment_1 : ( ruleExpresion ) ;
     public final void rule__ExpresionDerecha__ExpresionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1563:1: ( ( ruleExpresion ) )
-            // InternalLenguajeNaturalReducido.g:1564:2: ( ruleExpresion )
+            // InternalLenguajeNaturalReducido.g:1557:1: ( ( ruleExpresion ) )
+            // InternalLenguajeNaturalReducido.g:1558:2: ( ruleExpresion )
             {
-            // InternalLenguajeNaturalReducido.g:1564:2: ( ruleExpresion )
-            // InternalLenguajeNaturalReducido.g:1565:3: ruleExpresion
+            // InternalLenguajeNaturalReducido.g:1558:2: ( ruleExpresion )
+            // InternalLenguajeNaturalReducido.g:1559:3: ruleExpresion
             {
              before(grammarAccess.getExpresionDerechaAccess().getExpresionExpresionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -4906,17 +4889,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Composicion__NexoAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1574:1: rule__Composicion__NexoAssignment_0 : ( ruleNexo ) ;
+    // InternalLenguajeNaturalReducido.g:1568:1: rule__Composicion__NexoAssignment_0 : ( ruleNexo ) ;
     public final void rule__Composicion__NexoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1578:1: ( ( ruleNexo ) )
-            // InternalLenguajeNaturalReducido.g:1579:2: ( ruleNexo )
+            // InternalLenguajeNaturalReducido.g:1572:1: ( ( ruleNexo ) )
+            // InternalLenguajeNaturalReducido.g:1573:2: ( ruleNexo )
             {
-            // InternalLenguajeNaturalReducido.g:1579:2: ( ruleNexo )
-            // InternalLenguajeNaturalReducido.g:1580:3: ruleNexo
+            // InternalLenguajeNaturalReducido.g:1573:2: ( ruleNexo )
+            // InternalLenguajeNaturalReducido.g:1574:3: ruleNexo
             {
              before(grammarAccess.getComposicionAccess().getNexoNexoParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4947,17 +4930,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Composicion__ContenidoAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1589:1: rule__Composicion__ContenidoAssignment_1 : ( ruleContenido ) ;
+    // InternalLenguajeNaturalReducido.g:1583:1: rule__Composicion__ContenidoAssignment_1 : ( ruleContenido ) ;
     public final void rule__Composicion__ContenidoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1593:1: ( ( ruleContenido ) )
-            // InternalLenguajeNaturalReducido.g:1594:2: ( ruleContenido )
+            // InternalLenguajeNaturalReducido.g:1587:1: ( ( ruleContenido ) )
+            // InternalLenguajeNaturalReducido.g:1588:2: ( ruleContenido )
             {
-            // InternalLenguajeNaturalReducido.g:1594:2: ( ruleContenido )
-            // InternalLenguajeNaturalReducido.g:1595:3: ruleContenido
+            // InternalLenguajeNaturalReducido.g:1588:2: ( ruleContenido )
+            // InternalLenguajeNaturalReducido.g:1589:3: ruleContenido
             {
              before(grammarAccess.getComposicionAccess().getContenidoContenidoParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -4987,32 +4970,32 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Composicion__ContenidoAssignment_1"
 
 
-    // $ANTLR start "rule__Nexo__ValorAssignment"
-    // InternalLenguajeNaturalReducido.g:1604:1: rule__Nexo__ValorAssignment : ( ( rule__Nexo__ValorAlternatives_0 ) ) ;
-    public final void rule__Nexo__ValorAssignment() throws RecognitionException {
+    // $ANTLR start "rule__Nexo__NexoAssignment"
+    // InternalLenguajeNaturalReducido.g:1598:1: rule__Nexo__NexoAssignment : ( ( rule__Nexo__NexoAlternatives_0 ) ) ;
+    public final void rule__Nexo__NexoAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1608:1: ( ( ( rule__Nexo__ValorAlternatives_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1609:2: ( ( rule__Nexo__ValorAlternatives_0 ) )
+            // InternalLenguajeNaturalReducido.g:1602:1: ( ( ( rule__Nexo__NexoAlternatives_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1603:2: ( ( rule__Nexo__NexoAlternatives_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1609:2: ( ( rule__Nexo__ValorAlternatives_0 ) )
-            // InternalLenguajeNaturalReducido.g:1610:3: ( rule__Nexo__ValorAlternatives_0 )
+            // InternalLenguajeNaturalReducido.g:1603:2: ( ( rule__Nexo__NexoAlternatives_0 ) )
+            // InternalLenguajeNaturalReducido.g:1604:3: ( rule__Nexo__NexoAlternatives_0 )
             {
-             before(grammarAccess.getNexoAccess().getValorAlternatives_0()); 
-            // InternalLenguajeNaturalReducido.g:1611:3: ( rule__Nexo__ValorAlternatives_0 )
-            // InternalLenguajeNaturalReducido.g:1611:4: rule__Nexo__ValorAlternatives_0
+             before(grammarAccess.getNexoAccess().getNexoAlternatives_0()); 
+            // InternalLenguajeNaturalReducido.g:1605:3: ( rule__Nexo__NexoAlternatives_0 )
+            // InternalLenguajeNaturalReducido.g:1605:4: rule__Nexo__NexoAlternatives_0
             {
             pushFollow(FOLLOW_2);
-            rule__Nexo__ValorAlternatives_0();
+            rule__Nexo__NexoAlternatives_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getNexoAccess().getValorAlternatives_0()); 
+             after(grammarAccess.getNexoAccess().getNexoAlternatives_0()); 
 
             }
 
@@ -5031,25 +5014,25 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Nexo__ValorAssignment"
+    // $ANTLR end "rule__Nexo__NexoAssignment"
 
 
     // $ANTLR start "rule__Expresion__ExpresionAssignment"
-    // InternalLenguajeNaturalReducido.g:1619:1: rule__Expresion__ExpresionAssignment : ( ( rule__Expresion__ExpresionAlternatives_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1613:1: rule__Expresion__ExpresionAssignment : ( ( rule__Expresion__ExpresionAlternatives_0 ) ) ;
     public final void rule__Expresion__ExpresionAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1623:1: ( ( ( rule__Expresion__ExpresionAlternatives_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1624:2: ( ( rule__Expresion__ExpresionAlternatives_0 ) )
+            // InternalLenguajeNaturalReducido.g:1617:1: ( ( ( rule__Expresion__ExpresionAlternatives_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1618:2: ( ( rule__Expresion__ExpresionAlternatives_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1624:2: ( ( rule__Expresion__ExpresionAlternatives_0 ) )
-            // InternalLenguajeNaturalReducido.g:1625:3: ( rule__Expresion__ExpresionAlternatives_0 )
+            // InternalLenguajeNaturalReducido.g:1618:2: ( ( rule__Expresion__ExpresionAlternatives_0 ) )
+            // InternalLenguajeNaturalReducido.g:1619:3: ( rule__Expresion__ExpresionAlternatives_0 )
             {
              before(grammarAccess.getExpresionAccess().getExpresionAlternatives_0()); 
-            // InternalLenguajeNaturalReducido.g:1626:3: ( rule__Expresion__ExpresionAlternatives_0 )
-            // InternalLenguajeNaturalReducido.g:1626:4: rule__Expresion__ExpresionAlternatives_0
+            // InternalLenguajeNaturalReducido.g:1620:3: ( rule__Expresion__ExpresionAlternatives_0 )
+            // InternalLenguajeNaturalReducido.g:1620:4: rule__Expresion__ExpresionAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Expresion__ExpresionAlternatives_0();
@@ -5081,26 +5064,26 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Expresion__ExpresionAssignment"
 
 
-    // $ANTLR start "rule__Comparacion__ObligacionAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1634:1: rule__Comparacion__ObligacionAssignment_0 : ( ruleObligacion ) ;
-    public final void rule__Comparacion__ObligacionAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Comparacion__AfirmacionAssignment_0"
+    // InternalLenguajeNaturalReducido.g:1628:1: rule__Comparacion__AfirmacionAssignment_0 : ( ruleAfirmacion ) ;
+    public final void rule__Comparacion__AfirmacionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1638:1: ( ( ruleObligacion ) )
-            // InternalLenguajeNaturalReducido.g:1639:2: ( ruleObligacion )
+            // InternalLenguajeNaturalReducido.g:1632:1: ( ( ruleAfirmacion ) )
+            // InternalLenguajeNaturalReducido.g:1633:2: ( ruleAfirmacion )
             {
-            // InternalLenguajeNaturalReducido.g:1639:2: ( ruleObligacion )
-            // InternalLenguajeNaturalReducido.g:1640:3: ruleObligacion
+            // InternalLenguajeNaturalReducido.g:1633:2: ( ruleAfirmacion )
+            // InternalLenguajeNaturalReducido.g:1634:3: ruleAfirmacion
             {
-             before(grammarAccess.getComparacionAccess().getObligacionObligacionParserRuleCall_0_0()); 
+             before(grammarAccess.getComparacionAccess().getAfirmacionAfirmacionParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
-            ruleObligacion();
+            ruleAfirmacion();
 
             state._fsp--;
 
-             after(grammarAccess.getComparacionAccess().getObligacionObligacionParserRuleCall_0_0()); 
+             after(grammarAccess.getComparacionAccess().getAfirmacionAfirmacionParserRuleCall_0_0()); 
 
             }
 
@@ -5119,21 +5102,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Comparacion__ObligacionAssignment_0"
+    // $ANTLR end "rule__Comparacion__AfirmacionAssignment_0"
 
 
     // $ANTLR start "rule__Comparacion__OperacionAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1649:1: rule__Comparacion__OperacionAssignment_1 : ( ruleOperacion ) ;
+    // InternalLenguajeNaturalReducido.g:1643:1: rule__Comparacion__OperacionAssignment_1 : ( ruleOperacion ) ;
     public final void rule__Comparacion__OperacionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1653:1: ( ( ruleOperacion ) )
-            // InternalLenguajeNaturalReducido.g:1654:2: ( ruleOperacion )
+            // InternalLenguajeNaturalReducido.g:1647:1: ( ( ruleOperacion ) )
+            // InternalLenguajeNaturalReducido.g:1648:2: ( ruleOperacion )
             {
-            // InternalLenguajeNaturalReducido.g:1654:2: ( ruleOperacion )
-            // InternalLenguajeNaturalReducido.g:1655:3: ruleOperacion
+            // InternalLenguajeNaturalReducido.g:1648:2: ( ruleOperacion )
+            // InternalLenguajeNaturalReducido.g:1649:3: ruleOperacion
             {
              before(grammarAccess.getComparacionAccess().getOperacionOperacionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5164,17 +5147,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__AtributoAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1664:1: rule__Propiedad__AtributoAssignment_0 : ( ruleAtributo ) ;
+    // InternalLenguajeNaturalReducido.g:1658:1: rule__Propiedad__AtributoAssignment_0 : ( ruleAtributo ) ;
     public final void rule__Propiedad__AtributoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1668:1: ( ( ruleAtributo ) )
-            // InternalLenguajeNaturalReducido.g:1669:2: ( ruleAtributo )
+            // InternalLenguajeNaturalReducido.g:1662:1: ( ( ruleAtributo ) )
+            // InternalLenguajeNaturalReducido.g:1663:2: ( ruleAtributo )
             {
-            // InternalLenguajeNaturalReducido.g:1669:2: ( ruleAtributo )
-            // InternalLenguajeNaturalReducido.g:1670:3: ruleAtributo
+            // InternalLenguajeNaturalReducido.g:1663:2: ( ruleAtributo )
+            // InternalLenguajeNaturalReducido.g:1664:3: ruleAtributo
             {
              before(grammarAccess.getPropiedadAccess().getAtributoAtributoParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -5205,17 +5188,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__TerminoAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1679:1: rule__Propiedad__TerminoAssignment_1 : ( ruleTermino ) ;
+    // InternalLenguajeNaturalReducido.g:1673:1: rule__Propiedad__TerminoAssignment_1 : ( ruleTermino ) ;
     public final void rule__Propiedad__TerminoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1683:1: ( ( ruleTermino ) )
-            // InternalLenguajeNaturalReducido.g:1684:2: ( ruleTermino )
+            // InternalLenguajeNaturalReducido.g:1677:1: ( ( ruleTermino ) )
+            // InternalLenguajeNaturalReducido.g:1678:2: ( ruleTermino )
             {
-            // InternalLenguajeNaturalReducido.g:1684:2: ( ruleTermino )
-            // InternalLenguajeNaturalReducido.g:1685:3: ruleTermino
+            // InternalLenguajeNaturalReducido.g:1678:2: ( ruleTermino )
+            // InternalLenguajeNaturalReducido.g:1679:3: ruleTermino
             {
              before(grammarAccess.getPropiedadAccess().getTerminoTerminoParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5246,17 +5229,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Propiedad__IteracionAssignment_2"
-    // InternalLenguajeNaturalReducido.g:1694:1: rule__Propiedad__IteracionAssignment_2 : ( ruleIteracion ) ;
+    // InternalLenguajeNaturalReducido.g:1688:1: rule__Propiedad__IteracionAssignment_2 : ( ruleIteracion ) ;
     public final void rule__Propiedad__IteracionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1698:1: ( ( ruleIteracion ) )
-            // InternalLenguajeNaturalReducido.g:1699:2: ( ruleIteracion )
+            // InternalLenguajeNaturalReducido.g:1692:1: ( ( ruleIteracion ) )
+            // InternalLenguajeNaturalReducido.g:1693:2: ( ruleIteracion )
             {
-            // InternalLenguajeNaturalReducido.g:1699:2: ( ruleIteracion )
-            // InternalLenguajeNaturalReducido.g:1700:3: ruleIteracion
+            // InternalLenguajeNaturalReducido.g:1693:2: ( ruleIteracion )
+            // InternalLenguajeNaturalReducido.g:1694:3: ruleIteracion
             {
              before(grammarAccess.getPropiedadAccess().getIteracionIteracionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5286,32 +5269,32 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Propiedad__IteracionAssignment_2"
 
 
-    // $ANTLR start "rule__Iteracion__ConectorAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1709:1: rule__Iteracion__ConectorAssignment_0 : ( ( rule__Iteracion__ConectorAlternatives_0_0 ) ) ;
-    public final void rule__Iteracion__ConectorAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Iteracion__CondicionAssignment_0"
+    // InternalLenguajeNaturalReducido.g:1703:1: rule__Iteracion__CondicionAssignment_0 : ( ( rule__Iteracion__CondicionAlternatives_0_0 ) ) ;
+    public final void rule__Iteracion__CondicionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1713:1: ( ( ( rule__Iteracion__ConectorAlternatives_0_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1714:2: ( ( rule__Iteracion__ConectorAlternatives_0_0 ) )
+            // InternalLenguajeNaturalReducido.g:1707:1: ( ( ( rule__Iteracion__CondicionAlternatives_0_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1708:2: ( ( rule__Iteracion__CondicionAlternatives_0_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1714:2: ( ( rule__Iteracion__ConectorAlternatives_0_0 ) )
-            // InternalLenguajeNaturalReducido.g:1715:3: ( rule__Iteracion__ConectorAlternatives_0_0 )
+            // InternalLenguajeNaturalReducido.g:1708:2: ( ( rule__Iteracion__CondicionAlternatives_0_0 ) )
+            // InternalLenguajeNaturalReducido.g:1709:3: ( rule__Iteracion__CondicionAlternatives_0_0 )
             {
-             before(grammarAccess.getIteracionAccess().getConectorAlternatives_0_0()); 
-            // InternalLenguajeNaturalReducido.g:1716:3: ( rule__Iteracion__ConectorAlternatives_0_0 )
-            // InternalLenguajeNaturalReducido.g:1716:4: rule__Iteracion__ConectorAlternatives_0_0
+             before(grammarAccess.getIteracionAccess().getCondicionAlternatives_0_0()); 
+            // InternalLenguajeNaturalReducido.g:1710:3: ( rule__Iteracion__CondicionAlternatives_0_0 )
+            // InternalLenguajeNaturalReducido.g:1710:4: rule__Iteracion__CondicionAlternatives_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__Iteracion__ConectorAlternatives_0_0();
+            rule__Iteracion__CondicionAlternatives_0_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getIteracionAccess().getConectorAlternatives_0_0()); 
+             after(grammarAccess.getIteracionAccess().getCondicionAlternatives_0_0()); 
 
             }
 
@@ -5330,21 +5313,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Iteracion__ConectorAssignment_0"
+    // $ANTLR end "rule__Iteracion__CondicionAssignment_0"
 
 
     // $ANTLR start "rule__Iteracion__ContenidoAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1724:1: rule__Iteracion__ContenidoAssignment_1 : ( ruleContenido ) ;
+    // InternalLenguajeNaturalReducido.g:1718:1: rule__Iteracion__ContenidoAssignment_1 : ( ruleContenido ) ;
     public final void rule__Iteracion__ContenidoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1728:1: ( ( ruleContenido ) )
-            // InternalLenguajeNaturalReducido.g:1729:2: ( ruleContenido )
+            // InternalLenguajeNaturalReducido.g:1722:1: ( ( ruleContenido ) )
+            // InternalLenguajeNaturalReducido.g:1723:2: ( ruleContenido )
             {
-            // InternalLenguajeNaturalReducido.g:1729:2: ( ruleContenido )
-            // InternalLenguajeNaturalReducido.g:1730:3: ruleContenido
+            // InternalLenguajeNaturalReducido.g:1723:2: ( ruleContenido )
+            // InternalLenguajeNaturalReducido.g:1724:3: ruleContenido
             {
              before(grammarAccess.getIteracionAccess().getContenidoContenidoParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5375,21 +5358,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__DeterminanteAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1739:1: rule__Atributo__DeterminanteAssignment_0 : ( ( rule__Atributo__DeterminanteAlternatives_0_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1733:1: rule__Atributo__DeterminanteAssignment_0 : ( ( rule__Atributo__DeterminanteAlternatives_0_0 ) ) ;
     public final void rule__Atributo__DeterminanteAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1743:1: ( ( ( rule__Atributo__DeterminanteAlternatives_0_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1744:2: ( ( rule__Atributo__DeterminanteAlternatives_0_0 ) )
+            // InternalLenguajeNaturalReducido.g:1737:1: ( ( ( rule__Atributo__DeterminanteAlternatives_0_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1738:2: ( ( rule__Atributo__DeterminanteAlternatives_0_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1744:2: ( ( rule__Atributo__DeterminanteAlternatives_0_0 ) )
-            // InternalLenguajeNaturalReducido.g:1745:3: ( rule__Atributo__DeterminanteAlternatives_0_0 )
+            // InternalLenguajeNaturalReducido.g:1738:2: ( ( rule__Atributo__DeterminanteAlternatives_0_0 ) )
+            // InternalLenguajeNaturalReducido.g:1739:3: ( rule__Atributo__DeterminanteAlternatives_0_0 )
             {
              before(grammarAccess.getAtributoAccess().getDeterminanteAlternatives_0_0()); 
-            // InternalLenguajeNaturalReducido.g:1746:3: ( rule__Atributo__DeterminanteAlternatives_0_0 )
-            // InternalLenguajeNaturalReducido.g:1746:4: rule__Atributo__DeterminanteAlternatives_0_0
+            // InternalLenguajeNaturalReducido.g:1740:3: ( rule__Atributo__DeterminanteAlternatives_0_0 )
+            // InternalLenguajeNaturalReducido.g:1740:4: rule__Atributo__DeterminanteAlternatives_0_0
             {
             pushFollow(FOLLOW_2);
             rule__Atributo__DeterminanteAlternatives_0_0();
@@ -5421,30 +5404,30 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Atributo__DeterminanteAssignment_0"
 
 
-    // $ANTLR start "rule__Atributo__PrefijoAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1754:1: rule__Atributo__PrefijoAssignment_1 : ( ( 'cantidad de' ) ) ;
-    public final void rule__Atributo__PrefijoAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Atributo__CuantitativoAssignment_1"
+    // InternalLenguajeNaturalReducido.g:1748:1: rule__Atributo__CuantitativoAssignment_1 : ( ( 'cantidad de' ) ) ;
+    public final void rule__Atributo__CuantitativoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1758:1: ( ( ( 'cantidad de' ) ) )
-            // InternalLenguajeNaturalReducido.g:1759:2: ( ( 'cantidad de' ) )
+            // InternalLenguajeNaturalReducido.g:1752:1: ( ( ( 'cantidad de' ) ) )
+            // InternalLenguajeNaturalReducido.g:1753:2: ( ( 'cantidad de' ) )
             {
-            // InternalLenguajeNaturalReducido.g:1759:2: ( ( 'cantidad de' ) )
-            // InternalLenguajeNaturalReducido.g:1760:3: ( 'cantidad de' )
+            // InternalLenguajeNaturalReducido.g:1753:2: ( ( 'cantidad de' ) )
+            // InternalLenguajeNaturalReducido.g:1754:3: ( 'cantidad de' )
             {
-             before(grammarAccess.getAtributoAccess().getPrefijoCantidadDeKeyword_1_0()); 
-            // InternalLenguajeNaturalReducido.g:1761:3: ( 'cantidad de' )
-            // InternalLenguajeNaturalReducido.g:1762:4: 'cantidad de'
+             before(grammarAccess.getAtributoAccess().getCuantitativoCantidadDeKeyword_1_0()); 
+            // InternalLenguajeNaturalReducido.g:1755:3: ( 'cantidad de' )
+            // InternalLenguajeNaturalReducido.g:1756:4: 'cantidad de'
             {
-             before(grammarAccess.getAtributoAccess().getPrefijoCantidadDeKeyword_1_0()); 
-            match(input,29,FOLLOW_2); 
-             after(grammarAccess.getAtributoAccess().getPrefijoCantidadDeKeyword_1_0()); 
+             before(grammarAccess.getAtributoAccess().getCuantitativoCantidadDeKeyword_1_0()); 
+            match(input,28,FOLLOW_2); 
+             after(grammarAccess.getAtributoAccess().getCuantitativoCantidadDeKeyword_1_0()); 
 
             }
 
-             after(grammarAccess.getAtributoAccess().getPrefijoCantidadDeKeyword_1_0()); 
+             after(grammarAccess.getAtributoAccess().getCuantitativoCantidadDeKeyword_1_0()); 
 
             }
 
@@ -5463,21 +5446,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Atributo__PrefijoAssignment_1"
+    // $ANTLR end "rule__Atributo__CuantitativoAssignment_1"
 
 
     // $ANTLR start "rule__Atributo__NombreAssignment_2"
-    // InternalLenguajeNaturalReducido.g:1773:1: rule__Atributo__NombreAssignment_2 : ( RULE_ID ) ;
+    // InternalLenguajeNaturalReducido.g:1767:1: rule__Atributo__NombreAssignment_2 : ( RULE_ID ) ;
     public final void rule__Atributo__NombreAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1777:1: ( ( RULE_ID ) )
-            // InternalLenguajeNaturalReducido.g:1778:2: ( RULE_ID )
+            // InternalLenguajeNaturalReducido.g:1771:1: ( ( RULE_ID ) )
+            // InternalLenguajeNaturalReducido.g:1772:2: ( RULE_ID )
             {
-            // InternalLenguajeNaturalReducido.g:1778:2: ( RULE_ID )
-            // InternalLenguajeNaturalReducido.g:1779:3: RULE_ID
+            // InternalLenguajeNaturalReducido.g:1772:2: ( RULE_ID )
+            // InternalLenguajeNaturalReducido.g:1773:3: RULE_ID
             {
              before(grammarAccess.getAtributoAccess().getNombreIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5504,24 +5487,24 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Atributo__EnlaceAssignment_3"
-    // InternalLenguajeNaturalReducido.g:1788:1: rule__Atributo__EnlaceAssignment_3 : ( ( 'de' ) ) ;
+    // InternalLenguajeNaturalReducido.g:1782:1: rule__Atributo__EnlaceAssignment_3 : ( ( 'de' ) ) ;
     public final void rule__Atributo__EnlaceAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1792:1: ( ( ( 'de' ) ) )
-            // InternalLenguajeNaturalReducido.g:1793:2: ( ( 'de' ) )
+            // InternalLenguajeNaturalReducido.g:1786:1: ( ( ( 'de' ) ) )
+            // InternalLenguajeNaturalReducido.g:1787:2: ( ( 'de' ) )
             {
-            // InternalLenguajeNaturalReducido.g:1793:2: ( ( 'de' ) )
-            // InternalLenguajeNaturalReducido.g:1794:3: ( 'de' )
-            {
-             before(grammarAccess.getAtributoAccess().getEnlaceDeKeyword_3_0()); 
-            // InternalLenguajeNaturalReducido.g:1795:3: ( 'de' )
-            // InternalLenguajeNaturalReducido.g:1796:4: 'de'
+            // InternalLenguajeNaturalReducido.g:1787:2: ( ( 'de' ) )
+            // InternalLenguajeNaturalReducido.g:1788:3: ( 'de' )
             {
              before(grammarAccess.getAtributoAccess().getEnlaceDeKeyword_3_0()); 
-            match(input,30,FOLLOW_2); 
+            // InternalLenguajeNaturalReducido.g:1789:3: ( 'de' )
+            // InternalLenguajeNaturalReducido.g:1790:4: 'de'
+            {
+             before(grammarAccess.getAtributoAccess().getEnlaceDeKeyword_3_0()); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getAtributoAccess().getEnlaceDeKeyword_3_0()); 
 
             }
@@ -5549,24 +5532,24 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Termino__IndeterminanteAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1807:1: rule__Termino__IndeterminanteAssignment_0 : ( ( 'un/una' ) ) ;
+    // InternalLenguajeNaturalReducido.g:1801:1: rule__Termino__IndeterminanteAssignment_0 : ( ( 'un/una' ) ) ;
     public final void rule__Termino__IndeterminanteAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1811:1: ( ( ( 'un/una' ) ) )
-            // InternalLenguajeNaturalReducido.g:1812:2: ( ( 'un/una' ) )
+            // InternalLenguajeNaturalReducido.g:1805:1: ( ( ( 'un/una' ) ) )
+            // InternalLenguajeNaturalReducido.g:1806:2: ( ( 'un/una' ) )
             {
-            // InternalLenguajeNaturalReducido.g:1812:2: ( ( 'un/una' ) )
-            // InternalLenguajeNaturalReducido.g:1813:3: ( 'un/una' )
-            {
-             before(grammarAccess.getTerminoAccess().getIndeterminanteUnUnaKeyword_0_0()); 
-            // InternalLenguajeNaturalReducido.g:1814:3: ( 'un/una' )
-            // InternalLenguajeNaturalReducido.g:1815:4: 'un/una'
+            // InternalLenguajeNaturalReducido.g:1806:2: ( ( 'un/una' ) )
+            // InternalLenguajeNaturalReducido.g:1807:3: ( 'un/una' )
             {
              before(grammarAccess.getTerminoAccess().getIndeterminanteUnUnaKeyword_0_0()); 
-            match(input,31,FOLLOW_2); 
+            // InternalLenguajeNaturalReducido.g:1808:3: ( 'un/una' )
+            // InternalLenguajeNaturalReducido.g:1809:4: 'un/una'
+            {
+             before(grammarAccess.getTerminoAccess().getIndeterminanteUnUnaKeyword_0_0()); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getTerminoAccess().getIndeterminanteUnUnaKeyword_0_0()); 
 
             }
@@ -5594,17 +5577,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__Termino__ContextoAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1826:1: rule__Termino__ContextoAssignment_1 : ( RULE_ID ) ;
+    // InternalLenguajeNaturalReducido.g:1820:1: rule__Termino__ContextoAssignment_1 : ( RULE_ID ) ;
     public final void rule__Termino__ContextoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1830:1: ( ( RULE_ID ) )
-            // InternalLenguajeNaturalReducido.g:1831:2: ( RULE_ID )
+            // InternalLenguajeNaturalReducido.g:1824:1: ( ( RULE_ID ) )
+            // InternalLenguajeNaturalReducido.g:1825:2: ( RULE_ID )
             {
-            // InternalLenguajeNaturalReducido.g:1831:2: ( RULE_ID )
-            // InternalLenguajeNaturalReducido.g:1832:3: RULE_ID
+            // InternalLenguajeNaturalReducido.g:1825:2: ( RULE_ID )
+            // InternalLenguajeNaturalReducido.g:1826:3: RULE_ID
             {
              before(grammarAccess.getTerminoAccess().getContextoIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5630,75 +5613,75 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Termino__ContextoAssignment_1"
 
 
-    // $ANTLR start "rule__Obligacion__NegacionAssignment_0"
-    // InternalLenguajeNaturalReducido.g:1841:1: rule__Obligacion__NegacionAssignment_0 : ( ( 'no' ) ) ;
-    public final void rule__Obligacion__NegacionAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Afirmacion__NegacionAssignment_0"
+    // InternalLenguajeNaturalReducido.g:1835:1: rule__Afirmacion__NegacionAssignment_0 : ( ( 'no' ) ) ;
+    public final void rule__Afirmacion__NegacionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1845:1: ( ( ( 'no' ) ) )
-            // InternalLenguajeNaturalReducido.g:1846:2: ( ( 'no' ) )
+            // InternalLenguajeNaturalReducido.g:1839:1: ( ( ( 'no' ) ) )
+            // InternalLenguajeNaturalReducido.g:1840:2: ( ( 'no' ) )
             {
-            // InternalLenguajeNaturalReducido.g:1846:2: ( ( 'no' ) )
-            // InternalLenguajeNaturalReducido.g:1847:3: ( 'no' )
+            // InternalLenguajeNaturalReducido.g:1840:2: ( ( 'no' ) )
+            // InternalLenguajeNaturalReducido.g:1841:3: ( 'no' )
             {
-             before(grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0()); 
-            // InternalLenguajeNaturalReducido.g:1848:3: ( 'no' )
-            // InternalLenguajeNaturalReducido.g:1849:4: 'no'
+             before(grammarAccess.getAfirmacionAccess().getNegacionNoKeyword_0_0()); 
+            // InternalLenguajeNaturalReducido.g:1842:3: ( 'no' )
+            // InternalLenguajeNaturalReducido.g:1843:4: 'no'
             {
-             before(grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0()); 
+             before(grammarAccess.getAfirmacionAccess().getNegacionNoKeyword_0_0()); 
+            match(input,31,FOLLOW_2); 
+             after(grammarAccess.getAfirmacionAccess().getNegacionNoKeyword_0_0()); 
+
+            }
+
+             after(grammarAccess.getAfirmacionAccess().getNegacionNoKeyword_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Afirmacion__NegacionAssignment_0"
+
+
+    // $ANTLR start "rule__Afirmacion__AfirmacionAssignment_1"
+    // InternalLenguajeNaturalReducido.g:1854:1: rule__Afirmacion__AfirmacionAssignment_1 : ( ( 'es' ) ) ;
+    public final void rule__Afirmacion__AfirmacionAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLenguajeNaturalReducido.g:1858:1: ( ( ( 'es' ) ) )
+            // InternalLenguajeNaturalReducido.g:1859:2: ( ( 'es' ) )
+            {
+            // InternalLenguajeNaturalReducido.g:1859:2: ( ( 'es' ) )
+            // InternalLenguajeNaturalReducido.g:1860:3: ( 'es' )
+            {
+             before(grammarAccess.getAfirmacionAccess().getAfirmacionEsKeyword_1_0()); 
+            // InternalLenguajeNaturalReducido.g:1861:3: ( 'es' )
+            // InternalLenguajeNaturalReducido.g:1862:4: 'es'
+            {
+             before(grammarAccess.getAfirmacionAccess().getAfirmacionEsKeyword_1_0()); 
             match(input,32,FOLLOW_2); 
-             after(grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0()); 
+             after(grammarAccess.getAfirmacionAccess().getAfirmacionEsKeyword_1_0()); 
 
             }
 
-             after(grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Obligacion__NegacionAssignment_0"
-
-
-    // $ANTLR start "rule__Obligacion__ObligacionAssignment_1"
-    // InternalLenguajeNaturalReducido.g:1860:1: rule__Obligacion__ObligacionAssignment_1 : ( ( 'es' ) ) ;
-    public final void rule__Obligacion__ObligacionAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLenguajeNaturalReducido.g:1864:1: ( ( ( 'es' ) ) )
-            // InternalLenguajeNaturalReducido.g:1865:2: ( ( 'es' ) )
-            {
-            // InternalLenguajeNaturalReducido.g:1865:2: ( ( 'es' ) )
-            // InternalLenguajeNaturalReducido.g:1866:3: ( 'es' )
-            {
-             before(grammarAccess.getObligacionAccess().getObligacionEsKeyword_1_0()); 
-            // InternalLenguajeNaturalReducido.g:1867:3: ( 'es' )
-            // InternalLenguajeNaturalReducido.g:1868:4: 'es'
-            {
-             before(grammarAccess.getObligacionAccess().getObligacionEsKeyword_1_0()); 
-            match(input,33,FOLLOW_2); 
-             after(grammarAccess.getObligacionAccess().getObligacionEsKeyword_1_0()); 
-
-            }
-
-             after(grammarAccess.getObligacionAccess().getObligacionEsKeyword_1_0()); 
+             after(grammarAccess.getAfirmacionAccess().getAfirmacionEsKeyword_1_0()); 
 
             }
 
@@ -5717,25 +5700,25 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Obligacion__ObligacionAssignment_1"
+    // $ANTLR end "rule__Afirmacion__AfirmacionAssignment_1"
 
 
     // $ANTLR start "rule__Operacion__OperacionAssignment"
-    // InternalLenguajeNaturalReducido.g:1879:1: rule__Operacion__OperacionAssignment : ( ( rule__Operacion__OperacionAlternatives_0 ) ) ;
+    // InternalLenguajeNaturalReducido.g:1873:1: rule__Operacion__OperacionAssignment : ( ( rule__Operacion__OperacionAlternatives_0 ) ) ;
     public final void rule__Operacion__OperacionAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1883:1: ( ( ( rule__Operacion__OperacionAlternatives_0 ) ) )
-            // InternalLenguajeNaturalReducido.g:1884:2: ( ( rule__Operacion__OperacionAlternatives_0 ) )
+            // InternalLenguajeNaturalReducido.g:1877:1: ( ( ( rule__Operacion__OperacionAlternatives_0 ) ) )
+            // InternalLenguajeNaturalReducido.g:1878:2: ( ( rule__Operacion__OperacionAlternatives_0 ) )
             {
-            // InternalLenguajeNaturalReducido.g:1884:2: ( ( rule__Operacion__OperacionAlternatives_0 ) )
-            // InternalLenguajeNaturalReducido.g:1885:3: ( rule__Operacion__OperacionAlternatives_0 )
+            // InternalLenguajeNaturalReducido.g:1878:2: ( ( rule__Operacion__OperacionAlternatives_0 ) )
+            // InternalLenguajeNaturalReducido.g:1879:3: ( rule__Operacion__OperacionAlternatives_0 )
             {
              before(grammarAccess.getOperacionAccess().getOperacionAlternatives_0()); 
-            // InternalLenguajeNaturalReducido.g:1886:3: ( rule__Operacion__OperacionAlternatives_0 )
-            // InternalLenguajeNaturalReducido.g:1886:4: rule__Operacion__OperacionAlternatives_0
+            // InternalLenguajeNaturalReducido.g:1880:3: ( rule__Operacion__OperacionAlternatives_0 )
+            // InternalLenguajeNaturalReducido.g:1880:4: rule__Operacion__OperacionAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Operacion__OperacionAlternatives_0();
@@ -5767,22 +5750,22 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     // $ANTLR end "rule__Operacion__OperacionAssignment"
 
 
-    // $ANTLR start "rule__Literal__ValorAssignment"
-    // InternalLenguajeNaturalReducido.g:1894:1: rule__Literal__ValorAssignment : ( RULE_STRING ) ;
-    public final void rule__Literal__ValorAssignment() throws RecognitionException {
+    // $ANTLR start "rule__Literal__LiteralAssignment"
+    // InternalLenguajeNaturalReducido.g:1888:1: rule__Literal__LiteralAssignment : ( RULE_STRING ) ;
+    public final void rule__Literal__LiteralAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLenguajeNaturalReducido.g:1898:1: ( ( RULE_STRING ) )
-            // InternalLenguajeNaturalReducido.g:1899:2: ( RULE_STRING )
+            // InternalLenguajeNaturalReducido.g:1892:1: ( ( RULE_STRING ) )
+            // InternalLenguajeNaturalReducido.g:1893:2: ( RULE_STRING )
             {
-            // InternalLenguajeNaturalReducido.g:1899:2: ( RULE_STRING )
-            // InternalLenguajeNaturalReducido.g:1900:3: RULE_STRING
+            // InternalLenguajeNaturalReducido.g:1893:2: ( RULE_STRING )
+            // InternalLenguajeNaturalReducido.g:1894:3: RULE_STRING
             {
-             before(grammarAccess.getLiteralAccess().getValorSTRINGTerminalRuleCall_0()); 
+             before(grammarAccess.getLiteralAccess().getLiteralSTRINGTerminalRuleCall_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getLiteralAccess().getValorSTRINGTerminalRuleCall_0()); 
+             after(grammarAccess.getLiteralAccess().getLiteralSTRINGTerminalRuleCall_0()); 
 
             }
 
@@ -5801,7 +5784,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
         }
         return ;
     }
-    // $ANTLR end "rule__Literal__ValorAssignment"
+    // $ANTLR end "rule__Literal__LiteralAssignment"
 
     // Delegated rules
 
@@ -5811,15 +5794,15 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalConte
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00000000103C0010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000103C0012L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00000000081C0020L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000081C0022L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000007000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000300000000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000000FC00000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000080038000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000180000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000007E00000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000040038000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000038002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000020000020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000010000010L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000010L});
 
 }

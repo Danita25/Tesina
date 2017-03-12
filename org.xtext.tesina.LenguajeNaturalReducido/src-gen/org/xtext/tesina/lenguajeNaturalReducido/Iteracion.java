@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getConector <em>Conector</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getCondicion <em>Condicion</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getContenido <em>Contenido</em>}</li>
  * </ul>
  *
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Iteracion extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Conector</b></em>' attribute.
+   * Returns the value of the '<em><b>Condicion</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Conector</em>' attribute isn't clear,
+   * If the meaning of the '<em>Condicion</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Conector</em>' attribute.
-   * @see #setConector(String)
-   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getIteracion_Conector()
+   * @return the value of the '<em>Condicion</em>' attribute.
+   * @see #setCondicion(String)
+   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getIteracion_Condicion()
    * @model
    * @generated
    */
-  String getConector();
+  String getCondicion();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getConector <em>Conector</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getCondicion <em>Condicion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Conector</em>' attribute.
-   * @see #getConector()
+   * @param value the new value of the '<em>Condicion</em>' attribute.
+   * @see #getCondicion()
    * @generated
    */
-  void setConector(String value);
+  void setCondicion(String value);
 
   /**
    * Returns the value of the '<em><b>Contenido</b></em>' containment reference.

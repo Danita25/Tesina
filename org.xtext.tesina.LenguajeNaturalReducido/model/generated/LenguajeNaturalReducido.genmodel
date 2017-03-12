@@ -7,14 +7,14 @@
   <genPackages prefix="LenguajeNaturalReducido" basePackage="org.xtext.tesina" disposableProviderFactory="true"
       fileExtensions="lnr" ecorePackage="LenguajeNaturalReducido.ecore#/">
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Documento">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Documento/encabezado"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Documento/encabezado"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Documento/oraciones"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Oracion">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Oracion/contenido"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Contenido">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Contenido/prefijo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Contenido/condicional"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Contenido/simple"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Contenido/composicion"/>
     </genClasses>
@@ -31,13 +31,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Composicion/contenido"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Nexo">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Nexo/valor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Nexo/nexo"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Expresion">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Expresion/expresion"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Comparacion">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Comparacion/obligacion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Comparacion/afirmacion"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Comparacion/operacion"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Propiedad">
@@ -46,12 +46,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Propiedad/iteracion"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Iteracion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Iteracion/conector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Iteracion/condicion"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LenguajeNaturalReducido.ecore#//Iteracion/contenido"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Atributo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Atributo/determinante"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Atributo/prefijo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Atributo/cuantitativo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Atributo/nombre"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Atributo/enlace"/>
     </genClasses>
@@ -59,15 +59,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Termino/indeterminante"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Termino/contexto"/>
     </genClasses>
-    <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Obligacion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Obligacion/negacion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Obligacion/obligacion"/>
+    <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Afirmacion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Afirmacion/negacion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Afirmacion/afirmacion"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Operacion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Operacion/operacion"/>
     </genClasses>
     <genClasses ecoreClass="LenguajeNaturalReducido.ecore#//Literal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Literal/valor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LenguajeNaturalReducido.ecore#//Literal/literal"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

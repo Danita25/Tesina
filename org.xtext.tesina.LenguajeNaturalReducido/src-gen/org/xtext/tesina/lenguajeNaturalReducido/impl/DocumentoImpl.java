@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.tesina.lenguajeNaturalReducido.Documento;
 import org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage;
+import org.xtext.tesina.lenguajeNaturalReducido.Literal;
 import org.xtext.tesina.lenguajeNaturalReducido.Oracion;
 
 /**
@@ -40,24 +41,14 @@ import org.xtext.tesina.lenguajeNaturalReducido.Oracion;
 public class DocumentoImpl extends MinimalEObjectImpl.Container implements Documento
 {
   /**
-   * The default value of the '{@link #getEncabezado() <em>Encabezado</em>}' attribute.
+   * The cached value of the '{@link #getEncabezado() <em>Encabezado</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getEncabezado()
    * @generated
    * @ordered
    */
-  protected static final String ENCABEZADO_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getEncabezado() <em>Encabezado</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEncabezado()
-   * @generated
-   * @ordered
-   */
-  protected String encabezado = ENCABEZADO_EDEFAULT;
+  protected Literal encabezado;
 
   /**
    * The cached value of the '{@link #getOraciones() <em>Oraciones</em>}' containment reference list.
@@ -95,7 +86,7 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getEncabezado()
+  public Literal getEncabezado()
   {
     return encabezado;
   }
@@ -105,12 +96,37 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEncabezado(String newEncabezado)
+  public NotificationChain basicSetEncabezado(Literal newEncabezado, NotificationChain msgs)
   {
-    String oldEncabezado = encabezado;
+    Literal oldEncabezado = encabezado;
     encabezado = newEncabezado;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO, oldEncabezado, encabezado));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO, oldEncabezado, newEncabezado);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEncabezado(Literal newEncabezado)
+  {
+    if (newEncabezado != encabezado)
+    {
+      NotificationChain msgs = null;
+      if (encabezado != null)
+        msgs = ((InternalEObject)encabezado).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO, null, msgs);
+      if (newEncabezado != null)
+        msgs = ((InternalEObject)newEncabezado).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO, null, msgs);
+      msgs = basicSetEncabezado(newEncabezado, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO, newEncabezado, newEncabezado));
   }
 
   /**
@@ -137,6 +153,8 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
   {
     switch (featureID)
     {
+      case LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO:
+        return basicSetEncabezado(null, msgs);
       case LenguajeNaturalReducidoPackage.DOCUMENTO__ORACIONES:
         return ((InternalEList<?>)getOraciones()).basicRemove(otherEnd, msgs);
     }
@@ -173,7 +191,7 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
     switch (featureID)
     {
       case LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO:
-        setEncabezado((String)newValue);
+        setEncabezado((Literal)newValue);
         return;
       case LenguajeNaturalReducidoPackage.DOCUMENTO__ORACIONES:
         getOraciones().clear();
@@ -194,7 +212,7 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
     switch (featureID)
     {
       case LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO:
-        setEncabezado(ENCABEZADO_EDEFAULT);
+        setEncabezado((Literal)null);
         return;
       case LenguajeNaturalReducidoPackage.DOCUMENTO__ORACIONES:
         getOraciones().clear();
@@ -214,28 +232,11 @@ public class DocumentoImpl extends MinimalEObjectImpl.Container implements Docum
     switch (featureID)
     {
       case LenguajeNaturalReducidoPackage.DOCUMENTO__ENCABEZADO:
-        return ENCABEZADO_EDEFAULT == null ? encabezado != null : !ENCABEZADO_EDEFAULT.equals(encabezado);
+        return encabezado != null;
       case LenguajeNaturalReducidoPackage.DOCUMENTO__ORACIONES:
         return oraciones != null && !oraciones.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (encabezado: ");
-    result.append(encabezado);
-    result.append(')');
-    return result.toString();
   }
 
 } //DocumentoImpl

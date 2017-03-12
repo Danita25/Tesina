@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Nexo#getValor <em>Valor</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Nexo#getNexo <em>Nexo</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getNexo()
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Nexo extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Valor</b></em>' attribute.
+   * Returns the value of the '<em><b>Nexo</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Valor</em>' attribute isn't clear,
+   * If the meaning of the '<em>Nexo</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Valor</em>' attribute.
-   * @see #setValor(String)
-   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getNexo_Valor()
+   * @return the value of the '<em>Nexo</em>' attribute.
+   * @see #setNexo(String)
+   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getNexo_Nexo()
    * @model
    * @generated
    */
-  String getValor();
+  String getNexo();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Nexo#getValor <em>Valor</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Nexo#getNexo <em>Nexo</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Valor</em>' attribute.
-   * @see #getValor()
+   * @param value the new value of the '<em>Nexo</em>' attribute.
+   * @see #getNexo()
    * @generated
    */
-  void setValor(String value);
+  void setNexo(String value);
 
 } // Nexo

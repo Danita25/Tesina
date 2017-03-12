@@ -21,7 +21,7 @@ import org.xtext.tesina.lenguajeNaturalReducido.Nexo;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.NexoImpl#getValor <em>Valor</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.NexoImpl#getNexo <em>Nexo</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import org.xtext.tesina.lenguajeNaturalReducido.Nexo;
 public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
 {
   /**
-   * The default value of the '{@link #getValor() <em>Valor</em>}' attribute.
+   * The default value of the '{@link #getNexo() <em>Nexo</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValor()
+   * @see #getNexo()
    * @generated
    * @ordered
    */
-  protected static final String VALOR_EDEFAULT = null;
+  protected static final String NEXO_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getValor() <em>Valor</em>}' attribute.
+   * The cached value of the '{@link #getNexo() <em>Nexo</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValor()
+   * @see #getNexo()
    * @generated
    * @ordered
    */
-  protected String valor = VALOR_EDEFAULT;
+  protected String nexo = NEXO_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValor()
+  public String getNexo()
   {
-    return valor;
+    return nexo;
   }
 
   /**
@@ -84,12 +84,12 @@ public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValor(String newValor)
+  public void setNexo(String newNexo)
   {
-    String oldValor = valor;
-    valor = newValor;
+    String oldNexo = nexo;
+    nexo = newNexo;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.NEXO__VALOR, oldValor, valor));
+      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.NEXO__NEXO, oldNexo, nexo));
   }
 
   /**
@@ -102,8 +102,8 @@ public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.NEXO__VALOR:
-        return getValor();
+      case LenguajeNaturalReducidoPackage.NEXO__NEXO:
+        return getNexo();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.NEXO__VALOR:
-        setValor((String)newValue);
+      case LenguajeNaturalReducidoPackage.NEXO__NEXO:
+        setNexo((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.NEXO__VALOR:
-        setValor(VALOR_EDEFAULT);
+      case LenguajeNaturalReducidoPackage.NEXO__NEXO:
+        setNexo(NEXO_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.NEXO__VALOR:
-        return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
+      case LenguajeNaturalReducidoPackage.NEXO__NEXO:
+        return NEXO_EDEFAULT == null ? nexo != null : !NEXO_EDEFAULT.equals(nexo);
     }
     return super.eIsSet(featureID);
   }
@@ -169,8 +169,8 @@ public class NexoImpl extends MinimalEObjectImpl.Container implements Nexo
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (valor: ");
-    result.append(valor);
+    result.append(" (nexo: ");
+    result.append(nexo);
     result.append(')');
     return result.toString();
   }

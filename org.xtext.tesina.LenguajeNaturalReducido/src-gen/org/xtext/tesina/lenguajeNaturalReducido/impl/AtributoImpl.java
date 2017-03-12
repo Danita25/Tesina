@@ -22,7 +22,7 @@ import org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.AtributoImpl#getDeterminante <em>Determinante</em>}</li>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.AtributoImpl#getPrefijo <em>Prefijo</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.AtributoImpl#getCuantitativo <em>Cuantitativo</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.AtributoImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.AtributoImpl#getEnlace <em>Enlace</em>}</li>
  * </ul>
@@ -52,24 +52,24 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
   protected String determinante = DETERMINANTE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getPrefijo() <em>Prefijo</em>}' attribute.
+   * The default value of the '{@link #getCuantitativo() <em>Cuantitativo</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPrefijo()
+   * @see #getCuantitativo()
    * @generated
    * @ordered
    */
-  protected static final String PREFIJO_EDEFAULT = null;
+  protected static final String CUANTITATIVO_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getPrefijo() <em>Prefijo</em>}' attribute.
+   * The cached value of the '{@link #getCuantitativo() <em>Cuantitativo</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPrefijo()
+   * @see #getCuantitativo()
    * @generated
    * @ordered
    */
-  protected String prefijo = PREFIJO_EDEFAULT;
+  protected String cuantitativo = CUANTITATIVO_EDEFAULT;
 
   /**
    * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
@@ -160,9 +160,9 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPrefijo()
+  public String getCuantitativo()
   {
-    return prefijo;
+    return cuantitativo;
   }
 
   /**
@@ -170,12 +170,12 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPrefijo(String newPrefijo)
+  public void setCuantitativo(String newCuantitativo)
   {
-    String oldPrefijo = prefijo;
-    prefijo = newPrefijo;
+    String oldCuantitativo = cuantitativo;
+    cuantitativo = newCuantitativo;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.ATRIBUTO__PREFIJO, oldPrefijo, prefijo));
+      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.ATRIBUTO__CUANTITATIVO, oldCuantitativo, cuantitativo));
   }
 
   /**
@@ -236,8 +236,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     {
       case LenguajeNaturalReducidoPackage.ATRIBUTO__DETERMINANTE:
         return getDeterminante();
-      case LenguajeNaturalReducidoPackage.ATRIBUTO__PREFIJO:
-        return getPrefijo();
+      case LenguajeNaturalReducidoPackage.ATRIBUTO__CUANTITATIVO:
+        return getCuantitativo();
       case LenguajeNaturalReducidoPackage.ATRIBUTO__NOMBRE:
         return getNombre();
       case LenguajeNaturalReducidoPackage.ATRIBUTO__ENLACE:
@@ -259,8 +259,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
       case LenguajeNaturalReducidoPackage.ATRIBUTO__DETERMINANTE:
         setDeterminante((String)newValue);
         return;
-      case LenguajeNaturalReducidoPackage.ATRIBUTO__PREFIJO:
-        setPrefijo((String)newValue);
+      case LenguajeNaturalReducidoPackage.ATRIBUTO__CUANTITATIVO:
+        setCuantitativo((String)newValue);
         return;
       case LenguajeNaturalReducidoPackage.ATRIBUTO__NOMBRE:
         setNombre((String)newValue);
@@ -285,8 +285,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
       case LenguajeNaturalReducidoPackage.ATRIBUTO__DETERMINANTE:
         setDeterminante(DETERMINANTE_EDEFAULT);
         return;
-      case LenguajeNaturalReducidoPackage.ATRIBUTO__PREFIJO:
-        setPrefijo(PREFIJO_EDEFAULT);
+      case LenguajeNaturalReducidoPackage.ATRIBUTO__CUANTITATIVO:
+        setCuantitativo(CUANTITATIVO_EDEFAULT);
         return;
       case LenguajeNaturalReducidoPackage.ATRIBUTO__NOMBRE:
         setNombre(NOMBRE_EDEFAULT);
@@ -310,8 +310,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     {
       case LenguajeNaturalReducidoPackage.ATRIBUTO__DETERMINANTE:
         return DETERMINANTE_EDEFAULT == null ? determinante != null : !DETERMINANTE_EDEFAULT.equals(determinante);
-      case LenguajeNaturalReducidoPackage.ATRIBUTO__PREFIJO:
-        return PREFIJO_EDEFAULT == null ? prefijo != null : !PREFIJO_EDEFAULT.equals(prefijo);
+      case LenguajeNaturalReducidoPackage.ATRIBUTO__CUANTITATIVO:
+        return CUANTITATIVO_EDEFAULT == null ? cuantitativo != null : !CUANTITATIVO_EDEFAULT.equals(cuantitativo);
       case LenguajeNaturalReducidoPackage.ATRIBUTO__NOMBRE:
         return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
       case LenguajeNaturalReducidoPackage.ATRIBUTO__ENLACE:
@@ -333,8 +333,8 @@ public class AtributoImpl extends MinimalEObjectImpl.Container implements Atribu
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (determinante: ");
     result.append(determinante);
-    result.append(", prefijo: ");
-    result.append(prefijo);
+    result.append(", cuantitativo: ");
+    result.append(cuantitativo);
     result.append(", nombre: ");
     result.append(nombre);
     result.append(", enlace: ");

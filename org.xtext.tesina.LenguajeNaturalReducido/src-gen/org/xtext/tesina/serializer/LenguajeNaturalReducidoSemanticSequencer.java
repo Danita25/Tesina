@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.tesina.lenguajeNaturalReducido.Afirmacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Atributo;
 import org.xtext.tesina.lenguajeNaturalReducido.Comparacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Composicion;
@@ -25,7 +26,6 @@ import org.xtext.tesina.lenguajeNaturalReducido.Iteracion;
 import org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage;
 import org.xtext.tesina.lenguajeNaturalReducido.Literal;
 import org.xtext.tesina.lenguajeNaturalReducido.Nexo;
-import org.xtext.tesina.lenguajeNaturalReducido.Obligacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Operacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Oracion;
 import org.xtext.tesina.lenguajeNaturalReducido.Propiedad;
@@ -47,6 +47,9 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == LenguajeNaturalReducidoPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case LenguajeNaturalReducidoPackage.AFIRMACION:
+				sequence_Afirmacion(context, (Afirmacion) semanticObject); 
+				return; 
 			case LenguajeNaturalReducidoPackage.ATRIBUTO:
 				sequence_Atributo(context, (Atributo) semanticObject); 
 				return; 
@@ -77,9 +80,6 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 			case LenguajeNaturalReducidoPackage.NEXO:
 				sequence_Nexo(context, (Nexo) semanticObject); 
 				return; 
-			case LenguajeNaturalReducidoPackage.OBLIGACION:
-				sequence_Obligacion(context, (Obligacion) semanticObject); 
-				return; 
 			case LenguajeNaturalReducidoPackage.OPERACION:
 				sequence_Operacion(context, (Operacion) semanticObject); 
 				return; 
@@ -102,15 +102,22 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 	
 	/**
 	 * Contexts:
+	 *     Afirmacion returns Afirmacion
+	 *
+	 * Constraint:
+	 *     (negacion='no'? afirmacion='es')
+	 */
+	protected void sequence_Afirmacion(ISerializationContext context, Afirmacion semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Atributo returns Atributo
 	 *
 	 * Constraint:
-	 *     (
-	 *         (determinante='el/la' | determinante='todos los/las' | determinante='existe un' | determinante='entre los') 
-	 *         prefijo='cantidad de'? 
-	 *         nombre=ID 
-	 *         enlace='de'
-	 *     )
+	 *     ((determinante='el/la' | determinante='todos los/las' | determinante='entre los/las') cuantitativo='cantidad de'? nombre=ID enlace='de')
 	 */
 	protected void sequence_Atributo(ISerializationContext context, Atributo semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -122,17 +129,17 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 	 *     Comparacion returns Comparacion
 	 *
 	 * Constraint:
-	 *     (obligacion=Obligacion operacion=Operacion)
+	 *     (afirmacion=Afirmacion operacion=Operacion)
 	 */
 	protected void sequence_Comparacion(ISerializationContext context, Comparacion semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, LenguajeNaturalReducidoPackage.Literals.COMPARACION__OBLIGACION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LenguajeNaturalReducidoPackage.Literals.COMPARACION__OBLIGACION));
+			if (transientValues.isValueTransient(semanticObject, LenguajeNaturalReducidoPackage.Literals.COMPARACION__AFIRMACION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LenguajeNaturalReducidoPackage.Literals.COMPARACION__AFIRMACION));
 			if (transientValues.isValueTransient(semanticObject, LenguajeNaturalReducidoPackage.Literals.COMPARACION__OPERACION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LenguajeNaturalReducidoPackage.Literals.COMPARACION__OPERACION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComparacionAccess().getObligacionObligacionParserRuleCall_0_0(), semanticObject.getObligacion());
+		feeder.accept(grammarAccess.getComparacionAccess().getAfirmacionAfirmacionParserRuleCall_0_0(), semanticObject.getAfirmacion());
 		feeder.accept(grammarAccess.getComparacionAccess().getOperacionOperacionParserRuleCall_1_0(), semanticObject.getOperacion());
 		feeder.finish();
 	}
@@ -164,7 +171,7 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 	 *     Contenido returns Contenido
 	 *
 	 * Constraint:
-	 *     (prefijo='si'? simple=Simple composicion=Composicion?)
+	 *     (condicional='si'? simple=Simple composicion=Composicion?)
 	 */
 	protected void sequence_Contenido(ISerializationContext context, Contenido semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -176,7 +183,7 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 	 *     Documento returns Documento
 	 *
 	 * Constraint:
-	 *     (encabezado=STRING oraciones+=Oracion*)
+	 *     (encabezado=Literal oraciones+=Oracion*)
 	 */
 	protected void sequence_Documento(ISerializationContext context, Documento semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -221,7 +228,7 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 	 *     Iteracion returns Iteracion
 	 *
 	 * Constraint:
-	 *     ((conector='tal que' | conector='satisfacen que' | conector='existe uno tal que') contenido=Contenido)
+	 *     ((condicion='tal que' | condicion='satisfacen que' | condicion='existe uno/una tal que') contenido=Contenido)
 	 */
 	protected void sequence_Iteracion(ISerializationContext context, Iteracion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -233,15 +240,15 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 	 *     Literal returns Literal
 	 *
 	 * Constraint:
-	 *     valor=STRING
+	 *     literal=STRING
 	 */
 	protected void sequence_Literal(ISerializationContext context, Literal semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, LenguajeNaturalReducidoPackage.Literals.LITERAL__VALOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LenguajeNaturalReducidoPackage.Literals.LITERAL__VALOR));
+			if (transientValues.isValueTransient(semanticObject, LenguajeNaturalReducidoPackage.Literals.LITERAL__LITERAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LenguajeNaturalReducidoPackage.Literals.LITERAL__LITERAL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLiteralAccess().getValorSTRINGTerminalRuleCall_0(), semanticObject.getValor());
+		feeder.accept(grammarAccess.getLiteralAccess().getLiteralSTRINGTerminalRuleCall_0(), semanticObject.getLiteral());
 		feeder.finish();
 	}
 	
@@ -251,21 +258,9 @@ public class LenguajeNaturalReducidoSemanticSequencer extends AbstractDelegating
 	 *     Nexo returns Nexo
 	 *
 	 * Constraint:
-	 *     (valor='y' | valor='o' | valor='entonces')
+	 *     (nexo='y' | nexo='o' | nexo='entonces')
 	 */
 	protected void sequence_Nexo(ISerializationContext context, Nexo semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Obligacion returns Obligacion
-	 *
-	 * Constraint:
-	 *     (negacion='no'? obligacion='es')
-	 */
-	protected void sequence_Obligacion(ISerializationContext context, Obligacion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

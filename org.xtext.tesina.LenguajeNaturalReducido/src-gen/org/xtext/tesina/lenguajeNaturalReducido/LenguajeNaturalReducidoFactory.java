@@ -141,13 +141,13 @@ public interface LenguajeNaturalReducidoFactory extends EFactory
   Termino createTermino();
 
   /**
-   * Returns a new object of class '<em>Obligacion</em>'.
+   * Returns a new object of class '<em>Afirmacion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Obligacion</em>'.
+   * @return a new object of class '<em>Afirmacion</em>'.
    * @generated
    */
-  Obligacion createObligacion();
+  Afirmacion createAfirmacion();
 
   /**
    * Returns a new object of class '<em>Operacion</em>'.

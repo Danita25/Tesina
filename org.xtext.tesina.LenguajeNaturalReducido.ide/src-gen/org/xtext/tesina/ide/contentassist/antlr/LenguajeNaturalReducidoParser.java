@@ -35,9 +35,9 @@ public class LenguajeNaturalReducidoParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getNexoAccess().getValorAlternatives_0(), "rule__Nexo__ValorAlternatives_0");
+					put(grammarAccess.getNexoAccess().getNexoAlternatives_0(), "rule__Nexo__NexoAlternatives_0");
 					put(grammarAccess.getExpresionAccess().getExpresionAlternatives_0(), "rule__Expresion__ExpresionAlternatives_0");
-					put(grammarAccess.getIteracionAccess().getConectorAlternatives_0_0(), "rule__Iteracion__ConectorAlternatives_0_0");
+					put(grammarAccess.getIteracionAccess().getCondicionAlternatives_0_0(), "rule__Iteracion__CondicionAlternatives_0_0");
 					put(grammarAccess.getAtributoAccess().getDeterminanteAlternatives_0_0(), "rule__Atributo__DeterminanteAlternatives_0_0");
 					put(grammarAccess.getOperacionAccess().getOperacionAlternatives_0(), "rule__Operacion__OperacionAlternatives_0");
 					put(grammarAccess.getDocumentoAccess().getGroup(), "rule__Documento__Group__0");
@@ -51,11 +51,11 @@ public class LenguajeNaturalReducidoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIteracionAccess().getGroup(), "rule__Iteracion__Group__0");
 					put(grammarAccess.getAtributoAccess().getGroup(), "rule__Atributo__Group__0");
 					put(grammarAccess.getTerminoAccess().getGroup(), "rule__Termino__Group__0");
-					put(grammarAccess.getObligacionAccess().getGroup(), "rule__Obligacion__Group__0");
+					put(grammarAccess.getAfirmacionAccess().getGroup(), "rule__Afirmacion__Group__0");
 					put(grammarAccess.getDocumentoAccess().getEncabezadoAssignment_0(), "rule__Documento__EncabezadoAssignment_0");
 					put(grammarAccess.getDocumentoAccess().getOracionesAssignment_2(), "rule__Documento__OracionesAssignment_2");
 					put(grammarAccess.getOracionAccess().getContenidoAssignment_0(), "rule__Oracion__ContenidoAssignment_0");
-					put(grammarAccess.getContenidoAccess().getPrefijoAssignment_0(), "rule__Contenido__PrefijoAssignment_0");
+					put(grammarAccess.getContenidoAccess().getCondicionalAssignment_0(), "rule__Contenido__CondicionalAssignment_0");
 					put(grammarAccess.getContenidoAccess().getSimpleAssignment_1(), "rule__Contenido__SimpleAssignment_1");
 					put(grammarAccess.getContenidoAccess().getComposicionAssignment_2(), "rule__Contenido__ComposicionAssignment_2");
 					put(grammarAccess.getSimpleAccess().getExpresion_izqAssignment_0(), "rule__Simple__Expresion_izqAssignment_0");
@@ -64,25 +64,25 @@ public class LenguajeNaturalReducidoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpresionDerechaAccess().getExpresionAssignment_1(), "rule__ExpresionDerecha__ExpresionAssignment_1");
 					put(grammarAccess.getComposicionAccess().getNexoAssignment_0(), "rule__Composicion__NexoAssignment_0");
 					put(grammarAccess.getComposicionAccess().getContenidoAssignment_1(), "rule__Composicion__ContenidoAssignment_1");
-					put(grammarAccess.getNexoAccess().getValorAssignment(), "rule__Nexo__ValorAssignment");
+					put(grammarAccess.getNexoAccess().getNexoAssignment(), "rule__Nexo__NexoAssignment");
 					put(grammarAccess.getExpresionAccess().getExpresionAssignment(), "rule__Expresion__ExpresionAssignment");
-					put(grammarAccess.getComparacionAccess().getObligacionAssignment_0(), "rule__Comparacion__ObligacionAssignment_0");
+					put(grammarAccess.getComparacionAccess().getAfirmacionAssignment_0(), "rule__Comparacion__AfirmacionAssignment_0");
 					put(grammarAccess.getComparacionAccess().getOperacionAssignment_1(), "rule__Comparacion__OperacionAssignment_1");
 					put(grammarAccess.getPropiedadAccess().getAtributoAssignment_0(), "rule__Propiedad__AtributoAssignment_0");
 					put(grammarAccess.getPropiedadAccess().getTerminoAssignment_1(), "rule__Propiedad__TerminoAssignment_1");
 					put(grammarAccess.getPropiedadAccess().getIteracionAssignment_2(), "rule__Propiedad__IteracionAssignment_2");
-					put(grammarAccess.getIteracionAccess().getConectorAssignment_0(), "rule__Iteracion__ConectorAssignment_0");
+					put(grammarAccess.getIteracionAccess().getCondicionAssignment_0(), "rule__Iteracion__CondicionAssignment_0");
 					put(grammarAccess.getIteracionAccess().getContenidoAssignment_1(), "rule__Iteracion__ContenidoAssignment_1");
 					put(grammarAccess.getAtributoAccess().getDeterminanteAssignment_0(), "rule__Atributo__DeterminanteAssignment_0");
-					put(grammarAccess.getAtributoAccess().getPrefijoAssignment_1(), "rule__Atributo__PrefijoAssignment_1");
+					put(grammarAccess.getAtributoAccess().getCuantitativoAssignment_1(), "rule__Atributo__CuantitativoAssignment_1");
 					put(grammarAccess.getAtributoAccess().getNombreAssignment_2(), "rule__Atributo__NombreAssignment_2");
 					put(grammarAccess.getAtributoAccess().getEnlaceAssignment_3(), "rule__Atributo__EnlaceAssignment_3");
 					put(grammarAccess.getTerminoAccess().getIndeterminanteAssignment_0(), "rule__Termino__IndeterminanteAssignment_0");
 					put(grammarAccess.getTerminoAccess().getContextoAssignment_1(), "rule__Termino__ContextoAssignment_1");
-					put(grammarAccess.getObligacionAccess().getNegacionAssignment_0(), "rule__Obligacion__NegacionAssignment_0");
-					put(grammarAccess.getObligacionAccess().getObligacionAssignment_1(), "rule__Obligacion__ObligacionAssignment_1");
+					put(grammarAccess.getAfirmacionAccess().getNegacionAssignment_0(), "rule__Afirmacion__NegacionAssignment_0");
+					put(grammarAccess.getAfirmacionAccess().getAfirmacionAssignment_1(), "rule__Afirmacion__AfirmacionAssignment_1");
 					put(grammarAccess.getOperacionAccess().getOperacionAssignment(), "rule__Operacion__OperacionAssignment");
-					put(grammarAccess.getLiteralAccess().getValorAssignment(), "rule__Literal__ValorAssignment");
+					put(grammarAccess.getLiteralAccess().getLiteralAssignment(), "rule__Literal__LiteralAssignment");
 				}
 			};
 		}

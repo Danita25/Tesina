@@ -68,7 +68,7 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   int DOCUMENTO = 0;
 
   /**
-   * The feature id for the '<em><b>Encabezado</b></em>' attribute.
+   * The feature id for the '<em><b>Encabezado</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -133,13 +133,13 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   int CONTENIDO = 2;
 
   /**
-   * The feature id for the '<em><b>Prefijo</b></em>' attribute.
+   * The feature id for the '<em><b>Condicional</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTENIDO__PREFIJO = 0;
+  int CONTENIDO__CONDICIONAL = 0;
 
   /**
    * The feature id for the '<em><b>Simple</b></em>' containment reference.
@@ -290,13 +290,13 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   int NEXO = 6;
 
   /**
-   * The feature id for the '<em><b>Valor</b></em>' attribute.
+   * The feature id for the '<em><b>Nexo</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NEXO__VALOR = 0;
+  int NEXO__NEXO = 0;
 
   /**
    * The number of structural features of the '<em>Nexo</em>' class.
@@ -346,13 +346,13 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   int COMPARACION = 8;
 
   /**
-   * The feature id for the '<em><b>Obligacion</b></em>' containment reference.
+   * The feature id for the '<em><b>Afirmacion</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARACION__OBLIGACION = 0;
+  int COMPARACION__AFIRMACION = 0;
 
   /**
    * The feature id for the '<em><b>Operacion</b></em>' containment reference.
@@ -429,13 +429,13 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   int ITERACION = 10;
 
   /**
-   * The feature id for the '<em><b>Conector</b></em>' attribute.
+   * The feature id for the '<em><b>Condicion</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ITERACION__CONECTOR = 0;
+  int ITERACION__CONDICION = 0;
 
   /**
    * The feature id for the '<em><b>Contenido</b></em>' containment reference.
@@ -475,13 +475,13 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   int ATRIBUTO__DETERMINANTE = 0;
 
   /**
-   * The feature id for the '<em><b>Prefijo</b></em>' attribute.
+   * The feature id for the '<em><b>Cuantitativo</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATRIBUTO__PREFIJO = 1;
+  int ATRIBUTO__CUANTITATIVO = 1;
 
   /**
    * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -548,14 +548,14 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   int TERMINO_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ObligacionImpl <em>Obligacion</em>}' class.
+   * The meta object id for the '{@link org.xtext.tesina.lenguajeNaturalReducido.impl.AfirmacionImpl <em>Afirmacion</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.tesina.lenguajeNaturalReducido.impl.ObligacionImpl
-   * @see org.xtext.tesina.lenguajeNaturalReducido.impl.LenguajeNaturalReducidoPackageImpl#getObligacion()
+   * @see org.xtext.tesina.lenguajeNaturalReducido.impl.AfirmacionImpl
+   * @see org.xtext.tesina.lenguajeNaturalReducido.impl.LenguajeNaturalReducidoPackageImpl#getAfirmacion()
    * @generated
    */
-  int OBLIGACION = 13;
+  int AFIRMACION = 13;
 
   /**
    * The feature id for the '<em><b>Negacion</b></em>' attribute.
@@ -564,25 +564,25 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OBLIGACION__NEGACION = 0;
+  int AFIRMACION__NEGACION = 0;
 
   /**
-   * The feature id for the '<em><b>Obligacion</b></em>' attribute.
+   * The feature id for the '<em><b>Afirmacion</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBLIGACION__OBLIGACION = 1;
+  int AFIRMACION__AFIRMACION = 1;
 
   /**
-   * The number of structural features of the '<em>Obligacion</em>' class.
+   * The number of structural features of the '<em>Afirmacion</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBLIGACION_FEATURE_COUNT = 2;
+  int AFIRMACION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.tesina.lenguajeNaturalReducido.impl.OperacionImpl <em>Operacion</em>}' class.
@@ -623,13 +623,13 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   int LITERAL = 15;
 
   /**
-   * The feature id for the '<em><b>Valor</b></em>' attribute.
+   * The feature id for the '<em><b>Literal</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LITERAL__VALOR = 0;
+  int LITERAL__LITERAL = 0;
 
   /**
    * The number of structural features of the '<em>Literal</em>' class.
@@ -652,15 +652,15 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   EClass getDocumento();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Documento#getEncabezado <em>Encabezado</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesina.lenguajeNaturalReducido.Documento#getEncabezado <em>Encabezado</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Encabezado</em>'.
+   * @return the meta object for the containment reference '<em>Encabezado</em>'.
    * @see org.xtext.tesina.lenguajeNaturalReducido.Documento#getEncabezado()
    * @see #getDocumento()
    * @generated
    */
-  EAttribute getDocumento_Encabezado();
+  EReference getDocumento_Encabezado();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.tesina.lenguajeNaturalReducido.Documento#getOraciones <em>Oraciones</em>}'.
@@ -705,15 +705,15 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   EClass getContenido();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getPrefijo <em>Prefijo</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getCondicional <em>Condicional</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Prefijo</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Contenido#getPrefijo()
+   * @return the meta object for the attribute '<em>Condicional</em>'.
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Contenido#getCondicional()
    * @see #getContenido()
    * @generated
    */
-  EAttribute getContenido_Prefijo();
+  EAttribute getContenido_Condicional();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getSimple <em>Simple</em>}'.
@@ -844,15 +844,15 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   EClass getNexo();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Nexo#getValor <em>Valor</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Nexo#getNexo <em>Nexo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Valor</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Nexo#getValor()
+   * @return the meta object for the attribute '<em>Nexo</em>'.
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Nexo#getNexo()
    * @see #getNexo()
    * @generated
    */
-  EAttribute getNexo_Valor();
+  EAttribute getNexo_Nexo();
 
   /**
    * Returns the meta object for class '{@link org.xtext.tesina.lenguajeNaturalReducido.Expresion <em>Expresion</em>}'.
@@ -886,15 +886,15 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   EClass getComparacion();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getObligacion <em>Obligacion</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getAfirmacion <em>Afirmacion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Obligacion</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getObligacion()
+   * @return the meta object for the containment reference '<em>Afirmacion</em>'.
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getAfirmacion()
    * @see #getComparacion()
    * @generated
    */
-  EReference getComparacion_Obligacion();
+  EReference getComparacion_Afirmacion();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.tesina.lenguajeNaturalReducido.Comparacion#getOperacion <em>Operacion</em>}'.
@@ -961,15 +961,15 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   EClass getIteracion();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getConector <em>Conector</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getCondicion <em>Condicion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Conector</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getConector()
+   * @return the meta object for the attribute '<em>Condicion</em>'.
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getCondicion()
    * @see #getIteracion()
    * @generated
    */
-  EAttribute getIteracion_Conector();
+  EAttribute getIteracion_Condicion();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.tesina.lenguajeNaturalReducido.Iteracion#getContenido <em>Contenido</em>}'.
@@ -1004,15 +1004,15 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   EAttribute getAtributo_Determinante();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getPrefijo <em>Prefijo</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getCuantitativo <em>Cuantitativo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Prefijo</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Atributo#getPrefijo()
+   * @return the meta object for the attribute '<em>Cuantitativo</em>'.
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Atributo#getCuantitativo()
    * @see #getAtributo()
    * @generated
    */
-  EAttribute getAtributo_Prefijo();
+  EAttribute getAtributo_Cuantitativo();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getNombre <em>Nombre</em>}'.
@@ -1069,36 +1069,36 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   EAttribute getTermino_Contexto();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.tesina.lenguajeNaturalReducido.Obligacion <em>Obligacion</em>}'.
+   * Returns the meta object for class '{@link org.xtext.tesina.lenguajeNaturalReducido.Afirmacion <em>Afirmacion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Obligacion</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Obligacion
+   * @return the meta object for class '<em>Afirmacion</em>'.
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Afirmacion
    * @generated
    */
-  EClass getObligacion();
+  EClass getAfirmacion();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Obligacion#getNegacion <em>Negacion</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Afirmacion#getNegacion <em>Negacion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Negacion</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Obligacion#getNegacion()
-   * @see #getObligacion()
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Afirmacion#getNegacion()
+   * @see #getAfirmacion()
    * @generated
    */
-  EAttribute getObligacion_Negacion();
+  EAttribute getAfirmacion_Negacion();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Obligacion#getObligacion <em>Obligacion</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Afirmacion#getAfirmacion <em>Afirmacion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Obligacion</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Obligacion#getObligacion()
-   * @see #getObligacion()
+   * @return the meta object for the attribute '<em>Afirmacion</em>'.
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Afirmacion#getAfirmacion()
+   * @see #getAfirmacion()
    * @generated
    */
-  EAttribute getObligacion_Obligacion();
+  EAttribute getAfirmacion_Afirmacion();
 
   /**
    * Returns the meta object for class '{@link org.xtext.tesina.lenguajeNaturalReducido.Operacion <em>Operacion</em>}'.
@@ -1132,15 +1132,15 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
   EClass getLiteral();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Literal#getValor <em>Valor</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.tesina.lenguajeNaturalReducido.Literal#getLiteral <em>Literal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Valor</em>'.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Literal#getValor()
+   * @return the meta object for the attribute '<em>Literal</em>'.
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Literal#getLiteral()
    * @see #getLiteral()
    * @generated
    */
-  EAttribute getLiteral_Valor();
+  EAttribute getLiteral_Literal();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1176,12 +1176,12 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
     EClass DOCUMENTO = eINSTANCE.getDocumento();
 
     /**
-     * The meta object literal for the '<em><b>Encabezado</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Encabezado</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DOCUMENTO__ENCABEZADO = eINSTANCE.getDocumento_Encabezado();
+    EReference DOCUMENTO__ENCABEZADO = eINSTANCE.getDocumento_Encabezado();
 
     /**
      * The meta object literal for the '<em><b>Oraciones</b></em>' containment reference list feature.
@@ -1220,12 +1220,12 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
     EClass CONTENIDO = eINSTANCE.getContenido();
 
     /**
-     * The meta object literal for the '<em><b>Prefijo</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Condicional</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONTENIDO__PREFIJO = eINSTANCE.getContenido_Prefijo();
+    EAttribute CONTENIDO__CONDICIONAL = eINSTANCE.getContenido_Condicional();
 
     /**
      * The meta object literal for the '<em><b>Simple</b></em>' containment reference feature.
@@ -1332,12 +1332,12 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
     EClass NEXO = eINSTANCE.getNexo();
 
     /**
-     * The meta object literal for the '<em><b>Valor</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Nexo</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute NEXO__VALOR = eINSTANCE.getNexo_Valor();
+    EAttribute NEXO__NEXO = eINSTANCE.getNexo_Nexo();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ExpresionImpl <em>Expresion</em>}' class.
@@ -1368,12 +1368,12 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
     EClass COMPARACION = eINSTANCE.getComparacion();
 
     /**
-     * The meta object literal for the '<em><b>Obligacion</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Afirmacion</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPARACION__OBLIGACION = eINSTANCE.getComparacion_Obligacion();
+    EReference COMPARACION__AFIRMACION = eINSTANCE.getComparacion_Afirmacion();
 
     /**
      * The meta object literal for the '<em><b>Operacion</b></em>' containment reference feature.
@@ -1428,12 +1428,12 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
     EClass ITERACION = eINSTANCE.getIteracion();
 
     /**
-     * The meta object literal for the '<em><b>Conector</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Condicion</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ITERACION__CONECTOR = eINSTANCE.getIteracion_Conector();
+    EAttribute ITERACION__CONDICION = eINSTANCE.getIteracion_Condicion();
 
     /**
      * The meta object literal for the '<em><b>Contenido</b></em>' containment reference feature.
@@ -1462,12 +1462,12 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
     EAttribute ATRIBUTO__DETERMINANTE = eINSTANCE.getAtributo_Determinante();
 
     /**
-     * The meta object literal for the '<em><b>Prefijo</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Cuantitativo</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATRIBUTO__PREFIJO = eINSTANCE.getAtributo_Prefijo();
+    EAttribute ATRIBUTO__CUANTITATIVO = eINSTANCE.getAtributo_Cuantitativo();
 
     /**
      * The meta object literal for the '<em><b>Nombre</b></em>' attribute feature.
@@ -1512,14 +1512,14 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
     EAttribute TERMINO__CONTEXTO = eINSTANCE.getTermino_Contexto();
 
     /**
-     * The meta object literal for the '{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ObligacionImpl <em>Obligacion</em>}' class.
+     * The meta object literal for the '{@link org.xtext.tesina.lenguajeNaturalReducido.impl.AfirmacionImpl <em>Afirmacion</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.tesina.lenguajeNaturalReducido.impl.ObligacionImpl
-     * @see org.xtext.tesina.lenguajeNaturalReducido.impl.LenguajeNaturalReducidoPackageImpl#getObligacion()
+     * @see org.xtext.tesina.lenguajeNaturalReducido.impl.AfirmacionImpl
+     * @see org.xtext.tesina.lenguajeNaturalReducido.impl.LenguajeNaturalReducidoPackageImpl#getAfirmacion()
      * @generated
      */
-    EClass OBLIGACION = eINSTANCE.getObligacion();
+    EClass AFIRMACION = eINSTANCE.getAfirmacion();
 
     /**
      * The meta object literal for the '<em><b>Negacion</b></em>' attribute feature.
@@ -1527,15 +1527,15 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OBLIGACION__NEGACION = eINSTANCE.getObligacion_Negacion();
+    EAttribute AFIRMACION__NEGACION = eINSTANCE.getAfirmacion_Negacion();
 
     /**
-     * The meta object literal for the '<em><b>Obligacion</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Afirmacion</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OBLIGACION__OBLIGACION = eINSTANCE.getObligacion_Obligacion();
+    EAttribute AFIRMACION__AFIRMACION = eINSTANCE.getAfirmacion_Afirmacion();
 
     /**
      * The meta object literal for the '{@link org.xtext.tesina.lenguajeNaturalReducido.impl.OperacionImpl <em>Operacion</em>}' class.
@@ -1566,12 +1566,12 @@ public interface LenguajeNaturalReducidoPackage extends EPackage
     EClass LITERAL = eINSTANCE.getLiteral();
 
     /**
-     * The meta object literal for the '<em><b>Valor</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Literal</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LITERAL__VALOR = eINSTANCE.getLiteral_Valor();
+    EAttribute LITERAL__LITERAL = eINSTANCE.getLiteral_Literal();
 
   }
 

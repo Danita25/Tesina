@@ -78,19 +78,20 @@ ruleDocumento returns [EObject current=null]
 	(
 		(
 			(
-				lv_encabezado_0_0=RULE_STRING
 				{
-					newLeafNode(lv_encabezado_0_0, grammarAccess.getDocumentoAccess().getEncabezadoSTRINGTerminalRuleCall_0_0());
+					newCompositeNode(grammarAccess.getDocumentoAccess().getEncabezadoLiteralParserRuleCall_0_0());
 				}
+				lv_encabezado_0_0=ruleLiteral
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDocumentoRule());
+						$current = createModelElementForParent(grammarAccess.getDocumentoRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"encabezado",
 						lv_encabezado_0_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.xtext.tesina.LenguajeNaturalReducido.Literal");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -208,15 +209,15 @@ ruleContenido returns [EObject current=null]
 	(
 		(
 			(
-				lv_prefijo_0_0='si'
+				lv_condicional_0_0='si'
 				{
-					newLeafNode(lv_prefijo_0_0, grammarAccess.getContenidoAccess().getPrefijoSiKeyword_0_0());
+					newLeafNode(lv_condicional_0_0, grammarAccess.getContenidoAccess().getCondicionalSiKeyword_0_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getContenidoRule());
 					}
-					setWithLastConsumed($current, "prefijo", lv_prefijo_0_0, "si");
+					setWithLastConsumed($current, "condicional", lv_condicional_0_0, "si");
 				}
 			)
 		)?
@@ -450,37 +451,37 @@ ruleNexo returns [EObject current=null]
 	(
 		(
 			(
-				lv_valor_0_1='y'
+				lv_nexo_0_1='y'
 				{
-					newLeafNode(lv_valor_0_1, grammarAccess.getNexoAccess().getValorYKeyword_0_0());
+					newLeafNode(lv_nexo_0_1, grammarAccess.getNexoAccess().getNexoYKeyword_0_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getNexoRule());
 					}
-					setWithLastConsumed($current, "valor", lv_valor_0_1, null);
+					setWithLastConsumed($current, "nexo", lv_nexo_0_1, null);
 				}
 				    |
-				lv_valor_0_2='o'
+				lv_nexo_0_2='o'
 				{
-					newLeafNode(lv_valor_0_2, grammarAccess.getNexoAccess().getValorOKeyword_0_1());
+					newLeafNode(lv_nexo_0_2, grammarAccess.getNexoAccess().getNexoOKeyword_0_1());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getNexoRule());
 					}
-					setWithLastConsumed($current, "valor", lv_valor_0_2, null);
+					setWithLastConsumed($current, "nexo", lv_nexo_0_2, null);
 				}
 				    |
-				lv_valor_0_3='entonces'
+				lv_nexo_0_3='entonces'
 				{
-					newLeafNode(lv_valor_0_3, grammarAccess.getNexoAccess().getValorEntoncesKeyword_0_2());
+					newLeafNode(lv_nexo_0_3, grammarAccess.getNexoAccess().getNexoEntoncesKeyword_0_2());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getNexoRule());
 					}
-					setWithLastConsumed($current, "valor", lv_valor_0_3, null);
+					setWithLastConsumed($current, "nexo", lv_nexo_0_3, null);
 				}
 			)
 		)
@@ -560,18 +561,18 @@ ruleComparacion returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getComparacionAccess().getObligacionObligacionParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getComparacionAccess().getAfirmacionAfirmacionParserRuleCall_0_0());
 				}
-				lv_obligacion_0_0=ruleObligacion
+				lv_afirmacion_0_0=ruleAfirmacion
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getComparacionRule());
 					}
 					set(
 						$current,
-						"obligacion",
-						lv_obligacion_0_0,
-						"org.xtext.tesina.LenguajeNaturalReducido.Obligacion");
+						"afirmacion",
+						lv_afirmacion_0_0,
+						"org.xtext.tesina.LenguajeNaturalReducido.Afirmacion");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -693,37 +694,37 @@ ruleIteracion returns [EObject current=null]
 		(
 			(
 				(
-					lv_conector_0_1='tal que'
+					lv_condicion_0_1='tal que'
 					{
-						newLeafNode(lv_conector_0_1, grammarAccess.getIteracionAccess().getConectorTalQueKeyword_0_0_0());
+						newLeafNode(lv_condicion_0_1, grammarAccess.getIteracionAccess().getCondicionTalQueKeyword_0_0_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getIteracionRule());
 						}
-						setWithLastConsumed($current, "conector", lv_conector_0_1, null);
+						setWithLastConsumed($current, "condicion", lv_condicion_0_1, null);
 					}
 					    |
-					lv_conector_0_2='satisfacen que'
+					lv_condicion_0_2='satisfacen que'
 					{
-						newLeafNode(lv_conector_0_2, grammarAccess.getIteracionAccess().getConectorSatisfacenQueKeyword_0_0_1());
+						newLeafNode(lv_condicion_0_2, grammarAccess.getIteracionAccess().getCondicionSatisfacenQueKeyword_0_0_1());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getIteracionRule());
 						}
-						setWithLastConsumed($current, "conector", lv_conector_0_2, null);
+						setWithLastConsumed($current, "condicion", lv_condicion_0_2, null);
 					}
 					    |
-					lv_conector_0_3='existe uno tal que'
+					lv_condicion_0_3='existe uno/una tal que'
 					{
-						newLeafNode(lv_conector_0_3, grammarAccess.getIteracionAccess().getConectorExisteUnoTalQueKeyword_0_0_2());
+						newLeafNode(lv_condicion_0_3, grammarAccess.getIteracionAccess().getCondicionExisteUnoUnaTalQueKeyword_0_0_2());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getIteracionRule());
 						}
-						setWithLastConsumed($current, "conector", lv_conector_0_3, null);
+						setWithLastConsumed($current, "condicion", lv_condicion_0_3, null);
 					}
 				)
 			)
@@ -791,9 +792,9 @@ ruleAtributo returns [EObject current=null]
 						setWithLastConsumed($current, "determinante", lv_determinante_0_2, null);
 					}
 					    |
-					lv_determinante_0_3='existe un'
+					lv_determinante_0_3='entre los/las'
 					{
-						newLeafNode(lv_determinante_0_3, grammarAccess.getAtributoAccess().getDeterminanteExisteUnKeyword_0_0_2());
+						newLeafNode(lv_determinante_0_3, grammarAccess.getAtributoAccess().getDeterminanteEntreLosLasKeyword_0_0_2());
 					}
 					{
 						if ($current==null) {
@@ -801,31 +802,20 @@ ruleAtributo returns [EObject current=null]
 						}
 						setWithLastConsumed($current, "determinante", lv_determinante_0_3, null);
 					}
-					    |
-					lv_determinante_0_4='entre los'
-					{
-						newLeafNode(lv_determinante_0_4, grammarAccess.getAtributoAccess().getDeterminanteEntreLosKeyword_0_0_3());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAtributoRule());
-						}
-						setWithLastConsumed($current, "determinante", lv_determinante_0_4, null);
-					}
 				)
 			)
 		)
 		(
 			(
-				lv_prefijo_1_0='cantidad de'
+				lv_cuantitativo_1_0='cantidad de'
 				{
-					newLeafNode(lv_prefijo_1_0, grammarAccess.getAtributoAccess().getPrefijoCantidadDeKeyword_1_0());
+					newLeafNode(lv_cuantitativo_1_0, grammarAccess.getAtributoAccess().getCuantitativoCantidadDeKeyword_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getAtributoRule());
 					}
-					setWithLastConsumed($current, "prefijo", lv_prefijo_1_0, "cantidad de");
+					setWithLastConsumed($current, "cuantitativo", lv_cuantitativo_1_0, "cantidad de");
 				}
 			)
 		)?
@@ -915,15 +905,15 @@ ruleTermino returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleObligacion
-entryRuleObligacion returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getObligacionRule()); }
-	iv_ruleObligacion=ruleObligacion
-	{ $current=$iv_ruleObligacion.current; }
+// Entry rule entryRuleAfirmacion
+entryRuleAfirmacion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAfirmacionRule()); }
+	iv_ruleAfirmacion=ruleAfirmacion
+	{ $current=$iv_ruleAfirmacion.current; }
 	EOF;
 
-// Rule Obligacion
-ruleObligacion returns [EObject current=null]
+// Rule Afirmacion
+ruleAfirmacion returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -935,11 +925,11 @@ ruleObligacion returns [EObject current=null]
 			(
 				lv_negacion_0_0='no'
 				{
-					newLeafNode(lv_negacion_0_0, grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0());
+					newLeafNode(lv_negacion_0_0, grammarAccess.getAfirmacionAccess().getNegacionNoKeyword_0_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getObligacionRule());
+						$current = createModelElement(grammarAccess.getAfirmacionRule());
 					}
 					setWithLastConsumed($current, "negacion", lv_negacion_0_0, "no");
 				}
@@ -947,15 +937,15 @@ ruleObligacion returns [EObject current=null]
 		)?
 		(
 			(
-				lv_obligacion_1_0='es'
+				lv_afirmacion_1_0='es'
 				{
-					newLeafNode(lv_obligacion_1_0, grammarAccess.getObligacionAccess().getObligacionEsKeyword_1_0());
+					newLeafNode(lv_afirmacion_1_0, grammarAccess.getAfirmacionAccess().getAfirmacionEsKeyword_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getObligacionRule());
+						$current = createModelElement(grammarAccess.getAfirmacionRule());
 					}
-					setWithLastConsumed($current, "obligacion", lv_obligacion_1_0, "es");
+					setWithLastConsumed($current, "afirmacion", lv_afirmacion_1_0, "es");
 				}
 			)
 		)
@@ -1067,9 +1057,9 @@ ruleLiteral returns [EObject current=null]
 }:
 	(
 		(
-			lv_valor_0_0=RULE_STRING
+			lv_literal_0_0=RULE_STRING
 			{
-				newLeafNode(lv_valor_0_0, grammarAccess.getLiteralAccess().getValorSTRINGTerminalRuleCall_0());
+				newLeafNode(lv_literal_0_0, grammarAccess.getLiteralAccess().getLiteralSTRINGTerminalRuleCall_0());
 			}
 			{
 				if ($current==null) {
@@ -1077,8 +1067,8 @@ ruleLiteral returns [EObject current=null]
 				}
 				setWithLastConsumed(
 					$current,
-					"valor",
-					lv_valor_0_0,
+					"literal",
+					lv_literal_0_0,
 					"org.eclipse.xtext.common.Terminals.STRING");
 			}
 		)

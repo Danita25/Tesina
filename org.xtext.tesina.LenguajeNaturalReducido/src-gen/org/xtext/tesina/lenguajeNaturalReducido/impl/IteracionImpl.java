@@ -24,7 +24,7 @@ import org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.IteracionImpl#getConector <em>Conector</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.IteracionImpl#getCondicion <em>Condicion</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.IteracionImpl#getContenido <em>Contenido</em>}</li>
  * </ul>
  *
@@ -33,24 +33,24 @@ import org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage;
 public class IteracionImpl extends MinimalEObjectImpl.Container implements Iteracion
 {
   /**
-   * The default value of the '{@link #getConector() <em>Conector</em>}' attribute.
+   * The default value of the '{@link #getCondicion() <em>Condicion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConector()
+   * @see #getCondicion()
    * @generated
    * @ordered
    */
-  protected static final String CONECTOR_EDEFAULT = null;
+  protected static final String CONDICION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getConector() <em>Conector</em>}' attribute.
+   * The cached value of the '{@link #getCondicion() <em>Condicion</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConector()
+   * @see #getCondicion()
    * @generated
    * @ordered
    */
-  protected String conector = CONECTOR_EDEFAULT;
+  protected String condicion = CONDICION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getContenido() <em>Contenido</em>}' containment reference.
@@ -88,9 +88,9 @@ public class IteracionImpl extends MinimalEObjectImpl.Container implements Itera
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getConector()
+  public String getCondicion()
   {
-    return conector;
+    return condicion;
   }
 
   /**
@@ -98,12 +98,12 @@ public class IteracionImpl extends MinimalEObjectImpl.Container implements Itera
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConector(String newConector)
+  public void setCondicion(String newCondicion)
   {
-    String oldConector = conector;
-    conector = newConector;
+    String oldCondicion = condicion;
+    condicion = newCondicion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.ITERACION__CONECTOR, oldConector, conector));
+      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.ITERACION__CONDICION, oldCondicion, condicion));
   }
 
   /**
@@ -180,8 +180,8 @@ public class IteracionImpl extends MinimalEObjectImpl.Container implements Itera
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.ITERACION__CONECTOR:
-        return getConector();
+      case LenguajeNaturalReducidoPackage.ITERACION__CONDICION:
+        return getCondicion();
       case LenguajeNaturalReducidoPackage.ITERACION__CONTENIDO:
         return getContenido();
     }
@@ -198,8 +198,8 @@ public class IteracionImpl extends MinimalEObjectImpl.Container implements Itera
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.ITERACION__CONECTOR:
-        setConector((String)newValue);
+      case LenguajeNaturalReducidoPackage.ITERACION__CONDICION:
+        setCondicion((String)newValue);
         return;
       case LenguajeNaturalReducidoPackage.ITERACION__CONTENIDO:
         setContenido((Contenido)newValue);
@@ -218,8 +218,8 @@ public class IteracionImpl extends MinimalEObjectImpl.Container implements Itera
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.ITERACION__CONECTOR:
-        setConector(CONECTOR_EDEFAULT);
+      case LenguajeNaturalReducidoPackage.ITERACION__CONDICION:
+        setCondicion(CONDICION_EDEFAULT);
         return;
       case LenguajeNaturalReducidoPackage.ITERACION__CONTENIDO:
         setContenido((Contenido)null);
@@ -238,8 +238,8 @@ public class IteracionImpl extends MinimalEObjectImpl.Container implements Itera
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.ITERACION__CONECTOR:
-        return CONECTOR_EDEFAULT == null ? conector != null : !CONECTOR_EDEFAULT.equals(conector);
+      case LenguajeNaturalReducidoPackage.ITERACION__CONDICION:
+        return CONDICION_EDEFAULT == null ? condicion != null : !CONDICION_EDEFAULT.equals(condicion);
       case LenguajeNaturalReducidoPackage.ITERACION__CONTENIDO:
         return contenido != null;
     }
@@ -257,8 +257,8 @@ public class IteracionImpl extends MinimalEObjectImpl.Container implements Itera
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (conector: ");
-    result.append(conector);
+    result.append(" (condicion: ");
+    result.append(condicion);
     result.append(')');
     return result.toString();
   }

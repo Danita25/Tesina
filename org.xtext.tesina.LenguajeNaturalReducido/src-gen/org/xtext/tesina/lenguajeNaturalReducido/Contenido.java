@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getPrefijo <em>Prefijo</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getCondicional <em>Condicional</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getSimple <em>Simple</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getComposicion <em>Composicion</em>}</li>
  * </ul>
@@ -26,30 +26,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Contenido extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Prefijo</b></em>' attribute.
+   * Returns the value of the '<em><b>Condicional</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Prefijo</em>' attribute isn't clear,
+   * If the meaning of the '<em>Condicional</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Prefijo</em>' attribute.
-   * @see #setPrefijo(String)
-   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getContenido_Prefijo()
+   * @return the value of the '<em>Condicional</em>' attribute.
+   * @see #setCondicional(String)
+   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getContenido_Condicional()
    * @model
    * @generated
    */
-  String getPrefijo();
+  String getCondicional();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getPrefijo <em>Prefijo</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Contenido#getCondicional <em>Condicional</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Prefijo</em>' attribute.
-   * @see #getPrefijo()
+   * @param value the new value of the '<em>Condicional</em>' attribute.
+   * @see #getCondicional()
    * @generated
    */
-  void setPrefijo(String value);
+  void setCondicional(String value);
 
   /**
    * Returns the value of the '<em><b>Simple</b></em>' containment reference.

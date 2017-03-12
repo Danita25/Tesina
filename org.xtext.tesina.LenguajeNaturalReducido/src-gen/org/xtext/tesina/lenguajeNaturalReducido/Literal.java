@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Literal#getValor <em>Valor</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Literal#getLiteral <em>Literal</em>}</li>
  * </ul>
  *
  * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getLiteral()
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Literal extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Valor</b></em>' attribute.
+   * Returns the value of the '<em><b>Literal</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Valor</em>' attribute isn't clear,
+   * If the meaning of the '<em>Literal</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Valor</em>' attribute.
-   * @see #setValor(String)
-   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getLiteral_Valor()
+   * @return the value of the '<em>Literal</em>' attribute.
+   * @see #setLiteral(String)
+   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getLiteral_Literal()
    * @model
    * @generated
    */
-  String getValor();
+  String getLiteral();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Literal#getValor <em>Valor</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Literal#getLiteral <em>Literal</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Valor</em>' attribute.
-   * @see #getValor()
+   * @param value the new value of the '<em>Literal</em>' attribute.
+   * @see #getLiteral()
    * @generated
    */
-  void setValor(String value);
+  void setLiteral(String value);
 
 } // Literal

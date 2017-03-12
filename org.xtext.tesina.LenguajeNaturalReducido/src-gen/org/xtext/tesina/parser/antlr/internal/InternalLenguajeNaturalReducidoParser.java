@@ -21,9 +21,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.\\r\\n'", "'si'", "'y'", "'o'", "'entonces'", "'tal que'", "'satisfacen que'", "'existe uno tal que'", "'el/la'", "'todos los/las'", "'existe un'", "'entre los'", "'cantidad de'", "'de'", "'un/una'", "'no'", "'es'", "'mayor que'", "'menor que'", "'igual a'", "'mayor o igual a'", "'menor o igual a'", "'distinto de'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.\\r\\n'", "'si'", "'y'", "'o'", "'entonces'", "'tal que'", "'satisfacen que'", "'existe uno/una tal que'", "'el/la'", "'todos los/las'", "'entre los/las'", "'cantidad de'", "'de'", "'un/una'", "'no'", "'es'", "'mayor que'", "'menor que'", "'igual a'", "'mayor o igual a'", "'menor o igual a'", "'distinto de'"
     };
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -31,7 +31,6 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int T__33=33;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
@@ -39,7 +38,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
@@ -131,11 +130,12 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleDocumento"
-    // InternalLenguajeNaturalReducido.g:71:1: ruleDocumento returns [EObject current=null] : ( ( (lv_encabezado_0_0= RULE_STRING ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )* ) ;
+    // InternalLenguajeNaturalReducido.g:71:1: ruleDocumento returns [EObject current=null] : ( ( (lv_encabezado_0_0= ruleLiteral ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )* ) ;
     public final EObject ruleDocumento() throws RecognitionException {
         EObject current = null;
 
-        Token lv_encabezado_0_0=null;
+        EObject lv_encabezado_0_0 = null;
+
         EObject lv_oraciones_2_0 = null;
 
 
@@ -143,31 +143,36 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:77:2: ( ( ( (lv_encabezado_0_0= RULE_STRING ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )* ) )
-            // InternalLenguajeNaturalReducido.g:78:2: ( ( (lv_encabezado_0_0= RULE_STRING ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )* )
+            // InternalLenguajeNaturalReducido.g:77:2: ( ( ( (lv_encabezado_0_0= ruleLiteral ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )* ) )
+            // InternalLenguajeNaturalReducido.g:78:2: ( ( (lv_encabezado_0_0= ruleLiteral ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )* )
             {
-            // InternalLenguajeNaturalReducido.g:78:2: ( ( (lv_encabezado_0_0= RULE_STRING ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )* )
-            // InternalLenguajeNaturalReducido.g:79:3: ( (lv_encabezado_0_0= RULE_STRING ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )*
+            // InternalLenguajeNaturalReducido.g:78:2: ( ( (lv_encabezado_0_0= ruleLiteral ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )* )
+            // InternalLenguajeNaturalReducido.g:79:3: ( (lv_encabezado_0_0= ruleLiteral ) ) ruleFinOracion ( (lv_oraciones_2_0= ruleOracion ) )*
             {
-            // InternalLenguajeNaturalReducido.g:79:3: ( (lv_encabezado_0_0= RULE_STRING ) )
-            // InternalLenguajeNaturalReducido.g:80:4: (lv_encabezado_0_0= RULE_STRING )
+            // InternalLenguajeNaturalReducido.g:79:3: ( (lv_encabezado_0_0= ruleLiteral ) )
+            // InternalLenguajeNaturalReducido.g:80:4: (lv_encabezado_0_0= ruleLiteral )
             {
-            // InternalLenguajeNaturalReducido.g:80:4: (lv_encabezado_0_0= RULE_STRING )
-            // InternalLenguajeNaturalReducido.g:81:5: lv_encabezado_0_0= RULE_STRING
+            // InternalLenguajeNaturalReducido.g:80:4: (lv_encabezado_0_0= ruleLiteral )
+            // InternalLenguajeNaturalReducido.g:81:5: lv_encabezado_0_0= ruleLiteral
             {
-            lv_encabezado_0_0=(Token)match(input,RULE_STRING,FOLLOW_3); 
 
-            					newLeafNode(lv_encabezado_0_0, grammarAccess.getDocumentoAccess().getEncabezadoSTRINGTerminalRuleCall_0_0());
+            					newCompositeNode(grammarAccess.getDocumentoAccess().getEncabezadoLiteralParserRuleCall_0_0());
             				
+            pushFollow(FOLLOW_3);
+            lv_encabezado_0_0=ruleLiteral();
+
+            state._fsp--;
+
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getDocumentoRule());
+            						current = createModelElementForParent(grammarAccess.getDocumentoRule());
             					}
-            					setWithLastConsumed(
+            					set(
             						current,
             						"encabezado",
             						lv_encabezado_0_0,
-            						"org.eclipse.xtext.common.Terminals.STRING");
+            						"org.xtext.tesina.LenguajeNaturalReducido.Literal");
+            					afterParserOrEnumRuleCall();
             				
 
             }
@@ -186,23 +191,23 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             			afterParserOrEnumRuleCall();
             		
-            // InternalLenguajeNaturalReducido.g:104:3: ( (lv_oraciones_2_0= ruleOracion ) )*
+            // InternalLenguajeNaturalReducido.g:105:3: ( (lv_oraciones_2_0= ruleOracion ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==RULE_STRING||LA1_0==12||(LA1_0>=19 && LA1_0<=22)) ) {
+                if ( (LA1_0==RULE_STRING||LA1_0==12||(LA1_0>=19 && LA1_0<=21)) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalLenguajeNaturalReducido.g:105:4: (lv_oraciones_2_0= ruleOracion )
+            	    // InternalLenguajeNaturalReducido.g:106:4: (lv_oraciones_2_0= ruleOracion )
             	    {
-            	    // InternalLenguajeNaturalReducido.g:105:4: (lv_oraciones_2_0= ruleOracion )
-            	    // InternalLenguajeNaturalReducido.g:106:5: lv_oraciones_2_0= ruleOracion
+            	    // InternalLenguajeNaturalReducido.g:106:4: (lv_oraciones_2_0= ruleOracion )
+            	    // InternalLenguajeNaturalReducido.g:107:5: lv_oraciones_2_0= ruleOracion
             	    {
 
             	    					newCompositeNode(grammarAccess.getDocumentoAccess().getOracionesOracionParserRuleCall_2_0());
@@ -258,7 +263,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleOracion"
-    // InternalLenguajeNaturalReducido.g:127:1: entryRuleOracion returns [EObject current=null] : iv_ruleOracion= ruleOracion EOF ;
+    // InternalLenguajeNaturalReducido.g:128:1: entryRuleOracion returns [EObject current=null] : iv_ruleOracion= ruleOracion EOF ;
     public final EObject entryRuleOracion() throws RecognitionException {
         EObject current = null;
 
@@ -266,8 +271,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:127:48: (iv_ruleOracion= ruleOracion EOF )
-            // InternalLenguajeNaturalReducido.g:128:2: iv_ruleOracion= ruleOracion EOF
+            // InternalLenguajeNaturalReducido.g:128:48: (iv_ruleOracion= ruleOracion EOF )
+            // InternalLenguajeNaturalReducido.g:129:2: iv_ruleOracion= ruleOracion EOF
             {
              newCompositeNode(grammarAccess.getOracionRule()); 
             pushFollow(FOLLOW_1);
@@ -294,7 +299,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleOracion"
-    // InternalLenguajeNaturalReducido.g:134:1: ruleOracion returns [EObject current=null] : ( ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion ) ;
+    // InternalLenguajeNaturalReducido.g:135:1: ruleOracion returns [EObject current=null] : ( ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion ) ;
     public final EObject ruleOracion() throws RecognitionException {
         EObject current = null;
 
@@ -305,17 +310,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:140:2: ( ( ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion ) )
-            // InternalLenguajeNaturalReducido.g:141:2: ( ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion )
+            // InternalLenguajeNaturalReducido.g:141:2: ( ( ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion ) )
+            // InternalLenguajeNaturalReducido.g:142:2: ( ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion )
             {
-            // InternalLenguajeNaturalReducido.g:141:2: ( ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion )
-            // InternalLenguajeNaturalReducido.g:142:3: ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion
+            // InternalLenguajeNaturalReducido.g:142:2: ( ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion )
+            // InternalLenguajeNaturalReducido.g:143:3: ( (lv_contenido_0_0= ruleContenido ) ) ruleFinOracion
             {
-            // InternalLenguajeNaturalReducido.g:142:3: ( (lv_contenido_0_0= ruleContenido ) )
-            // InternalLenguajeNaturalReducido.g:143:4: (lv_contenido_0_0= ruleContenido )
+            // InternalLenguajeNaturalReducido.g:143:3: ( (lv_contenido_0_0= ruleContenido ) )
+            // InternalLenguajeNaturalReducido.g:144:4: (lv_contenido_0_0= ruleContenido )
             {
-            // InternalLenguajeNaturalReducido.g:143:4: (lv_contenido_0_0= ruleContenido )
-            // InternalLenguajeNaturalReducido.g:144:5: lv_contenido_0_0= ruleContenido
+            // InternalLenguajeNaturalReducido.g:144:4: (lv_contenido_0_0= ruleContenido )
+            // InternalLenguajeNaturalReducido.g:145:5: lv_contenido_0_0= ruleContenido
             {
 
             					newCompositeNode(grammarAccess.getOracionAccess().getContenidoContenidoParserRuleCall_0_0());
@@ -376,7 +381,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleFinOracion"
-    // InternalLenguajeNaturalReducido.g:172:1: entryRuleFinOracion returns [String current=null] : iv_ruleFinOracion= ruleFinOracion EOF ;
+    // InternalLenguajeNaturalReducido.g:173:1: entryRuleFinOracion returns [String current=null] : iv_ruleFinOracion= ruleFinOracion EOF ;
     public final String entryRuleFinOracion() throws RecognitionException {
         String current = null;
 
@@ -384,8 +389,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:172:50: (iv_ruleFinOracion= ruleFinOracion EOF )
-            // InternalLenguajeNaturalReducido.g:173:2: iv_ruleFinOracion= ruleFinOracion EOF
+            // InternalLenguajeNaturalReducido.g:173:50: (iv_ruleFinOracion= ruleFinOracion EOF )
+            // InternalLenguajeNaturalReducido.g:174:2: iv_ruleFinOracion= ruleFinOracion EOF
             {
              newCompositeNode(grammarAccess.getFinOracionRule()); 
             pushFollow(FOLLOW_1);
@@ -412,7 +417,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleFinOracion"
-    // InternalLenguajeNaturalReducido.g:179:1: ruleFinOracion returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= '.\\r\\n' ;
+    // InternalLenguajeNaturalReducido.g:180:1: ruleFinOracion returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= '.\\r\\n' ;
     public final AntlrDatatypeRuleToken ruleFinOracion() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -422,8 +427,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:185:2: (kw= '.\\r\\n' )
-            // InternalLenguajeNaturalReducido.g:186:2: kw= '.\\r\\n'
+            // InternalLenguajeNaturalReducido.g:186:2: (kw= '.\\r\\n' )
+            // InternalLenguajeNaturalReducido.g:187:2: kw= '.\\r\\n'
             {
             kw=(Token)match(input,11,FOLLOW_2); 
 
@@ -450,7 +455,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleContenido"
-    // InternalLenguajeNaturalReducido.g:194:1: entryRuleContenido returns [EObject current=null] : iv_ruleContenido= ruleContenido EOF ;
+    // InternalLenguajeNaturalReducido.g:195:1: entryRuleContenido returns [EObject current=null] : iv_ruleContenido= ruleContenido EOF ;
     public final EObject entryRuleContenido() throws RecognitionException {
         EObject current = null;
 
@@ -458,8 +463,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:194:50: (iv_ruleContenido= ruleContenido EOF )
-            // InternalLenguajeNaturalReducido.g:195:2: iv_ruleContenido= ruleContenido EOF
+            // InternalLenguajeNaturalReducido.g:195:50: (iv_ruleContenido= ruleContenido EOF )
+            // InternalLenguajeNaturalReducido.g:196:2: iv_ruleContenido= ruleContenido EOF
             {
              newCompositeNode(grammarAccess.getContenidoRule()); 
             pushFollow(FOLLOW_1);
@@ -486,11 +491,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleContenido"
-    // InternalLenguajeNaturalReducido.g:201:1: ruleContenido returns [EObject current=null] : ( ( (lv_prefijo_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )? ) ;
+    // InternalLenguajeNaturalReducido.g:202:1: ruleContenido returns [EObject current=null] : ( ( (lv_condicional_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )? ) ;
     public final EObject ruleContenido() throws RecognitionException {
         EObject current = null;
 
-        Token lv_prefijo_0_0=null;
+        Token lv_condicional_0_0=null;
         EObject lv_simple_1_0 = null;
 
         EObject lv_composicion_2_0 = null;
@@ -500,13 +505,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:207:2: ( ( ( (lv_prefijo_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )? ) )
-            // InternalLenguajeNaturalReducido.g:208:2: ( ( (lv_prefijo_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )? )
+            // InternalLenguajeNaturalReducido.g:208:2: ( ( ( (lv_condicional_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )? ) )
+            // InternalLenguajeNaturalReducido.g:209:2: ( ( (lv_condicional_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )? )
             {
-            // InternalLenguajeNaturalReducido.g:208:2: ( ( (lv_prefijo_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )? )
-            // InternalLenguajeNaturalReducido.g:209:3: ( (lv_prefijo_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )?
+            // InternalLenguajeNaturalReducido.g:209:2: ( ( (lv_condicional_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )? )
+            // InternalLenguajeNaturalReducido.g:210:3: ( (lv_condicional_0_0= 'si' ) )? ( (lv_simple_1_0= ruleSimple ) ) ( (lv_composicion_2_0= ruleComposicion ) )?
             {
-            // InternalLenguajeNaturalReducido.g:209:3: ( (lv_prefijo_0_0= 'si' ) )?
+            // InternalLenguajeNaturalReducido.g:210:3: ( (lv_condicional_0_0= 'si' ) )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -515,20 +520,20 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
             }
             switch (alt2) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:210:4: (lv_prefijo_0_0= 'si' )
+                    // InternalLenguajeNaturalReducido.g:211:4: (lv_condicional_0_0= 'si' )
                     {
-                    // InternalLenguajeNaturalReducido.g:210:4: (lv_prefijo_0_0= 'si' )
-                    // InternalLenguajeNaturalReducido.g:211:5: lv_prefijo_0_0= 'si'
+                    // InternalLenguajeNaturalReducido.g:211:4: (lv_condicional_0_0= 'si' )
+                    // InternalLenguajeNaturalReducido.g:212:5: lv_condicional_0_0= 'si'
                     {
-                    lv_prefijo_0_0=(Token)match(input,12,FOLLOW_5); 
+                    lv_condicional_0_0=(Token)match(input,12,FOLLOW_5); 
 
-                    					newLeafNode(lv_prefijo_0_0, grammarAccess.getContenidoAccess().getPrefijoSiKeyword_0_0());
+                    					newLeafNode(lv_condicional_0_0, grammarAccess.getContenidoAccess().getCondicionalSiKeyword_0_0());
                     				
 
                     					if (current==null) {
                     						current = createModelElement(grammarAccess.getContenidoRule());
                     					}
-                    					setWithLastConsumed(current, "prefijo", lv_prefijo_0_0, "si");
+                    					setWithLastConsumed(current, "condicional", lv_condicional_0_0, "si");
                     				
 
                     }
@@ -539,11 +544,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:223:3: ( (lv_simple_1_0= ruleSimple ) )
-            // InternalLenguajeNaturalReducido.g:224:4: (lv_simple_1_0= ruleSimple )
+            // InternalLenguajeNaturalReducido.g:224:3: ( (lv_simple_1_0= ruleSimple ) )
+            // InternalLenguajeNaturalReducido.g:225:4: (lv_simple_1_0= ruleSimple )
             {
-            // InternalLenguajeNaturalReducido.g:224:4: (lv_simple_1_0= ruleSimple )
-            // InternalLenguajeNaturalReducido.g:225:5: lv_simple_1_0= ruleSimple
+            // InternalLenguajeNaturalReducido.g:225:4: (lv_simple_1_0= ruleSimple )
+            // InternalLenguajeNaturalReducido.g:226:5: lv_simple_1_0= ruleSimple
             {
 
             					newCompositeNode(grammarAccess.getContenidoAccess().getSimpleSimpleParserRuleCall_1_0());
@@ -570,7 +575,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:242:3: ( (lv_composicion_2_0= ruleComposicion ) )?
+            // InternalLenguajeNaturalReducido.g:243:3: ( (lv_composicion_2_0= ruleComposicion ) )?
             int alt3=2;
             switch ( input.LA(1) ) {
                 case 13:
@@ -592,10 +597,10 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             switch (alt3) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:243:4: (lv_composicion_2_0= ruleComposicion )
+                    // InternalLenguajeNaturalReducido.g:244:4: (lv_composicion_2_0= ruleComposicion )
                     {
-                    // InternalLenguajeNaturalReducido.g:243:4: (lv_composicion_2_0= ruleComposicion )
-                    // InternalLenguajeNaturalReducido.g:244:5: lv_composicion_2_0= ruleComposicion
+                    // InternalLenguajeNaturalReducido.g:244:4: (lv_composicion_2_0= ruleComposicion )
+                    // InternalLenguajeNaturalReducido.g:245:5: lv_composicion_2_0= ruleComposicion
                     {
 
                     					newCompositeNode(grammarAccess.getContenidoAccess().getComposicionComposicionParserRuleCall_2_0());
@@ -648,7 +653,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleSimple"
-    // InternalLenguajeNaturalReducido.g:265:1: entryRuleSimple returns [EObject current=null] : iv_ruleSimple= ruleSimple EOF ;
+    // InternalLenguajeNaturalReducido.g:266:1: entryRuleSimple returns [EObject current=null] : iv_ruleSimple= ruleSimple EOF ;
     public final EObject entryRuleSimple() throws RecognitionException {
         EObject current = null;
 
@@ -656,8 +661,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:265:47: (iv_ruleSimple= ruleSimple EOF )
-            // InternalLenguajeNaturalReducido.g:266:2: iv_ruleSimple= ruleSimple EOF
+            // InternalLenguajeNaturalReducido.g:266:47: (iv_ruleSimple= ruleSimple EOF )
+            // InternalLenguajeNaturalReducido.g:267:2: iv_ruleSimple= ruleSimple EOF
             {
              newCompositeNode(grammarAccess.getSimpleRule()); 
             pushFollow(FOLLOW_1);
@@ -684,7 +689,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleSimple"
-    // InternalLenguajeNaturalReducido.g:272:1: ruleSimple returns [EObject current=null] : ( ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )? ) ;
+    // InternalLenguajeNaturalReducido.g:273:1: ruleSimple returns [EObject current=null] : ( ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )? ) ;
     public final EObject ruleSimple() throws RecognitionException {
         EObject current = null;
 
@@ -697,17 +702,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:278:2: ( ( ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )? ) )
-            // InternalLenguajeNaturalReducido.g:279:2: ( ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )? )
+            // InternalLenguajeNaturalReducido.g:279:2: ( ( ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )? ) )
+            // InternalLenguajeNaturalReducido.g:280:2: ( ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )? )
             {
-            // InternalLenguajeNaturalReducido.g:279:2: ( ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )? )
-            // InternalLenguajeNaturalReducido.g:280:3: ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )?
+            // InternalLenguajeNaturalReducido.g:280:2: ( ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )? )
+            // InternalLenguajeNaturalReducido.g:281:3: ( (lv_expresion_izq_0_0= ruleExpresion ) ) ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )?
             {
-            // InternalLenguajeNaturalReducido.g:280:3: ( (lv_expresion_izq_0_0= ruleExpresion ) )
-            // InternalLenguajeNaturalReducido.g:281:4: (lv_expresion_izq_0_0= ruleExpresion )
+            // InternalLenguajeNaturalReducido.g:281:3: ( (lv_expresion_izq_0_0= ruleExpresion ) )
+            // InternalLenguajeNaturalReducido.g:282:4: (lv_expresion_izq_0_0= ruleExpresion )
             {
-            // InternalLenguajeNaturalReducido.g:281:4: (lv_expresion_izq_0_0= ruleExpresion )
-            // InternalLenguajeNaturalReducido.g:282:5: lv_expresion_izq_0_0= ruleExpresion
+            // InternalLenguajeNaturalReducido.g:282:4: (lv_expresion_izq_0_0= ruleExpresion )
+            // InternalLenguajeNaturalReducido.g:283:5: lv_expresion_izq_0_0= ruleExpresion
             {
 
             					newCompositeNode(grammarAccess.getSimpleAccess().getExpresion_izqExpresionParserRuleCall_0_0());
@@ -734,22 +739,22 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:299:3: ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )?
+            // InternalLenguajeNaturalReducido.g:300:3: ( (lv_expresion_der_1_0= ruleExpresionDerecha ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==26) ) {
+            if ( (LA4_0==25) ) {
                 alt4=1;
             }
-            else if ( (LA4_0==27) ) {
+            else if ( (LA4_0==26) ) {
                 alt4=1;
             }
             switch (alt4) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:300:4: (lv_expresion_der_1_0= ruleExpresionDerecha )
+                    // InternalLenguajeNaturalReducido.g:301:4: (lv_expresion_der_1_0= ruleExpresionDerecha )
                     {
-                    // InternalLenguajeNaturalReducido.g:300:4: (lv_expresion_der_1_0= ruleExpresionDerecha )
-                    // InternalLenguajeNaturalReducido.g:301:5: lv_expresion_der_1_0= ruleExpresionDerecha
+                    // InternalLenguajeNaturalReducido.g:301:4: (lv_expresion_der_1_0= ruleExpresionDerecha )
+                    // InternalLenguajeNaturalReducido.g:302:5: lv_expresion_der_1_0= ruleExpresionDerecha
                     {
 
                     					newCompositeNode(grammarAccess.getSimpleAccess().getExpresion_derExpresionDerechaParserRuleCall_1_0());
@@ -802,7 +807,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleExpresionDerecha"
-    // InternalLenguajeNaturalReducido.g:322:1: entryRuleExpresionDerecha returns [EObject current=null] : iv_ruleExpresionDerecha= ruleExpresionDerecha EOF ;
+    // InternalLenguajeNaturalReducido.g:323:1: entryRuleExpresionDerecha returns [EObject current=null] : iv_ruleExpresionDerecha= ruleExpresionDerecha EOF ;
     public final EObject entryRuleExpresionDerecha() throws RecognitionException {
         EObject current = null;
 
@@ -810,8 +815,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:322:57: (iv_ruleExpresionDerecha= ruleExpresionDerecha EOF )
-            // InternalLenguajeNaturalReducido.g:323:2: iv_ruleExpresionDerecha= ruleExpresionDerecha EOF
+            // InternalLenguajeNaturalReducido.g:323:57: (iv_ruleExpresionDerecha= ruleExpresionDerecha EOF )
+            // InternalLenguajeNaturalReducido.g:324:2: iv_ruleExpresionDerecha= ruleExpresionDerecha EOF
             {
              newCompositeNode(grammarAccess.getExpresionDerechaRule()); 
             pushFollow(FOLLOW_1);
@@ -838,7 +843,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleExpresionDerecha"
-    // InternalLenguajeNaturalReducido.g:329:1: ruleExpresionDerecha returns [EObject current=null] : ( ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:330:1: ruleExpresionDerecha returns [EObject current=null] : ( ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) ) ) ;
     public final EObject ruleExpresionDerecha() throws RecognitionException {
         EObject current = null;
 
@@ -851,17 +856,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:335:2: ( ( ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) ) ) )
-            // InternalLenguajeNaturalReducido.g:336:2: ( ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) ) )
+            // InternalLenguajeNaturalReducido.g:336:2: ( ( ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) ) ) )
+            // InternalLenguajeNaturalReducido.g:337:2: ( ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:336:2: ( ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) ) )
-            // InternalLenguajeNaturalReducido.g:337:3: ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) )
+            // InternalLenguajeNaturalReducido.g:337:2: ( ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) ) )
+            // InternalLenguajeNaturalReducido.g:338:3: ( (lv_comparacion_0_0= ruleComparacion ) ) ( (lv_expresion_1_0= ruleExpresion ) )
             {
-            // InternalLenguajeNaturalReducido.g:337:3: ( (lv_comparacion_0_0= ruleComparacion ) )
-            // InternalLenguajeNaturalReducido.g:338:4: (lv_comparacion_0_0= ruleComparacion )
+            // InternalLenguajeNaturalReducido.g:338:3: ( (lv_comparacion_0_0= ruleComparacion ) )
+            // InternalLenguajeNaturalReducido.g:339:4: (lv_comparacion_0_0= ruleComparacion )
             {
-            // InternalLenguajeNaturalReducido.g:338:4: (lv_comparacion_0_0= ruleComparacion )
-            // InternalLenguajeNaturalReducido.g:339:5: lv_comparacion_0_0= ruleComparacion
+            // InternalLenguajeNaturalReducido.g:339:4: (lv_comparacion_0_0= ruleComparacion )
+            // InternalLenguajeNaturalReducido.g:340:5: lv_comparacion_0_0= ruleComparacion
             {
 
             					newCompositeNode(grammarAccess.getExpresionDerechaAccess().getComparacionComparacionParserRuleCall_0_0());
@@ -888,11 +893,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:356:3: ( (lv_expresion_1_0= ruleExpresion ) )
-            // InternalLenguajeNaturalReducido.g:357:4: (lv_expresion_1_0= ruleExpresion )
+            // InternalLenguajeNaturalReducido.g:357:3: ( (lv_expresion_1_0= ruleExpresion ) )
+            // InternalLenguajeNaturalReducido.g:358:4: (lv_expresion_1_0= ruleExpresion )
             {
-            // InternalLenguajeNaturalReducido.g:357:4: (lv_expresion_1_0= ruleExpresion )
-            // InternalLenguajeNaturalReducido.g:358:5: lv_expresion_1_0= ruleExpresion
+            // InternalLenguajeNaturalReducido.g:358:4: (lv_expresion_1_0= ruleExpresion )
+            // InternalLenguajeNaturalReducido.g:359:5: lv_expresion_1_0= ruleExpresion
             {
 
             					newCompositeNode(grammarAccess.getExpresionDerechaAccess().getExpresionExpresionParserRuleCall_1_0());
@@ -942,7 +947,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleComposicion"
-    // InternalLenguajeNaturalReducido.g:379:1: entryRuleComposicion returns [EObject current=null] : iv_ruleComposicion= ruleComposicion EOF ;
+    // InternalLenguajeNaturalReducido.g:380:1: entryRuleComposicion returns [EObject current=null] : iv_ruleComposicion= ruleComposicion EOF ;
     public final EObject entryRuleComposicion() throws RecognitionException {
         EObject current = null;
 
@@ -950,8 +955,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:379:52: (iv_ruleComposicion= ruleComposicion EOF )
-            // InternalLenguajeNaturalReducido.g:380:2: iv_ruleComposicion= ruleComposicion EOF
+            // InternalLenguajeNaturalReducido.g:380:52: (iv_ruleComposicion= ruleComposicion EOF )
+            // InternalLenguajeNaturalReducido.g:381:2: iv_ruleComposicion= ruleComposicion EOF
             {
              newCompositeNode(grammarAccess.getComposicionRule()); 
             pushFollow(FOLLOW_1);
@@ -978,7 +983,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleComposicion"
-    // InternalLenguajeNaturalReducido.g:386:1: ruleComposicion returns [EObject current=null] : ( ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:387:1: ruleComposicion returns [EObject current=null] : ( ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) ) ) ;
     public final EObject ruleComposicion() throws RecognitionException {
         EObject current = null;
 
@@ -991,17 +996,17 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:392:2: ( ( ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) ) ) )
-            // InternalLenguajeNaturalReducido.g:393:2: ( ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) ) )
+            // InternalLenguajeNaturalReducido.g:393:2: ( ( ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) ) ) )
+            // InternalLenguajeNaturalReducido.g:394:2: ( ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:393:2: ( ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) ) )
-            // InternalLenguajeNaturalReducido.g:394:3: ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) )
+            // InternalLenguajeNaturalReducido.g:394:2: ( ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) ) )
+            // InternalLenguajeNaturalReducido.g:395:3: ( (lv_nexo_0_0= ruleNexo ) ) ( (lv_contenido_1_0= ruleContenido ) )
             {
-            // InternalLenguajeNaturalReducido.g:394:3: ( (lv_nexo_0_0= ruleNexo ) )
-            // InternalLenguajeNaturalReducido.g:395:4: (lv_nexo_0_0= ruleNexo )
+            // InternalLenguajeNaturalReducido.g:395:3: ( (lv_nexo_0_0= ruleNexo ) )
+            // InternalLenguajeNaturalReducido.g:396:4: (lv_nexo_0_0= ruleNexo )
             {
-            // InternalLenguajeNaturalReducido.g:395:4: (lv_nexo_0_0= ruleNexo )
-            // InternalLenguajeNaturalReducido.g:396:5: lv_nexo_0_0= ruleNexo
+            // InternalLenguajeNaturalReducido.g:396:4: (lv_nexo_0_0= ruleNexo )
+            // InternalLenguajeNaturalReducido.g:397:5: lv_nexo_0_0= ruleNexo
             {
 
             					newCompositeNode(grammarAccess.getComposicionAccess().getNexoNexoParserRuleCall_0_0());
@@ -1028,11 +1033,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:413:3: ( (lv_contenido_1_0= ruleContenido ) )
-            // InternalLenguajeNaturalReducido.g:414:4: (lv_contenido_1_0= ruleContenido )
+            // InternalLenguajeNaturalReducido.g:414:3: ( (lv_contenido_1_0= ruleContenido ) )
+            // InternalLenguajeNaturalReducido.g:415:4: (lv_contenido_1_0= ruleContenido )
             {
-            // InternalLenguajeNaturalReducido.g:414:4: (lv_contenido_1_0= ruleContenido )
-            // InternalLenguajeNaturalReducido.g:415:5: lv_contenido_1_0= ruleContenido
+            // InternalLenguajeNaturalReducido.g:415:4: (lv_contenido_1_0= ruleContenido )
+            // InternalLenguajeNaturalReducido.g:416:5: lv_contenido_1_0= ruleContenido
             {
 
             					newCompositeNode(grammarAccess.getComposicionAccess().getContenidoContenidoParserRuleCall_1_0());
@@ -1082,7 +1087,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleNexo"
-    // InternalLenguajeNaturalReducido.g:436:1: entryRuleNexo returns [EObject current=null] : iv_ruleNexo= ruleNexo EOF ;
+    // InternalLenguajeNaturalReducido.g:437:1: entryRuleNexo returns [EObject current=null] : iv_ruleNexo= ruleNexo EOF ;
     public final EObject entryRuleNexo() throws RecognitionException {
         EObject current = null;
 
@@ -1090,8 +1095,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:436:45: (iv_ruleNexo= ruleNexo EOF )
-            // InternalLenguajeNaturalReducido.g:437:2: iv_ruleNexo= ruleNexo EOF
+            // InternalLenguajeNaturalReducido.g:437:45: (iv_ruleNexo= ruleNexo EOF )
+            // InternalLenguajeNaturalReducido.g:438:2: iv_ruleNexo= ruleNexo EOF
             {
              newCompositeNode(grammarAccess.getNexoRule()); 
             pushFollow(FOLLOW_1);
@@ -1118,28 +1123,28 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleNexo"
-    // InternalLenguajeNaturalReducido.g:443:1: ruleNexo returns [EObject current=null] : ( ( (lv_valor_0_1= 'y' | lv_valor_0_2= 'o' | lv_valor_0_3= 'entonces' ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:444:1: ruleNexo returns [EObject current=null] : ( ( (lv_nexo_0_1= 'y' | lv_nexo_0_2= 'o' | lv_nexo_0_3= 'entonces' ) ) ) ;
     public final EObject ruleNexo() throws RecognitionException {
         EObject current = null;
 
-        Token lv_valor_0_1=null;
-        Token lv_valor_0_2=null;
-        Token lv_valor_0_3=null;
+        Token lv_nexo_0_1=null;
+        Token lv_nexo_0_2=null;
+        Token lv_nexo_0_3=null;
 
 
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:449:2: ( ( ( (lv_valor_0_1= 'y' | lv_valor_0_2= 'o' | lv_valor_0_3= 'entonces' ) ) ) )
-            // InternalLenguajeNaturalReducido.g:450:2: ( ( (lv_valor_0_1= 'y' | lv_valor_0_2= 'o' | lv_valor_0_3= 'entonces' ) ) )
+            // InternalLenguajeNaturalReducido.g:450:2: ( ( ( (lv_nexo_0_1= 'y' | lv_nexo_0_2= 'o' | lv_nexo_0_3= 'entonces' ) ) ) )
+            // InternalLenguajeNaturalReducido.g:451:2: ( ( (lv_nexo_0_1= 'y' | lv_nexo_0_2= 'o' | lv_nexo_0_3= 'entonces' ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:450:2: ( ( (lv_valor_0_1= 'y' | lv_valor_0_2= 'o' | lv_valor_0_3= 'entonces' ) ) )
-            // InternalLenguajeNaturalReducido.g:451:3: ( (lv_valor_0_1= 'y' | lv_valor_0_2= 'o' | lv_valor_0_3= 'entonces' ) )
+            // InternalLenguajeNaturalReducido.g:451:2: ( ( (lv_nexo_0_1= 'y' | lv_nexo_0_2= 'o' | lv_nexo_0_3= 'entonces' ) ) )
+            // InternalLenguajeNaturalReducido.g:452:3: ( (lv_nexo_0_1= 'y' | lv_nexo_0_2= 'o' | lv_nexo_0_3= 'entonces' ) )
             {
-            // InternalLenguajeNaturalReducido.g:451:3: ( (lv_valor_0_1= 'y' | lv_valor_0_2= 'o' | lv_valor_0_3= 'entonces' ) )
-            // InternalLenguajeNaturalReducido.g:452:4: (lv_valor_0_1= 'y' | lv_valor_0_2= 'o' | lv_valor_0_3= 'entonces' )
+            // InternalLenguajeNaturalReducido.g:452:3: ( (lv_nexo_0_1= 'y' | lv_nexo_0_2= 'o' | lv_nexo_0_3= 'entonces' ) )
+            // InternalLenguajeNaturalReducido.g:453:4: (lv_nexo_0_1= 'y' | lv_nexo_0_2= 'o' | lv_nexo_0_3= 'entonces' )
             {
-            // InternalLenguajeNaturalReducido.g:452:4: (lv_valor_0_1= 'y' | lv_valor_0_2= 'o' | lv_valor_0_3= 'entonces' )
+            // InternalLenguajeNaturalReducido.g:453:4: (lv_nexo_0_1= 'y' | lv_nexo_0_2= 'o' | lv_nexo_0_3= 'entonces' )
             int alt5=3;
             switch ( input.LA(1) ) {
             case 13:
@@ -1166,49 +1171,49 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             switch (alt5) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:453:5: lv_valor_0_1= 'y'
+                    // InternalLenguajeNaturalReducido.g:454:5: lv_nexo_0_1= 'y'
                     {
-                    lv_valor_0_1=(Token)match(input,13,FOLLOW_2); 
+                    lv_nexo_0_1=(Token)match(input,13,FOLLOW_2); 
 
-                    					newLeafNode(lv_valor_0_1, grammarAccess.getNexoAccess().getValorYKeyword_0_0());
+                    					newLeafNode(lv_nexo_0_1, grammarAccess.getNexoAccess().getNexoYKeyword_0_0());
                     				
 
                     					if (current==null) {
                     						current = createModelElement(grammarAccess.getNexoRule());
                     					}
-                    					setWithLastConsumed(current, "valor", lv_valor_0_1, null);
+                    					setWithLastConsumed(current, "nexo", lv_nexo_0_1, null);
                     				
 
                     }
                     break;
                 case 2 :
-                    // InternalLenguajeNaturalReducido.g:464:5: lv_valor_0_2= 'o'
+                    // InternalLenguajeNaturalReducido.g:465:5: lv_nexo_0_2= 'o'
                     {
-                    lv_valor_0_2=(Token)match(input,14,FOLLOW_2); 
+                    lv_nexo_0_2=(Token)match(input,14,FOLLOW_2); 
 
-                    					newLeafNode(lv_valor_0_2, grammarAccess.getNexoAccess().getValorOKeyword_0_1());
+                    					newLeafNode(lv_nexo_0_2, grammarAccess.getNexoAccess().getNexoOKeyword_0_1());
                     				
 
                     					if (current==null) {
                     						current = createModelElement(grammarAccess.getNexoRule());
                     					}
-                    					setWithLastConsumed(current, "valor", lv_valor_0_2, null);
+                    					setWithLastConsumed(current, "nexo", lv_nexo_0_2, null);
                     				
 
                     }
                     break;
                 case 3 :
-                    // InternalLenguajeNaturalReducido.g:475:5: lv_valor_0_3= 'entonces'
+                    // InternalLenguajeNaturalReducido.g:476:5: lv_nexo_0_3= 'entonces'
                     {
-                    lv_valor_0_3=(Token)match(input,15,FOLLOW_2); 
+                    lv_nexo_0_3=(Token)match(input,15,FOLLOW_2); 
 
-                    					newLeafNode(lv_valor_0_3, grammarAccess.getNexoAccess().getValorEntoncesKeyword_0_2());
+                    					newLeafNode(lv_nexo_0_3, grammarAccess.getNexoAccess().getNexoEntoncesKeyword_0_2());
                     				
 
                     					if (current==null) {
                     						current = createModelElement(grammarAccess.getNexoRule());
                     					}
-                    					setWithLastConsumed(current, "valor", lv_valor_0_3, null);
+                    					setWithLastConsumed(current, "nexo", lv_nexo_0_3, null);
                     				
 
                     }
@@ -1242,7 +1247,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleExpresion"
-    // InternalLenguajeNaturalReducido.g:491:1: entryRuleExpresion returns [EObject current=null] : iv_ruleExpresion= ruleExpresion EOF ;
+    // InternalLenguajeNaturalReducido.g:492:1: entryRuleExpresion returns [EObject current=null] : iv_ruleExpresion= ruleExpresion EOF ;
     public final EObject entryRuleExpresion() throws RecognitionException {
         EObject current = null;
 
@@ -1250,8 +1255,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:491:50: (iv_ruleExpresion= ruleExpresion EOF )
-            // InternalLenguajeNaturalReducido.g:492:2: iv_ruleExpresion= ruleExpresion EOF
+            // InternalLenguajeNaturalReducido.g:492:50: (iv_ruleExpresion= ruleExpresion EOF )
+            // InternalLenguajeNaturalReducido.g:493:2: iv_ruleExpresion= ruleExpresion EOF
             {
              newCompositeNode(grammarAccess.getExpresionRule()); 
             pushFollow(FOLLOW_1);
@@ -1278,7 +1283,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleExpresion"
-    // InternalLenguajeNaturalReducido.g:498:1: ruleExpresion returns [EObject current=null] : ( ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:499:1: ruleExpresion returns [EObject current=null] : ( ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) ) ) ;
     public final EObject ruleExpresion() throws RecognitionException {
         EObject current = null;
 
@@ -1291,23 +1296,23 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:504:2: ( ( ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) ) ) )
-            // InternalLenguajeNaturalReducido.g:505:2: ( ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) ) )
+            // InternalLenguajeNaturalReducido.g:505:2: ( ( ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) ) ) )
+            // InternalLenguajeNaturalReducido.g:506:2: ( ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:505:2: ( ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) ) )
-            // InternalLenguajeNaturalReducido.g:506:3: ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) )
+            // InternalLenguajeNaturalReducido.g:506:2: ( ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) ) )
+            // InternalLenguajeNaturalReducido.g:507:3: ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) )
             {
-            // InternalLenguajeNaturalReducido.g:506:3: ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) )
-            // InternalLenguajeNaturalReducido.g:507:4: (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad )
+            // InternalLenguajeNaturalReducido.g:507:3: ( (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad ) )
+            // InternalLenguajeNaturalReducido.g:508:4: (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad )
             {
-            // InternalLenguajeNaturalReducido.g:507:4: (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad )
+            // InternalLenguajeNaturalReducido.g:508:4: (lv_expresion_0_1= ruleLiteral | lv_expresion_0_2= rulePropiedad )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
             if ( (LA6_0==RULE_STRING) ) {
                 alt6=1;
             }
-            else if ( ((LA6_0>=19 && LA6_0<=22)) ) {
+            else if ( ((LA6_0>=19 && LA6_0<=21)) ) {
                 alt6=2;
             }
             else {
@@ -1318,7 +1323,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
             }
             switch (alt6) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:508:5: lv_expresion_0_1= ruleLiteral
+                    // InternalLenguajeNaturalReducido.g:509:5: lv_expresion_0_1= ruleLiteral
                     {
 
                     					newCompositeNode(grammarAccess.getExpresionAccess().getExpresionLiteralParserRuleCall_0_0());
@@ -1343,7 +1348,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                     }
                     break;
                 case 2 :
-                    // InternalLenguajeNaturalReducido.g:524:5: lv_expresion_0_2= rulePropiedad
+                    // InternalLenguajeNaturalReducido.g:525:5: lv_expresion_0_2= rulePropiedad
                     {
 
                     					newCompositeNode(grammarAccess.getExpresionAccess().getExpresionPropiedadParserRuleCall_0_1());
@@ -1396,7 +1401,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleComparacion"
-    // InternalLenguajeNaturalReducido.g:545:1: entryRuleComparacion returns [EObject current=null] : iv_ruleComparacion= ruleComparacion EOF ;
+    // InternalLenguajeNaturalReducido.g:546:1: entryRuleComparacion returns [EObject current=null] : iv_ruleComparacion= ruleComparacion EOF ;
     public final EObject entryRuleComparacion() throws RecognitionException {
         EObject current = null;
 
@@ -1404,8 +1409,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:545:52: (iv_ruleComparacion= ruleComparacion EOF )
-            // InternalLenguajeNaturalReducido.g:546:2: iv_ruleComparacion= ruleComparacion EOF
+            // InternalLenguajeNaturalReducido.g:546:52: (iv_ruleComparacion= ruleComparacion EOF )
+            // InternalLenguajeNaturalReducido.g:547:2: iv_ruleComparacion= ruleComparacion EOF
             {
              newCompositeNode(grammarAccess.getComparacionRule()); 
             pushFollow(FOLLOW_1);
@@ -1432,11 +1437,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleComparacion"
-    // InternalLenguajeNaturalReducido.g:552:1: ruleComparacion returns [EObject current=null] : ( ( (lv_obligacion_0_0= ruleObligacion ) ) ( (lv_operacion_1_0= ruleOperacion ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:553:1: ruleComparacion returns [EObject current=null] : ( ( (lv_afirmacion_0_0= ruleAfirmacion ) ) ( (lv_operacion_1_0= ruleOperacion ) ) ) ;
     public final EObject ruleComparacion() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_obligacion_0_0 = null;
+        EObject lv_afirmacion_0_0 = null;
 
         EObject lv_operacion_1_0 = null;
 
@@ -1445,23 +1450,23 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:558:2: ( ( ( (lv_obligacion_0_0= ruleObligacion ) ) ( (lv_operacion_1_0= ruleOperacion ) ) ) )
-            // InternalLenguajeNaturalReducido.g:559:2: ( ( (lv_obligacion_0_0= ruleObligacion ) ) ( (lv_operacion_1_0= ruleOperacion ) ) )
+            // InternalLenguajeNaturalReducido.g:559:2: ( ( ( (lv_afirmacion_0_0= ruleAfirmacion ) ) ( (lv_operacion_1_0= ruleOperacion ) ) ) )
+            // InternalLenguajeNaturalReducido.g:560:2: ( ( (lv_afirmacion_0_0= ruleAfirmacion ) ) ( (lv_operacion_1_0= ruleOperacion ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:559:2: ( ( (lv_obligacion_0_0= ruleObligacion ) ) ( (lv_operacion_1_0= ruleOperacion ) ) )
-            // InternalLenguajeNaturalReducido.g:560:3: ( (lv_obligacion_0_0= ruleObligacion ) ) ( (lv_operacion_1_0= ruleOperacion ) )
+            // InternalLenguajeNaturalReducido.g:560:2: ( ( (lv_afirmacion_0_0= ruleAfirmacion ) ) ( (lv_operacion_1_0= ruleOperacion ) ) )
+            // InternalLenguajeNaturalReducido.g:561:3: ( (lv_afirmacion_0_0= ruleAfirmacion ) ) ( (lv_operacion_1_0= ruleOperacion ) )
             {
-            // InternalLenguajeNaturalReducido.g:560:3: ( (lv_obligacion_0_0= ruleObligacion ) )
-            // InternalLenguajeNaturalReducido.g:561:4: (lv_obligacion_0_0= ruleObligacion )
+            // InternalLenguajeNaturalReducido.g:561:3: ( (lv_afirmacion_0_0= ruleAfirmacion ) )
+            // InternalLenguajeNaturalReducido.g:562:4: (lv_afirmacion_0_0= ruleAfirmacion )
             {
-            // InternalLenguajeNaturalReducido.g:561:4: (lv_obligacion_0_0= ruleObligacion )
-            // InternalLenguajeNaturalReducido.g:562:5: lv_obligacion_0_0= ruleObligacion
+            // InternalLenguajeNaturalReducido.g:562:4: (lv_afirmacion_0_0= ruleAfirmacion )
+            // InternalLenguajeNaturalReducido.g:563:5: lv_afirmacion_0_0= ruleAfirmacion
             {
 
-            					newCompositeNode(grammarAccess.getComparacionAccess().getObligacionObligacionParserRuleCall_0_0());
+            					newCompositeNode(grammarAccess.getComparacionAccess().getAfirmacionAfirmacionParserRuleCall_0_0());
             				
             pushFollow(FOLLOW_8);
-            lv_obligacion_0_0=ruleObligacion();
+            lv_afirmacion_0_0=ruleAfirmacion();
 
             state._fsp--;
 
@@ -1471,9 +1476,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
             					}
             					set(
             						current,
-            						"obligacion",
-            						lv_obligacion_0_0,
-            						"org.xtext.tesina.LenguajeNaturalReducido.Obligacion");
+            						"afirmacion",
+            						lv_afirmacion_0_0,
+            						"org.xtext.tesina.LenguajeNaturalReducido.Afirmacion");
             					afterParserOrEnumRuleCall();
             				
 
@@ -1482,11 +1487,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:579:3: ( (lv_operacion_1_0= ruleOperacion ) )
-            // InternalLenguajeNaturalReducido.g:580:4: (lv_operacion_1_0= ruleOperacion )
+            // InternalLenguajeNaturalReducido.g:580:3: ( (lv_operacion_1_0= ruleOperacion ) )
+            // InternalLenguajeNaturalReducido.g:581:4: (lv_operacion_1_0= ruleOperacion )
             {
-            // InternalLenguajeNaturalReducido.g:580:4: (lv_operacion_1_0= ruleOperacion )
-            // InternalLenguajeNaturalReducido.g:581:5: lv_operacion_1_0= ruleOperacion
+            // InternalLenguajeNaturalReducido.g:581:4: (lv_operacion_1_0= ruleOperacion )
+            // InternalLenguajeNaturalReducido.g:582:5: lv_operacion_1_0= ruleOperacion
             {
 
             					newCompositeNode(grammarAccess.getComparacionAccess().getOperacionOperacionParserRuleCall_1_0());
@@ -1536,7 +1541,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRulePropiedad"
-    // InternalLenguajeNaturalReducido.g:602:1: entryRulePropiedad returns [EObject current=null] : iv_rulePropiedad= rulePropiedad EOF ;
+    // InternalLenguajeNaturalReducido.g:603:1: entryRulePropiedad returns [EObject current=null] : iv_rulePropiedad= rulePropiedad EOF ;
     public final EObject entryRulePropiedad() throws RecognitionException {
         EObject current = null;
 
@@ -1544,8 +1549,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:602:50: (iv_rulePropiedad= rulePropiedad EOF )
-            // InternalLenguajeNaturalReducido.g:603:2: iv_rulePropiedad= rulePropiedad EOF
+            // InternalLenguajeNaturalReducido.g:603:50: (iv_rulePropiedad= rulePropiedad EOF )
+            // InternalLenguajeNaturalReducido.g:604:2: iv_rulePropiedad= rulePropiedad EOF
             {
              newCompositeNode(grammarAccess.getPropiedadRule()); 
             pushFollow(FOLLOW_1);
@@ -1572,7 +1577,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "rulePropiedad"
-    // InternalLenguajeNaturalReducido.g:609:1: rulePropiedad returns [EObject current=null] : ( ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )* ) ;
+    // InternalLenguajeNaturalReducido.g:610:1: rulePropiedad returns [EObject current=null] : ( ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )* ) ;
     public final EObject rulePropiedad() throws RecognitionException {
         EObject current = null;
 
@@ -1587,30 +1592,30 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:615:2: ( ( ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )* ) )
-            // InternalLenguajeNaturalReducido.g:616:2: ( ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )* )
+            // InternalLenguajeNaturalReducido.g:616:2: ( ( ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )* ) )
+            // InternalLenguajeNaturalReducido.g:617:2: ( ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )* )
             {
-            // InternalLenguajeNaturalReducido.g:616:2: ( ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )* )
-            // InternalLenguajeNaturalReducido.g:617:3: ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )*
+            // InternalLenguajeNaturalReducido.g:617:2: ( ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )* )
+            // InternalLenguajeNaturalReducido.g:618:3: ( (lv_atributo_0_0= ruleAtributo ) )+ ( (lv_termino_1_0= ruleTermino ) )? ( (lv_iteracion_2_0= ruleIteracion ) )*
             {
-            // InternalLenguajeNaturalReducido.g:617:3: ( (lv_atributo_0_0= ruleAtributo ) )+
+            // InternalLenguajeNaturalReducido.g:618:3: ( (lv_atributo_0_0= ruleAtributo ) )+
             int cnt7=0;
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( ((LA7_0>=19 && LA7_0<=22)) ) {
+                if ( ((LA7_0>=19 && LA7_0<=21)) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalLenguajeNaturalReducido.g:618:4: (lv_atributo_0_0= ruleAtributo )
+            	    // InternalLenguajeNaturalReducido.g:619:4: (lv_atributo_0_0= ruleAtributo )
             	    {
-            	    // InternalLenguajeNaturalReducido.g:618:4: (lv_atributo_0_0= ruleAtributo )
-            	    // InternalLenguajeNaturalReducido.g:619:5: lv_atributo_0_0= ruleAtributo
+            	    // InternalLenguajeNaturalReducido.g:619:4: (lv_atributo_0_0= ruleAtributo )
+            	    // InternalLenguajeNaturalReducido.g:620:5: lv_atributo_0_0= ruleAtributo
             	    {
 
             	    					newCompositeNode(grammarAccess.getPropiedadAccess().getAtributoAtributoParserRuleCall_0_0());
@@ -1647,19 +1652,19 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                 cnt7++;
             } while (true);
 
-            // InternalLenguajeNaturalReducido.g:636:3: ( (lv_termino_1_0= ruleTermino ) )?
+            // InternalLenguajeNaturalReducido.g:637:3: ( (lv_termino_1_0= ruleTermino ) )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==25) ) {
+            if ( (LA8_0==24) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:637:4: (lv_termino_1_0= ruleTermino )
+                    // InternalLenguajeNaturalReducido.g:638:4: (lv_termino_1_0= ruleTermino )
                     {
-                    // InternalLenguajeNaturalReducido.g:637:4: (lv_termino_1_0= ruleTermino )
-                    // InternalLenguajeNaturalReducido.g:638:5: lv_termino_1_0= ruleTermino
+                    // InternalLenguajeNaturalReducido.g:638:4: (lv_termino_1_0= ruleTermino )
+                    // InternalLenguajeNaturalReducido.g:639:5: lv_termino_1_0= ruleTermino
                     {
 
                     					newCompositeNode(grammarAccess.getPropiedadAccess().getTerminoTerminoParserRuleCall_1_0());
@@ -1689,7 +1694,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:655:3: ( (lv_iteracion_2_0= ruleIteracion ) )*
+            // InternalLenguajeNaturalReducido.g:656:3: ( (lv_iteracion_2_0= ruleIteracion ) )*
             loop9:
             do {
                 int alt9=2;
@@ -1714,10 +1719,10 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalLenguajeNaturalReducido.g:656:4: (lv_iteracion_2_0= ruleIteracion )
+            	    // InternalLenguajeNaturalReducido.g:657:4: (lv_iteracion_2_0= ruleIteracion )
             	    {
-            	    // InternalLenguajeNaturalReducido.g:656:4: (lv_iteracion_2_0= ruleIteracion )
-            	    // InternalLenguajeNaturalReducido.g:657:5: lv_iteracion_2_0= ruleIteracion
+            	    // InternalLenguajeNaturalReducido.g:657:4: (lv_iteracion_2_0= ruleIteracion )
+            	    // InternalLenguajeNaturalReducido.g:658:5: lv_iteracion_2_0= ruleIteracion
             	    {
 
             	    					newCompositeNode(grammarAccess.getPropiedadAccess().getIteracionIteracionParserRuleCall_2_0());
@@ -1773,7 +1778,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleIteracion"
-    // InternalLenguajeNaturalReducido.g:678:1: entryRuleIteracion returns [EObject current=null] : iv_ruleIteracion= ruleIteracion EOF ;
+    // InternalLenguajeNaturalReducido.g:679:1: entryRuleIteracion returns [EObject current=null] : iv_ruleIteracion= ruleIteracion EOF ;
     public final EObject entryRuleIteracion() throws RecognitionException {
         EObject current = null;
 
@@ -1781,8 +1786,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:678:50: (iv_ruleIteracion= ruleIteracion EOF )
-            // InternalLenguajeNaturalReducido.g:679:2: iv_ruleIteracion= ruleIteracion EOF
+            // InternalLenguajeNaturalReducido.g:679:50: (iv_ruleIteracion= ruleIteracion EOF )
+            // InternalLenguajeNaturalReducido.g:680:2: iv_ruleIteracion= ruleIteracion EOF
             {
              newCompositeNode(grammarAccess.getIteracionRule()); 
             pushFollow(FOLLOW_1);
@@ -1809,13 +1814,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleIteracion"
-    // InternalLenguajeNaturalReducido.g:685:1: ruleIteracion returns [EObject current=null] : ( ( ( (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:686:1: ruleIteracion returns [EObject current=null] : ( ( ( (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) ) ) ;
     public final EObject ruleIteracion() throws RecognitionException {
         EObject current = null;
 
-        Token lv_conector_0_1=null;
-        Token lv_conector_0_2=null;
-        Token lv_conector_0_3=null;
+        Token lv_condicion_0_1=null;
+        Token lv_condicion_0_2=null;
+        Token lv_condicion_0_3=null;
         EObject lv_contenido_1_0 = null;
 
 
@@ -1823,19 +1828,19 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:691:2: ( ( ( ( (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) ) ) )
-            // InternalLenguajeNaturalReducido.g:692:2: ( ( ( (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) ) )
+            // InternalLenguajeNaturalReducido.g:692:2: ( ( ( ( (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) ) ) )
+            // InternalLenguajeNaturalReducido.g:693:2: ( ( ( (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:692:2: ( ( ( (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) ) )
-            // InternalLenguajeNaturalReducido.g:693:3: ( ( (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) )
+            // InternalLenguajeNaturalReducido.g:693:2: ( ( ( (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) ) )
+            // InternalLenguajeNaturalReducido.g:694:3: ( ( (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' ) ) ) ( (lv_contenido_1_0= ruleContenido ) )
             {
-            // InternalLenguajeNaturalReducido.g:693:3: ( ( (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' ) ) )
-            // InternalLenguajeNaturalReducido.g:694:4: ( (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' ) )
+            // InternalLenguajeNaturalReducido.g:694:3: ( ( (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' ) ) )
+            // InternalLenguajeNaturalReducido.g:695:4: ( (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' ) )
             {
-            // InternalLenguajeNaturalReducido.g:694:4: ( (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' ) )
-            // InternalLenguajeNaturalReducido.g:695:5: (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' )
+            // InternalLenguajeNaturalReducido.g:695:4: ( (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' ) )
+            // InternalLenguajeNaturalReducido.g:696:5: (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' )
             {
-            // InternalLenguajeNaturalReducido.g:695:5: (lv_conector_0_1= 'tal que' | lv_conector_0_2= 'satisfacen que' | lv_conector_0_3= 'existe uno tal que' )
+            // InternalLenguajeNaturalReducido.g:696:5: (lv_condicion_0_1= 'tal que' | lv_condicion_0_2= 'satisfacen que' | lv_condicion_0_3= 'existe uno/una tal que' )
             int alt10=3;
             switch ( input.LA(1) ) {
             case 16:
@@ -1862,49 +1867,49 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             switch (alt10) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:696:6: lv_conector_0_1= 'tal que'
+                    // InternalLenguajeNaturalReducido.g:697:6: lv_condicion_0_1= 'tal que'
                     {
-                    lv_conector_0_1=(Token)match(input,16,FOLLOW_5); 
+                    lv_condicion_0_1=(Token)match(input,16,FOLLOW_5); 
 
-                    						newLeafNode(lv_conector_0_1, grammarAccess.getIteracionAccess().getConectorTalQueKeyword_0_0_0());
+                    						newLeafNode(lv_condicion_0_1, grammarAccess.getIteracionAccess().getCondicionTalQueKeyword_0_0_0());
                     					
 
                     						if (current==null) {
                     							current = createModelElement(grammarAccess.getIteracionRule());
                     						}
-                    						setWithLastConsumed(current, "conector", lv_conector_0_1, null);
+                    						setWithLastConsumed(current, "condicion", lv_condicion_0_1, null);
                     					
 
                     }
                     break;
                 case 2 :
-                    // InternalLenguajeNaturalReducido.g:707:6: lv_conector_0_2= 'satisfacen que'
+                    // InternalLenguajeNaturalReducido.g:708:6: lv_condicion_0_2= 'satisfacen que'
                     {
-                    lv_conector_0_2=(Token)match(input,17,FOLLOW_5); 
+                    lv_condicion_0_2=(Token)match(input,17,FOLLOW_5); 
 
-                    						newLeafNode(lv_conector_0_2, grammarAccess.getIteracionAccess().getConectorSatisfacenQueKeyword_0_0_1());
+                    						newLeafNode(lv_condicion_0_2, grammarAccess.getIteracionAccess().getCondicionSatisfacenQueKeyword_0_0_1());
                     					
 
                     						if (current==null) {
                     							current = createModelElement(grammarAccess.getIteracionRule());
                     						}
-                    						setWithLastConsumed(current, "conector", lv_conector_0_2, null);
+                    						setWithLastConsumed(current, "condicion", lv_condicion_0_2, null);
                     					
 
                     }
                     break;
                 case 3 :
-                    // InternalLenguajeNaturalReducido.g:718:6: lv_conector_0_3= 'existe uno tal que'
+                    // InternalLenguajeNaturalReducido.g:719:6: lv_condicion_0_3= 'existe uno/una tal que'
                     {
-                    lv_conector_0_3=(Token)match(input,18,FOLLOW_5); 
+                    lv_condicion_0_3=(Token)match(input,18,FOLLOW_5); 
 
-                    						newLeafNode(lv_conector_0_3, grammarAccess.getIteracionAccess().getConectorExisteUnoTalQueKeyword_0_0_2());
+                    						newLeafNode(lv_condicion_0_3, grammarAccess.getIteracionAccess().getCondicionExisteUnoUnaTalQueKeyword_0_0_2());
                     					
 
                     						if (current==null) {
                     							current = createModelElement(grammarAccess.getIteracionRule());
                     						}
-                    						setWithLastConsumed(current, "conector", lv_conector_0_3, null);
+                    						setWithLastConsumed(current, "condicion", lv_condicion_0_3, null);
                     					
 
                     }
@@ -1918,11 +1923,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:731:3: ( (lv_contenido_1_0= ruleContenido ) )
-            // InternalLenguajeNaturalReducido.g:732:4: (lv_contenido_1_0= ruleContenido )
+            // InternalLenguajeNaturalReducido.g:732:3: ( (lv_contenido_1_0= ruleContenido ) )
+            // InternalLenguajeNaturalReducido.g:733:4: (lv_contenido_1_0= ruleContenido )
             {
-            // InternalLenguajeNaturalReducido.g:732:4: (lv_contenido_1_0= ruleContenido )
-            // InternalLenguajeNaturalReducido.g:733:5: lv_contenido_1_0= ruleContenido
+            // InternalLenguajeNaturalReducido.g:733:4: (lv_contenido_1_0= ruleContenido )
+            // InternalLenguajeNaturalReducido.g:734:5: lv_contenido_1_0= ruleContenido
             {
 
             					newCompositeNode(grammarAccess.getIteracionAccess().getContenidoContenidoParserRuleCall_1_0());
@@ -1972,7 +1977,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleAtributo"
-    // InternalLenguajeNaturalReducido.g:754:1: entryRuleAtributo returns [EObject current=null] : iv_ruleAtributo= ruleAtributo EOF ;
+    // InternalLenguajeNaturalReducido.g:755:1: entryRuleAtributo returns [EObject current=null] : iv_ruleAtributo= ruleAtributo EOF ;
     public final EObject entryRuleAtributo() throws RecognitionException {
         EObject current = null;
 
@@ -1980,8 +1985,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:754:49: (iv_ruleAtributo= ruleAtributo EOF )
-            // InternalLenguajeNaturalReducido.g:755:2: iv_ruleAtributo= ruleAtributo EOF
+            // InternalLenguajeNaturalReducido.g:755:49: (iv_ruleAtributo= ruleAtributo EOF )
+            // InternalLenguajeNaturalReducido.g:756:2: iv_ruleAtributo= ruleAtributo EOF
             {
              newCompositeNode(grammarAccess.getAtributoRule()); 
             pushFollow(FOLLOW_1);
@@ -2008,15 +2013,14 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleAtributo"
-    // InternalLenguajeNaturalReducido.g:761:1: ruleAtributo returns [EObject current=null] : ( ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' ) ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:762:1: ruleAtributo returns [EObject current=null] : ( ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' ) ) ) ( (lv_cuantitativo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) ) ;
     public final EObject ruleAtributo() throws RecognitionException {
         EObject current = null;
 
         Token lv_determinante_0_1=null;
         Token lv_determinante_0_2=null;
         Token lv_determinante_0_3=null;
-        Token lv_determinante_0_4=null;
-        Token lv_prefijo_1_0=null;
+        Token lv_cuantitativo_1_0=null;
         Token lv_nombre_2_0=null;
         Token lv_enlace_3_0=null;
 
@@ -2024,20 +2028,20 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:767:2: ( ( ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' ) ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) ) )
-            // InternalLenguajeNaturalReducido.g:768:2: ( ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' ) ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) )
+            // InternalLenguajeNaturalReducido.g:768:2: ( ( ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' ) ) ) ( (lv_cuantitativo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) ) )
+            // InternalLenguajeNaturalReducido.g:769:2: ( ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' ) ) ) ( (lv_cuantitativo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:768:2: ( ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' ) ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) )
-            // InternalLenguajeNaturalReducido.g:769:3: ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' ) ) ) ( (lv_prefijo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) )
+            // InternalLenguajeNaturalReducido.g:769:2: ( ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' ) ) ) ( (lv_cuantitativo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) ) )
+            // InternalLenguajeNaturalReducido.g:770:3: ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' ) ) ) ( (lv_cuantitativo_1_0= 'cantidad de' ) )? ( (lv_nombre_2_0= RULE_ID ) ) ( (lv_enlace_3_0= 'de' ) )
             {
-            // InternalLenguajeNaturalReducido.g:769:3: ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' ) ) )
-            // InternalLenguajeNaturalReducido.g:770:4: ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' ) )
+            // InternalLenguajeNaturalReducido.g:770:3: ( ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' ) ) )
+            // InternalLenguajeNaturalReducido.g:771:4: ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' ) )
             {
-            // InternalLenguajeNaturalReducido.g:770:4: ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' ) )
-            // InternalLenguajeNaturalReducido.g:771:5: (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' )
+            // InternalLenguajeNaturalReducido.g:771:4: ( (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' ) )
+            // InternalLenguajeNaturalReducido.g:772:5: (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' )
             {
-            // InternalLenguajeNaturalReducido.g:771:5: (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'existe un' | lv_determinante_0_4= 'entre los' )
-            int alt11=4;
+            // InternalLenguajeNaturalReducido.g:772:5: (lv_determinante_0_1= 'el/la' | lv_determinante_0_2= 'todos los/las' | lv_determinante_0_3= 'entre los/las' )
+            int alt11=3;
             switch ( input.LA(1) ) {
             case 19:
                 {
@@ -2054,11 +2058,6 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                 alt11=3;
                 }
                 break;
-            case 22:
-                {
-                alt11=4;
-                }
-                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 11, 0, input);
@@ -2068,7 +2067,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             switch (alt11) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:772:6: lv_determinante_0_1= 'el/la'
+                    // InternalLenguajeNaturalReducido.g:773:6: lv_determinante_0_1= 'el/la'
                     {
                     lv_determinante_0_1=(Token)match(input,19,FOLLOW_11); 
 
@@ -2084,7 +2083,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                     }
                     break;
                 case 2 :
-                    // InternalLenguajeNaturalReducido.g:783:6: lv_determinante_0_2= 'todos los/las'
+                    // InternalLenguajeNaturalReducido.g:784:6: lv_determinante_0_2= 'todos los/las'
                     {
                     lv_determinante_0_2=(Token)match(input,20,FOLLOW_11); 
 
@@ -2100,11 +2099,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                     }
                     break;
                 case 3 :
-                    // InternalLenguajeNaturalReducido.g:794:6: lv_determinante_0_3= 'existe un'
+                    // InternalLenguajeNaturalReducido.g:795:6: lv_determinante_0_3= 'entre los/las'
                     {
                     lv_determinante_0_3=(Token)match(input,21,FOLLOW_11); 
 
-                    						newLeafNode(lv_determinante_0_3, grammarAccess.getAtributoAccess().getDeterminanteExisteUnKeyword_0_0_2());
+                    						newLeafNode(lv_determinante_0_3, grammarAccess.getAtributoAccess().getDeterminanteEntreLosLasKeyword_0_0_2());
                     					
 
                     						if (current==null) {
@@ -2115,22 +2114,6 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
                     }
                     break;
-                case 4 :
-                    // InternalLenguajeNaturalReducido.g:805:6: lv_determinante_0_4= 'entre los'
-                    {
-                    lv_determinante_0_4=(Token)match(input,22,FOLLOW_11); 
-
-                    						newLeafNode(lv_determinante_0_4, grammarAccess.getAtributoAccess().getDeterminanteEntreLosKeyword_0_0_3());
-                    					
-
-                    						if (current==null) {
-                    							current = createModelElement(grammarAccess.getAtributoRule());
-                    						}
-                    						setWithLastConsumed(current, "determinante", lv_determinante_0_4, null);
-                    					
-
-                    }
-                    break;
 
             }
 
@@ -2140,29 +2123,29 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:818:3: ( (lv_prefijo_1_0= 'cantidad de' ) )?
+            // InternalLenguajeNaturalReducido.g:808:3: ( (lv_cuantitativo_1_0= 'cantidad de' ) )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==23) ) {
+            if ( (LA12_0==22) ) {
                 alt12=1;
             }
             switch (alt12) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:819:4: (lv_prefijo_1_0= 'cantidad de' )
+                    // InternalLenguajeNaturalReducido.g:809:4: (lv_cuantitativo_1_0= 'cantidad de' )
                     {
-                    // InternalLenguajeNaturalReducido.g:819:4: (lv_prefijo_1_0= 'cantidad de' )
-                    // InternalLenguajeNaturalReducido.g:820:5: lv_prefijo_1_0= 'cantidad de'
+                    // InternalLenguajeNaturalReducido.g:809:4: (lv_cuantitativo_1_0= 'cantidad de' )
+                    // InternalLenguajeNaturalReducido.g:810:5: lv_cuantitativo_1_0= 'cantidad de'
                     {
-                    lv_prefijo_1_0=(Token)match(input,23,FOLLOW_12); 
+                    lv_cuantitativo_1_0=(Token)match(input,22,FOLLOW_12); 
 
-                    					newLeafNode(lv_prefijo_1_0, grammarAccess.getAtributoAccess().getPrefijoCantidadDeKeyword_1_0());
+                    					newLeafNode(lv_cuantitativo_1_0, grammarAccess.getAtributoAccess().getCuantitativoCantidadDeKeyword_1_0());
                     				
 
                     					if (current==null) {
                     						current = createModelElement(grammarAccess.getAtributoRule());
                     					}
-                    					setWithLastConsumed(current, "prefijo", lv_prefijo_1_0, "cantidad de");
+                    					setWithLastConsumed(current, "cuantitativo", lv_cuantitativo_1_0, "cantidad de");
                     				
 
                     }
@@ -2173,11 +2156,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:832:3: ( (lv_nombre_2_0= RULE_ID ) )
-            // InternalLenguajeNaturalReducido.g:833:4: (lv_nombre_2_0= RULE_ID )
+            // InternalLenguajeNaturalReducido.g:822:3: ( (lv_nombre_2_0= RULE_ID ) )
+            // InternalLenguajeNaturalReducido.g:823:4: (lv_nombre_2_0= RULE_ID )
             {
-            // InternalLenguajeNaturalReducido.g:833:4: (lv_nombre_2_0= RULE_ID )
-            // InternalLenguajeNaturalReducido.g:834:5: lv_nombre_2_0= RULE_ID
+            // InternalLenguajeNaturalReducido.g:823:4: (lv_nombre_2_0= RULE_ID )
+            // InternalLenguajeNaturalReducido.g:824:5: lv_nombre_2_0= RULE_ID
             {
             lv_nombre_2_0=(Token)match(input,RULE_ID,FOLLOW_13); 
 
@@ -2199,13 +2182,13 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:850:3: ( (lv_enlace_3_0= 'de' ) )
-            // InternalLenguajeNaturalReducido.g:851:4: (lv_enlace_3_0= 'de' )
+            // InternalLenguajeNaturalReducido.g:840:3: ( (lv_enlace_3_0= 'de' ) )
+            // InternalLenguajeNaturalReducido.g:841:4: (lv_enlace_3_0= 'de' )
             {
-            // InternalLenguajeNaturalReducido.g:851:4: (lv_enlace_3_0= 'de' )
-            // InternalLenguajeNaturalReducido.g:852:5: lv_enlace_3_0= 'de'
+            // InternalLenguajeNaturalReducido.g:841:4: (lv_enlace_3_0= 'de' )
+            // InternalLenguajeNaturalReducido.g:842:5: lv_enlace_3_0= 'de'
             {
-            lv_enlace_3_0=(Token)match(input,24,FOLLOW_2); 
+            lv_enlace_3_0=(Token)match(input,23,FOLLOW_2); 
 
             					newLeafNode(lv_enlace_3_0, grammarAccess.getAtributoAccess().getEnlaceDeKeyword_3_0());
             				
@@ -2244,7 +2227,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleTermino"
-    // InternalLenguajeNaturalReducido.g:868:1: entryRuleTermino returns [EObject current=null] : iv_ruleTermino= ruleTermino EOF ;
+    // InternalLenguajeNaturalReducido.g:858:1: entryRuleTermino returns [EObject current=null] : iv_ruleTermino= ruleTermino EOF ;
     public final EObject entryRuleTermino() throws RecognitionException {
         EObject current = null;
 
@@ -2252,8 +2235,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:868:48: (iv_ruleTermino= ruleTermino EOF )
-            // InternalLenguajeNaturalReducido.g:869:2: iv_ruleTermino= ruleTermino EOF
+            // InternalLenguajeNaturalReducido.g:858:48: (iv_ruleTermino= ruleTermino EOF )
+            // InternalLenguajeNaturalReducido.g:859:2: iv_ruleTermino= ruleTermino EOF
             {
              newCompositeNode(grammarAccess.getTerminoRule()); 
             pushFollow(FOLLOW_1);
@@ -2280,7 +2263,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleTermino"
-    // InternalLenguajeNaturalReducido.g:875:1: ruleTermino returns [EObject current=null] : ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:865:1: ruleTermino returns [EObject current=null] : ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) ) ;
     public final EObject ruleTermino() throws RecognitionException {
         EObject current = null;
 
@@ -2291,19 +2274,19 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:881:2: ( ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) ) )
-            // InternalLenguajeNaturalReducido.g:882:2: ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) )
+            // InternalLenguajeNaturalReducido.g:871:2: ( ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) ) )
+            // InternalLenguajeNaturalReducido.g:872:2: ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:882:2: ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) )
-            // InternalLenguajeNaturalReducido.g:883:3: ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) )
+            // InternalLenguajeNaturalReducido.g:872:2: ( ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) ) )
+            // InternalLenguajeNaturalReducido.g:873:3: ( (lv_indeterminante_0_0= 'un/una' ) ) ( (lv_contexto_1_0= RULE_ID ) )
             {
-            // InternalLenguajeNaturalReducido.g:883:3: ( (lv_indeterminante_0_0= 'un/una' ) )
-            // InternalLenguajeNaturalReducido.g:884:4: (lv_indeterminante_0_0= 'un/una' )
+            // InternalLenguajeNaturalReducido.g:873:3: ( (lv_indeterminante_0_0= 'un/una' ) )
+            // InternalLenguajeNaturalReducido.g:874:4: (lv_indeterminante_0_0= 'un/una' )
             {
-            // InternalLenguajeNaturalReducido.g:884:4: (lv_indeterminante_0_0= 'un/una' )
-            // InternalLenguajeNaturalReducido.g:885:5: lv_indeterminante_0_0= 'un/una'
+            // InternalLenguajeNaturalReducido.g:874:4: (lv_indeterminante_0_0= 'un/una' )
+            // InternalLenguajeNaturalReducido.g:875:5: lv_indeterminante_0_0= 'un/una'
             {
-            lv_indeterminante_0_0=(Token)match(input,25,FOLLOW_12); 
+            lv_indeterminante_0_0=(Token)match(input,24,FOLLOW_12); 
 
             					newLeafNode(lv_indeterminante_0_0, grammarAccess.getTerminoAccess().getIndeterminanteUnUnaKeyword_0_0());
             				
@@ -2319,11 +2302,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:897:3: ( (lv_contexto_1_0= RULE_ID ) )
-            // InternalLenguajeNaturalReducido.g:898:4: (lv_contexto_1_0= RULE_ID )
+            // InternalLenguajeNaturalReducido.g:887:3: ( (lv_contexto_1_0= RULE_ID ) )
+            // InternalLenguajeNaturalReducido.g:888:4: (lv_contexto_1_0= RULE_ID )
             {
-            // InternalLenguajeNaturalReducido.g:898:4: (lv_contexto_1_0= RULE_ID )
-            // InternalLenguajeNaturalReducido.g:899:5: lv_contexto_1_0= RULE_ID
+            // InternalLenguajeNaturalReducido.g:888:4: (lv_contexto_1_0= RULE_ID )
+            // InternalLenguajeNaturalReducido.g:889:5: lv_contexto_1_0= RULE_ID
             {
             lv_contexto_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -2367,25 +2350,25 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
     // $ANTLR end "ruleTermino"
 
 
-    // $ANTLR start "entryRuleObligacion"
-    // InternalLenguajeNaturalReducido.g:919:1: entryRuleObligacion returns [EObject current=null] : iv_ruleObligacion= ruleObligacion EOF ;
-    public final EObject entryRuleObligacion() throws RecognitionException {
+    // $ANTLR start "entryRuleAfirmacion"
+    // InternalLenguajeNaturalReducido.g:909:1: entryRuleAfirmacion returns [EObject current=null] : iv_ruleAfirmacion= ruleAfirmacion EOF ;
+    public final EObject entryRuleAfirmacion() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleObligacion = null;
+        EObject iv_ruleAfirmacion = null;
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:919:51: (iv_ruleObligacion= ruleObligacion EOF )
-            // InternalLenguajeNaturalReducido.g:920:2: iv_ruleObligacion= ruleObligacion EOF
+            // InternalLenguajeNaturalReducido.g:909:51: (iv_ruleAfirmacion= ruleAfirmacion EOF )
+            // InternalLenguajeNaturalReducido.g:910:2: iv_ruleAfirmacion= ruleAfirmacion EOF
             {
-             newCompositeNode(grammarAccess.getObligacionRule()); 
+             newCompositeNode(grammarAccess.getAfirmacionRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleObligacion=ruleObligacion();
+            iv_ruleAfirmacion=ruleAfirmacion();
 
             state._fsp--;
 
-             current =iv_ruleObligacion; 
+             current =iv_ruleAfirmacion; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -2400,48 +2383,48 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         }
         return current;
     }
-    // $ANTLR end "entryRuleObligacion"
+    // $ANTLR end "entryRuleAfirmacion"
 
 
-    // $ANTLR start "ruleObligacion"
-    // InternalLenguajeNaturalReducido.g:926:1: ruleObligacion returns [EObject current=null] : ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'es' ) ) ) ;
-    public final EObject ruleObligacion() throws RecognitionException {
+    // $ANTLR start "ruleAfirmacion"
+    // InternalLenguajeNaturalReducido.g:916:1: ruleAfirmacion returns [EObject current=null] : ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_afirmacion_1_0= 'es' ) ) ) ;
+    public final EObject ruleAfirmacion() throws RecognitionException {
         EObject current = null;
 
         Token lv_negacion_0_0=null;
-        Token lv_obligacion_1_0=null;
+        Token lv_afirmacion_1_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:932:2: ( ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'es' ) ) ) )
-            // InternalLenguajeNaturalReducido.g:933:2: ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'es' ) ) )
+            // InternalLenguajeNaturalReducido.g:922:2: ( ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_afirmacion_1_0= 'es' ) ) ) )
+            // InternalLenguajeNaturalReducido.g:923:2: ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_afirmacion_1_0= 'es' ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:933:2: ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'es' ) ) )
-            // InternalLenguajeNaturalReducido.g:934:3: ( (lv_negacion_0_0= 'no' ) )? ( (lv_obligacion_1_0= 'es' ) )
+            // InternalLenguajeNaturalReducido.g:923:2: ( ( (lv_negacion_0_0= 'no' ) )? ( (lv_afirmacion_1_0= 'es' ) ) )
+            // InternalLenguajeNaturalReducido.g:924:3: ( (lv_negacion_0_0= 'no' ) )? ( (lv_afirmacion_1_0= 'es' ) )
             {
-            // InternalLenguajeNaturalReducido.g:934:3: ( (lv_negacion_0_0= 'no' ) )?
+            // InternalLenguajeNaturalReducido.g:924:3: ( (lv_negacion_0_0= 'no' ) )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==26) ) {
+            if ( (LA13_0==25) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:935:4: (lv_negacion_0_0= 'no' )
+                    // InternalLenguajeNaturalReducido.g:925:4: (lv_negacion_0_0= 'no' )
                     {
-                    // InternalLenguajeNaturalReducido.g:935:4: (lv_negacion_0_0= 'no' )
-                    // InternalLenguajeNaturalReducido.g:936:5: lv_negacion_0_0= 'no'
+                    // InternalLenguajeNaturalReducido.g:925:4: (lv_negacion_0_0= 'no' )
+                    // InternalLenguajeNaturalReducido.g:926:5: lv_negacion_0_0= 'no'
                     {
-                    lv_negacion_0_0=(Token)match(input,26,FOLLOW_14); 
+                    lv_negacion_0_0=(Token)match(input,25,FOLLOW_14); 
 
-                    					newLeafNode(lv_negacion_0_0, grammarAccess.getObligacionAccess().getNegacionNoKeyword_0_0());
+                    					newLeafNode(lv_negacion_0_0, grammarAccess.getAfirmacionAccess().getNegacionNoKeyword_0_0());
                     				
 
                     					if (current==null) {
-                    						current = createModelElement(grammarAccess.getObligacionRule());
+                    						current = createModelElement(grammarAccess.getAfirmacionRule());
                     					}
                     					setWithLastConsumed(current, "negacion", lv_negacion_0_0, "no");
                     				
@@ -2454,21 +2437,21 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             }
 
-            // InternalLenguajeNaturalReducido.g:948:3: ( (lv_obligacion_1_0= 'es' ) )
-            // InternalLenguajeNaturalReducido.g:949:4: (lv_obligacion_1_0= 'es' )
+            // InternalLenguajeNaturalReducido.g:938:3: ( (lv_afirmacion_1_0= 'es' ) )
+            // InternalLenguajeNaturalReducido.g:939:4: (lv_afirmacion_1_0= 'es' )
             {
-            // InternalLenguajeNaturalReducido.g:949:4: (lv_obligacion_1_0= 'es' )
-            // InternalLenguajeNaturalReducido.g:950:5: lv_obligacion_1_0= 'es'
+            // InternalLenguajeNaturalReducido.g:939:4: (lv_afirmacion_1_0= 'es' )
+            // InternalLenguajeNaturalReducido.g:940:5: lv_afirmacion_1_0= 'es'
             {
-            lv_obligacion_1_0=(Token)match(input,27,FOLLOW_2); 
+            lv_afirmacion_1_0=(Token)match(input,26,FOLLOW_2); 
 
-            					newLeafNode(lv_obligacion_1_0, grammarAccess.getObligacionAccess().getObligacionEsKeyword_1_0());
+            					newLeafNode(lv_afirmacion_1_0, grammarAccess.getAfirmacionAccess().getAfirmacionEsKeyword_1_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getObligacionRule());
+            						current = createModelElement(grammarAccess.getAfirmacionRule());
             					}
-            					setWithLastConsumed(current, "obligacion", lv_obligacion_1_0, "es");
+            					setWithLastConsumed(current, "afirmacion", lv_afirmacion_1_0, "es");
             				
 
             }
@@ -2495,11 +2478,11 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         }
         return current;
     }
-    // $ANTLR end "ruleObligacion"
+    // $ANTLR end "ruleAfirmacion"
 
 
     // $ANTLR start "entryRuleOperacion"
-    // InternalLenguajeNaturalReducido.g:966:1: entryRuleOperacion returns [EObject current=null] : iv_ruleOperacion= ruleOperacion EOF ;
+    // InternalLenguajeNaturalReducido.g:956:1: entryRuleOperacion returns [EObject current=null] : iv_ruleOperacion= ruleOperacion EOF ;
     public final EObject entryRuleOperacion() throws RecognitionException {
         EObject current = null;
 
@@ -2507,8 +2490,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:966:50: (iv_ruleOperacion= ruleOperacion EOF )
-            // InternalLenguajeNaturalReducido.g:967:2: iv_ruleOperacion= ruleOperacion EOF
+            // InternalLenguajeNaturalReducido.g:956:50: (iv_ruleOperacion= ruleOperacion EOF )
+            // InternalLenguajeNaturalReducido.g:957:2: iv_ruleOperacion= ruleOperacion EOF
             {
              newCompositeNode(grammarAccess.getOperacionRule()); 
             pushFollow(FOLLOW_1);
@@ -2535,7 +2518,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleOperacion"
-    // InternalLenguajeNaturalReducido.g:973:1: ruleOperacion returns [EObject current=null] : ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) ) ;
+    // InternalLenguajeNaturalReducido.g:963:1: ruleOperacion returns [EObject current=null] : ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) ) ;
     public final EObject ruleOperacion() throws RecognitionException {
         EObject current = null;
 
@@ -2550,44 +2533,44 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:979:2: ( ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) ) )
-            // InternalLenguajeNaturalReducido.g:980:2: ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) )
+            // InternalLenguajeNaturalReducido.g:969:2: ( ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) ) )
+            // InternalLenguajeNaturalReducido.g:970:2: ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) )
             {
-            // InternalLenguajeNaturalReducido.g:980:2: ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) )
-            // InternalLenguajeNaturalReducido.g:981:3: ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) )
+            // InternalLenguajeNaturalReducido.g:970:2: ( ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) ) )
+            // InternalLenguajeNaturalReducido.g:971:3: ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) )
             {
-            // InternalLenguajeNaturalReducido.g:981:3: ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) )
-            // InternalLenguajeNaturalReducido.g:982:4: (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' )
+            // InternalLenguajeNaturalReducido.g:971:3: ( (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' ) )
+            // InternalLenguajeNaturalReducido.g:972:4: (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' )
             {
-            // InternalLenguajeNaturalReducido.g:982:4: (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' )
+            // InternalLenguajeNaturalReducido.g:972:4: (lv_operacion_0_1= 'mayor que' | lv_operacion_0_2= 'menor que' | lv_operacion_0_3= 'igual a' | lv_operacion_0_4= 'mayor o igual a' | lv_operacion_0_5= 'menor o igual a' | lv_operacion_0_6= 'distinto de' )
             int alt14=6;
             switch ( input.LA(1) ) {
-            case 28:
+            case 27:
                 {
                 alt14=1;
                 }
                 break;
-            case 29:
+            case 28:
                 {
                 alt14=2;
                 }
                 break;
-            case 30:
+            case 29:
                 {
                 alt14=3;
                 }
                 break;
-            case 31:
+            case 30:
                 {
                 alt14=4;
                 }
                 break;
-            case 32:
+            case 31:
                 {
                 alt14=5;
                 }
                 break;
-            case 33:
+            case 32:
                 {
                 alt14=6;
                 }
@@ -2601,9 +2584,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
             switch (alt14) {
                 case 1 :
-                    // InternalLenguajeNaturalReducido.g:983:5: lv_operacion_0_1= 'mayor que'
+                    // InternalLenguajeNaturalReducido.g:973:5: lv_operacion_0_1= 'mayor que'
                     {
-                    lv_operacion_0_1=(Token)match(input,28,FOLLOW_2); 
+                    lv_operacion_0_1=(Token)match(input,27,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_1, grammarAccess.getOperacionAccess().getOperacionMayorQueKeyword_0_0());
                     				
@@ -2617,9 +2600,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                     }
                     break;
                 case 2 :
-                    // InternalLenguajeNaturalReducido.g:994:5: lv_operacion_0_2= 'menor que'
+                    // InternalLenguajeNaturalReducido.g:984:5: lv_operacion_0_2= 'menor que'
                     {
-                    lv_operacion_0_2=(Token)match(input,29,FOLLOW_2); 
+                    lv_operacion_0_2=(Token)match(input,28,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_2, grammarAccess.getOperacionAccess().getOperacionMenorQueKeyword_0_1());
                     				
@@ -2633,9 +2616,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                     }
                     break;
                 case 3 :
-                    // InternalLenguajeNaturalReducido.g:1005:5: lv_operacion_0_3= 'igual a'
+                    // InternalLenguajeNaturalReducido.g:995:5: lv_operacion_0_3= 'igual a'
                     {
-                    lv_operacion_0_3=(Token)match(input,30,FOLLOW_2); 
+                    lv_operacion_0_3=(Token)match(input,29,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_3, grammarAccess.getOperacionAccess().getOperacionIgualAKeyword_0_2());
                     				
@@ -2649,9 +2632,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                     }
                     break;
                 case 4 :
-                    // InternalLenguajeNaturalReducido.g:1016:5: lv_operacion_0_4= 'mayor o igual a'
+                    // InternalLenguajeNaturalReducido.g:1006:5: lv_operacion_0_4= 'mayor o igual a'
                     {
-                    lv_operacion_0_4=(Token)match(input,31,FOLLOW_2); 
+                    lv_operacion_0_4=(Token)match(input,30,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_4, grammarAccess.getOperacionAccess().getOperacionMayorOIgualAKeyword_0_3());
                     				
@@ -2665,9 +2648,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                     }
                     break;
                 case 5 :
-                    // InternalLenguajeNaturalReducido.g:1027:5: lv_operacion_0_5= 'menor o igual a'
+                    // InternalLenguajeNaturalReducido.g:1017:5: lv_operacion_0_5= 'menor o igual a'
                     {
-                    lv_operacion_0_5=(Token)match(input,32,FOLLOW_2); 
+                    lv_operacion_0_5=(Token)match(input,31,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_5, grammarAccess.getOperacionAccess().getOperacionMenorOIgualAKeyword_0_4());
                     				
@@ -2681,9 +2664,9 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
                     }
                     break;
                 case 6 :
-                    // InternalLenguajeNaturalReducido.g:1038:5: lv_operacion_0_6= 'distinto de'
+                    // InternalLenguajeNaturalReducido.g:1028:5: lv_operacion_0_6= 'distinto de'
                     {
-                    lv_operacion_0_6=(Token)match(input,33,FOLLOW_2); 
+                    lv_operacion_0_6=(Token)match(input,32,FOLLOW_2); 
 
                     					newLeafNode(lv_operacion_0_6, grammarAccess.getOperacionAccess().getOperacionDistintoDeKeyword_0_5());
                     				
@@ -2725,7 +2708,7 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "entryRuleLiteral"
-    // InternalLenguajeNaturalReducido.g:1054:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
+    // InternalLenguajeNaturalReducido.g:1044:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
     public final EObject entryRuleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2733,8 +2716,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
         try {
-            // InternalLenguajeNaturalReducido.g:1054:48: (iv_ruleLiteral= ruleLiteral EOF )
-            // InternalLenguajeNaturalReducido.g:1055:2: iv_ruleLiteral= ruleLiteral EOF
+            // InternalLenguajeNaturalReducido.g:1044:48: (iv_ruleLiteral= ruleLiteral EOF )
+            // InternalLenguajeNaturalReducido.g:1045:2: iv_ruleLiteral= ruleLiteral EOF
             {
              newCompositeNode(grammarAccess.getLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -2761,28 +2744,28 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleLiteral"
-    // InternalLenguajeNaturalReducido.g:1061:1: ruleLiteral returns [EObject current=null] : ( (lv_valor_0_0= RULE_STRING ) ) ;
+    // InternalLenguajeNaturalReducido.g:1051:1: ruleLiteral returns [EObject current=null] : ( (lv_literal_0_0= RULE_STRING ) ) ;
     public final EObject ruleLiteral() throws RecognitionException {
         EObject current = null;
 
-        Token lv_valor_0_0=null;
+        Token lv_literal_0_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalLenguajeNaturalReducido.g:1067:2: ( ( (lv_valor_0_0= RULE_STRING ) ) )
-            // InternalLenguajeNaturalReducido.g:1068:2: ( (lv_valor_0_0= RULE_STRING ) )
+            // InternalLenguajeNaturalReducido.g:1057:2: ( ( (lv_literal_0_0= RULE_STRING ) ) )
+            // InternalLenguajeNaturalReducido.g:1058:2: ( (lv_literal_0_0= RULE_STRING ) )
             {
-            // InternalLenguajeNaturalReducido.g:1068:2: ( (lv_valor_0_0= RULE_STRING ) )
-            // InternalLenguajeNaturalReducido.g:1069:3: (lv_valor_0_0= RULE_STRING )
+            // InternalLenguajeNaturalReducido.g:1058:2: ( (lv_literal_0_0= RULE_STRING ) )
+            // InternalLenguajeNaturalReducido.g:1059:3: (lv_literal_0_0= RULE_STRING )
             {
-            // InternalLenguajeNaturalReducido.g:1069:3: (lv_valor_0_0= RULE_STRING )
-            // InternalLenguajeNaturalReducido.g:1070:4: lv_valor_0_0= RULE_STRING
+            // InternalLenguajeNaturalReducido.g:1059:3: (lv_literal_0_0= RULE_STRING )
+            // InternalLenguajeNaturalReducido.g:1060:4: lv_literal_0_0= RULE_STRING
             {
-            lv_valor_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+            lv_literal_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            				newLeafNode(lv_valor_0_0, grammarAccess.getLiteralAccess().getValorSTRINGTerminalRuleCall_0());
+            				newLeafNode(lv_literal_0_0, grammarAccess.getLiteralAccess().getLiteralSTRINGTerminalRuleCall_0());
             			
 
             				if (current==null) {
@@ -2790,8 +2773,8 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
             				}
             				setWithLastConsumed(
             					current,
-            					"valor",
-            					lv_valor_0_0,
+            					"literal",
+            					lv_literal_0_0,
             					"org.eclipse.xtext.common.Terminals.STRING");
             			
 
@@ -2826,16 +2809,16 @@ public class InternalLenguajeNaturalReducidoParser extends AbstractInternalAntlr
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000781012L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000781010L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000381022L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000381020L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000000E002L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000000C000002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000003F0000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000027F1012L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000006000002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000001F8000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000013F1022L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000070002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000800020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000400010L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000000L});
 
 }

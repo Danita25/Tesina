@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getDeterminante <em>Determinante</em>}</li>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getPrefijo <em>Prefijo</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getCuantitativo <em>Cuantitativo</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getNombre <em>Nombre</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getEnlace <em>Enlace</em>}</li>
  * </ul>
@@ -53,30 +53,30 @@ public interface Atributo extends EObject
   void setDeterminante(String value);
 
   /**
-   * Returns the value of the '<em><b>Prefijo</b></em>' attribute.
+   * Returns the value of the '<em><b>Cuantitativo</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Prefijo</em>' attribute isn't clear,
+   * If the meaning of the '<em>Cuantitativo</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Prefijo</em>' attribute.
-   * @see #setPrefijo(String)
-   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getAtributo_Prefijo()
+   * @return the value of the '<em>Cuantitativo</em>' attribute.
+   * @see #setCuantitativo(String)
+   * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getAtributo_Cuantitativo()
    * @model
    * @generated
    */
-  String getPrefijo();
+  String getCuantitativo();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getPrefijo <em>Prefijo</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Atributo#getCuantitativo <em>Cuantitativo</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Prefijo</em>' attribute.
-   * @see #getPrefijo()
+   * @param value the new value of the '<em>Cuantitativo</em>' attribute.
+   * @see #getCuantitativo()
    * @generated
    */
-  void setPrefijo(String value);
+  void setCuantitativo(String value);
 
   /**
    * Returns the value of the '<em><b>Nombre</b></em>' attribute.

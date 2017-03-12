@@ -9,13 +9,6 @@ create OUT: LNR from IN: OCL;
 -------------------------------------------------------------------------------
 -- HELPERS --------------------------------------------------------------------
 -------------------------------------------------------------------------------
-
--- HELPER: getPackageName
--- Returns name of the first package defined
--- OUT:		String
-helper def: getPackageName: String =
-	thisModule.removePrefix(OCL!Model.allInstances().first().ownedPackages.first().toString());
-
 -- HELPER: removePrefix
 -- Returns string after removing anything before ! if exists.
 -- OUT:		String
@@ -61,11 +54,7 @@ helper def: operationName(str: String): String =
 									if (str = 'exists') then
 										'mayor que'
 									else
---										if (str = 'notExists') then
---											'igual a'
---										else
 											OclUndefined
---										endif
 									endif
 								endif
 							endif
@@ -77,9 +66,6 @@ helper def: operationName(str: String): String =
 	endif;
 
 helper context OclAny def: getExpressionInOCL(): OCL!ExpressionInOCL =
-	--	let 
---		parent: OclAny = self.refImmediateComposite()
---	in
 	if self.refImmediateComposite().oclIsTypeOf(OCL!ExpressionInOCL) then
 		self.refImmediateComposite()
 	else if self.refImmediateComposite().oclIsUndefined() then
@@ -115,29 +101,6 @@ helper context OCL!OCLExpression def: getPropertyName(): String =
 			else
 				self.ownedSource.getPropertyName()
 			endif
-		endif
-	endif;
-
--- HELPER: haveCollectionExpInSources
--- Checks if there is CollectionOperation in sources (source.source.etc) of expression.
--- CONTEXT:	CallExp
--- OUT:		Boolean
-helper context OCL!OperationCallExp def: haveCollectionExpInSources(): Boolean =
-	if self.oclIsTypeOf(OCL!OperationCallExp) and ( thisModule.removePrefix(self.
-			referredOperation.toString()) = 'size' or thisModule.removePrefix(self.
-			referredOperation.toString()) = 'notEmpty' or thisModule.removePrefix(self.
-			referredOperation.toString()) = 'isEmpty'
-			) then
-		true
-	else
-		if not self.ownedSource.oclIsUndefined() then
-			if self.ownedSource.oclIsKindOf(OCL!OperationCallExp) then
-				self.ownedSource.haveCollectionExpInSources()
-			else
-				false
-			endif
-		else
-			false
 		endif
 	endif;
 
@@ -199,10 +162,12 @@ rule Model2Documento {
 		)
 	to
 		t2: LNR!Documento (
-			encabezado <- 'Las siguientes afirmaciones deben ser verdaderas en el sistema:',
+			encabezado <- e,
 			oraciones <- s.ownedPackages.first().ownedClasses -> collect(e | e.
 					ownedInvariants).flatten()
-		)
+		), 
+		e: LNR!Literal (
+			literal <- 'Las siguientes afirmaciones deben ser verdaderas en el sistema:')
 }
 
 rule Constraint2Oracion {
@@ -224,7 +189,7 @@ lazy rule String2LiteralExp {
 			expresion <- lit
 		),
 		lit: LNR!Literal (
-			valor <- s
+			literal <- s
 		)
 }
 
@@ -245,7 +210,7 @@ lazy rule Iterator2Simple{
 		s: OCL!IteratorExp
 	to  sp: LNR!Simple (
 			expresion_izq <- exp_izq,
-			expresion_der <- OclUndefined--if (s.referredIteration.name = 'exists') then exp_der else OclUndefined endif
+			expresion_der <- OclUndefined
 	)
 	, 
 	exp_izq: LNR!Expresion(
@@ -272,7 +237,7 @@ rule OperationCallExp2ContenidoAndOr {
 		)
 	to
 		t2: LNR!Contenido (
-			prefijo <- if(s.name = 'implies')then 
+			condicional <- if(s.name = 'implies')then 
 							'si'
 						else OclUndefined
 						endif,
@@ -298,7 +263,7 @@ rule OperationCallExp2ContenidoAndOr {
 						endif
 		),
 		n: LNR!Nexo (
-			valor <- if s.name = 'and' then
+			nexo <- if s.name = 'and' then
 					'y'
 				else
 					if s.name = 'or' then
@@ -339,33 +304,29 @@ lazy rule OperationCallExp2Simple {
 					if (thisModule.removePrefix(s.referredOperation.toString()) =
 							'isEmpty') or (thisModule.removePrefix(s.referredOperation.
 							toString()) = 'notEmpty') then
-						thisModule.String2LiteralExp('0') --Exp_der es 0 ya que si es
-								-- isEmpty sera = 0 y si es not empty sera > 0.
-						
+						thisModule.String2LiteralExp('0') --Exp_der es 0 ya que si es isEmpty sera = 0 y si es not empty sera > 0.
 					else
 						thisModule.OCLExpression2Expresion(s.ownedArguments.first())
 					endif
 				endif
 		), 
 		cp: LNR!Comparacion (
-			obligacion <- ob,
+			afirmacion <- af,
 			operacion <- op
 		),
-		ob: LNR!Obligacion (
+		af: LNR!Afirmacion (
 			negacion <- if (s.name = 'not') then
 					'no'
 				else
 					OclUndefined
 				endif,
-			obligacion <- 'es'
+			afirmacion <- 'es'
 		),
 		op: LNR!Operacion (
 			operacion <- if (s.name = 'not') then
 					thisModule.operationName(s.ownedSource.name)
 				else
-					if (s.name.oclIsUndefined()) then
-						--si es undefined es porque es una operacion de colecciones como
-								-- size, empty, not empty
+					if (s.name.oclIsUndefined()) then --si es undefined es porque es una operacion de colecciones como size, empty, not empty
 						thisModule.operationName(thisModule.removePrefix(s.referredOperation.toString()))
 					else
 						thisModule.operationName(s.name)
@@ -380,21 +341,18 @@ lazy rule OCLExpression2Expresion {
 	to
 		t: LNR!Expresion (
 			expresion <- if (s.oclIsKindOf(OCL!PrimitiveLiteralExp)) then
-								--crear objecto literal?
 							thisModule.PrimitiveLiteralExp2Literal(s)
 						else
 							if (s.oclIsTypeOf(OCL!PropertyCallExp)) then
 								thisModule.PropertyCallExp2Propiedad(s)
 							else
 								if (s.oclIsTypeOf(OCL!OperationCallExp)) then  --iterador como hijo entonces prop call con el ownedsource del iterador
-									-- crear objeto propiedad
 									thisModule.OperationCallExp2Propiedad(s)
 								else
 									OclUndefined
 								endif
 							endif
-						endif --						  endif
-			
+						endif 
 		)
 }
 
@@ -403,7 +361,7 @@ lazy rule PrimitiveLiteralExp2Literal {
 		s: OCL!PrimitiveLiteralExp
 	to
 		t: LNR!Literal (
-			valor <- s.getLiteralSymbol()
+			literal <- s.getLiteralSymbol()
 		)
 }
 
@@ -423,7 +381,6 @@ lazy rule PropertyCallExp2Propiedad {
 		s: OCL!PropertyCallExp
 	using {
 		children: Sequence(OCL!PropertyCallExp) = s.getPropertyCallExpCollection();
---		isParentIterator: Boolean = s.isParentAnIterator();
 		parentIteratorName: String = s.parentIteratorName();
 	}
 	to
@@ -437,7 +394,7 @@ lazy rule PropertyCallExp2Propiedad {
 	do {
 		if(not parentIteratorName.oclIsUndefined()) { --translate exists as size
 		  if(parentIteratorName = 'exists') {
-			p.atributo.first().prefijo <- 'cantidad de'	;
+			p.atributo.first().cuantitativo <- 'cantidad de'	;
 		  } 
 		 }
 		t.contexto <- thisModule.removePrefix(children.last().ownedSource.type.
@@ -471,7 +428,7 @@ lazy rule OperationCallExp2Propiedad {
 		)
 		,
 		it: LNR!Iteracion (	
-			conector <-
+			condicion <-
 						if (s.ownedSource.oclIsTypeOf(OCL!IteratorExp)) then 
 							'tal que'
 						else OclUndefined
@@ -483,7 +440,7 @@ lazy rule OperationCallExp2Propiedad {
 						endif
 			)
 	do {
-			p.atributo.first().prefijo <- 'cantidad de';
+			p.atributo.first().cuantitativo <- 'cantidad de';
 	}
 }
 
@@ -517,7 +474,7 @@ lazy rule IteratorExp2Propiedad {
 		if (iterators.first().referredIteration.name = 'select' or iterators.first().referredIteration.name = 'exists'){ 
 			if(iterators->exists(it| it.referredIteration.name = 'forAll'))
 			{	p.atributo.first().determinante <- 'todos los/las';	}
-			else{	p.atributo.first().determinante <- 'entre los';}
+			else{	p.atributo.first().determinante <- 'entre los/las';}
 		} else {
 					p.atributo.first().determinante <- 'todos los/las'; 
 
@@ -525,14 +482,13 @@ lazy rule IteratorExp2Propiedad {
 		}
 }
 
-
 lazy rule IteratorExp2Iteracion{
 from
 		s: OCL!IteratorExp
 	to
 		it: LNR!Iteracion (	
-			conector <- if (s.referredIteration.name = 'forAll') then 'satisfacen que' 
-						else if (s.referredIteration.name = 'exists') then 'existe uno tal que' 
+			condicion <- if (s.referredIteration.name = 'forAll') then 'satisfacen que' 
+						else if (s.referredIteration.name = 'exists') then 'existe uno/una tal que' 
 							 else 'tal que'
 							 endif	 
 						endif, 

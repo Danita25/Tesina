@@ -141,9 +141,9 @@ public class LenguajeNaturalReducidoAdapterFactory extends AdapterFactoryImpl
         return createTerminoAdapter();
       }
       @Override
-      public Adapter caseObligacion(Obligacion object)
+      public Adapter caseAfirmacion(Afirmacion object)
       {
-        return createObligacionAdapter();
+        return createAfirmacionAdapter();
       }
       @Override
       public Adapter caseOperacion(Operacion object)
@@ -373,16 +373,16 @@ public class LenguajeNaturalReducidoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.tesina.lenguajeNaturalReducido.Obligacion <em>Obligacion</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.tesina.lenguajeNaturalReducido.Afirmacion <em>Afirmacion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.tesina.lenguajeNaturalReducido.Obligacion
+   * @see org.xtext.tesina.lenguajeNaturalReducido.Afirmacion
    * @generated
    */
-  public Adapter createObligacionAdapter()
+  public Adapter createAfirmacionAdapter()
   {
     return null;
   }

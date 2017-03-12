@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.tesina.lenguajeNaturalReducido.Afirmacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Atributo;
 import org.xtext.tesina.lenguajeNaturalReducido.Comparacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Composicion;
@@ -22,7 +23,6 @@ import org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoFactory;
 import org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage;
 import org.xtext.tesina.lenguajeNaturalReducido.Literal;
 import org.xtext.tesina.lenguajeNaturalReducido.Nexo;
-import org.xtext.tesina.lenguajeNaturalReducido.Obligacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Operacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Oracion;
 import org.xtext.tesina.lenguajeNaturalReducido.Propiedad;
@@ -133,7 +133,7 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass obligacionEClass = null;
+  private EClass afirmacionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -227,9 +227,9 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDocumento_Encabezado()
+  public EReference getDocumento_Encabezado()
   {
-    return (EAttribute)documentoEClass.getEStructuralFeatures().get(0);
+    return (EReference)documentoEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -277,7 +277,7 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getContenido_Prefijo()
+  public EAttribute getContenido_Condicional()
   {
     return (EAttribute)contenidoEClass.getEStructuralFeatures().get(0);
   }
@@ -407,7 +407,7 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNexo_Valor()
+  public EAttribute getNexo_Nexo()
   {
     return (EAttribute)nexoEClass.getEStructuralFeatures().get(0);
   }
@@ -447,7 +447,7 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComparacion_Obligacion()
+  public EReference getComparacion_Afirmacion()
   {
     return (EReference)comparacionEClass.getEStructuralFeatures().get(0);
   }
@@ -517,7 +517,7 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIteracion_Conector()
+  public EAttribute getIteracion_Condicion()
   {
     return (EAttribute)iteracionEClass.getEStructuralFeatures().get(0);
   }
@@ -557,7 +557,7 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAtributo_Prefijo()
+  public EAttribute getAtributo_Cuantitativo()
   {
     return (EAttribute)atributoEClass.getEStructuralFeatures().get(1);
   }
@@ -617,9 +617,9 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getObligacion()
+  public EClass getAfirmacion()
   {
-    return obligacionEClass;
+    return afirmacionEClass;
   }
 
   /**
@@ -627,9 +627,9 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getObligacion_Negacion()
+  public EAttribute getAfirmacion_Negacion()
   {
-    return (EAttribute)obligacionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)afirmacionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -637,9 +637,9 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getObligacion_Obligacion()
+  public EAttribute getAfirmacion_Afirmacion()
   {
-    return (EAttribute)obligacionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)afirmacionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -677,7 +677,7 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLiteral_Valor()
+  public EAttribute getLiteral_Literal()
   {
     return (EAttribute)literalEClass.getEStructuralFeatures().get(0);
   }
@@ -713,14 +713,14 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
 
     // Create classes and their features
     documentoEClass = createEClass(DOCUMENTO);
-    createEAttribute(documentoEClass, DOCUMENTO__ENCABEZADO);
+    createEReference(documentoEClass, DOCUMENTO__ENCABEZADO);
     createEReference(documentoEClass, DOCUMENTO__ORACIONES);
 
     oracionEClass = createEClass(ORACION);
     createEReference(oracionEClass, ORACION__CONTENIDO);
 
     contenidoEClass = createEClass(CONTENIDO);
-    createEAttribute(contenidoEClass, CONTENIDO__PREFIJO);
+    createEAttribute(contenidoEClass, CONTENIDO__CONDICIONAL);
     createEReference(contenidoEClass, CONTENIDO__SIMPLE);
     createEReference(contenidoEClass, CONTENIDO__COMPOSICION);
 
@@ -737,13 +737,13 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
     createEReference(composicionEClass, COMPOSICION__CONTENIDO);
 
     nexoEClass = createEClass(NEXO);
-    createEAttribute(nexoEClass, NEXO__VALOR);
+    createEAttribute(nexoEClass, NEXO__NEXO);
 
     expresionEClass = createEClass(EXPRESION);
     createEReference(expresionEClass, EXPRESION__EXPRESION);
 
     comparacionEClass = createEClass(COMPARACION);
-    createEReference(comparacionEClass, COMPARACION__OBLIGACION);
+    createEReference(comparacionEClass, COMPARACION__AFIRMACION);
     createEReference(comparacionEClass, COMPARACION__OPERACION);
 
     propiedadEClass = createEClass(PROPIEDAD);
@@ -752,12 +752,12 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
     createEReference(propiedadEClass, PROPIEDAD__ITERACION);
 
     iteracionEClass = createEClass(ITERACION);
-    createEAttribute(iteracionEClass, ITERACION__CONECTOR);
+    createEAttribute(iteracionEClass, ITERACION__CONDICION);
     createEReference(iteracionEClass, ITERACION__CONTENIDO);
 
     atributoEClass = createEClass(ATRIBUTO);
     createEAttribute(atributoEClass, ATRIBUTO__DETERMINANTE);
-    createEAttribute(atributoEClass, ATRIBUTO__PREFIJO);
+    createEAttribute(atributoEClass, ATRIBUTO__CUANTITATIVO);
     createEAttribute(atributoEClass, ATRIBUTO__NOMBRE);
     createEAttribute(atributoEClass, ATRIBUTO__ENLACE);
 
@@ -765,15 +765,15 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
     createEAttribute(terminoEClass, TERMINO__INDETERMINANTE);
     createEAttribute(terminoEClass, TERMINO__CONTEXTO);
 
-    obligacionEClass = createEClass(OBLIGACION);
-    createEAttribute(obligacionEClass, OBLIGACION__NEGACION);
-    createEAttribute(obligacionEClass, OBLIGACION__OBLIGACION);
+    afirmacionEClass = createEClass(AFIRMACION);
+    createEAttribute(afirmacionEClass, AFIRMACION__NEGACION);
+    createEAttribute(afirmacionEClass, AFIRMACION__AFIRMACION);
 
     operacionEClass = createEClass(OPERACION);
     createEAttribute(operacionEClass, OPERACION__OPERACION);
 
     literalEClass = createEClass(LITERAL);
-    createEAttribute(literalEClass, LITERAL__VALOR);
+    createEAttribute(literalEClass, LITERAL__LITERAL);
   }
 
   /**
@@ -808,14 +808,14 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
 
     // Initialize classes and features; add operations and parameters
     initEClass(documentoEClass, Documento.class, "Documento", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDocumento_Encabezado(), ecorePackage.getEString(), "encabezado", null, 0, 1, Documento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDocumento_Encabezado(), this.getLiteral(), null, "encabezado", null, 0, 1, Documento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDocumento_Oraciones(), this.getOracion(), null, "oraciones", null, 0, -1, Documento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(oracionEClass, Oracion.class, "Oracion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOracion_Contenido(), this.getContenido(), null, "contenido", null, 0, 1, Oracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contenidoEClass, Contenido.class, "Contenido", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getContenido_Prefijo(), ecorePackage.getEString(), "prefijo", null, 0, 1, Contenido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContenido_Condicional(), ecorePackage.getEString(), "condicional", null, 0, 1, Contenido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContenido_Simple(), this.getSimple(), null, "simple", null, 0, 1, Contenido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContenido_Composicion(), this.getComposicion(), null, "composicion", null, 0, 1, Contenido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -832,13 +832,13 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
     initEReference(getComposicion_Contenido(), this.getContenido(), null, "contenido", null, 0, 1, Composicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nexoEClass, Nexo.class, "Nexo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNexo_Valor(), ecorePackage.getEString(), "valor", null, 0, 1, Nexo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNexo_Nexo(), ecorePackage.getEString(), "nexo", null, 0, 1, Nexo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expresionEClass, Expresion.class, "Expresion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpresion_Expresion(), ecorePackage.getEObject(), null, "expresion", null, 0, 1, Expresion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(comparacionEClass, Comparacion.class, "Comparacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getComparacion_Obligacion(), this.getObligacion(), null, "obligacion", null, 0, 1, Comparacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComparacion_Afirmacion(), this.getAfirmacion(), null, "afirmacion", null, 0, 1, Comparacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComparacion_Operacion(), this.getOperacion(), null, "operacion", null, 0, 1, Comparacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propiedadEClass, Propiedad.class, "Propiedad", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -847,12 +847,12 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
     initEReference(getPropiedad_Iteracion(), this.getIteracion(), null, "iteracion", null, 0, -1, Propiedad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(iteracionEClass, Iteracion.class, "Iteracion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIteracion_Conector(), ecorePackage.getEString(), "conector", null, 0, 1, Iteracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIteracion_Condicion(), ecorePackage.getEString(), "condicion", null, 0, 1, Iteracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIteracion_Contenido(), this.getContenido(), null, "contenido", null, 0, 1, Iteracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(atributoEClass, Atributo.class, "Atributo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAtributo_Determinante(), ecorePackage.getEString(), "determinante", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAtributo_Prefijo(), ecorePackage.getEString(), "prefijo", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAtributo_Cuantitativo(), ecorePackage.getEString(), "cuantitativo", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAtributo_Nombre(), ecorePackage.getEString(), "nombre", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAtributo_Enlace(), ecorePackage.getEString(), "enlace", null, 0, 1, Atributo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -860,15 +860,15 @@ public class LenguajeNaturalReducidoPackageImpl extends EPackageImpl implements 
     initEAttribute(getTermino_Indeterminante(), ecorePackage.getEString(), "indeterminante", null, 0, 1, Termino.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTermino_Contexto(), ecorePackage.getEString(), "contexto", null, 0, 1, Termino.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(obligacionEClass, Obligacion.class, "Obligacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getObligacion_Negacion(), ecorePackage.getEString(), "negacion", null, 0, 1, Obligacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getObligacion_Obligacion(), ecorePackage.getEString(), "obligacion", null, 0, 1, Obligacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(afirmacionEClass, Afirmacion.class, "Afirmacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAfirmacion_Negacion(), ecorePackage.getEString(), "negacion", null, 0, 1, Afirmacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAfirmacion_Afirmacion(), ecorePackage.getEString(), "afirmacion", null, 0, 1, Afirmacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operacionEClass, Operacion.class, "Operacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperacion_Operacion(), ecorePackage.getEString(), "operacion", null, 0, 1, Operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLiteral_Valor(), ecorePackage.getEString(), "valor", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLiteral_Literal(), ecorePackage.getEString(), "literal", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

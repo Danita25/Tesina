@@ -78,7 +78,7 @@ public class LenguajeNaturalReducidoFactoryImpl extends EFactoryImpl implements 
       case LenguajeNaturalReducidoPackage.ITERACION: return createIteracion();
       case LenguajeNaturalReducidoPackage.ATRIBUTO: return createAtributo();
       case LenguajeNaturalReducidoPackage.TERMINO: return createTermino();
-      case LenguajeNaturalReducidoPackage.OBLIGACION: return createObligacion();
+      case LenguajeNaturalReducidoPackage.AFIRMACION: return createAfirmacion();
       case LenguajeNaturalReducidoPackage.OPERACION: return createOperacion();
       case LenguajeNaturalReducidoPackage.LITERAL: return createLiteral();
       default:
@@ -234,10 +234,10 @@ public class LenguajeNaturalReducidoFactoryImpl extends EFactoryImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Obligacion createObligacion()
+  public Afirmacion createAfirmacion()
   {
-    ObligacionImpl obligacion = new ObligacionImpl();
-    return obligacion;
+    AfirmacionImpl afirmacion = new AfirmacionImpl();
+    return afirmacion;
   }
 
   /**

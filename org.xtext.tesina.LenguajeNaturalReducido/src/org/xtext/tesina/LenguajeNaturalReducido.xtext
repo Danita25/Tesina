@@ -2,75 +2,67 @@ grammar org.xtext.tesina.LenguajeNaturalReducido with org.eclipse.xtext.common.T
 
 generate lenguajeNaturalReducido "http://www.xtext.org/tesina/LenguajeNaturalReducido"
 
-
 Documento:
-	encabezado= STRING FinOracion
-	oraciones+=Oracion*
-	//		extraStr = STRING
-;
+	encabezado=Literal FinOracion
+	oraciones+=Oracion*;
 
-	
 Oracion:
-	contenido= Contenido FinOracion;
+	contenido=Contenido FinOracion;
 
 FinOracion:
 	'.\r\n';
 
 Contenido:
-	prefijo= 'si'?            //para el implies
+	condicional='si'? //para el implies
 	simple=Simple
-	composicion = Composicion?
-;
+	composicion=Composicion?;
 
 Simple:
 	expresion_izq=Expresion
-    expresion_der = ExpresionDerecha?
-;
+	expresion_der=ExpresionDerecha?;
 
- ExpresionDerecha:
- 	comparacion=Comparacion
+ExpresionDerecha:
+	comparacion=Comparacion
 	expresion=Expresion;
 
 Composicion:
 	nexo=Nexo
-	contenido = Contenido;
+	contenido=Contenido;
 
 Nexo:
-	valor=('y' | 'o' | 'entonces');
+	nexo=('y' | 'o' | 'entonces');
 
 Expresion:
-	expresion = (Literal | Propiedad );
+	expresion=(Literal | Propiedad);
 
 Comparacion:
-	obligacion=Obligacion
+	afirmacion=Afirmacion
 	operacion=Operacion;
 
 Propiedad:
 	atributo+=(Atributo)+
 	termino=(Termino)?
-	iteracion+=(Iteracion)*  //coleccion
-	;
+	iteracion+=(Iteracion)*; //coleccion
 
-Iteracion: 
-	conector = ('tal que'| 'satisfacen que'| 'existe uno tal que')
-	contenido = Contenido 
-;
+Iteracion:
+	condicion=('tal que' | 'satisfacen que' | 'existe uno/una tal que')
+	contenido=Contenido;
 
 Atributo:
-	determinante=('el/la' | 'todos los/las'| 'existe un'| 'entre los') //Determinante
-	prefijo = ('cantidad de')? 
+	determinante=('el/la' | 'todos los/las' | 'entre los/las')
+	cuantitativo=('cantidad de')?
 	nombre=ID
 	enlace='de';
 
 Termino:
-	indeterminante='un/una' //Indeterminante
-	contexto=ID;  //Contexto
+	indeterminante='un/una'
+	contexto=ID;
 
-Obligacion:
-	(negacion='no')? obligacion='es';
+Afirmacion:
+	(negacion='no')? afirmacion='es';
 
 Operacion:
 	operacion=('mayor que' | 'menor que' | 'igual a' | 'mayor o igual a' | 'menor o igual a' | 'distinto de');
 
 Literal:
-	valor=STRING;
+	literal=STRING;

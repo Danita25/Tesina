@@ -12,9 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.tesina.lenguajeNaturalReducido.Afirmacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Comparacion;
 import org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage;
-import org.xtext.tesina.lenguajeNaturalReducido.Obligacion;
 import org.xtext.tesina.lenguajeNaturalReducido.Operacion;
 
 /**
@@ -25,7 +25,7 @@ import org.xtext.tesina.lenguajeNaturalReducido.Operacion;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ComparacionImpl#getObligacion <em>Obligacion</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ComparacionImpl#getAfirmacion <em>Afirmacion</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ComparacionImpl#getOperacion <em>Operacion</em>}</li>
  * </ul>
  *
@@ -34,14 +34,14 @@ import org.xtext.tesina.lenguajeNaturalReducido.Operacion;
 public class ComparacionImpl extends MinimalEObjectImpl.Container implements Comparacion
 {
   /**
-   * The cached value of the '{@link #getObligacion() <em>Obligacion</em>}' containment reference.
+   * The cached value of the '{@link #getAfirmacion() <em>Afirmacion</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getObligacion()
+   * @see #getAfirmacion()
    * @generated
    * @ordered
    */
-  protected Obligacion obligacion;
+  protected Afirmacion afirmacion;
 
   /**
    * The cached value of the '{@link #getOperacion() <em>Operacion</em>}' containment reference.
@@ -79,9 +79,9 @@ public class ComparacionImpl extends MinimalEObjectImpl.Container implements Com
    * <!-- end-user-doc -->
    * @generated
    */
-  public Obligacion getObligacion()
+  public Afirmacion getAfirmacion()
   {
-    return obligacion;
+    return afirmacion;
   }
 
   /**
@@ -89,13 +89,13 @@ public class ComparacionImpl extends MinimalEObjectImpl.Container implements Com
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetObligacion(Obligacion newObligacion, NotificationChain msgs)
+  public NotificationChain basicSetAfirmacion(Afirmacion newAfirmacion, NotificationChain msgs)
   {
-    Obligacion oldObligacion = obligacion;
-    obligacion = newObligacion;
+    Afirmacion oldAfirmacion = afirmacion;
+    afirmacion = newAfirmacion;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION, oldObligacion, newObligacion);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION, oldAfirmacion, newAfirmacion);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -106,20 +106,20 @@ public class ComparacionImpl extends MinimalEObjectImpl.Container implements Com
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setObligacion(Obligacion newObligacion)
+  public void setAfirmacion(Afirmacion newAfirmacion)
   {
-    if (newObligacion != obligacion)
+    if (newAfirmacion != afirmacion)
     {
       NotificationChain msgs = null;
-      if (obligacion != null)
-        msgs = ((InternalEObject)obligacion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION, null, msgs);
-      if (newObligacion != null)
-        msgs = ((InternalEObject)newObligacion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION, null, msgs);
-      msgs = basicSetObligacion(newObligacion, msgs);
+      if (afirmacion != null)
+        msgs = ((InternalEObject)afirmacion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION, null, msgs);
+      if (newAfirmacion != null)
+        msgs = ((InternalEObject)newAfirmacion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION, null, msgs);
+      msgs = basicSetAfirmacion(newAfirmacion, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION, newObligacion, newObligacion));
+      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION, newAfirmacion, newAfirmacion));
   }
 
   /**
@@ -180,8 +180,8 @@ public class ComparacionImpl extends MinimalEObjectImpl.Container implements Com
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION:
-        return basicSetObligacion(null, msgs);
+      case LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION:
+        return basicSetAfirmacion(null, msgs);
       case LenguajeNaturalReducidoPackage.COMPARACION__OPERACION:
         return basicSetOperacion(null, msgs);
     }
@@ -198,8 +198,8 @@ public class ComparacionImpl extends MinimalEObjectImpl.Container implements Com
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION:
-        return getObligacion();
+      case LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION:
+        return getAfirmacion();
       case LenguajeNaturalReducidoPackage.COMPARACION__OPERACION:
         return getOperacion();
     }
@@ -216,8 +216,8 @@ public class ComparacionImpl extends MinimalEObjectImpl.Container implements Com
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION:
-        setObligacion((Obligacion)newValue);
+      case LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION:
+        setAfirmacion((Afirmacion)newValue);
         return;
       case LenguajeNaturalReducidoPackage.COMPARACION__OPERACION:
         setOperacion((Operacion)newValue);
@@ -236,8 +236,8 @@ public class ComparacionImpl extends MinimalEObjectImpl.Container implements Com
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION:
-        setObligacion((Obligacion)null);
+      case LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION:
+        setAfirmacion((Afirmacion)null);
         return;
       case LenguajeNaturalReducidoPackage.COMPARACION__OPERACION:
         setOperacion((Operacion)null);
@@ -256,8 +256,8 @@ public class ComparacionImpl extends MinimalEObjectImpl.Container implements Com
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.COMPARACION__OBLIGACION:
-        return obligacion != null;
+      case LenguajeNaturalReducidoPackage.COMPARACION__AFIRMACION:
+        return afirmacion != null;
       case LenguajeNaturalReducidoPackage.COMPARACION__OPERACION:
         return operacion != null;
     }

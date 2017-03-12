@@ -27,30 +27,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Documento extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Encabezado</b></em>' attribute.
+   * Returns the value of the '<em><b>Encabezado</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Encabezado</em>' attribute isn't clear,
+   * If the meaning of the '<em>Encabezado</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Encabezado</em>' attribute.
-   * @see #setEncabezado(String)
+   * @return the value of the '<em>Encabezado</em>' containment reference.
+   * @see #setEncabezado(Literal)
    * @see org.xtext.tesina.lenguajeNaturalReducido.LenguajeNaturalReducidoPackage#getDocumento_Encabezado()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getEncabezado();
+  Literal getEncabezado();
 
   /**
-   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Documento#getEncabezado <em>Encabezado</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.tesina.lenguajeNaturalReducido.Documento#getEncabezado <em>Encabezado</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Encabezado</em>' attribute.
+   * @param value the new value of the '<em>Encabezado</em>' containment reference.
    * @see #getEncabezado()
    * @generated
    */
-  void setEncabezado(String value);
+  void setEncabezado(Literal value);
 
   /**
    * Returns the value of the '<em><b>Oraciones</b></em>' containment reference list.

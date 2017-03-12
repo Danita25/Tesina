@@ -26,26 +26,26 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Documento");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cEncabezadoAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cEncabezadoSTRINGTerminalRuleCall_0_0 = (RuleCall)cEncabezadoAssignment_0.eContents().get(0);
+		private final RuleCall cEncabezadoLiteralParserRuleCall_0_0 = (RuleCall)cEncabezadoAssignment_0.eContents().get(0);
 		private final RuleCall cFinOracionParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cOracionesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cOracionesOracionParserRuleCall_2_0 = (RuleCall)cOracionesAssignment_2.eContents().get(0);
 		
 		//Documento:
-		//	encabezado=STRING FinOracion
+		//	encabezado=Literal FinOracion
 		//	oraciones+=Oracion*
 		//	//		extraStr = STRING
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//encabezado=STRING FinOracion oraciones+=Oracion*
+		//encabezado=Literal FinOracion oraciones+=Oracion*
 		public Group getGroup() { return cGroup; }
 		
-		//encabezado=STRING
+		//encabezado=Literal
 		public Assignment getEncabezadoAssignment_0() { return cEncabezadoAssignment_0; }
 		
-		//STRING
-		public RuleCall getEncabezadoSTRINGTerminalRuleCall_0_0() { return cEncabezadoSTRINGTerminalRuleCall_0_0; }
+		//Literal
+		public RuleCall getEncabezadoLiteralParserRuleCall_0_0() { return cEncabezadoLiteralParserRuleCall_0_0; }
 		
 		//FinOracion
 		public RuleCall getFinOracionParserRuleCall_1() { return cFinOracionParserRuleCall_1; }
@@ -93,28 +93,28 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	public class ContenidoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Contenido");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cPrefijoAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cPrefijoSiKeyword_0_0 = (Keyword)cPrefijoAssignment_0.eContents().get(0);
+		private final Assignment cCondicionalAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cCondicionalSiKeyword_0_0 = (Keyword)cCondicionalAssignment_0.eContents().get(0);
 		private final Assignment cSimpleAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSimpleSimpleParserRuleCall_1_0 = (RuleCall)cSimpleAssignment_1.eContents().get(0);
 		private final Assignment cComposicionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cComposicionComposicionParserRuleCall_2_0 = (RuleCall)cComposicionAssignment_2.eContents().get(0);
 		
 		//Contenido:
-		//	prefijo='si'? //para el implies
+		//	condicional='si'? //para el implies
 		//	simple=Simple
 		//	composicion=Composicion?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//prefijo='si'? //para el implies
+		//condicional='si'? //para el implies
 		//simple=Simple composicion=Composicion?
 		public Group getGroup() { return cGroup; }
 		
-		//prefijo='si'?
-		public Assignment getPrefijoAssignment_0() { return cPrefijoAssignment_0; }
+		//condicional='si'?
+		public Assignment getCondicionalAssignment_0() { return cCondicionalAssignment_0; }
 		
 		//'si'
-		public Keyword getPrefijoSiKeyword_0_0() { return cPrefijoSiKeyword_0_0; }
+		public Keyword getCondicionalSiKeyword_0_0() { return cCondicionalSiKeyword_0_0; }
 		
 		////para el implies
 		//simple=Simple
@@ -215,30 +215,30 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	public class NexoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Nexo");
-		private final Assignment cValorAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cValorAlternatives_0 = (Alternatives)cValorAssignment.eContents().get(0);
-		private final Keyword cValorYKeyword_0_0 = (Keyword)cValorAlternatives_0.eContents().get(0);
-		private final Keyword cValorOKeyword_0_1 = (Keyword)cValorAlternatives_0.eContents().get(1);
-		private final Keyword cValorEntoncesKeyword_0_2 = (Keyword)cValorAlternatives_0.eContents().get(2);
+		private final Assignment cNexoAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cNexoAlternatives_0 = (Alternatives)cNexoAssignment.eContents().get(0);
+		private final Keyword cNexoYKeyword_0_0 = (Keyword)cNexoAlternatives_0.eContents().get(0);
+		private final Keyword cNexoOKeyword_0_1 = (Keyword)cNexoAlternatives_0.eContents().get(1);
+		private final Keyword cNexoEntoncesKeyword_0_2 = (Keyword)cNexoAlternatives_0.eContents().get(2);
 		
 		//Nexo:
-		//	valor=('y' | 'o' | 'entonces');
+		//	nexo=('y' | 'o' | 'entonces');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//valor=('y' | 'o' | 'entonces')
-		public Assignment getValorAssignment() { return cValorAssignment; }
+		//nexo=('y' | 'o' | 'entonces')
+		public Assignment getNexoAssignment() { return cNexoAssignment; }
 		
 		//('y' | 'o' | 'entonces')
-		public Alternatives getValorAlternatives_0() { return cValorAlternatives_0; }
+		public Alternatives getNexoAlternatives_0() { return cNexoAlternatives_0; }
 		
 		//'y'
-		public Keyword getValorYKeyword_0_0() { return cValorYKeyword_0_0; }
+		public Keyword getNexoYKeyword_0_0() { return cNexoYKeyword_0_0; }
 		
 		//'o'
-		public Keyword getValorOKeyword_0_1() { return cValorOKeyword_0_1; }
+		public Keyword getNexoOKeyword_0_1() { return cNexoOKeyword_0_1; }
 		
 		//'entonces'
-		public Keyword getValorEntoncesKeyword_0_2() { return cValorEntoncesKeyword_0_2; }
+		public Keyword getNexoEntoncesKeyword_0_2() { return cNexoEntoncesKeyword_0_2; }
 	}
 	public class ExpresionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Expresion");
@@ -266,24 +266,24 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	public class ComparacionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Comparacion");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cObligacionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cObligacionObligacionParserRuleCall_0_0 = (RuleCall)cObligacionAssignment_0.eContents().get(0);
+		private final Assignment cAfirmacionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cAfirmacionAfirmacionParserRuleCall_0_0 = (RuleCall)cAfirmacionAssignment_0.eContents().get(0);
 		private final Assignment cOperacionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOperacionOperacionParserRuleCall_1_0 = (RuleCall)cOperacionAssignment_1.eContents().get(0);
 		
 		//Comparacion:
-		//	obligacion=Obligacion
+		//	afirmacion=Afirmacion
 		//	operacion=Operacion;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//obligacion=Obligacion operacion=Operacion
+		//afirmacion=Afirmacion operacion=Operacion
 		public Group getGroup() { return cGroup; }
 		
-		//obligacion=Obligacion
-		public Assignment getObligacionAssignment_0() { return cObligacionAssignment_0; }
+		//afirmacion=Afirmacion
+		public Assignment getAfirmacionAssignment_0() { return cAfirmacionAssignment_0; }
 		
-		//Obligacion
-		public RuleCall getObligacionObligacionParserRuleCall_0_0() { return cObligacionObligacionParserRuleCall_0_0; }
+		//Afirmacion
+		public RuleCall getAfirmacionAfirmacionParserRuleCall_0_0() { return cAfirmacionAfirmacionParserRuleCall_0_0; }
 		
 		//operacion=Operacion
 		public Assignment getOperacionAssignment_1() { return cOperacionAssignment_1; }
@@ -332,35 +332,35 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	public class IteracionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Iteracion");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cConectorAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cConectorAlternatives_0_0 = (Alternatives)cConectorAssignment_0.eContents().get(0);
-		private final Keyword cConectorTalQueKeyword_0_0_0 = (Keyword)cConectorAlternatives_0_0.eContents().get(0);
-		private final Keyword cConectorSatisfacenQueKeyword_0_0_1 = (Keyword)cConectorAlternatives_0_0.eContents().get(1);
-		private final Keyword cConectorExisteUnoTalQueKeyword_0_0_2 = (Keyword)cConectorAlternatives_0_0.eContents().get(2);
+		private final Assignment cCondicionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cCondicionAlternatives_0_0 = (Alternatives)cCondicionAssignment_0.eContents().get(0);
+		private final Keyword cCondicionTalQueKeyword_0_0_0 = (Keyword)cCondicionAlternatives_0_0.eContents().get(0);
+		private final Keyword cCondicionSatisfacenQueKeyword_0_0_1 = (Keyword)cCondicionAlternatives_0_0.eContents().get(1);
+		private final Keyword cCondicionExisteUnoUnaTalQueKeyword_0_0_2 = (Keyword)cCondicionAlternatives_0_0.eContents().get(2);
 		private final Assignment cContenidoAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cContenidoContenidoParserRuleCall_1_0 = (RuleCall)cContenidoAssignment_1.eContents().get(0);
 		
 		//Iteracion:
-		//	conector=('tal que' | 'satisfacen que' | 'existe uno tal que') contenido=Contenido;
+		//	condicion=('tal que' | 'satisfacen que' | 'existe uno/una tal que') contenido=Contenido;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//conector=('tal que' | 'satisfacen que' | 'existe uno tal que') contenido=Contenido
+		//condicion=('tal que' | 'satisfacen que' | 'existe uno/una tal que') contenido=Contenido
 		public Group getGroup() { return cGroup; }
 		
-		//conector=('tal que' | 'satisfacen que' | 'existe uno tal que')
-		public Assignment getConectorAssignment_0() { return cConectorAssignment_0; }
+		//condicion=('tal que' | 'satisfacen que' | 'existe uno/una tal que')
+		public Assignment getCondicionAssignment_0() { return cCondicionAssignment_0; }
 		
-		//('tal que' | 'satisfacen que' | 'existe uno tal que')
-		public Alternatives getConectorAlternatives_0_0() { return cConectorAlternatives_0_0; }
+		//('tal que' | 'satisfacen que' | 'existe uno/una tal que')
+		public Alternatives getCondicionAlternatives_0_0() { return cCondicionAlternatives_0_0; }
 		
 		//'tal que'
-		public Keyword getConectorTalQueKeyword_0_0_0() { return cConectorTalQueKeyword_0_0_0; }
+		public Keyword getCondicionTalQueKeyword_0_0_0() { return cCondicionTalQueKeyword_0_0_0; }
 		
 		//'satisfacen que'
-		public Keyword getConectorSatisfacenQueKeyword_0_0_1() { return cConectorSatisfacenQueKeyword_0_0_1; }
+		public Keyword getCondicionSatisfacenQueKeyword_0_0_1() { return cCondicionSatisfacenQueKeyword_0_0_1; }
 		
-		//'existe uno tal que'
-		public Keyword getConectorExisteUnoTalQueKeyword_0_0_2() { return cConectorExisteUnoTalQueKeyword_0_0_2; }
+		//'existe uno/una tal que'
+		public Keyword getCondicionExisteUnoUnaTalQueKeyword_0_0_2() { return cCondicionExisteUnoUnaTalQueKeyword_0_0_2; }
 		
 		//contenido=Contenido
 		public Assignment getContenidoAssignment_1() { return cContenidoAssignment_1; }
@@ -375,28 +375,27 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		private final Alternatives cDeterminanteAlternatives_0_0 = (Alternatives)cDeterminanteAssignment_0.eContents().get(0);
 		private final Keyword cDeterminanteElLaKeyword_0_0_0 = (Keyword)cDeterminanteAlternatives_0_0.eContents().get(0);
 		private final Keyword cDeterminanteTodosLosLasKeyword_0_0_1 = (Keyword)cDeterminanteAlternatives_0_0.eContents().get(1);
-		private final Keyword cDeterminanteExisteUnKeyword_0_0_2 = (Keyword)cDeterminanteAlternatives_0_0.eContents().get(2);
-		private final Keyword cDeterminanteEntreLosKeyword_0_0_3 = (Keyword)cDeterminanteAlternatives_0_0.eContents().get(3);
-		private final Assignment cPrefijoAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cPrefijoCantidadDeKeyword_1_0 = (Keyword)cPrefijoAssignment_1.eContents().get(0);
+		private final Keyword cDeterminanteEntreLosLasKeyword_0_0_2 = (Keyword)cDeterminanteAlternatives_0_0.eContents().get(2);
+		private final Assignment cCuantitativoAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cCuantitativoCantidadDeKeyword_1_0 = (Keyword)cCuantitativoAssignment_1.eContents().get(0);
 		private final Assignment cNombreAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNombreIDTerminalRuleCall_2_0 = (RuleCall)cNombreAssignment_2.eContents().get(0);
 		private final Assignment cEnlaceAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Keyword cEnlaceDeKeyword_3_0 = (Keyword)cEnlaceAssignment_3.eContents().get(0);
 		
 		//Atributo:
-		//	determinante=('el/la' | 'todos los/las' | 'existe un' | 'entre los') prefijo='cantidad de'?
+		//	determinante=('el/la' | 'todos los/las' | 'entre los/las') cuantitativo='cantidad de'?
 		//	nombre=ID
 		//	enlace='de';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//determinante=('el/la' | 'todos los/las' | 'existe un' | 'entre los') prefijo='cantidad de'? nombre=ID enlace='de'
+		//determinante=('el/la' | 'todos los/las' | 'entre los/las') cuantitativo='cantidad de'? nombre=ID enlace='de'
 		public Group getGroup() { return cGroup; }
 		
-		//determinante=('el/la' | 'todos los/las' | 'existe un' | 'entre los')
+		//determinante=('el/la' | 'todos los/las' | 'entre los/las')
 		public Assignment getDeterminanteAssignment_0() { return cDeterminanteAssignment_0; }
 		
-		//('el/la' | 'todos los/las' | 'existe un' | 'entre los')
+		//('el/la' | 'todos los/las' | 'entre los/las')
 		public Alternatives getDeterminanteAlternatives_0_0() { return cDeterminanteAlternatives_0_0; }
 		
 		//'el/la'
@@ -405,18 +404,14 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		//'todos los/las'
 		public Keyword getDeterminanteTodosLosLasKeyword_0_0_1() { return cDeterminanteTodosLosLasKeyword_0_0_1; }
 		
-		//'existe un'
-		public Keyword getDeterminanteExisteUnKeyword_0_0_2() { return cDeterminanteExisteUnKeyword_0_0_2; }
+		//'entre los/las'
+		public Keyword getDeterminanteEntreLosLasKeyword_0_0_2() { return cDeterminanteEntreLosLasKeyword_0_0_2; }
 		
-		//'entre los'
-		public Keyword getDeterminanteEntreLosKeyword_0_0_3() { return cDeterminanteEntreLosKeyword_0_0_3; }
-		
-		////Determinante
-		//prefijo='cantidad de'?
-		public Assignment getPrefijoAssignment_1() { return cPrefijoAssignment_1; }
+		//cuantitativo='cantidad de'?
+		public Assignment getCuantitativoAssignment_1() { return cCuantitativoAssignment_1; }
 		
 		//'cantidad de'
-		public Keyword getPrefijoCantidadDeKeyword_1_0() { return cPrefijoCantidadDeKeyword_1_0; }
+		public Keyword getCuantitativoCantidadDeKeyword_1_0() { return cCuantitativoCantidadDeKeyword_1_0; }
 		
 		//nombre=ID
 		public Assignment getNombreAssignment_2() { return cNombreAssignment_2; }
@@ -439,12 +434,11 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		private final RuleCall cContextoIDTerminalRuleCall_1_0 = (RuleCall)cContextoAssignment_1.eContents().get(0);
 		
 		//Termino:
-		//	indeterminante='un/una' //Indeterminante
+		//	indeterminante='un/una'
 		//	contexto=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//indeterminante='un/una' //Indeterminante
-		//contexto=ID
+		//indeterminante='un/una' contexto=ID
 		public Group getGroup() { return cGroup; }
 		
 		//indeterminante='un/una'
@@ -453,27 +447,25 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		//'un/una'
 		public Keyword getIndeterminanteUnUnaKeyword_0_0() { return cIndeterminanteUnUnaKeyword_0_0; }
 		
-		////Indeterminante
 		//contexto=ID
 		public Assignment getContextoAssignment_1() { return cContextoAssignment_1; }
 		
 		//ID
 		public RuleCall getContextoIDTerminalRuleCall_1_0() { return cContextoIDTerminalRuleCall_1_0; }
 	}
-	public class ObligacionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Obligacion");
+	public class AfirmacionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Afirmacion");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNegacionAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cNegacionNoKeyword_0_0 = (Keyword)cNegacionAssignment_0.eContents().get(0);
-		private final Assignment cObligacionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cObligacionEsKeyword_1_0 = (Keyword)cObligacionAssignment_1.eContents().get(0);
+		private final Assignment cAfirmacionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cAfirmacionEsKeyword_1_0 = (Keyword)cAfirmacionAssignment_1.eContents().get(0);
 		
-		////Contexto
-		//Obligacion:
-		//	negacion='no'? obligacion='es';
+		//Afirmacion:
+		//	negacion='no'? afirmacion='es';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//negacion='no'? obligacion='es'
+		//negacion='no'? afirmacion='es'
 		public Group getGroup() { return cGroup; }
 		
 		//negacion='no'?
@@ -482,11 +474,11 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		//'no'
 		public Keyword getNegacionNoKeyword_0_0() { return cNegacionNoKeyword_0_0; }
 		
-		//obligacion='es'
-		public Assignment getObligacionAssignment_1() { return cObligacionAssignment_1; }
+		//afirmacion='es'
+		public Assignment getAfirmacionAssignment_1() { return cAfirmacionAssignment_1; }
 		
 		//'es'
-		public Keyword getObligacionEsKeyword_1_0() { return cObligacionEsKeyword_1_0; }
+		public Keyword getAfirmacionEsKeyword_1_0() { return cAfirmacionEsKeyword_1_0; }
 	}
 	public class OperacionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Operacion");
@@ -529,18 +521,18 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	public class LiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.tesina.LenguajeNaturalReducido.Literal");
-		private final Assignment cValorAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValorSTRINGTerminalRuleCall_0 = (RuleCall)cValorAssignment.eContents().get(0);
+		private final Assignment cLiteralAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cLiteralSTRINGTerminalRuleCall_0 = (RuleCall)cLiteralAssignment.eContents().get(0);
 		
 		//Literal:
-		//	valor=STRING;
+		//	literal=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//valor=STRING
-		public Assignment getValorAssignment() { return cValorAssignment; }
+		//literal=STRING
+		public Assignment getLiteralAssignment() { return cLiteralAssignment; }
 		
 		//STRING
-		public RuleCall getValorSTRINGTerminalRuleCall_0() { return cValorSTRINGTerminalRuleCall_0; }
+		public RuleCall getLiteralSTRINGTerminalRuleCall_0() { return cLiteralSTRINGTerminalRuleCall_0; }
 	}
 	
 	
@@ -558,7 +550,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	private final IteracionElements pIteracion;
 	private final AtributoElements pAtributo;
 	private final TerminoElements pTermino;
-	private final ObligacionElements pObligacion;
+	private final AfirmacionElements pAfirmacion;
 	private final OperacionElements pOperacion;
 	private final LiteralElements pLiteral;
 	
@@ -585,7 +577,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		this.pIteracion = new IteracionElements();
 		this.pAtributo = new AtributoElements();
 		this.pTermino = new TerminoElements();
-		this.pObligacion = new ObligacionElements();
+		this.pAfirmacion = new AfirmacionElements();
 		this.pOperacion = new OperacionElements();
 		this.pLiteral = new LiteralElements();
 	}
@@ -618,7 +610,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 
 	
 	//Documento:
-	//	encabezado=STRING FinOracion
+	//	encabezado=Literal FinOracion
 	//	oraciones+=Oracion*
 	//	//		extraStr = STRING
 	//;
@@ -651,7 +643,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	
 	//Contenido:
-	//	prefijo='si'? //para el implies
+	//	condicional='si'? //para el implies
 	//	simple=Simple
 	//	composicion=Composicion?;
 	public ContenidoElements getContenidoAccess() {
@@ -696,7 +688,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	
 	//Nexo:
-	//	valor=('y' | 'o' | 'entonces');
+	//	nexo=('y' | 'o' | 'entonces');
 	public NexoElements getNexoAccess() {
 		return pNexo;
 	}
@@ -716,7 +708,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	
 	//Comparacion:
-	//	obligacion=Obligacion
+	//	afirmacion=Afirmacion
 	//	operacion=Operacion;
 	public ComparacionElements getComparacionAccess() {
 		return pComparacion;
@@ -740,7 +732,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	
 	//Iteracion:
-	//	conector=('tal que' | 'satisfacen que' | 'existe uno tal que') contenido=Contenido;
+	//	condicion=('tal que' | 'satisfacen que' | 'existe uno/una tal que') contenido=Contenido;
 	public IteracionElements getIteracionAccess() {
 		return pIteracion;
 	}
@@ -750,7 +742,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	
 	//Atributo:
-	//	determinante=('el/la' | 'todos los/las' | 'existe un' | 'entre los') prefijo='cantidad de'?
+	//	determinante=('el/la' | 'todos los/las' | 'entre los/las') cuantitativo='cantidad de'?
 	//	nombre=ID
 	//	enlace='de';
 	public AtributoElements getAtributoAccess() {
@@ -762,7 +754,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	
 	//Termino:
-	//	indeterminante='un/una' //Indeterminante
+	//	indeterminante='un/una'
 	//	contexto=ID;
 	public TerminoElements getTerminoAccess() {
 		return pTermino;
@@ -772,15 +764,14 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		return getTerminoAccess().getRule();
 	}
 	
-	////Contexto
-	//Obligacion:
-	//	negacion='no'? obligacion='es';
-	public ObligacionElements getObligacionAccess() {
-		return pObligacion;
+	//Afirmacion:
+	//	negacion='no'? afirmacion='es';
+	public AfirmacionElements getAfirmacionAccess() {
+		return pAfirmacion;
 	}
 	
-	public ParserRule getObligacionRule() {
-		return getObligacionAccess().getRule();
+	public ParserRule getAfirmacionRule() {
+		return getAfirmacionAccess().getRule();
 	}
 	
 	//Operacion:
@@ -794,7 +785,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	}
 	
 	//Literal:
-	//	valor=STRING;
+	//	literal=STRING;
 	public LiteralElements getLiteralAccess() {
 		return pLiteral;
 	}

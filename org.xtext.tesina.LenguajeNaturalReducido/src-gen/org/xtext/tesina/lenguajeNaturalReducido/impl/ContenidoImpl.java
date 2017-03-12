@@ -25,7 +25,7 @@ import org.xtext.tesina.lenguajeNaturalReducido.Simple;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ContenidoImpl#getPrefijo <em>Prefijo</em>}</li>
+ *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ContenidoImpl#getCondicional <em>Condicional</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ContenidoImpl#getSimple <em>Simple</em>}</li>
  *   <li>{@link org.xtext.tesina.lenguajeNaturalReducido.impl.ContenidoImpl#getComposicion <em>Composicion</em>}</li>
  * </ul>
@@ -35,24 +35,24 @@ import org.xtext.tesina.lenguajeNaturalReducido.Simple;
 public class ContenidoImpl extends MinimalEObjectImpl.Container implements Contenido
 {
   /**
-   * The default value of the '{@link #getPrefijo() <em>Prefijo</em>}' attribute.
+   * The default value of the '{@link #getCondicional() <em>Condicional</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPrefijo()
+   * @see #getCondicional()
    * @generated
    * @ordered
    */
-  protected static final String PREFIJO_EDEFAULT = null;
+  protected static final String CONDICIONAL_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getPrefijo() <em>Prefijo</em>}' attribute.
+   * The cached value of the '{@link #getCondicional() <em>Condicional</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPrefijo()
+   * @see #getCondicional()
    * @generated
    * @ordered
    */
-  protected String prefijo = PREFIJO_EDEFAULT;
+  protected String condicional = CONDICIONAL_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getSimple() <em>Simple</em>}' containment reference.
@@ -100,9 +100,9 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPrefijo()
+  public String getCondicional()
   {
-    return prefijo;
+    return condicional;
   }
 
   /**
@@ -110,12 +110,12 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPrefijo(String newPrefijo)
+  public void setCondicional(String newCondicional)
   {
-    String oldPrefijo = prefijo;
-    prefijo = newPrefijo;
+    String oldCondicional = condicional;
+    condicional = newCondicional;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.CONTENIDO__PREFIJO, oldPrefijo, prefijo));
+      eNotify(new ENotificationImpl(this, Notification.SET, LenguajeNaturalReducidoPackage.CONTENIDO__CONDICIONAL, oldCondicional, condicional));
   }
 
   /**
@@ -242,8 +242,8 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.CONTENIDO__PREFIJO:
-        return getPrefijo();
+      case LenguajeNaturalReducidoPackage.CONTENIDO__CONDICIONAL:
+        return getCondicional();
       case LenguajeNaturalReducidoPackage.CONTENIDO__SIMPLE:
         return getSimple();
       case LenguajeNaturalReducidoPackage.CONTENIDO__COMPOSICION:
@@ -262,8 +262,8 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.CONTENIDO__PREFIJO:
-        setPrefijo((String)newValue);
+      case LenguajeNaturalReducidoPackage.CONTENIDO__CONDICIONAL:
+        setCondicional((String)newValue);
         return;
       case LenguajeNaturalReducidoPackage.CONTENIDO__SIMPLE:
         setSimple((Simple)newValue);
@@ -285,8 +285,8 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.CONTENIDO__PREFIJO:
-        setPrefijo(PREFIJO_EDEFAULT);
+      case LenguajeNaturalReducidoPackage.CONTENIDO__CONDICIONAL:
+        setCondicional(CONDICIONAL_EDEFAULT);
         return;
       case LenguajeNaturalReducidoPackage.CONTENIDO__SIMPLE:
         setSimple((Simple)null);
@@ -308,8 +308,8 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case LenguajeNaturalReducidoPackage.CONTENIDO__PREFIJO:
-        return PREFIJO_EDEFAULT == null ? prefijo != null : !PREFIJO_EDEFAULT.equals(prefijo);
+      case LenguajeNaturalReducidoPackage.CONTENIDO__CONDICIONAL:
+        return CONDICIONAL_EDEFAULT == null ? condicional != null : !CONDICIONAL_EDEFAULT.equals(condicional);
       case LenguajeNaturalReducidoPackage.CONTENIDO__SIMPLE:
         return simple != null;
       case LenguajeNaturalReducidoPackage.CONTENIDO__COMPOSICION:
@@ -329,8 +329,8 @@ public class ContenidoImpl extends MinimalEObjectImpl.Container implements Conte
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (prefijo: ");
-    result.append(prefijo);
+    result.append(" (condicional: ");
+    result.append(condicional);
     result.append(')');
     return result.toString();
   }

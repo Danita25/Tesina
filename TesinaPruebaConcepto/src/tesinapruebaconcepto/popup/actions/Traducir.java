@@ -62,7 +62,6 @@ public class Traducir implements IObjectActionDelegate {
 
 		//Obtener nomber del projecto activo.
 		IProject myProject = sourceFile.getProject();
-		//System.out.println("My Project: "+myProject.getName());
 		
 		//Crear carpeta Traducciones (solo si no existe)
 		IFolder filesFolder = myProject.getFolder("Traducciones");
@@ -113,7 +112,6 @@ public class Traducir implements IObjectActionDelegate {
 		xtext.writeLnr(os, result);
 		
 		//Remover archivos movidos al proyecto transformador (.ocl, .ecore, .xmi)
-		//Files.delete(Paths.get(getATLModelsURL()+"OCL2LNR_Output.xmi"));
 		Files.deleteIfExists(Paths.get(FilePathXmiStr));
 		Files.deleteIfExists(Paths.get(FilePathOclasStr));
 		Files.deleteIfExists(Paths.get(getATLModelsURL() + sourceFile.getName().replace("ocl.", "")));
