@@ -10,18 +10,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direccion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="socios" upperBound="-1"
         eType="#//Socio"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="libros" upperBound="-1"
-        eType="#//Libro"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libros" lowerBound="1"
+        upperBound="-1" eType="#//Libro"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Libro">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="titulo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="editorial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="anioDeEdicion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TipoDeLibro" eType="#//TipoDeLibro"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="autor" eType="#//Autor"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="autor" lowerBound="1" eType="#//Autor"
         eOpposite="#//Autor/obras"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="copias" upperBound="-1"
-        eType="#//Copia"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copias" lowerBound="1"
+        upperBound="-1" eType="#//Copia"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Copia">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroDeCopia" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -44,7 +44,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nacionalidad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeNacimiento" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="obras" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obras" lowerBound="1" upperBound="-1"
         eType="#//Libro" eOpposite="#//Libro/autor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Prestamo">
@@ -54,7 +54,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeInicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeFin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeDevolucion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="copia" eType="#//Copia"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copia" lowerBound="1" eType="#//Copia"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Socio">
     <eOperations name="solicitarPrestamo" eType="#//Prestamo">
@@ -79,7 +79,7 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeInicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeFin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="prestamo" eType="#//Prestamo"
-        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prestamo" lowerBound="1"
+        eType="#//Prestamo" transient="true"/>
   </eClassifiers>
 </ecore:EPackage>

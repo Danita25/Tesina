@@ -1,0 +1,115 @@
+import Biblioteca: '../model/HotelV2.ecore'
+
+package HotelV2
+
+--1
+context Hotel
+	inv: self.nombre<>''
+	
+--2 y 3
+context Habitacion::reservar(inicio:Date, fin:Date,cliente:Cliente):Reserva
+	pre: self.estado='Operativa' and 
+		self.reservas->select(r|
+				r.fechaInicio.esAnterior(inicio) 
+						and r.fechaFin.esPosterior(inicio))->isEmpty()
+	--generamos la reserva
+	post: self.reservas->select(r|r.fechaInicio.esIgual(inicio) 
+									and r.fechaFin.esIgual(inicio) 
+										and r.cliente=cliente)->size()=1
+	
+--4
+context Habitacion
+	def: getHabitacionDisponible(): Boolean = self.estado='Operativa'
+	
+--5
+context Habitacion::reservar(inicio:Date, fin:Date,cliente:Cliente):Reserva
+	pre:getHabitacionDisponible() and 
+		self.reservas->select(r|
+				r.fechaInicio.esAnterior(inicio) 
+							and r.fechaFin.esPosterior(inicio))->isEmpty()
+--6
+context Habitacion::getNumeroHab():Integer
+	body: self.numeroHabitacion
+
+--7
+context Hotel::getTotalHabitaciones():Integer
+	pre:self.habitaciones<>null
+	body:self.habitaciones->size()	
+	
+--8
+context Habitacion:: estado: String
+	init:'Operativa'
+	
+--9
+context Cliente inv:
+	let tieneReserva : Boolean = 
+			self.reservas-> notEmpty() 
+						in tieneReserva implies edad>=18
+	
+--10
+context Reserva
+	inv:self.consumiciones->
+		select(c: Consumicion | c.tipo='Telefonica')->size()>0
+	inv:self.consumiciones->
+		select(c | c.tipo='Telefonica')->size()>0
+	inv:self.consumiciones->
+		select(tipo='Telefonica')->size()>0
+	
+--11
+context Hotel:: numerosHabitaciones():Collection
+	body:self.habitaciones->collect(h|h.numeroHabitacion)->asSet()
+	
+context Hotel:: numerosHabitaciones():Collection
+	body:self.habitaciones->collect(numeroHabitacion)->asSet()
+	
+context Hotel:: numerosHabitaciones():Collection
+	body:self.habitaciones.numeroHabitacion
+
+--12
+context Hotel
+	inv:self.habitaciones->
+		forAll(h:Habitacion | h.estado='Operativa')	
+	
+--13
+context Hotel
+	inv:self.habitaciones->
+		forAll(h1,h2 | h1<>h2 implies 
+				h1.numeroHabitacion<>h2.numeroHabitacion)	
+
+--14
+context Hotel
+	inv:self.habitaciones->
+		exists(h:Habitacion | h.estado='Mantenimiento')	
+
+--15
+context Habitacion
+	inv:self.numeroHabitacion>0
+	
+--16
+context Habitacion::reservar(inicio:Date, fin:Date,cliente:Cliente):
+	post:self.reservas->exists(r|r.fechaInicio.esIgual(inicio) 
+				and r.fechaFin.esIgual(fin) and r.cliente=cliente)
+
+--17
+context Habitacion
+	inv: self.categoria<>''
+
+context Hotel
+	inv: self.habitaciones->notEmpty()
+
+--18
+context Habitacion
+	inv: self.categoria->size()=1
+	
+--19
+context Hotel
+	inv: Cliente.allInstances()->
+		forAll(c1, c2| c1<>c2 
+			implies c1.numeroDocumento<>c2.numeroDocumento)
+--20
+	inv: self.oclIsTypeOf(Habitacion) --is true
+	inv: self.oclIsTypeOf(Hotel) --is false
+endpackage
+
+
+

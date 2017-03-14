@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="HotelV2" nsURI="http://www.eclipse.org/ocl/examples/HotelV2.ecore"
+    nsPrefix="HotelV2">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Hotel">
+    <eOperations name="generarReserva" eType="#//Reserva">
+      <eParameters name="Inicio" eType="#//Date"/>
+      <eParameters name="Fin" eType="#//Date"/>
+      <eParameters name="habitacion" eType="#//Habitacion"/>
+      <eParameters name="cliente" eType="#//Cliente"/>
+    </eOperations>
+    <eOperations name="getTotalHabitaciones" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eOperations name="numerosHabitaciones"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direccion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="telefono" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diasDescuento" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="habitaciones" lowerBound="1"
+        upperBound="-1" eType="#//Habitacion"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Habitacion">
+    <eOperations name="getNumeroHab" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eOperations name="verificarDisponibilidad" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="desde" eType="#//Date"/>
+      <eParameters name="hasta" eType="#//Date"/>
+    </eOperations>
+    <eOperations name="reservar" eType="#//Reserva">
+      <eParameters name="inicio" eType="#//Date"/>
+      <eParameters name="fin" eType="#//Date"/>
+      <eParameters name="cliente" eType="#//Cliente"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroHabitacion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipoHabitacion" eType="#//TipoHabitacion"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="categoria" eType="#//Categoria"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estado" eType="#//Estado"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="montoHabitacion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reservas" upperBound="-1"
+        eType="#//Reserva" eOpposite="#//Reserva/habitacion"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Consumicion">
+    <eOperations name="generarConsumicion" eType="#//Consumicion">
+      <eParameters name="tipo" eType="#//TipoConsumicion"/>
+      <eParameters name="detalle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="monto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" eType="#//TipoConsumicion"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detalle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="monto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reserva">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fechaReserva" lowerBound="1"
+        eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fechaInicio" lowerBound="1"
+        eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fechaFin" lowerBound="1"
+        eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="camasAdicionales" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="montoTotal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumiciones" upperBound="-1"
+        eType="#//Consumicion"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cliente" lowerBound="1"
+        eType="#//Cliente" eOpposite="#//Cliente/reservas"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="habitacion" lowerBound="1"
+        eType="#//Habitacion" eOpposite="#//Habitacion/reservas"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cliente">
+    <eOperations name="obtenerReservasActivas"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreCompleto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direccion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="telefono" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fechaNacimiento" lowerBound="1"
+        eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipoDocumento" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroDocumento" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="edad" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reservas" lowerBound="1"
+        upperBound="-1" eType="#//Reserva" eOpposite="#//Reserva/cliente"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TipoConsumicion">
+    <eLiterals name="Telefonica" value="1"/>
+    <eLiterals name="Minibar" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Estado">
+    <eLiterals name="Operativa" value="1"/>
+    <eLiterals name="Mantenimiento" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TipoHabitacion">
+    <eLiterals name="Individual" value="1"/>
+    <eLiterals name="Doble" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Categoria">
+    <eLiterals name="Business" value="1"/>
+    <eLiterals name="Alta" value="2"/>
+    <eLiterals name="Normal" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Date">
+    <eOperations name="esAnterior">
+      <eParameters name="date" eType="#//Date"/>
+    </eOperations>
+    <eOperations name="esIgual">
+      <eParameters name="date" eType="#//Date"/>
+    </eOperations>
+    <eOperations name="desdeYMD" eType="#//Date">
+      <eParameters name="dia" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+      <eParameters name="mes" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+      <eParameters name="anio" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    </eOperations>
+    <eOperations name="esPosterior">
+      <eParameters name="t" eType="#//Date"/>
+    </eOperations>
+    <eOperations name="diferenciaEnAnios" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger">
+      <eParameters name="date" eType="#//Date"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anio" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mes" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dia" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+  </eClassifiers>
+</ecore:EPackage>
