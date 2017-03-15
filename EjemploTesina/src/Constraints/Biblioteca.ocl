@@ -3,42 +3,45 @@ import Biblioteca: '../model/Biblioteca.ecore'
 package Biblioteca
 
 context Biblioteca
-	inv direccionObligatoria: direccion<>''
-	inv hayLibros: self.libros->size()>0
-	inv librosMinimoAutor: self.libros->select(l|l.autor.nombre='Paulo Coelho')->size()>2
-	inv libroAutor: self.libros->select(l|l.titulo='Hija de la fortuna' and l.autor.nombre='Isabel Allende')->size()=1
-	inv librosEdicion: self.libros->forAll(l|l.anioDeEdicion>1900)
-	inv existeLibro: self.libros->exists(l|l.titulo='El principito')
-	--inv existeLibroAutor: self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
-	--inv existenLibros: self.libros->exists(l | l.titulo = 'El Principito') and self.libros->exists(l | l.titulo = 'Harry potter') 
-	--inv select_isEmpty: self.libros->select(l| l.titulo = 'El caballero de la armadura oxidada')->isEmpty()
-	--inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
-	--inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
-		
-context Libro 
-	inv tituloObligatorio: not (titulo='')
-	inv tituloPorAutor: titulo= 'El Alquimista' implies autor.nombre = 'Paulo Coelho'
-	inv numeroDeCopiasMinimo: self.copias->size() > 6
+	inv datos_completos_2: self.nombre<>'' and self.direccion<>''
+	inv no_vacio:self.libros->notEmpty()
+	inv para_todos:self.libros->forAll(l | l.autor<>'')
+	--deje el del documento porque no se me ocurre otro ejemplo
+	inv exist_and_condition:self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery') 
+	inv exist_and_exist:
+	    self.libros->exists(l | l.TipoDeLibro = 'novela') 
+	    and
+		self.libros->exists(l | l.TipoDeLibro = 'teatro') 
+		and
+		self.libros->exists(l | l.TipoDeLibro = 'poesia') 
+		and
+		self.libros->exists(l | l.TipoDeLibro = 'ensayo') 
+	 inv select_forAll: self.socios->select(s | s.activo=true)->forAll(s | s.nombreCompleto<>'')
 
-context Copia
-	inv numeroDeCopiaObligatorio:self.numeroDeCopia<>''	
-
-context Autor
-	inv nombreObligatorio: ''<> nombre
-	inv datosCompletos: not (nombre = '') or not (nacionalidad= '')
-	
-context Socio
-	inv socioSinMultas: self.multas->isEmpty()
-	inv socioTienePrestamo: self.prestamos->notEmpty()
-	inv datosIncompletos: self.nombreCompleto='' or self.direccion=''
-	inv numValidoMultas: self.multas->size()<=self.prestamos->size()
-	inv tienePrestamoActivo: self.prestamos->select(p|p.fechaDeDevolucion=null)->size()>=1
-	inv prestamosCopiasCorrectas: self.prestamos->select(p|p.fechaDeDevolucion='' implies p.copia.estadoDeLaCopia='malo')->size()=0
-	
-context Prestamo
-	inv fechaObligatorias: self.fechaDeInicio<>'' and self.fechaDeFin<>''
+context Libro
+	inv negacion: not (self.titulo = '')
+	inv size_mayor_a_cero:self.copias->size()>=1
+	inv exists:self.copias->exists(c | c.estadoDeLaCopia<>'reparacion')
 	
 context Multa
-	inv prestamoObligatorio: self.prestamo<>''
+	inv condition_implies_condition: self.fechaDeFin<>'' implies self.prestamo<>''
+	inv not_and_DeMorgan: not (self.prestamo = '') or not (self.Socio = '')
+	
+	
+context Socio
+	inv datos_completos: self.nombreCompleto='' or self.direccion='' or self.numeroDeSocio='' or self.telefono='' or self.fechaDeNacimiento=''
+	inv condicion_literalIzq:''<>self.nombreCompleto	
+	inv compara_menor_igual: self.multas->size() <= self.prestamos->size()
+	inv select_and_size: self.prestamos->select(p | p.fechaDeDevolucion='')->size() <=3
+	inv select_implies_size:self.prestamos->select(p | p.fechaDeFin<>'' implies p.fechaDeInicio.esAnterior(p.fechaDeFin))->size()=self.prestamos->size()
+	inv select_isEmpty:self.prestamos->select(p | p.fechaDeFin='')->isEmpty()
+	--con esto se me ocurrio mostrar que el socio no puede tener dos prestamos del mismo libro activos
+	inv select_exist:self.prestamos->select(p | p.fechaDeDevolucion='')->exists(p1, p2|p1.copia.libro<>p2.copia.libro)
+	inv forAll_implies: self.prestamos->forAll(p|p.fechaDeDevolucion <> '' implies p.copia.estadoDeLaCopia='prestado')
+	inv activo_valida: self.prestamos->select(p | p.fechaDeDevolucion<>'')->size()>0 implies self.activo = true
+
+context Autor
+	inv property_distinto: self.nombre<>''
+	
 
 endpackage
