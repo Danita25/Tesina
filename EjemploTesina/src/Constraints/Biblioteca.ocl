@@ -1,44 +1,34 @@
-import Biblioteca: '../model/Biblioteca.ecore'
+import '../model/Biblioteca.ecore'
 
 package Biblioteca
 
-context Biblioteca
-	inv direccionObligatoria: direccion<>''
-	inv hayLibros: self.libros->size()>0
-	inv librosMinimoAutor: self.libros->select(l|l.autor.nombre='Paulo Coelho')->size()>2
-	inv libroAutor: self.libros->select(l|l.titulo='Hija de la fortuna' and l.autor.nombre='Isabel Allende')->size()=1
-	inv librosEdicion: self.libros->forAll(l|l.anioDeEdicion>1900)
-	inv existeLibro: self.libros->exists(l|l.titulo='El principito')
-	--inv existeLibroAutor: self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
-	--inv existenLibros: self.libros->exists(l | l.titulo = 'El Principito') and self.libros->exists(l | l.titulo = 'Harry potter') 
-	--inv select_isEmpty: self.libros->select(l| l.titulo = 'El caballero de la armadura oxidada')->isEmpty()
-	--inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
-	--inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
+	context Biblioteca
+	 	inv NotEmpty: self.libros->notEmpty()
+	 	--inv forAll: self.empleados->forAll(e| e.edad >= 18)
+ 		inv exist: self.empleados->exists(e| e.rol = 'Bibliotecario/a')    --Al menos uno de los empleados es un bbliotecario/a para poder organizar los libros.
+ 		
+	context Empleado
+		inv Simple: self.edad >= 18
 		
-context Libro 
-	inv tituloObligatorio: not (titulo='')
-	inv tituloPorAutor: titulo= 'El Alquimista' implies autor.nombre = 'Paulo Coelho'
-	inv numeroDeCopiasMinimo: self.copias->size() > 6
+	context Libro  
+		inv Size: self.copias->size() >= 1 
+	   	inv Select_notEmpty: self.copias->select(c| c.estadoDeLaCopia = 'Bueno')->notEmpty()  --Al menos una de las copias esta en buen estado.
 
-context Copia
-	inv numeroDeCopiaObligatorio:self.numeroDeCopia<>''	
 
-context Autor
-	inv nombreObligatorio: ''<> nombre
-	inv datosCompletos: not (nombre = '') or not (nacionalidad= '')
+	context Socio
+		inv Implies: self.suspendido implies self.multas->exists(m| m.impagaPorMasDe3Meses) --Como no se permiten operaciones con Dates, agregue el boolean en multas.
+		inv Comparacion_Size: self.multas->size() <= self.prestamos->size()
 	
-context Socio
-	inv socioSinMultas: self.multas->isEmpty()
-	inv socioTienePrestamo: self.prestamos->notEmpty()
-	inv datosIncompletos: self.nombreCompleto='' or self.direccion=''
-	inv numValidoMultas: self.multas->size()<=self.prestamos->size()
-	inv tienePrestamoActivo: self.prestamos->select(p|p.fechaDeDevolucion=null)->size()>=1
-	inv prestamosCopiasCorrectas: self.prestamos->select(p|p.fechaDeDevolucion='' implies p.copia.estadoDeLaCopia='malo')->size()=0
-	
-context Prestamo
-	inv fechaObligatorias: self.fechaDeInicio<>'' and self.fechaDeFin<>''
-	
-context Multa
-	inv prestamoObligatorio: self.prestamo<>''
+	context Autor
+		inv Compuesta: self.nombre <> '' and self.apellido <> '' and self.nacionalidad <> ''
+		inv forAll: self.obras->forAll(o| o.fechaDeEdicion >= self.fechaDeLaPrimerPublicacion)
 
+		
+	context Multa
+		inv Simple_Comparacion: self.fechaDeInicio <= self.fechaDePago
+
+
+--context Copias
+
+--context Prestamo
 endpackage
