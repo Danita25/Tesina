@@ -98,11 +98,12 @@ public class TraducirDesdeXtext {
 		TraducirDesdeXtext xtext = new TraducirDesdeXtext();
 		FileInputStream f = new FileInputStream("C:\\Users\\Danae\\git\\OCL2LNR_Transformador\\models\\LNR_Output.xmi");
 		EObject result = xtext.parseXmi(f);
-		if (xtext.testOutput(xtext.serialize(result))) {
+		String actual = xtext.serialize(result);
+		if (xtext.testOutput(actual)) {
 			System.out.println("TEST PASSED");}
 		else {
 			System.out.println("TEST FAILED");
-			System.out.println(xtext.serialize(result));
+			System.out.println(actual);
 		}
 		
 
@@ -110,10 +111,13 @@ public class TraducirDesdeXtext {
 	
 	public boolean testOutput (String actual){
 		String expected = "\"Las siguientes afirmaciones deben ser verdaderas en el sistema:\" .\r\n"
+				+ " el/la cantidad de libros de un/una Biblioteca es mayor que \"0\" .\r\n"
+				+ " entre los/las empleados de un/una Biblioteca existe uno/una tal que el/la rol de un/una Empleado es igual a \"Bibliotecario/a\" .\r\n"
+			
 				+ " el/la cantidad de libros de un/una Biblioteca tal que el/la titulo de un/una Libro es igual a \"El Alquimista\" es mayor que \"5\" .\r\n"
 				+ " el/la cantidad de libros de un/una Biblioteca tal que el/la nombre de el/la autor de un/una Libro es igual a \"Paulo Coelho\" y el/la titulo de un/una Libro es igual a \"El Alquimista\" es mayor que \"1\" .\r\n"
 				+ " el/la cantidad de libros de un/una Biblioteca tal que si el/la titulo de un/una Libro es igual a \"El Alquimista\" entonces el/la nombre de el/la autor de un/una Libro es igual a \"Paulo Coelho\" es mayor que \"1\" .\r\n"
-				+ " todos los/las libros de un/una Biblioteca satisfacen que el/la anioDeEdicion de un/una Libro es mayor que \"1900\" .\r\n"
+				+ " todos los/las libros de un/una Biblioteca satisfacen que el/la fechaDeEdicion de un/una Libro es mayor que \"01-01-1900\" .\r\n"
 				+ " entre los/las libros de un/una Biblioteca existe uno/una tal que el/la titulo de un/una Libro es igual a \"El Principito\" .\r\n"
 				+ " entre los/las libros de un/una Biblioteca existe uno/una tal que el/la nombre de el/la autor de un/una Libro es igual a \" Antoine de Saint-Exupery\" y el/la titulo de un/una Libro es igual a \"El Principito\" .\r\n"
 				+ " entre los/las libros de un/una Biblioteca existe uno/una tal que el/la titulo de un/una Libro es igual a \"El Principito\" y entre los/las libros de un/una Biblioteca existe uno/una tal que el/la titulo de un/una Libro es igual a \"Harry potter\" .\r\n"
@@ -122,6 +126,11 @@ public class TraducirDesdeXtext {
 				+ " el/la cantidad de libros de un/una Biblioteca tal que el/la titulo de un/una Libro es igual a \"Veronica decide morir\" y el/la nombre de el/la autor de un/una Libro es igual a \"Paulo Coelho\" es mayor que \"0\" .\r\n"
 				+ " todos los/las libros de un/una Biblioteca tal que el/la nombre de el/la autor de un/una Libro es igual a \"Paulo Coelho\" satisfacen que el/la editorial de un/una Libro es igual a \"Planeta\" .\r\n"
 				+ " todos los/las libros de un/una Biblioteca satisfacen que si el/la nombre de el/la autor de un/una Libro es igual a \"Paulo Coelho\" entonces el/la editorial de un/una Libro es igual a \"Planeta\" .\r\n"
+				
+				+ " el/la edad de un/una Empleado es mayor o igual a \"18\" .\r\n"
+				+ " el/la cantidad de copias de un/una Libro es mayor o igual a \"1\" .\r\n"
+				+ " el/la cantidad de copias de un/una Libro tal que el/la estadoDeLaCopia de un/una Copia es igual a \"Bueno\" es mayor que \"0\" .\r\n"
+				
 				+ " el/la titulo de un/una Libro es distinto de \"\" .\r\n"
 				+ " el/la titulo de un/una Libro no es igual a \"\" .\r\n"
 				+ " si el/la titulo de un/una Libro es igual a \"El Alquimista\" entonces el/la nombre de el/la autor de un/una Libro es igual a \"Paulo Coelho\" .\r\n"
@@ -130,12 +139,16 @@ public class TraducirDesdeXtext {
 				+ " el/la cantidad de copias de un/una Libro es igual a \"0\" .\r\n"
 				+ " el/la cantidad de copias de un/una Libro es mayor que \"0\" .\r\n"
 				+ " el/la cantidad de prestamos de el/la solicitante de un/una Prestamo es mayor o igual a \"1\" .\r\n"
-				+ " el/la cantidad de prestamos de el/la solicitante de un/una Prestamo tal que el/la fechaFin de un/una Prestamo es distinto de \"1980\" es mayor o igual a \"1\" .\r\n"
-				+ " el/la nombreCompleto de un/una Socio es distinto de \"\" o el/la direccion de un/una Socio es distinto de \"\" .\r\n"
-				+ " el/la nombreCompleto de un/una Socio es distinto de \"\" y el/la direccion de un/una Socio es distinto de \"\" .\r\n"
+				+ " el/la cantidad de prestamos de el/la solicitante de un/una Prestamo tal que el/la fechaDeFin de un/una Prestamo es distinto de \"1980\" es mayor o igual a \"1\" .\r\n"
+				
+				+ " el/la apellido de un/una Socio es distinto de \"\" y el/la nombre de un/una Socio es distinto de \"\" y el/la direccion de un/una Socio es distinto de \"\" .\r\n"
+				
+				+ " el/la nombre de un/una Socio es distinto de \"\" o el/la direccion de un/una Socio es distinto de \"\" .\r\n"
+				+ " el/la nombre de un/una Socio es distinto de \"\" y el/la direccion de un/una Socio es distinto de \"\" .\r\n"
 				+ " el/la cantidad de multas de un/una Socio es menor o igual a el/la cantidad de prestamos de un/una Socio .\r\n";
 			 	
 		//System.out.println("EXPECTED\r\n"+expected);
+		System.out.println("ACTUAL\r\n"+actual);
 		Assert.assertEquals(expected, actual);
 		return expected.equals(actual);
 	}

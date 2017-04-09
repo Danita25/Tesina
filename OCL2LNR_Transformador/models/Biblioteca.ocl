@@ -1,9 +1,16 @@
 import 'Biblioteca.ecore'
 --OCL del usuario
 package Biblioteca
-
-	context Biblioteca
+	--empledo nuevas invariantes
+	context Empleado
+		inv Simple: self.edad >= 18
 				
+	context Biblioteca
+		--nuevos
+		inv NotEmpty: self.libros->notEmpty()	
+		inv exist: self.empleados->exists(e| e.rol = 'Bibliotecario/a')
+		
+		--viejos		
 		inv Select_Size: 
 			self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
 
@@ -15,7 +22,7 @@ package Biblioteca
 
 		
 		inv forAll:
-			self.libros->forAll(l | l.anioDeEdicion > 1900)
+		self.libros->forAll(l | l.fechaDeEdicion > '01-01-1900')
 
 		inv exist:
 			self.libros->exists(l | l.titulo = 'El Principito')
@@ -31,7 +38,14 @@ package Biblioteca
 
 		inv select_isEmpty: self.libros->select(l| l.titulo = 'El caballero de la armadura oxidada')->isEmpty()
 
+
+	
 	context Libro
+		--nuevo
+		inv Size: self.copias->size() >= 1 
+		inv Select_notEmpty: self.copias->select(c| c.estadoDeLaCopia = 'Bueno')->notEmpty()  --Al menos una de las copias esta en buen estado.
+		
+		--viejos 
 		inv property_distinto:
 				self.titulo <> '' 
 		
@@ -54,12 +68,17 @@ package Biblioteca
 			self.copias->notEmpty()
 
 	context Socio
-
-		inv datosCompletos:
-			self.direccion <> '' or self.nombreCompleto <> ''
+		--nueva
+		inv multiples_Ands:
+			self.direccion <> '' and self.nombre <> '' and self.apellido <> ''
 	
+	--viejos
+		inv datosCompletos:
+			self.direccion <> '' or self.nombre <> ''
+	
+		
 		inv datosCompletos2:
-			self.direccion <> '' and self.nombreCompleto <> ''
+			self.direccion <> '' and self.nombre <> '' 
 	
 		inv nMultas:
 			self.multas->size() <= self.prestamos->size()
@@ -71,7 +90,7 @@ package Biblioteca
 		self.solicitante.prestamos->size() >= 1
 		
 	inv test3:
-		self.solicitante.prestamos->select(p | p.fechaFin <> 1980)->size() >= 1
+		self.solicitante.prestamos->select(p | p.fechaDeFin <> 1980)->size() >= 1
 		
 
 

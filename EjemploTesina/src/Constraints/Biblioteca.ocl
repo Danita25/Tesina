@@ -1,47 +1,34 @@
-import Biblioteca: '../model/Biblioteca.ecore'
+import '../model/Biblioteca.ecore'
 
 package Biblioteca
 
-context Biblioteca
-	inv datos_completos_2: self.nombre<>'' and self.direccion<>''
-	inv no_vacio:self.libros->notEmpty()
-	inv para_todos:self.libros->forAll(l | l.autor<>'')
-	--deje el del documento porque no se me ocurre otro ejemplo
-	inv exist_and_condition:self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery') 
-	inv exist_and_exist:
-	    self.libros->exists(l | l.TipoDeLibro = 'novela') 
-	    and
-		self.libros->exists(l | l.TipoDeLibro = 'teatro') 
-		and
-		self.libros->exists(l | l.TipoDeLibro = 'poesia') 
-		and
-		self.libros->exists(l | l.TipoDeLibro = 'ensayo') 
-	 inv select_forAll: self.socios->select(s | s.activo=true)->forAll(s | s.nombreCompleto<>'')
+	context Biblioteca
+	 	inv NotEmpty: self.libros->notEmpty()
+	 	--inv forAll: self.empleados->forAll(e| e.edad >= 18)
+ 		inv exist: self.empleados->exists(e| e.rol = 'Bibliotecario/a')    --Al menos uno de los empleados es un bbliotecario/a para poder organizar los libros.
+ 		
+	context Empleado
+		inv Simple: self.edad >= 18
+		
+	context Libro  
+		inv Size: self.copias->size() >= 1 
+	   	inv Select_notEmpty: self.copias->select(c| c.estadoDeLaCopia = 'Bueno')->notEmpty()  --Al menos una de las copias esta en buen estado.
 
-context Libro
-	inv negacion: not (self.titulo = '')
-	inv size_mayor_a_cero:self.copias->size()>=1
-	inv exists:self.copias->exists(c | c.estadoDeLaCopia<>'reparacion')
-	
-context Multa
-	inv condition_implies_condition: self.fechaDeFin<>'' implies self.prestamo<>''
-	inv not_and_DeMorgan: not (self.prestamo = '') or not (self.Socio = '')
-	
-	
-context Socio
-	inv datos_completos: self.nombreCompleto='' or self.direccion='' or self.numeroDeSocio='' or self.telefono='' or self.fechaDeNacimiento=''
-	inv condicion_literalIzq:''<>self.nombreCompleto	
-	inv compara_menor_igual: self.multas->size() <= self.prestamos->size()
-	inv select_and_size: self.prestamos->select(p | p.fechaDeDevolucion='')->size() <=3
-	inv select_implies_size:self.prestamos->select(p | p.fechaDeFin<>'' implies p.fechaDeInicio.esAnterior(p.fechaDeFin))->size()=self.prestamos->size()
-	inv select_isEmpty:self.prestamos->select(p | p.fechaDeFin='')->isEmpty()
-	--con esto se me ocurrio mostrar que el socio no puede tener dos prestamos del mismo libro activos
-	inv select_exist:self.prestamos->select(p | p.fechaDeDevolucion='')->exists(p1, p2|p1.copia.libro<>p2.copia.libro)
-	inv forAll_implies: self.prestamos->forAll(p|p.fechaDeDevolucion <> '' implies p.copia.estadoDeLaCopia='prestado')
-	inv activo_valida: self.prestamos->select(p | p.fechaDeDevolucion<>'')->size()>0 implies self.activo = true
 
-context Autor
-	inv property_distinto: self.nombre<>''
+	context Socio
+		inv Implies: self.suspendido implies self.multas->exists(m| m.impagaPorMasDe3Meses) --Como no se permiten operaciones con Dates, agregue el boolean en multas.
+		inv Comparacion_Size: self.multas->size() <= self.prestamos->size()
 	
+	context Autor
+		inv Compuesta: self.nombre <> '' and self.apellido <> '' and self.nacionalidad <> ''
+		inv forAll: self.obras->forAll(o| o.fechaDeEdicion >= self.fechaDeLaPrimerPublicacion)
 
+		
+	context Multa
+		inv Simple_Comparacion: self.fechaDeInicio <= self.fechaDePago
+
+
+--context Copias
+
+--context Prestamo
 endpackage
