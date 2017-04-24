@@ -29,10 +29,11 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
 import tesinapruebaconcepto.Activator;
+import tesinapruebaconcepto.exception.genericException;
 import transformation.OCL2LNR;
 
 
-public class Traducir implements IObjectActionDelegate {
+public class Traducir extends AbstractTraducir implements IObjectActionDelegate {
 
 	private Shell shell;
 	private EcorePackage ecorePackage;
@@ -60,23 +61,23 @@ public class Traducir implements IObjectActionDelegate {
 		IEditorInput input= editor.getEditorInput();
 		IFile sourceFile = input.getAdapter(IFile.class);
 
-		//Obtener nomber del projecto activo.
+		//Obtener nombre del projecto activo.
 		IProject myProject = sourceFile.getProject();
 		
 		//Crear carpeta Traducciones (solo si no existe)
-		IFolder filesFolder = myProject.getFolder("Traducciones");
+		IFolder filesFolder = myProject.getFolder(FOLDER_SRC_TRADUCCIONES);
 		if (!filesFolder.exists()){
 			try {
 				filesFolder.create(false, true, null);
 			} catch (CoreException e) {
-				System.out.println("Creacion de carpeta Traducciones ha fallado.");
-				e.printStackTrace();
+				throw new genericException(
+						String.format("Creacion de carpeta Traducciones ha fallado. %s", e.getMessage()), e);
 			}
 		}
 		try {
 			this.traducirOCL(sourceFile);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new genericException(e);
 		}
 	}
 	
@@ -94,27 +95,27 @@ public class Traducir implements IObjectActionDelegate {
 		copyRequiredFiles(sourceFile); //Copia los archivos .ocl.oclas y .ecore a la carpeta models que se encuentra en el projecto Transformador.
 
 		//Transformacion en ATL 
-		String FilePathXmiStr = getATLModelsURL()+"OCL2LNR_Output.xmi";
-		String FilePathOclasStr = getATLModelsURL() + sourceFile.getName().replace("ocl.", ""); //por alguna razon remueve el .ocl del .ocl.oclas
+		String FilePathXmiStr = getATLModelsURL().concat( FILE_XMI);
+		String FilePathOclasStr = getATLModelsURL().concat(sourceFile.getName().replace(CLEAN_OCL, VACIO)); //por alguna razon remueve el .ocl del .ocl.oclas
 		
-		OCL2LNR.run("file://"+FilePathOclasStr, "file://"+FilePathXmiStr);
+		OCL2LNR.run(FILE.concat(FilePathOclasStr), FILE.concat(FilePathXmiStr));
 	
 		//Traducir XMI usando Xtext
 		TraducirDesdeXtext xtext = new TraducirDesdeXtext();
 		FileInputStream f = new FileInputStream(FilePathXmiStr);
 		EObject result = xtext.parseXmi(f);
 		System.out.println(xtext.serialize(result));
-		String srcDir = (sourceFile.getLocation().removeLastSegments(2).toString())+"/";
-	    DateFormat df = new SimpleDateFormat("dd-MM-yy-HHmmss");
+		String srcDir = (sourceFile.getLocation().removeLastSegments(2).toString()).concat(BARRA_INVERTIDA);
+	    DateFormat df = new SimpleDateFormat(FORMAT_DATE);
 		String now = df.format(new Date()).toString();
-		String outputFileName = srcDir +"Traducciones/"+ sourceFile.getName().replace(".ocl.oclas", "_"+now)+ ".lnr";
+		String outputFileName = srcDir.concat(FOLDER_TRADUCCIONES.concat(sourceFile.getName().replace(CLEAN_OCL_OCLAS,GUION_BAJO.concat(now)).concat(EXTENSION_LNR)));
 		FileOutputStream os = new FileOutputStream(outputFileName);
 		xtext.writeLnr(os, result);
 		
 		//Remover archivos movidos al proyecto transformador (.ocl, .ecore, .xmi)
 		Files.deleteIfExists(Paths.get(FilePathXmiStr));
 		Files.deleteIfExists(Paths.get(FilePathOclasStr));
-		Files.deleteIfExists(Paths.get(getATLModelsURL() + sourceFile.getName().replace("ocl.", "")));
+		Files.deleteIfExists(Paths.get(getATLModelsURL().concat(sourceFile.getName().replace(CLEAN_OCL, VACIO))));
 		
 		//Refresh del projecto de usuaio para mostrar el nuevo archivo generado.
 		sourceFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
@@ -126,18 +127,18 @@ public class Traducir implements IObjectActionDelegate {
 		String destDir = getATLModelsURL();
 	
 		//Determinar path del projecto que contiene el archivo .ocl.oclas
-		String srcDir = (sourceFile.getLocation().removeLastSegments(1).toString())+"/";
+		String srcDir = (sourceFile.getLocation().removeLastSegments(1).toString()).concat(BARRA_INVERTIDA);
 		
 		//Mover el archivo ocl.oclas
-		Files.copy(Paths.get(srcDir + sourceFile.getName()), Paths.get(destDir + sourceFile.getName().replace("ocl.", "")) , StandardCopyOption.REPLACE_EXISTING);
+		Files.copy(Paths.get(srcDir.concat(sourceFile.getName())), Paths.get(destDir.concat(sourceFile.getName().replace(CLEAN_OCL, VACIO))) , StandardCopyOption.REPLACE_EXISTING);
 
 		//mover el archivo .ecore  que posee el mismo nombre que el archivo ocl.oclas
-		String sourceStr = sourceFile.getName().split(".ocl")[0].concat(".ecore");
-		Files.copy( Paths.get(srcDir + sourceStr),  Paths.get(destDir + sourceStr) , StandardCopyOption.REPLACE_EXISTING);
+		String sourceStr = sourceFile.getName().split(EXTENSION_OCL)[0].concat(EXTENSION_ECORE);
+		Files.copy( Paths.get(srcDir.concat(sourceStr)),  Paths.get(destDir.concat(sourceStr)) , StandardCopyOption.REPLACE_EXISTING);
 	}
 
 	private String getATLModelsURL() {
-		return Platform.getBundle("OCL2LNR_Transformador").getLocation().replaceAll("reference:file:/", "").concat("models/");
+		return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE, VACIO).concat(FOLDER_MODELS);
 	}
 
 	public Shell getShell() {
