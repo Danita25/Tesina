@@ -27,6 +27,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.SubActionBars;
 
 import tesinapruebaconcepto.Activator;
 import tesinapruebaconcepto.exception.genericException;
@@ -138,7 +139,11 @@ public class Traducir extends AbstractTraducir implements IObjectActionDelegate 
 	}
 
 	private String getATLModelsURL() {
-		return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE, VACIO).concat(FOLDER_MODELS);
+		if((Platform.getLocation().toString().substring(0, 1).equals("/"))){
+			return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE_LINUX, VACIO).concat(FOLDER_MODELS);
+		}else{
+			return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE_WINDOWS, VACIO).concat(FOLDER_MODELS);
+		}
 	}
 
 	public Shell getShell() {
