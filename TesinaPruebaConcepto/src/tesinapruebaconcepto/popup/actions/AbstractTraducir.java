@@ -26,7 +26,7 @@ abstract class AbstractTraducir {
 	
 	protected static final String GUION_BAJO="_";
 	
-	protected static final String REFERENCE_FILE="reference:file:";
+	protected static final String REFERENCE_FILE="reference:file:/";
 	
 	protected static final String VACIO="";
 	
