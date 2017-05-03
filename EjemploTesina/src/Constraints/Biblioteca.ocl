@@ -1,4 +1,4 @@
-import '../model/Biblioteca.ecore'
+import ecore : '../model/Biblioteca.ecore'
 
 package Biblioteca
 

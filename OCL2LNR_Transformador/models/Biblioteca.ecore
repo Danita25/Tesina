@@ -33,7 +33,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeEdicion" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TipoDeLibro" eType="#//TipoDeLibro"
-        defaultValueLiteral="Desconocido"/>
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="autor" lowerBound="1" eType="#//Autor"
         eOpposite="#//Autor/obras"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="copias" lowerBound="1"
@@ -52,13 +52,12 @@
     <eLiterals name="Malo" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TipoDeLibro">
-    <eLiterals name="Lirico" value="6"/>
+    <eLiterals name="Lirico"/>
     <eLiterals name="Epico" value="1"/>
     <eLiterals name="Narrativo" value="2"/>
     <eLiterals name="Dramatico" value="3"/>
     <eLiterals name="Didactico" value="4"/>
     <eLiterals name="Terror" value="5"/>
-    <eLiterals name="Desconocido" literal="Desconocido"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Autor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
@@ -82,8 +81,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeDevolucion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="copia" lowerBound="1" eType="#//Copia"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="solicitante" lowerBound="1"
-        eType="#//Socio"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Socio">
     <eOperations name="solicitarPrestamo" eType="#//Prestamo">

@@ -1,106 +1,122 @@
 import 'Biblioteca.ecore'
 --OCL del usuario
 package Biblioteca
-	--empledo nuevas invariantes
-	context Empleado
-		inv Simple: self.edad >= 18
-				
-	context Biblioteca
-		--nuevos
-		inv NotEmpty: self.libros->notEmpty()	
-		inv exist: self.empleados->exists(e| e.rol = 'Bibliotecario/a')
-		
-		--viejos		
-		inv Select_Size: 
-			self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
-
-		inv Select_And_Size:
-			self.libros->select(l | l.titulo = 'El Alquimista' and l.autor.nombre = 'Paulo Coelho')->size() > 1			
-			
-		inv Select_Implies_Size:
-			self.libros->select(l | l.titulo = 'El Alquimista' implies l.autor.nombre = 'Paulo Coelho')->size() > 1
-
-		
-		inv forAll:
-		self.libros->forAll(l | l.fechaDeEdicion > '01-01-1900')
-
-		inv exist:
-			self.libros->exists(l | l.titulo = 'El Principito')
-
-		inv exist_And_Condition:
-			self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
-
-		inv exist_And_exist:
-			self.libros->exists(l | l.titulo = 'El Principito') 
-				and
-			self.libros->exists(l | l.titulo = 'Harry potter') 
-	
-
-		inv select_isEmpty: self.libros->select(l| l.titulo = 'El caballero de la armadura oxidada')->isEmpty()
+  context Biblioteca
+    inv NotEmpty: self.libros->notEmpty()
+    --inv forAll: self.empleados->forAll(e| e.edad >= 18)
+    inv exist: self.empleados->exists(e| e.rol = 'Bibliotecario/a')    --Al menos uno de los empleados es un bbliotecario/a para poder organizar los libros.
+    
+  context Empleado
+    inv Simple: self.edad >= 18
+    
+  context Libro  
+    inv Size: self.copias->size() >= 1 
+      inv Select_notEmpty: self.copias->select(c| c.estadoDeLaCopia = 'Bueno')->notEmpty()  --Al menos una de las copias esta en buen estado.
 
 
-	
-	context Libro
-		--nuevo
-		inv Size: self.copias->size() >= 1 
-		inv Select_notEmpty: self.copias->select(c| c.estadoDeLaCopia = 'Bueno')->notEmpty()  --Al menos una de las copias esta en buen estado.
-		
-		--viejos 
-		inv property_distinto:
-				self.titulo <> '' 
-		
-		inv negacion: not (self.titulo = '')
-		
-		inv condition_implies_condition:
-				self.titulo = 'El Alquimista' implies self.autor.nombre = 'Paulo Coelho'
+  context Socio
+    inv Implies: self.suspendido implies self.multas->exists(m| m.impagaPorMasDe3Meses) --Como no se permiten operaciones con Dates, agregue el boolean en multas.
+    inv Comparacion_Size: self.multas->size() <= self.prestamos->size()
+  
+  context Autor
+    inv Compuesta: self.nombre <> '' and self.apellido <> '' and self.nacionalidad <> ''
+    inv forAll: self.obras->forAll(o| o.fechaDeEdicion >= self.fechaDeLaPrimerPublicacion)
+
+    
+  context Multa
+    inv Simple_Comparacion: self.fechaDeInicio <= self.fechaDePago
+--		
+--		--viejos		
+--		inv Select_Size: 
+--			self.libros->select(l | l.titulo = 'El Alquimista')->size() > 5
+--
+--		inv Select_And_Size:
+--			self.libros->select(l | l.titulo = 'El Alquimista' and l.autor.nombre = 'Paulo Coelho')->size() > 1			
+--			
+--		inv Select_Implies_Size:
+--			self.libros->select(l | l.titulo = 'El Alquimista' implies l.autor.nombre = 'Paulo Coelho')->size() > 1
+--
+--		
+--		inv forAll:
+--		self.libros->forAll(l | l.fechaDeEdicion > '01-01-1900')
+--
+--		inv exist:
+--			self.libros->exists(l | l.titulo = 'El Principito')
+--
+--		inv exist_And_Condition:
+--			self.libros->exists(l | l.titulo = 'El Principito' and l.autor.nombre = ' Antoine de Saint-Exupery')
+--
+--		inv exist_And_exist:
+--			self.libros->exists(l | l.titulo = 'El Principito') 
+--				and
+--			self.libros->exists(l | l.titulo = 'Harry potter') 
 --	
+--
+--		inv select_isEmpty: self.libros->select(l| l.titulo = 'El caballero de la armadura oxidada')->isEmpty()
+--
+--
+--	
+--	context Libro
+		--nuevo
+--		inv Size: self.copias->size() >= 1 
+--		inv Select_notEmpty: self.copias->select(c| c.estadoDeLaCopia = 'Bueno')->notEmpty()  --Al menos una de las copias esta en buen estado.
+--		
+--		--viejos 
+--		inv property_distinto:
+--				self.titulo <> '' 
+--		
+--		inv negacion: not (self.titulo = '')
+--		
+--		inv condition_implies_condition:
+--				self.titulo = 'El Alquimista' implies self.autor.nombre = 'Paulo Coelho'
+----	
+--
+--        inv tieneTitulo2:
+--        		'' <> self.titulo
+--
+--		inv tieneCopias:
+--			self.copias->size() > 6
+--	
+--		inv noCopias:
+--			self.copias->isEmpty()
+--	
+--		inv alMenosUnaCopia:
+--			self.copias->notEmpty()
 
-        inv tieneTitulo2:
-        		'' <> self.titulo
-
-		inv tieneCopias:
-			self.copias->size() > 6
+--	context Socio
+--		--nueva
+--		inv multiples_Ands:
+--			self.direccion <> '' and self.nombre <> '' and self.apellido <> ''
 	
-		inv noCopias:
-			self.copias->isEmpty()
-	
-		inv alMenosUnaCopia:
-			self.copias->notEmpty()
-
-	context Socio
-		--nueva
-		inv multiples_Ands:
-			self.direccion <> '' and self.nombre <> '' and self.apellido <> ''
-	
-	--viejos
-		inv datosCompletos:
-			self.direccion <> '' or self.nombre <> ''
-	
-		
-		inv datosCompletos2:
-			self.direccion <> '' and self.nombre <> '' 
-	
-		inv nMultas:
-			self.multas->size() <= self.prestamos->size()
-
-
-	context Prestamo
-
-	inv test2:
-		self.solicitante.prestamos->size() >= 1
-		
-	inv test3:
-		self.solicitante.prestamos->select(p | p.fechaDeFin <> 1980)->size() >= 1
-		
-
-
-
---	--Casos que la gramatica no son posibles de traducir.
-	context Biblioteca 
-		inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
-		inv select_exist: self.libros->select(l| l.autor.nombre = 'Paulo Coelho' and l.titulo = 'Veronica decide morir')->size() > 0
-		inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
-		inv select_forAll: self.libros->forAll(l| l.autor.nombre = 'Paulo Coelho' implies l.editorial = 'Planeta')
+--	--viejos
+--		inv datosCompletos:
+--			self.direccion <> '' or self.nombre <> ''
+--	
+--		
+--		inv datosCompletos2:
+--			self.direccion <> '' and self.nombre <> '' 
+--	
+--		inv nMultas:
+--			self.multas->size() <= self.prestamos->size()
+--
+--
+--	context Prestamo
+--
+--	inv test2:
+--		self.solicitante.prestamos->size() >= 1
+--		
+--	inv test3:
+--		self.solicitante.prestamos->select(p | p.fechaDeFin <> 1980)->size() >= 1
+--		
+--
+--
+--
+----	--Casos que la gramatica no son posibles de traducir.
+--	context Biblioteca 
+--		inv select_exist_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->exists(l| l.titulo = 'Veronica decide morir')
+--		inv select_exist: self.libros->select(l| l.autor.nombre = 'Paulo Coelho' and l.titulo = 'Veronica decide morir')->size() > 0
+--		inv select_forAll_invalida: self.libros->select(l| l.autor.nombre = 'Paulo Coelho')->forAll(l| l.editorial = 'Planeta')
+--		inv select_forAll: self.libros->forAll(l| l.autor.nombre = 'Paulo Coelho' implies l.editorial = 'Planeta')
 
 --	context Libro
 
@@ -115,7 +131,7 @@ package Biblioteca
 
 --Ejemplos con mas sentido 
 --context Autor
---	inv Autor_0: 
---		self.obras->forAll(o| o.fechaDeEscritura > self.fechaDeNacimiento)
+--	inv forAll: 
+--		self.obras->forAll(o| o.fechaDeEdicion > self.fechaDeLaPrimerPublicacion)
 		
 endpackage

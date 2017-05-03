@@ -33,9 +33,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		
 		//Documento:
 		//	encabezado=Literal FinOracion
-		//	oraciones+=Oracion*
-		//	//		extraStr = STRING
-		//;
+		//	oraciones+=Oracion*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//encabezado=Literal FinOracion oraciones+=Oracion*
@@ -304,8 +302,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		//Propiedad:
 		//	atributo+=Atributo+
 		//	termino=Termino?
-		//	iteracion+=Iteracion* //coleccion
-		//;
+		//	iteracion+=Iteracion*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//atributo+=Atributo+ termino=Termino? iteracion+=Iteracion*
@@ -340,6 +337,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		private final Assignment cContenidoAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cContenidoContenidoParserRuleCall_1_0 = (RuleCall)cContenidoAssignment_1.eContents().get(0);
 		
+		////coleccion
 		//Iteracion:
 		//	condicion=('tal que' | 'satisfacen que' | 'existe uno/una tal que') contenido=Contenido;
 		@Override public ParserRule getRule() { return rule; }
@@ -611,9 +609,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	
 	//Documento:
 	//	encabezado=Literal FinOracion
-	//	oraciones+=Oracion*
-	//	//		extraStr = STRING
-	//;
+	//	oraciones+=Oracion*;
 	public DocumentoElements getDocumentoAccess() {
 		return pDocumento;
 	}
@@ -721,8 +717,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 	//Propiedad:
 	//	atributo+=Atributo+
 	//	termino=Termino?
-	//	iteracion+=Iteracion* //coleccion
-	//;
+	//	iteracion+=Iteracion*;
 	public PropiedadElements getPropiedadAccess() {
 		return pPropiedad;
 	}
@@ -731,6 +726,7 @@ public class LenguajeNaturalReducidoGrammarAccess extends AbstractGrammarElement
 		return getPropiedadAccess().getRule();
 	}
 	
+	////coleccion
 	//Iteracion:
 	//	condicion=('tal que' | 'satisfacen que' | 'existe uno/una tal que') contenido=Contenido;
 	public IteracionElements getIteracionAccess() {
