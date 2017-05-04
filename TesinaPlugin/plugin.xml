@@ -17,7 +17,7 @@
             </separator>
          </menu>
          <action
-               label="Tranducir OCL a LN"
+               label="Traducir OCL a LN"
                class="tesinapruebaconcepto.popup.actions.Traducir"
                menubarPath="TesinaPruebaConcepto.menu1/group1"
                enablesFor="1"
