@@ -16,6 +16,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -105,7 +106,6 @@ public class Traducir extends AbstractTraducir implements IObjectActionDelegate 
 		TraducirDesdeXtext xtext = new TraducirDesdeXtext();
 		FileInputStream f = new FileInputStream(FilePathXmiStr);
 		EObject result = xtext.parseXmi(f);
-		System.out.println(xtext.serialize(result));
 		String srcDir = (sourceFile.getLocation().removeLastSegments(2).toString()).concat(BARRA_INVERTIDA);
 	    DateFormat df = new SimpleDateFormat(FORMAT_DATE);
 		String now = df.format(new Date()).toString();
@@ -139,7 +139,7 @@ public class Traducir extends AbstractTraducir implements IObjectActionDelegate 
 	}
 
 	private String getATLModelsURL() {
-		if((Platform.getLocation().toString().substring(0, 1).equals("/"))){
+		if((System.getProperty(OS).equals(OS_LINUX))){
 			return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE_LINUX, VACIO).concat(FOLDER_MODELS);
 		}else{
 			return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE_WINDOWS, VACIO).concat(FOLDER_MODELS);
