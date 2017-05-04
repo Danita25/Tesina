@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: TesinaPruebaConcepto
-Bundle-SymbolicName: TesinaPlugin;singleton:=true
+Bundle-SymbolicName: TesinaPruebaConcepto;singleton:=true
 Bundle-Version: 1.0.0.1
 Bundle-Activator: tesinapruebaconcepto.Activator
 Bundle-ClassPath: .
