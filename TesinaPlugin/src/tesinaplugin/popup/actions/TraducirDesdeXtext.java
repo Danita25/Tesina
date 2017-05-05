@@ -1,4 +1,4 @@
-package tesinapruebaconcepto.popup.actions;
+package tesinaplugin.popup.actions;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package tesinapruebaconcepto;
+package tesinaplugin;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

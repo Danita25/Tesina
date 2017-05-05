@@ -1,4 +1,4 @@
-package tesinapruebaconcepto.popup.actions;
+package tesinaplugin.popup.actions;
 
 
 import java.io.FileInputStream;
@@ -30,8 +30,8 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.SubActionBars;
 
-import tesinapruebaconcepto.Activator;
-import tesinapruebaconcepto.exception.genericException;
+import tesinaplugin.Activator;
+import tesinaplugin.exception.genericException;
 import transformation.OCL2LNR;
 
 

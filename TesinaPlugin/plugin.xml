@@ -6,22 +6,22 @@
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             objectClass="org.eclipse.ui.IEditorInput"
-            id="TesinaPruebaConcepto.contribution1"
+            id="TesinaPlugin.contribution1"
             nameFilter="*.ocl.oclas">
          <menu
                label="Traducir"
                path="additions"
-               id="TesinaPruebaConcepto.menu1">
+               id="TesinaPlugin.menu1">
             <separator
                   name="group1">
             </separator>
          </menu>
          <action
                label="Traducir OCL a LN"
-               class="tesinapruebaconcepto.popup.actions.Traducir"
-               menubarPath="TesinaPruebaConcepto.menu1/group1"
+               class="tesinaplugin.popup.actions.Traducir"
+               menubarPath="TesinaPlugin.menu1/group1"
                enablesFor="1"
-               id="TesinaPruebaConcepto.newAction">
+               id="TesinaPlugin.newAction">
          </action>
       </objectContribution>
     </extension>

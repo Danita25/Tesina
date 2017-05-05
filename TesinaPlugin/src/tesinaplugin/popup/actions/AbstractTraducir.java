@@ -1,4 +1,4 @@
-package tesinapruebaconcepto.popup.actions;
+package tesinaplugin.popup.actions;
 
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.swt.widgets.Shell;

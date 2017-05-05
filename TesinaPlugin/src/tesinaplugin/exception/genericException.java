@@ -1,4 +1,4 @@
-package tesinapruebaconcepto.exception;
+package tesinaplugin.exception;
 
 public class genericException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
