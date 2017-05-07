@@ -139,10 +139,10 @@ public class Traducir extends AbstractTraducir implements IObjectActionDelegate 
 	}
 
 	private String getATLModelsURL() {
-		if((System.getProperty(OS).equals(OS_LINUX))){
-			return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE_LINUX, VACIO).concat(FOLDER_MODELS);
-		}else{
+		if(System.getProperty(OS).startsWith(OS_WIN)){
 			return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE_WINDOWS, VACIO).concat(FOLDER_MODELS);
+		}else{
+			return Platform.getBundle(PROJECT_TRANSFORMADOR).getLocation().replaceAll(REFERENCE_FILE_OTHERS, VACIO).concat(FOLDER_MODELS);
 		}
 	}
 

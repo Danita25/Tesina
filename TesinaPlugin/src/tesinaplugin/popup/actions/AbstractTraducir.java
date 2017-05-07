@@ -27,10 +27,11 @@ abstract class AbstractTraducir {
 	protected static final String GUION_BAJO="_";
 	
 	protected static final String OS="os.name";
-	protected static final String OS_LINUX="Linux";
+
+	protected static final String OS_WIN="Windows";
 	
 	protected static final String REFERENCE_FILE_WINDOWS="reference:file:/";
-	protected static final String REFERENCE_FILE_LINUX="reference:file:";
+	protected static final String REFERENCE_FILE_OTHERS="reference:file:";
 	
 	protected static final String VACIO="";
 	
