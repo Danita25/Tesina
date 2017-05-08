@@ -98,7 +98,7 @@ public class Traducir extends AbstractTraducir implements IObjectActionDelegate 
 
 		//Transformacion en ATL 
 		String FilePathXmiStr = getATLModelsURL().concat( FILE_XMI);
-		String FilePathOclasStr = getATLModelsURL().concat(sourceFile.getName().replace(CLEAN_OCL, VACIO)); //por alguna razon remueve el .ocl del .ocl.oclas
+		String FilePathOclasStr = getATLModelsURL().concat(sourceFile.getName().replace(CLEAN_OCL, VACIO));
 		
 		OCL2LNR.run(FILE.concat(FilePathOclasStr), FILE.concat(FilePathXmiStr));
 	
@@ -118,7 +118,7 @@ public class Traducir extends AbstractTraducir implements IObjectActionDelegate 
 		Files.deleteIfExists(Paths.get(FilePathOclasStr));
 		Files.deleteIfExists(Paths.get(getATLModelsURL().concat(sourceFile.getName().replace(CLEAN_OCL, VACIO))));
 		
-		//Refresh del projecto de usuaio para mostrar el nuevo archivo generado.
+		//Refresh del projecto de usuario para mostrar el nuevo archivo generado.
 		sourceFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
 	}
 
