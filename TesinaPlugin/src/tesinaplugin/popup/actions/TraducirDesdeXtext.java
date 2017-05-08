@@ -138,9 +138,6 @@ public class TraducirDesdeXtext {
 				+ " el/la cantidad de copias de un/una Libro es mayor que \"6\" .\r\n"
 				+ " el/la cantidad de copias de un/una Libro es igual a \"0\" .\r\n"
 				+ " el/la cantidad de copias de un/una Libro es mayor que \"0\" .\r\n"
-				+ " el/la cantidad de prestamos de el/la solicitante de un/una Prestamo es mayor o igual a \"1\" .\r\n"
-				+ " el/la cantidad de prestamos de el/la solicitante de un/una Prestamo tal que el/la fechaDeFin de un/una Prestamo es distinto de \"1980\" es mayor o igual a \"1\" .\r\n"
-				
 				+ " el/la apellido de un/una Socio es distinto de \"\" y el/la nombre de un/una Socio es distinto de \"\" y el/la direccion de un/una Socio es distinto de \"\" .\r\n"
 				
 				+ " el/la nombre de un/una Socio es distinto de \"\" o el/la direccion de un/una Socio es distinto de \"\" .\r\n"

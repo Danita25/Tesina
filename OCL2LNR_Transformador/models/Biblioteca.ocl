@@ -84,13 +84,13 @@ package Biblioteca
 			self.multas->size() <= self.prestamos->size()
 
 
-	context Prestamo
+--	context Prestamo
 
-	inv test2:
-		self.solicitante.prestamos->size() >= 1
+--	inv test2:
+--		self.solicitante.prestamos->size() >= 1
 		
-	inv test3:
-		self.solicitante.prestamos->select(p | p.fechaDeFin <> 1980)->size() >= 1
+--	inv test3:
+	--	self.solicitante.prestamos->select(p | p.fechaDeFin <> 1980)->size() >= 1
 		
 
 
